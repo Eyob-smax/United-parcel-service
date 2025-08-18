@@ -29,7 +29,7 @@ interface FormData {
 
 interface FormField {
   label: string;
-  name: keyof FormData; // Must match FormData keys
+  name: keyof FormData;
   placeholder: string;
   type?: string;
   options?: { value: string; label: string }[];
@@ -53,8 +53,9 @@ const FormInput: React.FC<
   }
 > = ({ label, name, placeholder, type = "text", value, onChange, options }) => (
   <div className="flex flex-col w-full sm:w-1/2 lg:w-1/3 px-2 py-3">
-    <label htmlFor={name} className="flex flex-col">
+    <label htmlFor={name} className="flex flex-col relative">
       <p className="text-base font-medium pb-2 text-white">{label}</p>
+
       {options ? (
         <select
           name={name}
@@ -72,8 +73,8 @@ const FormInput: React.FC<
       ) : (
         <div className="relative">
           <input
-            name={name}
             id={name}
+            name={name}
             type={type}
             value={value}
             onChange={onChange}
@@ -81,9 +82,10 @@ const FormInput: React.FC<
             className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-3 text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
           />
           {type === "date" && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2">
-              <FaCalendarAlt className="text-[#bbba9b]" size={24} />
-            </div>
+            <FaCalendarAlt
+              className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#bbba9b]"
+              size={20}
+            />
           )}
         </div>
       )}
@@ -162,33 +164,6 @@ const CreateShipment: React.FC = () => {
   }, [authenticated, navigate, t]);
 
   useEffect(() => {
-    if (fetcher.data?.success) {
-      setFormData({
-        parcelId: "",
-        senderName: "",
-        senderAddress: "",
-        senderPhone: "",
-        recipientName: "",
-        recipientAddress: "",
-        recipientPhone: "",
-        origin: "",
-        destination: "",
-        packageDescription: "",
-        packageWeight: "",
-        packageDimensions: "",
-        pickupDate: "",
-        deliveryDate: "",
-        status: "pending",
-        package_name: "",
-        quantity: 1,
-      });
-      setImage(null);
-      setImagePreview(null);
-      navigate("/admin-dashboard");
-    }
-  }, [fetcher.data, navigate]);
-
-  useEffect(() => {
     setIsMounted(true);
     return () => {
       if (imagePreview) URL.revokeObjectURL(imagePreview);
@@ -215,7 +190,7 @@ const CreateShipment: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Validate required fields (simplified)
+    // Validation
     const requiredFields: (keyof FormData)[] = [
       "parcelId",
       "senderName",
@@ -256,19 +231,6 @@ const CreateShipment: React.FC = () => {
     fetcher.submit(payload, { method: "post" });
   };
 
-  if (fetcher.state === "submitting" || fetcher.state === "loading") {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#232110]">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-20 h-20 rounded-full bg-[#f9e106] animate-pulse" />
-          <p className="text-white font-semibold">
-            {t("admin.creating_shipment") || "Creating Shipment..."}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   const formSections: { title: string; fields: FormField[] }[] = [
     {
       title: t("admin.parcel_info") || "Parcel Information",
@@ -292,67 +254,6 @@ const CreateShipment: React.FC = () => {
       ],
     },
     {
-      title: t("admin.sender_details") || "Sender Details",
-      fields: [
-        {
-          label: t("admin.enter_sender_name") || "Name",
-          name: "senderName",
-          placeholder: t("admin.enter_sender_name") || "Enter sender's name",
-        },
-        {
-          label: t("admin.enter_sender_address") || "Address",
-          name: "senderAddress",
-          placeholder:
-            t("admin.enter_sender_address") || "Enter sender's address",
-        },
-        {
-          label: t("admin.enter_sender_phone") || "Phone",
-          name: "senderPhone",
-          placeholder:
-            t("admin.enter_sender_phone") || "Enter sender's phone number",
-        },
-      ],
-    },
-    {
-      title: t("admin.recipient_details") || "Recipient Details",
-      fields: [
-        {
-          label: t("admin.enter_recipient_name") || "Name",
-          name: "recipientName",
-          placeholder:
-            t("admin.enter_recipient_name") || "Enter recipient's name",
-        },
-        {
-          label: t("admin.enter_recipient_address") || "Address",
-          name: "recipientAddress",
-          placeholder:
-            t("admin.enter_recipient_address") || "Enter recipient's address",
-        },
-        {
-          label: t("admin.enter_recipient_phone") || "Phone",
-          name: "recipientPhone",
-          placeholder:
-            t("admin.enter_recipient_phone") ||
-            "Enter recipient's phone number",
-        },
-      ],
-    },
-    {
-      title: t("admin.origin_destination") || "Origin & Destination",
-      fields: [
-        {
-          label: t("admin.origin") || "Origin",
-          name: "origin",
-          placeholder: "Enter origin",
-        },
-        {
-          label: t("admin.destination") || "Destination",
-          name: "destination",
-          placeholder: t("admin.enter_destination") || "Enter destination",
-        },
-      ],
-    },
-    {
       title: t("admin.shipping_dates") || "Shipping Dates",
       fields: [
         {
@@ -370,36 +271,11 @@ const CreateShipment: React.FC = () => {
         },
       ],
     },
-    {
-      title: t("admin.transport_info") || "Transport Information",
-      fields: [
-        {
-          label: t("admin.status") || "Status",
-          name: "status",
-          placeholder: t("admin.select_status") || "Select status",
-          options: [
-            { value: "pending", label: t("admin.status_pending") || "Pending" },
-            {
-              value: "shipped off",
-              label: t("admin.status_shipped") || "Shipped off",
-            },
-            {
-              value: "on transit",
-              label: t("admin.status_transit") || "On transit",
-            },
-            {
-              value: "delivered",
-              label: t("admin.status_delivered") || "Delivered",
-            },
-          ],
-        },
-      ],
-    },
   ];
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col bg-[#181811] font-['Space_Grotesk','Noto_Sans',sans-serif] text-white"
+      className="min-h-screen flex flex-col bg-[#181811] text-white font-['Space_Grotesk','Noto_Sans',sans-serif]"
       initial={{ opacity: 0 }}
       animate={{ opacity: isMounted ? 1 : 0 }}
       transition={{ duration: 0.5 }}
@@ -466,6 +342,7 @@ const CreateShipment: React.FC = () => {
                 />
               ))}
 
+              {/* Image Upload */}
               <section className="py-4">
                 <h3 className="text-lg font-bold tracking-tight px-4 pb-2 text-white">
                   {t("admin.upload_image") || "Upload Package Image"}
