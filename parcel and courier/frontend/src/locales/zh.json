@@ -30,6 +30,29 @@
     "dashboard": "仪表盘"
   },
 
+  "alerts": {
+    "login_successful": "登录成功",
+    "login_failed": "登录失败",
+    "network_error": "网络错误",
+    "welcome_message": "欢迎来到管理员仪表板！",
+    "invalid_credentials": "管理员的用户名或密码无效。",
+    "something_went_wrong": "出现错误。请稍后再试。",
+    "sending_message_error": "发送消息时出错。",
+    "retry": "重试",
+    "success": "成功！",
+    "message_sent": "您的消息已发送。",
+    "parcel_not_found": "未找到包裹",
+    "missing_information": "请提供所有必需的信息。",
+    "error": "发生错误",
+    "edit_shipments": "货件编辑成功",
+    "unauthorized": "未授权",
+    "authorization_error": "您没有权限执行此操作。",
+    "shipment_not_found": "未找到货件",
+    "shipment_not_found_detail": "您尝试编辑的货件不存在。",
+    "request_approved": "请求已批准。",
+    "request_rejected": "请求已拒绝。"
+  },
+
   "login-forms": {
     "common": {
       "email": "电子邮件",

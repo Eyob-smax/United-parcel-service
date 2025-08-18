@@ -31,6 +31,29 @@
     "dashboard": "डैशबोर्ड"
   },
 
+  "alerts": {
+    "login_successful": "लॉगिन सफल",
+    "login_failed": "लॉगिन विफल",
+    "network_error": "नेटवर्क त्रुटि",
+    "welcome_message": "व्यवस्थापक डैशबोर्ड में आपका स्वागत है!",
+    "invalid_credentials": "व्यवस्थापक के लिए उपयोगकर्ता नाम या पासवर्ड अमान्य है.",
+    "something_went_wrong": "कुछ गलत हुआ। कृपया बाद में फिर से प्रयास करें।",
+    "sending_message_error": "संदेश भेजने में त्रुटि।",
+    "retry": "फिर से प्रयास करें",
+    "success": "सफलता!",
+    "message_sent": "आपका संदेश भेज दिया गया है।",
+    "parcel_not_found": "पार्सल नहीं मिला",
+    "missing_information": "कृपया सभी आवश्यक जानकारी प्रदान करें।",
+    "error": "एक त्रुटि हुई",
+    "edit_shipments": "शिपमेंट सफलतापूर्वक संपादित किया गया",
+    "unauthorized": "अनधिकृत",
+    "authorization_error": "आप इस क्रिया को करने के लिए अधिकृत नहीं हैं।",
+    "shipment_not_found": "शिपमेंट नहीं मिला",
+    "shipment_not_found_detail": "जिस शिपमेंट को आप संपादित करने का प्रयास कर रहे हैं वह मौजूद नहीं है।",
+    "request_approved": "अनुरोध को मंजूरी दे दी गई है।",
+    "request_rejected": "अनुरोध को अस्वीकार कर दिया गया है।"
+  },
+
   "login-forms": {
     "common": {
       "email": "ईमेल",

@@ -216,6 +216,29 @@
     "package_preview": "Vista previa del paquete"
   },
 
+  "alerts": {
+    "login_successful": "Inicio de sesión exitoso",
+    "login_failed": "Error de inicio de sesión",
+    "network_error": "Error de red",
+    "welcome_message": "¡Bienvenido al panel de administración!",
+    "invalid_credentials": "Nombre de usuario o contraseña inválidos para el administrador.",
+    "something_went_wrong": "Algo salió mal. Por favor, inténtelo de nuevo más tarde.",
+    "sending_message_error": "Error al enviar el mensaje.",
+    "retry": "Reintentar",
+    "success": "¡Éxito!",
+    "message_sent": "Su mensaje ha sido enviado.",
+    "parcel_not_found": "Paquete no encontrado",
+    "missing_information": "Por favor, proporcione toda la información requerida.",
+    "error": "Ocurrió un error",
+    "edit_shipments": "Envío editado con éxito",
+    "unauthorized": "No autorizado",
+    "authorization_error": "No está autorizado para realizar esta acción.",
+    "shipment_not_found": "Envío no encontrado",
+    "shipment_not_found_detail": "El envío que está intentando editar no existe.",
+    "request_approved": "La solicitud ha sido aprobada.",
+    "request_rejected": "La solicitud ha sido rechazada."
+  },
+
   "customer-support": {
     "title": "Solicitudes de Servicio al Cliente",
     "description": "Administre y responda a consultas y solicitudes de soporte de los clientes.",

@@ -31,6 +31,29 @@
     "dashboard": "ダッシュボード"
   },
 
+  "alerts": {
+    "login_successful": "ログイン成功",
+    "login_failed": "ログイン失敗",
+    "network_error": "ネットワークエラー",
+    "welcome_message": "管理者ダッシュボードへようこそ!",
+    "invalid_credentials": "管理者のユーザー名またはパスワードが無効です。",
+    "something_went_wrong": "何かがうまくいきませんでした。後でもう一度お試しください。",
+    "sending_message_error": "メッセージの送信中にエラーが発生しました。",
+    "retry": "再試行",
+    "success": "成功!",
+    "message_sent": "メッセージが送信されました。",
+    "parcel_not_found": "荷物が見つかりません",
+    "missing_information": "必要な情報をすべて提供してください。",
+    "error": "エラーが発生しました",
+    "edit_shipments": "出荷が正常に編集されました",
+    "unauthorized": "未承認",
+    "authorization_error": "この操作を実行する権限がありません。",
+    "shipment_not_found": "出荷が見つかりません",
+    "shipment_not_found_detail": "編集しようとしている出荷は存在しません。",
+    "request_approved": "リクエストが承認されました。",
+    "request_rejected": "リクエストが拒否されました。"
+  },
+
   "login-forms": {
     "common": {
       "email": "メールアドレス",

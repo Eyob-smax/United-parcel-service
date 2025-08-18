@@ -30,6 +30,29 @@
     "dashboard": "Tableau de bord"
   },
 
+  "alerts": {
+    "login_successful": "Connexion réussie",
+    "login_failed": "Échec de la connexion",
+    "network_error": "Erreur réseau",
+    "welcome_message": "Bienvenue sur le tableau de bord administrateur !",
+    "invalid_credentials": "Nom d'utilisateur ou mot de passe invalide pour l'administrateur.",
+    "something_went_wrong": "Une erreur est survenue. Veuillez réessayer plus tard.",
+    "sending_message_error": "Erreur lors de l'envoi du message.",
+    "retry": "Réessayer",
+    "success": "Succès !",
+    "message_sent": "Votre message a été envoyé.",
+    "parcel_not_found": "Colis non trouvé",
+    "missing_information": "Veuillez fournir toutes les informations requises.",
+    "error": "Une erreur est survenue",
+    "edit_shipments": "Expédition modifiée avec succès",
+    "unauthorized": "Non autorisé",
+    "authorization_error": "Vous n'êtes pas autorisé à effectuer cette action.",
+    "shipment_not_found": "Expédition non trouvée",
+    "shipment_not_found_detail": "L'expédition que vous essayez d'éditer n'existe pas.",
+    "request_approved": "La demande a été approuvée.",
+    "request_rejected": "La demande a été rejetée."
+  },
+
   "login-forms": {
     "common": {
       "email": "Email",

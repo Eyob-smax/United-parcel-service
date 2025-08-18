@@ -29,6 +29,29 @@
     "dashboard": "لوحة التحكم"
   },
 
+  "alerts": {
+    "login_successful": "تم تسجيل الدخول بنجاح",
+    "login_failed": "فشل تسجيل الدخول",
+    "network_error": "خطأ في الشبكة",
+    "welcome_message": "مرحبًا بك في لوحة تحكم المسؤول!",
+    "invalid_credentials": "اسم المستخدم أو كلمة المرور غير صحيحة.",
+    "something_went_wrong": "حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقًا.",
+    "sending_message_error": "حدث خطأ أثناء إرسال الرسالة.",
+    "retry": "إعادة المحاولة",
+    "success": "نجاح!",
+    "message_sent": "تم إرسال رسالتك.",
+    "parcel_not_found": "لم يتم العثور على الطرد",
+    "missing_information": "يرجى تقديم جميع المعلومات المطلوبة.",
+    "error": "حدث خطأ",
+    "edit_shipments": "تم تعديل الشحنة بنجاح",
+    "unauthorized": "غير مصرح",
+    "authorization_error": "غير مصرح لك بتنفيذ هذا الإجراء.",
+    "shipment_not_found": "لم يتم العثور على الشحنة",
+    "shipment_not_found_detail": "الشحنة التي تحاول تعديلها غير موجودة.",
+    "request_approved": "تمت الموافقة على الطلب.",
+    "request_rejected": "تم رفض الطلب."
+  },
+
   "login-forms": {
     "common": {
       "email": "البريد الإلكتروني",

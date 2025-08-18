@@ -42,6 +42,29 @@
     }
   },
 
+  "alerts": {
+    "login_successful": "Login erfolgreich",
+    "login_failed": "Login fehlgeschlagen",
+    "network_error": "Netzwerkfehler",
+    "welcome_message": "Willkommen im Admin-Dashboard!",
+    "invalid_credentials": "Ungültiger Benutzername oder Passwort für Admin.",
+    "something_went_wrong": "Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut.",
+    "sending_message_error": "Fehler beim Senden der Nachricht.",
+    "retry": "Erneut versuchen",
+    "success": "Erfolg!",
+    "message_sent": "Ihre Nachricht wurde gesendet.",
+    "parcel_not_found": "Paket nicht gefunden",
+    "missing_information": "Bitte geben Sie alle erforderlichen Informationen an.",
+    "error": "Ein Fehler ist aufgetreten",
+    "edit_shipments": "Sendung erfolgreich bearbeitet",
+    "unauthorized": "Nicht autorisiert",
+    "authorization_error": "Sie sind nicht berechtigt, diese Aktion auszuführen.",
+    "shipment_not_found": "Sendung nicht gefunden",
+    "shipment_not_found_detail": "Die Sendung, die Sie bearbeiten möchten, existiert nicht.",
+    "request_approved": "Die Anfrage wurde genehmigt.",
+    "request_rejected": "Die Anfrage wurde abgelehnt."
+  },
+
   "header": {
     "home": "Startseite",
     "about": "Über uns",

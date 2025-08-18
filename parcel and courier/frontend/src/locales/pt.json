@@ -30,6 +30,30 @@
     "request": "Solicitação",
     "dashboard": "Painel de Controle"
   },
+
+  "alerts": {
+    "login_successful": "Login bem-sucedido",
+    "login_failed": "Falha no login",
+    "network_error": "Erro de rede",
+    "welcome_message": "Bem-vindo ao Painel de Administração!",
+    "invalid_credentials": "Nome de usuário ou senha inválidos para o administrador.",
+    "something_went_wrong": "Algo deu errado. Por favor, tente novamente mais tarde.",
+    "sending_message_error": "Erro ao enviar mensagem.",
+    "retry": "Tentar novamente",
+    "success": "Sucesso!",
+    "message_sent": "Sua mensagem foi enviada.",
+    "parcel_not_found": "Pacote não encontrado",
+    "missing_information": "Por favor, forneça todas as informações necessárias.",
+    "error": "Ocorreu um erro",
+    "edit_shipments": "Remessa editada com sucesso",
+    "unauthorized": "Não autorizado",
+    "authorization_error": "Você não está autorizado a realizar esta ação.",
+    "shipment_not_found": "Remessa não encontrada",
+    "shipment_not_found_detail": "A remessa que você está tentando editar não existe.",
+    "request_approved": "A solicitação foi aprovada.",
+    "request_rejected": "A solicitação foi rejeitada."
+  },
+
   "login-forms": {
     "common": {
       "email": "Email",
