@@ -39,6 +39,7 @@ export const createShipment = createAsyncThunk(
           current_location: data[0].origin,
           current_date: data[0].pickup_date,
           current_time: formatTimeStampIntoTime(data[0].created_at),
+          current_country: data[0].destination_country,
         });
 
       if (statusError) return rejectWithValue("Failed to add shipment");

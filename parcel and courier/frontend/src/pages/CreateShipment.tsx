@@ -18,13 +18,12 @@ interface FormData {
   origin: string;
   destination: string;
   packageDescription: string;
-  packageWeight: string;
-  packageDimensions: string;
   pickupDate: string;
   deliveryDate: string;
   status: "pending" | "shipped off" | "on transit" | "delivered";
   package_name: string;
   quantity: number;
+  destinationCountry: string;
 }
 
 interface FormField {
@@ -142,13 +141,12 @@ const CreateShipment: React.FC = () => {
     origin: "",
     destination: "",
     packageDescription: "",
-    packageWeight: "",
-    packageDimensions: "",
     pickupDate: "",
     deliveryDate: "",
     status: "pending",
     package_name: "",
     quantity: 1,
+    destinationCountry: "",
   });
 
   const [image, setImage] = useState<File | null>(null);
@@ -214,13 +212,12 @@ const CreateShipment: React.FC = () => {
       "origin",
       "destination",
       "packageDescription",
-      "packageWeight",
-      "packageDimensions",
       "pickupDate",
       "deliveryDate",
       "status",
       "package_name",
       "quantity",
+      "destinationCountry",
     ];
     for (const field of requiredFields) {
       if (!formData[field]) {
@@ -339,6 +336,11 @@ const CreateShipment: React.FC = () => {
         {
           label: t("admin.destination") || "Destination",
           name: "destination",
+          placeholder: t("admin.enter_destination") || "Enter destination",
+        },
+        {
+          label: t("admin.destination") || "Destination",
+          name: "destinationCountry",
           placeholder: t("admin.enter_destination") || "Enter destination",
         },
       ],

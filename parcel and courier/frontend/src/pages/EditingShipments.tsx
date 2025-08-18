@@ -20,8 +20,11 @@ interface FormData {
   origin: string;
   destination: string;
   packageDescription: string;
+  package_name: string;
   pickupDate: string;
   deliveryDate: string;
+  quantity: number;
+  destinationCountry: string;
   status: "pending" | "shipped off" | "on transit" | "delivered";
 }
 
@@ -80,6 +83,9 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
     pickupDate: "",
     deliveryDate: "",
     status: "pending",
+    package_name: "",
+    quantity: 1,
+    destinationCountry: "",
   });
 
   useEffect(() => {
@@ -104,6 +110,9 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
           pickupDate: found.pickup_date || "",
           deliveryDate: found.delivery_date || "",
           status: found.status || "pending",
+          package_name: found.package_name || "",
+          quantity: found.quantity || 1,
+          destinationCountry: found.destination_country || "",
         });
         setImagePreview(found.img_url || null);
         return;
@@ -126,6 +135,9 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
       pickupDate: "",
       deliveryDate: "",
       status: "pending",
+      destinationCountry: "",
+      package_name: "",
+      quantity: 1,
     });
     setImage(null);
     setImagePreview(null);

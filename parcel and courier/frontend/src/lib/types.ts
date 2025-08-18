@@ -9,6 +9,7 @@ export interface IShipment {
   recipient_address: string;
   origin: string;
   destination: string;
+  destination_country?: string;
   img_url: string;
   pickup_date: string;
   delivery_date: string;
