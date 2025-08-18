@@ -6,7 +6,7 @@ import type { IAddressChangeRequest } from "@/lib/types";
 import React, { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 // ✅ Responsive hook
@@ -23,10 +23,29 @@ const useIsMobile = () => {
 
 const AddressChangeRequest: React.FC = () => {
   const dispatch = useDispatch<TAppDispatch>();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { requests, loading, error } = useSelector(
     (state: TRootState) => state.addressChange
   );
+
+  const { authenticated } = useSelector((state: TRootState) => state.user);
+
+  /** Unauthorized check */
+  useEffect(() => {
+    if (!authenticated) {
+      Swal.fire({
+        title: t("alerts.unauthorized") || "Unauthorized",
+        text:
+          t("alerts.authorization_error") ||
+          "Please log in to access the dashboard.",
+        icon: "warning",
+        background: "#232110",
+        color: "#bbba9b",
+        confirmButtonText: t("common.ok") || "OK",
+      }).then(() => navigate("/home"));
+    }
+  }, [authenticated, navigate, t]);
 
   const isMobile = useIsMobile();
 

@@ -108,21 +108,6 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
         setImagePreview(found.img_url || null);
         return;
       }
-      if (!found) {
-        await Swal.fire({
-          icon: "error",
-          title: t("alerts.shipment_not_found") || "Shipment Not Found",
-          text:
-            t("alerts.shipment_not_found_detail") ||
-            "The shipment you are trying to edit does not exist.",
-        }).then(() => {
-          if (authenticated) {
-            navigate("/admin-dashboard");
-            return;
-          }
-          navigate("/home");
-        });
-      }
     })();
   }, [shipments, id, navigate, authenticated, t]);
 

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Mail, X } from "lucide-react";
 import { fetchMessages } from "@/features/customerSupportSlice";
 import type { ICustomerSupport } from "@/lib/types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2"; // ✅ import Swal
 import { useTranslation } from "react-i18next";
 
@@ -129,6 +129,24 @@ const CustomerService: React.FC = () => {
   const { messages, loading, error } = useSelector(
     (state: TRootState) => state.customerSupport
   );
+  const navigate = useNavigate();
+  const { authenticated } = useSelector((state: TRootState) => state.user);
+
+  /** Unauthorized check */
+  useEffect(() => {
+    if (!authenticated) {
+      Swal.fire({
+        title: t("alerts.unauthorized") || "Unauthorized",
+        text:
+          t("alerts.authorization_error") ||
+          "Please log in to access the dashboard.",
+        icon: "warning",
+        background: "#232110",
+        color: "#bbba9b",
+        confirmButtonText: t("common.ok") || "OK",
+      }).then(() => navigate("/home"));
+    }
+  }, [authenticated, navigate, t]);
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
