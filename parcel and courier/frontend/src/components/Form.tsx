@@ -70,7 +70,7 @@ export default function Form({
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {forWhich === "admin_login" && t("admin_login.title")}
+            {forWhich === "admin_login" && t("login-forms.admin_login.title")}
             {forWhich === "parcel_tracking" &&
               t("login-forms.tracking_login.title")}
             {forWhich === "language" && t("language.select_language")}
@@ -92,6 +92,7 @@ export default function Form({
                   <label className="flex flex-col min-w-40 flex-1 relative">
                     <select
                       value={currentLanguage}
+                      defaultValue={localStorage.getItem("i18nextLng")!}
                       onChange={(e) =>
                         setLanguage ? setLanguage(e.target.value) : null
                       }
@@ -143,7 +144,7 @@ export default function Form({
                   <label className="flex gap-x-3 min-w-40 flex-1 relative">
                     <FaUser />
                     <span className="text-sm font-medium">
-                      {t("admin_login.username")}
+                      {t("login-forms.common.username")}
                     </span>
                   </label>
                   <Input
@@ -152,14 +153,14 @@ export default function Form({
                       setUsername ? setUsername(e.target.value) : null
                     }
                     className="w-full rounded-sm bg-[#353218] border border-[#6a642f] text-white p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#6a642f]"
-                    placeholder={t("admin_login.username_placeholder")}
+                    placeholder={t("login-forms.admin_login.placeholder")}
                   />
                 </div>
                 <div className="flex flex-col gap-2 px-4 py-3 items-start">
                   <label className="flex gap-x-3 min-w-40 flex-1 relative">
                     <FaLock />
                     <span className="text-sm font-medium">
-                      {t("admin_login.password")}
+                      {t("login-forms.common.password")}
                     </span>
                   </label>
                   <Input
@@ -169,7 +170,9 @@ export default function Form({
                       setPassword ? setPassword(e.target.value) : null
                     }
                     className="w-full rounded-sm bg-[#353218] border border-[#6a642f] text-white p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#6a642f]"
-                    placeholder={t("admin_login.password_placeholder")}
+                    placeholder={t(
+                      "login-forms.admin_login.placeholder_password"
+                    )}
                   />
                 </div>
               </>
@@ -208,7 +211,7 @@ export default function Form({
               <span className="truncate">
                 {forWhich === "parcel_tracking" &&
                   t("login-forms.common.track")}
-                {forWhich === "admin_login" && t("admin_login.login_button")}
+                {forWhich === "admin_login" && t("login-forms.common.login")}
                 {forWhich === "language" && t("common.continue")}
               </span>
             </motion.button>

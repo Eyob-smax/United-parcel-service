@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaEdit, FaCalendarAlt, FaDoorOpen } from "react-icons/fa";
 import { useFetcher, useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import type { IShipment } from "@/lib/types";
-import type { TRootState } from "@/app/store";
+import type { TAppDispatch, TRootState } from "@/app/store";
 import { useTranslation } from "react-i18next";
+import { fetchShipments } from "@/features/shipmentSlice";
+import Swal from "sweetalert2";
 
 interface FormData {
   parcelId: string;
@@ -30,9 +32,36 @@ interface EditShipmentProps {
 const EditShipment: React.FC<EditShipmentProps> = () => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+  const dispatch = useDispatch<TAppDispatch>();
+  const fetcher = useFetcher();
+  const navigate = useNavigate();
+  const [image, setImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  console.log(image);
+  function onBack() {
+    navigate("/admin-dashboard");
+  }
   const { shipment: shipments } = useSelector(
     (state: TRootState) => state.shipment
   );
+
+  const { authenticated } = useSelector((state: TRootState) => state.user);
+
+  useEffect(() => {
+    if (!authenticated) {
+      Swal.fire({
+        title: t("alerts.unauthorized") || "Unauthorized",
+        text:
+          t("alerts.authorization_error") ||
+          "You need to be logged in to edit shipments.",
+        icon: "warning",
+      }).then(() => {
+        navigate("/home");
+      });
+    }
+  }, [authenticated, navigate, t]);
+
   const [currentShipment, setCurrentShipment] = useState<IShipment | undefined>(
     undefined
   );
@@ -52,38 +81,50 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
     deliveryDate: "",
     status: "pending",
   });
-  const fetcher = useFetcher();
-  const navigate = useNavigate();
-  const [image, setImage] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  console.log(image);
-  function onBack() {
-    navigate("/admin-dashboard");
-  }
 
   useEffect(() => {
-    const found = shipments.find((s: IShipment) => s.parcel_id === id);
-    setCurrentShipment(found);
-    if (found) {
-      setFormData({
-        parcelId: found.parcel_id || "",
-        senderName: found.sender_name || "",
-        senderAddress: found.sender_address || "",
-        senderPhone: found.sender_phone_no || "",
-        recipientName: found.recipient_name || "",
-        recipientAddress: found.recipient_address || "",
-        recipientPhone: found.recipient_phone_no || "",
-        origin: found.origin || "",
-        destination: found.destination || "",
-        packageDescription: found.package_desc || "",
-        pickupDate: found.pickup_date || "",
-        deliveryDate: found.delivery_date || "",
-        status: found.status || "pending",
-      });
-      setImagePreview(found.img_url || null);
-    }
-  }, [shipments, id]);
+    (async () => {
+      const found = await Promise.resolve(
+        shipments.find((s: IShipment) => s.parcel_id === id)
+      );
+      setCurrentShipment(found);
+
+      if (found) {
+        setFormData({
+          parcelId: found.parcel_id || "",
+          senderName: found.sender_name || "",
+          senderAddress: found.sender_address || "",
+          senderPhone: found.sender_phone_no || "",
+          recipientName: found.recipient_name || "",
+          recipientAddress: found.recipient_address || "",
+          recipientPhone: found.recipient_phone_no || "",
+          origin: found.origin || "",
+          destination: found.destination || "",
+          packageDescription: found.package_desc || "",
+          pickupDate: found.pickup_date || "",
+          deliveryDate: found.delivery_date || "",
+          status: found.status || "pending",
+        });
+        setImagePreview(found.img_url || null);
+        return;
+      }
+      if (!found) {
+        await Swal.fire({
+          icon: "error",
+          title: t("alerts.shipment_not_found") || "Shipment Not Found",
+          text:
+            t("alerts.shipment_not_found_detail") ||
+            "The shipment you are trying to edit does not exist.",
+        }).then(() => {
+          if (authenticated) {
+            navigate("/admin-dashboard");
+            return;
+          }
+          navigate("/home");
+        });
+      }
+    })();
+  }, [shipments, id, navigate, authenticated, t]);
 
   if (fetcher.data && fetcher.data.success) {
     setFormData({
@@ -134,6 +175,10 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
       setImagePreview(currentShipment?.img_url || null);
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchShipments());
+  }, [dispatch]);
 
   if (fetcher.state === "submitting" || fetcher.state === "loading") {
     return (
@@ -245,7 +290,7 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                 </h3>
                 {[
                   {
-                    label: t("common.name") || "Name",
+                    label: t("login-forms.common.username") || "Name",
                     name: "senderName",
                     placeholder:
                       t("admin.enter_sender_name") || "Enter sender's name",
@@ -292,7 +337,7 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                 </h3>
                 {[
                   {
-                    label: t("common.name") || "Name",
+                    label: t("login-forms.common.username") || "Name",
                     name: "recipientName",
                     placeholder:
                       t("admin.enter_recipient_name") ||

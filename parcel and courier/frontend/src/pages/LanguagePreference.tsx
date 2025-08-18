@@ -1,11 +1,23 @@
 import Form from "@/components/Form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import i18n from "i18next";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function LanguagePreference() {
   const navigate = useNavigate();
   const selectedLanguage = localStorage.getItem("i18nextLng");
+  const [loading, setLoading] = useState<boolean>(false);
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLoading(true);
+
+    const id = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(id);
+  }, []);
+
   const countries = [
     { value: "us", label: "United States" },
     { value: "ca", label: "Canada" },
@@ -82,8 +94,28 @@ export default function LanguagePreference() {
     i18n.changeLanguage(lang);
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#232110]">
+        <div className="flex flex-col items-center gap-4">
+          <img
+            src="https://i.postimg.cc/nLNLjrc5/DADF8527-8603-4857-AAF0-4308-D15-C512-C.jpg"
+            height={150}
+            width={150}
+            alt="logo"
+          />
+          <div className="w-16 h-16 rounded-full bg-[#f9e106] animate-pulse" />
+          <p className="text-white font-semibold">
+            {t("admin.loading_shipments") || "Loading Shipments..."}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Form
+      key={"language_preference"}
       forWhich="language"
       onContinue={() => navigate("/home")}
       countries={countries}

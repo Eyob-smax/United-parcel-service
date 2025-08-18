@@ -5,21 +5,22 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import type { TAppDispatch } from "@/app/store";
 import { setUser } from "@/features/userSlice";
+import { useTranslation } from "react-i18next";
 
 export default function AdminLogin() {
   const [username, setUsername] = useState<string | undefined>(undefined);
   const [password, setPassword] = useState<string | undefined>(undefined);
   const navigate = useNavigate();
   const dispatch = useDispatch<TAppDispatch>();
+  const { t } = useTranslation();
   function handleLogin() {
     if (username === "admin" && password === "admin123") {
       Swal.fire({
-        title: "Login Successful",
-        text: "Welcome to the Admin Dashboard!",
+        title: t("alerts.login_successful"),
+        text: t("alerts.welcome_message"),
         icon: "success",
         background: "#232110",
         color: "#bbba9b",
-        confirmButtonText: "Continue",
       }).then(() => {
         dispatch(
           setUser({
@@ -32,17 +33,17 @@ export default function AdminLogin() {
       });
     } else {
       Swal.fire({
-        title: "Login Failed",
-        text: "Invalid username or password for admin password.",
+        title: t("alerts.login_failed"),
+        text: t("alerts.invalid_credentials"),
         icon: "error",
         background: "#232110",
         color: "#bbba9b",
-        confirmButtonText: "Try Again",
       });
     }
   }
   return (
     <Form
+      key={"admin_login"}
       username={username}
       setUsername={setUsername}
       forWhich="admin_login"

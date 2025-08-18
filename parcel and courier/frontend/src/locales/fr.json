@@ -14,6 +14,7 @@
     "error": "Une erreur est survenue",
     "back": "Retour",
     "ship": "Expédier",
+    "contact": "Contact",
     "locations": "Emplacements",
     "support": "Support",
     "ok": "OK"
@@ -23,7 +24,10 @@
     "about": "À propos",
     "services": "Services",
     "contact": "Contact",
-    "updates": "Mises à jour"
+    "updates": "Mises à jour",
+    "messages": "Messages",
+    "request": "Demande",
+    "dashboard": "Tableau de bord"
   },
 
   "login-forms": {
@@ -32,12 +36,19 @@
       "password": "Mot de passe",
       "login": "Connexion",
       "track": "Suivre",
-      "parcel_id": "ID du colis"
+      "parcel_id": "ID du colis",
+      "username": "Nom d'utilisateur"
     },
     "tracking_login": {
       "title": "Suivre votre colis",
       "description": "Entrez votre ID de colis pour suivre son statut",
       "placeholder": "Entrez l'ID de colis"
+    },
+    "admin_login": {
+      "title": "Admin Login",
+      "description": "Entrez vos identifiants administratifs pour accéder au tableau de bord",
+      "placeholder": "Entrez le nom d'utilisateur",
+      "placeholder_password": "Entrez le mot de passe"
     }
   },
 
@@ -203,5 +214,33 @@
     "contact_us": "Contactez-nous à",
     "or_whatsapp": "ou WhatsApp",
     "package_preview": "Aperçu du colis"
+  },
+
+  "customer-support": {
+    "title": "Demandes de Service Client",
+    "description": "Gérez et répondez aux demandes de renseignements et aux demandes de support des clients.",
+    "send_email": "Envoyer un Email",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "attachments": "Pièces jointes",
+    "action": "Action",
+    "no_attachments": "Aucune pièce jointe"
+  },
+
+  "address-change": {
+    "title": "Demande de Changement d'Adresse",
+    "description": "Soumettez une demande pour changer votre adresse de livraison.",
+    "current_address": "Adresse Actuelle",
+    "new_address": "Nouvelle Adresse",
+    "reason": "Raison du Changement",
+    "submit": "Soumettre la Demande",
+    "no-requests": "Aucune demande trouvée.",
+    "actions": "Actions",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "parcel_id": "ID du Colis",
+    "old_address": "Ancienne Adresse",
+    "status": "Statut"
   }
 }

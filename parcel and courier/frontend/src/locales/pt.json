@@ -17,14 +17,18 @@
     "ship": "Enviar",
     "locations": "Localizações",
     "support": "Suporte",
-    "ok": "OK"
+    "ok": "OK",
+    "contact": "Contato"
   },
   "header": {
     "home": "Início",
     "about": "Sobre",
     "services": "Serviços",
     "contact": "Contato",
-    "updates": "Atualizações"
+    "updates": "Atualizações",
+    "messages": "Mensagens",
+    "request": "Solicitação",
+    "dashboard": "Painel de Controle"
   },
   "login-forms": {
     "common": {
@@ -32,12 +36,19 @@
       "password": "Senha",
       "login": "Entrar",
       "track": "Rastrear",
-      "parcel_id": "ID do pacote"
+      "parcel_id": "ID do pacote",
+      "username": "Nome de usuário"
     },
     "tracking_login": {
       "title": "Rastrear sua encomenda",
       "description": "Digite o ID do seu pacote para rastrear seu status",
       "placeholder": "Digite o ID do pacote"
+    },
+    "admin_login": {
+      "title": "Admin Login",
+      "description": "Digite suas credenciais de administrador para acessar o painel",
+      "placeholder": "Digite o nome de usuário",
+      "placeholder_password": "Digite a senha"
     }
   },
   "admin": {
@@ -202,5 +213,33 @@
     "contact_us": "Contate-nos em",
     "or_whatsapp": "ou WhatsApp",
     "package_preview": "Pré-visualização da encomenda"
+  },
+
+  "customer-support": {
+    "title": "Solicitações de Suporte ao Cliente",
+    "description": "Gerencie e responda a consultas e solicitações de suporte dos clientes.",
+    "send_email": "Enviar Email",
+    "name": "Nome",
+    "email": "Email",
+    "message": "Mensagem",
+    "attachments": "Anexos",
+    "action": "Ação",
+    "no_attachments": "Nenhum anexo"
+  },
+
+  "address-change": {
+    "title": "Solicitação de Mudança de Endereço",
+    "description": "Envie uma solicitação para alterar seu endereço de entrega.",
+    "current_address": "Endereço Atual",
+    "new_address": "Novo Endereço",
+    "reason": "Motivo da Mudança",
+    "submit": "Enviar Solicitação",
+    "no-requests": "Nenhum pedido encontrado.",
+    "actions": "Ações",
+    "approve": "Aprovar",
+    "reject": "Rejeitar",
+    "parcel_id": "ID do Pacote",
+    "old_address": "Endereço Antigo",
+    "status": "Status"
   }
 }

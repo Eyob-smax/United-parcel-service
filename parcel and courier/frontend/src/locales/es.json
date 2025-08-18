@@ -16,6 +16,7 @@
     "back": "Atrás",
     "ship": "Enviar",
     "locations": "Ubicaciones",
+    "contact": "Contacto",
     "support": "Soporte",
     "ok": "Aceptar"
   },
@@ -24,7 +25,9 @@
     "about": "Acerca de",
     "services": "Servicios",
     "contact": "Contacto",
-    "updates": "Actualizaciones"
+    "updates": "Actualizaciones",
+    "messages": "Mensajes",
+    "request": "Solicitud"
   },
 
   "login-forms": {
@@ -33,12 +36,20 @@
       "password": "Contraseña",
       "login": "Iniciar sesión",
       "track": "Rastrear",
-      "parcel_id": "ID del paquete"
+      "parcel_id": "ID del paquete",
+      "username": "Nombre de usuario",
+      "dashboard": "Tablero"
     },
     "tracking_login": {
       "title": "Rastrear su paquete",
       "description": "Ingrese su ID de paquete para rastrear su estado",
       "placeholder": "Ingrese ID de paquete"
+    },
+    "admin_login": {
+      "title": "Admin Login",
+      "description": "Enter your admin credentials to access the dashboard",
+      "placeholder": "Ingrese nombre de usuario",
+      "placeholder_password": "Ingrese contraseña"
     }
   },
   "admin": {
@@ -203,5 +214,33 @@
     "contact_us": "Contáctenos en",
     "or_whatsapp": "o WhatsApp",
     "package_preview": "Vista previa del paquete"
+  },
+
+  "customer-support": {
+    "title": "Solicitudes de Servicio al Cliente",
+    "description": "Administre y responda a consultas y solicitudes de soporte de los clientes.",
+    "send_email": "Enviar Correo Electrónico",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "attachments": "Adjuntos",
+    "action": "Acción",
+    "no_attachments": "Sin Adjuntos"
+  },
+
+  "address-change": {
+    "title": "Solicitud de Cambio de Dirección",
+    "description": "Envía una solicitud para cambiar tu dirección de entrega.",
+    "current_address": "Dirección Actual",
+    "new_address": "Nueva Dirección",
+    "reason": "Razón del Cambio",
+    "submit": "Enviar Solicitud",
+    "no-requests": "No se encontraron solicitudes.",
+    "actions": "Acciones",
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "parcel_id": "ID del Paquete",
+    "old_address": "Dirección Anterior",
+    "status": "Estado"
   }
 }

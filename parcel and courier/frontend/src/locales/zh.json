@@ -1,7 +1,6 @@
 {
   "common": {
     "header_title": "United Parcel Services",
-
     "welcome": "欢迎来到联合包裹服务",
     "track": "追踪",
     "track_parcel": "追踪您的包裹",
@@ -15,6 +14,7 @@
     "error": "发生错误",
     "back": "返回",
     "ship": "发货",
+    "contact": "联系",
     "locations": "地点",
     "support": "支持",
     "ok": "确定"
@@ -24,8 +24,34 @@
     "about": "关于",
     "services": "服务",
     "contact": "联系",
-    "updates": "更新"
+    "updates": "更新",
+    "messages": "消息",
+    "request": "请求",
+    "dashboard": "仪表盘"
   },
+
+  "login-forms": {
+    "common": {
+      "email": "电子邮件",
+      "password": "密码",
+      "login": "登录",
+      "track": "追踪",
+      "parcel_id": "包裹编号",
+      "username": "用户名"
+    },
+    "tracking_login": {
+      "title": "追踪您的包裹",
+      "description": "输入您的包裹编号以追踪其状态",
+      "placeholder": "输入包裹编号"
+    },
+    "admin_login": {
+      "title": "管理员登录",
+      "description": "输入您的管理员凭据以访问仪表板",
+      "placeholder": "输入用户名",
+      "placeholder_password": "输入密码"
+    }
+  },
+
   "admin": {
     "unauthorized_title": "未授权",
     "unauthorized_text": "请登录以访问控制面板。",
@@ -187,5 +213,33 @@
     "contact_us": "联系我们",
     "or_whatsapp": "或WhatsApp",
     "package_preview": "包裹预览"
+  },
+
+  "customer-support": {
+    "title": "客户支持请求",
+    "description": "管理和响应客户的查询和支持请求。",
+    "send_email": "发送电子邮件",
+    "name": "姓名",
+    "email": "电子邮件",
+    "message": "消息",
+    "attachments": "附件",
+    "action": "操作",
+    "no_attachments": "没有附件"
+  },
+
+  "address-change": {
+    "title": "地址变更请求",
+    "description": "提交请求以更改您的送货地址。",
+    "current_address": "当前地址",
+    "new_address": "新地址",
+    "reason": "变更原因",
+    "submit": "提交请求",
+    "no-requests": "未找到请求。",
+    "actions": "操作",
+    "approve": "批准",
+    "reject": "拒绝",
+    "parcel_id": "包裹ID",
+    "old_address": "旧地址",
+    "status": "状态"
   }
 }

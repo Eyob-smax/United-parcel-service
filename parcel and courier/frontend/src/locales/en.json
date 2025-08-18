@@ -6,6 +6,8 @@
     "track_parcel": "Track Your Parcel",
     "explore_solutions": "Explore Our Solutions",
     "continue": "Continue",
+    "retry": "Retry",
+    "network_error": "Network Error",
     "login": "Login",
     "logout": "Logout",
     "submit": "Submit",
@@ -16,7 +18,30 @@
     "ship": "Ship",
     "locations": "Locations",
     "support": "Support",
+    "contact": "Contact",
     "ok": "OK"
+  },
+  "alerts": {
+    "login_successful": "Login Successful",
+    "login_failed": "Login Failed",
+    "network_error": "Network Error",
+    "welcome_message": "Welcome to the Admin Dashboard!",
+    "invalid_credentials": "Invalid username or password for admin.",
+    "something_went_wrong": "Something went wrong. Please try again later.",
+    "sending_message_error": "Error while sending message.",
+    "retry": "Retry",
+    "success": "Success!",
+    "message_sent": "Your message has been sent.",
+    "parcel_not_found": "Parcel Not Found",
+    "missing_information": "Please provide all required information.",
+    "error": "An error occurred",
+    "edit_shipments": "Shipment edited successfully",
+    "unauthorized": "Unauthorized",
+    "authorization_error": "You are not authorized to perform this action.",
+    "shipment_not_found": "Shipment Not Found",
+    "shipment_not_found_detail": "The shipment you are trying to edit does not exist.",
+    "request_approved": "The request has been approved.",
+    "request_rejected": "The request has been rejected."
   },
   "login-forms": {
     "common": {
@@ -24,12 +49,19 @@
       "password": "Password",
       "login": "Login",
       "track": "Track",
-      "parcel_id": "Parcel ID"
+      "parcel_id": "Parcel ID",
+      "username": "Username"
     },
     "tracking_login": {
       "title": "Track Your Parcel",
       "description": "Enter your parcel ID to track its status",
       "placeholder": "Enter Parcel ID"
+    },
+    "admin_login": {
+      "title": "Admin Login",
+      "description": "Enter your admin credentials to access the dashboard",
+      "placeholder": "Enter Username",
+      "placeholder_password": "Enter Password"
     }
   },
   "header": {
@@ -37,7 +69,10 @@
     "about": "About",
     "services": "Services",
     "contact": "Contact",
-    "updates": "Updates"
+    "updates": "Updates",
+    "messages": "Messages",
+    "request": "Request",
+    "dashboard": "Dashboard"
   },
   "admin": {
     "unauthorized_title": "Unauthorized",
@@ -202,5 +237,32 @@
     "contact_us": "Contact us at",
     "or_whatsapp": "or WhatsApp",
     "package_preview": "Package preview"
+  },
+  "customer-support": {
+    "title": "Customer Service Requests",
+    "description": "Manage and respond to customer inquiries and support requests.",
+    "send_email": "Send Email",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "attachments": "Attachments",
+    "action": "Action",
+    "no_attachments": "No Attachments"
+  },
+
+  "address-change": {
+    "title": "Address Change Request",
+    "description": "Submit a request to change your delivery address.",
+    "current_address": "Current Address",
+    "new_address": "New Address",
+    "reason": "Reason for Change",
+    "submit": "Submit Request",
+    "no-requests": "No requests found.",
+    "actions": "Actions",
+    "approve": "Approve",
+    "reject": "Reject",
+    "parcel_id": "Parcel ID",
+    "old_address": "Old Address",
+    "status": "Status"
   }
 }

@@ -4,7 +4,9 @@ import { fetchRequests, updateRequest } from "@/features/changeAddressSlice";
 import { updateShipmentById } from "@/features/shipmentSlice";
 import type { IAddressChangeRequest } from "@/lib/types";
 import React, { useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 // ✅ Responsive hook
@@ -21,6 +23,7 @@ const useIsMobile = () => {
 
 const AddressChangeRequest: React.FC = () => {
   const dispatch = useDispatch<TAppDispatch>();
+  const { t } = useTranslation();
   const { requests, loading, error } = useSelector(
     (state: TRootState) => state.addressChange
   );
@@ -36,15 +39,17 @@ const AddressChangeRequest: React.FC = () => {
     if (error) {
       Swal.fire({
         icon: "error",
-        title: "Network Error",
-        text: "Failed to load requests. Retry?",
+        title: t("alerts.network_error") || "Network Error",
+        text:
+          t("alerts.failed_to_load_requests") ||
+          "Failed to load requests. Retry?",
         showCancelButton: true,
-        confirmButtonText: "Retry",
+        confirmButtonText: t("common.retry") || "Retry",
       }).then((result) => {
         if (result.isConfirmed) dispatch(fetchRequests());
       });
     }
-  }, [error, dispatch]);
+  }, [error, dispatch, t]);
 
   const handleRequestAction = async (
     action: "Approve" | "Reject",
@@ -68,26 +73,37 @@ const AddressChangeRequest: React.FC = () => {
 
     Swal.fire({
       icon: status === "Approved" ? "success" : "info",
-      title: status,
-      text: `The request has been ${status.toLowerCase()}.`,
+      title: status === "Approved" ? t("alerts.success") : t("alerts.error"),
+      text:
+        status === "Approved"
+          ? t("alerts.request_approved") || "The request has been approved."
+          : t("alerts.request_rejected") || "The request has been rejected.",
     }).then(() => dispatch(fetchRequests()));
   };
 
-  // Table columns
   const columns: {
     key: keyof IAddressChangeRequest;
-    label: string;
+    label: string | React.ReactNode;
     render?: (
       val: IAddressChangeRequest[keyof IAddressChangeRequest]
     ) => React.ReactNode;
   }[] = useMemo(
     () => [
-      { key: "parcel_id", label: "Parcel ID" },
-      { key: "old_address", label: "Old Address" },
-      { key: "new_address", label: "New Address" },
+      {
+        key: "parcel_id",
+        label: t("address-change.parcel_id") || "Parcel ID",
+      },
+      {
+        key: "old_address",
+        label: t("address-change.old_address") || "Old Address",
+      },
+      {
+        key: "new_address",
+        label: t("address-change.new_address") || "New Address",
+      },
       {
         key: "status",
-        label: "Status",
+        label: t("address-change.status") || "Status",
         render: (status: IAddressChangeRequest["status"]) => (
           <span
             className={
@@ -103,7 +119,7 @@ const AddressChangeRequest: React.FC = () => {
         ),
       },
     ],
-    []
+    [t]
   );
 
   return (
@@ -113,16 +129,23 @@ const AddressChangeRequest: React.FC = () => {
     >
       {/* Header */}
       <header className="flex flex-col sm:flex-row items-center justify-between border-b border-b-[#4a4621] px-4 sm:px-6 md:px-10 py-3">
-        <h2 className="text-white text-lg font-bold">United Parcel Service</h2>
+        <h2 className="text-white text-lg font-bold">
+          {t("common.header_title") || "United Parcel Services"}
+        </h2>
         <nav className="flex gap-4 sm:gap-8">
-          {["Dashboard", "Shipments", "Customers", "Reports"].map((item) => (
-            <a
-              key={item}
+          {[
+            { label: t("header.home"), to: "/home" },
+            { label: t("header.dashboard"), to: "/admin-dashboard" },
+            { label: t("header.request"), to: "/address-change-request" },
+            { label: t("header.messages"), to: "/messages" },
+          ].map((item) => (
+            <Link
+              key={item.label}
               className="text-white text-sm hover:underline"
-              href="#"
+              to={item.to}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </nav>
       </header>
@@ -132,10 +155,11 @@ const AddressChangeRequest: React.FC = () => {
         <div className="w-full max-w-5xl flex flex-col gap-6">
           <header>
             <h1 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-              Relocation Requests
+              {t("address-change.title") || "Address Change Requests"}
             </h1>
             <p className="text-[#ccc68e] text-sm">
-              Review and manage visitor requests for address changes.
+              {t("address-change.description") ||
+                "Review and manage visitor requests for address changes."}
             </p>
           </header>
 
@@ -146,7 +170,7 @@ const AddressChangeRequest: React.FC = () => {
             </div>
           ) : requests.length === 0 ? (
             <p className="text-[#ccc68e] text-center py-10">
-              No requests found.
+              {t("address-change.no-requests") || "No requests found."}
             </p>
           ) : !isMobile ? (
             // Desktop table
@@ -156,13 +180,15 @@ const AddressChangeRequest: React.FC = () => {
                   <tr>
                     {columns.map((col) => (
                       <th
-                        key={col.key}
+                        key={col.key as string}
                         className="px-4 py-3 text-left text-white"
                       >
                         {col.label}
                       </th>
                     ))}
-                    <th className="px-4 py-3 text-left text-white">Actions</th>
+                    <th className="px-4 py-3 text-left text-white">
+                      {t("address-change.actions")}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -172,10 +198,15 @@ const AddressChangeRequest: React.FC = () => {
                       className="border-t border-t-[#6a642f]"
                     >
                       {columns.map((col) => (
-                        <td key={col.key} className="px-4 py-2 text-[#ccc68e]">
+                        <td
+                          key={col.key as string}
+                          className="px-4 py-2 text-[#ccc68e]"
+                        >
                           {col.render
-                            ? col.render(request[col.key])
-                            : request[col.key]}
+                            ? col.render(
+                                request[col.key as keyof IAddressChangeRequest]
+                              )
+                            : request[col.key as keyof IAddressChangeRequest]}
                         </td>
                       ))}
                       <td className="flex gap-2 px-4 py-2">
@@ -189,7 +220,7 @@ const AddressChangeRequest: React.FC = () => {
                             )
                           }
                         >
-                          Approve
+                          {t("address-change.approve") || "Approve"}
                         </Button>
                         <Button
                           className="bg-red-500 hover:bg-red-600 text-white"
@@ -201,7 +232,7 @@ const AddressChangeRequest: React.FC = () => {
                             )
                           }
                         >
-                          Reject
+                          {t("address-change.reject") || "Reject"}
                         </Button>
                       </td>
                     </tr>
@@ -219,14 +250,16 @@ const AddressChangeRequest: React.FC = () => {
                 >
                   {columns.map((col) => (
                     <div
-                      key={col.key}
+                      key={col.key as string}
                       className="flex justify-between text-sm mb-1"
                     >
                       <span className="text-white">{col.label}</span>
                       <span className="text-[#ccc68e]">
                         {col.render
-                          ? col.render(request[col.key])
-                          : request[col.key]}
+                          ? col.render(
+                              request[col.key as keyof IAddressChangeRequest]
+                            )
+                          : request[col.key as keyof IAddressChangeRequest]}
                       </span>
                     </div>
                   ))}
@@ -241,7 +274,7 @@ const AddressChangeRequest: React.FC = () => {
                         )
                       }
                     >
-                      Approve
+                      {t("address-change.approve") || "Approve"}
                     </Button>
                     <Button
                       className="bg-red-500 hover:bg-red-600 text-white flex-1"
@@ -253,7 +286,7 @@ const AddressChangeRequest: React.FC = () => {
                         )
                       }
                     >
-                      Reject
+                      {t("address-change.reject") || "Reject"}
                     </Button>
                   </div>
                 </div>

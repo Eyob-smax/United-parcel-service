@@ -15,6 +15,7 @@
     "ship": "شحن",
     "locations": "المواقع",
     "support": "الدعم",
+    "contact": "اتصل بنا",
     "ok": "موافق"
   },
   "header": {
@@ -22,7 +23,10 @@
     "about": "حول",
     "services": "الخدمات",
     "contact": "اتصل بنا",
-    "updates": "التحديثات"
+    "updates": "التحديثات",
+    "messages": "الرسائل",
+    "request": "طلب",
+    "dashboard": "لوحة التحكم"
   },
 
   "login-forms": {
@@ -31,12 +35,19 @@
       "password": "كلمة المرور",
       "login": "تسجيل الدخول",
       "track": "تتبع",
-      "parcel_id": "معرف الطرد"
+      "parcel_id": "معرف الطرد",
+      "username": "اسم المستخدم"
     },
     "tracking_login": {
       "title": "تتبع شحنتك",
       "description": "أدخل معرف الطرد الخاص بك لتتبع حالته",
       "placeholder": "أدخل معرف الطرد"
+    },
+    "admin_login": {
+      "title": "تسجيل دخول المسؤول",
+      "description": "أدخل بيانات اعتماد المسؤول الخاصة بك للوصول إلى لوحة التحكم",
+      "placeholder": "أدخل اسم المستخدم",
+      "placeholder_password": "أدخل كلمة المرور"
     }
   },
 
@@ -202,5 +213,32 @@
     "contact_us": "اتصل بنا على",
     "or_whatsapp": "أو واتساب",
     "package_preview": "معاينة الطرد"
+  },
+  "customer-support": {
+    "title": "طلبات خدمة العملاء",
+    "description": "إدارة والرد على استفسارات العملاء وطلبات الدعم.",
+    "send_email": "إرسال بريد إلكتروني",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "message": "الرسالة",
+    "attachments": "المرفقات",
+    "action": "الإجراء",
+    "no_attachments": "لا توجد مرفقات"
+  },
+
+  "address-change": {
+    "title": "طلب تغيير العنوان",
+    "description": "تقديم طلب لتغيير عنوان التسليم الخاص بك.",
+    "current_address": "العنوان الحالي",
+    "new_address": "العنوان الجديد",
+    "reason": "سبب التغيير",
+    "submit": "تقديم الطلب",
+    "no-requests": "لا توجد طلبات.",
+    "actions": "الإجراءات",
+    "approve": "الموافقة",
+    "reject": "رفض",
+    "parcel_id": "معرف الطرد",
+    "old_address": "العنوان القديم",
+    "status": "الحالة"
   }
 }

@@ -102,7 +102,7 @@ function ShipmentProgress({
   onMarkerClick: (coord: LatLngTuple) => void;
 }) {
   const { t } = useTranslation();
-  
+
   return (
     <div className="space-y-4 max-h-full overflow-y-scroll">
       {transportHistory?.map((ev, index) => {
@@ -220,24 +220,37 @@ export default function ShipmentTracker() {
     <div className="min-h-screen bg-[#232110] text-white font-sans">
       {/* Header */}
       <header className="flex flex-wrap items-center justify-between border-b border-[#4a4621] px-4 py-4 sm:px-6">
-        <div className="flex items-center gap-3">
+        <div
+          onClick={() => navigate("/home")}
+          className="flex items-center gap-3"
+        >
           <FaTruck size={24} className="text-[#f9e106]" />
           <h1 className="text-lg font-bold">
-            {t("common.welcome") || "United Parcel Service"}
+            {t("common.header_title") || "United Parcel Service"}
           </h1>
         </div>
         <nav className="flex flex-wrap items-center gap-3 mt-2 sm:mt-0 sm:gap-5">
           <Button
+            className="cursor-pointer"
             onClick={() =>
               document
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            {t("common.contact") || "Contact"}
+            {t("header.contact") || "Contact"}
           </Button>
-          <Button className="rounded-full bg-[#4a4621] px-4 py-2 text-sm">
-            {t("common.login") || "Login"}
+          <Button
+            onClick={() => navigate("/home")}
+            className="cursor-pointer rounded-full px-4 py-2 text-sm"
+          >
+            {t("header.home") || "Home"}
+          </Button>
+          <Button
+            onClick={() => navigate("/about")}
+            className="cursor-pointer rounded-full  px-4 py-2 text-sm"
+          >
+            {t("header.about") || "About"}
           </Button>
         </nav>
       </header>
@@ -257,13 +270,15 @@ export default function ShipmentTracker() {
                 {t("tracker.package_info") || "Package Information"}
               </p>
               <p className="text-[#ccc68e]">
-                {t("tracker.estimated_delivery") || "Estimated Delivery"}: {shipment?.delivery_date}
+                {t("tracker.estimated_delivery") || "Estimated Delivery"}:{" "}
+                {shipment?.delivery_date}
               </p>
               <div className="mt-3">
                 <Button
-                  onClick={() => navigate(`/parcel/${shipment?.parcel_id}`)}
+                  className="bg-[#f9e106] hover:bg-[#ccc68e] text-[#232110]"
+                  onClick={() => navigate(`/track-parcel`)}
                 >
-                  {t("tracker.view_details") || "View Details"}
+                  {t("common.back") || "Back"}
                 </Button>
               </div>
             </div>
@@ -329,7 +344,8 @@ export default function ShipmentTracker() {
                 className="bg-[#f9e106] text-[#232110]"
                 onClick={() => setShowAddressForm((s) => !s)}
               >
-                {t("tracker.change_address") || "Need a change of delivery address?"}
+                {t("tracker.change_address") ||
+                  "Need a change of delivery address?"}
               </Button>
             </div>
 

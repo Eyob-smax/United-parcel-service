@@ -15,6 +15,7 @@
     "back": "Zurück",
     "ship": "Versenden",
     "locations": "Standorte",
+    "contact": "Kontakt",
     "support": "Support",
     "ok": "OK"
   },
@@ -25,12 +26,19 @@
       "password": "Passwort",
       "login": "Anmelden",
       "track": "Verfolgen",
-      "parcel_id": "Paket-ID"
+      "parcel_id": "Paket-ID",
+      "username": "Benutzername"
     },
     "tracking_login": {
       "title": "Verfolgen Sie Ihr Paket",
       "description": "Geben Sie Ihre Paket-ID ein, um den Status zu verfolgen",
       "placeholder": "Paket-ID eingeben"
+    },
+    "admin_login": {
+      "title": "Admin-Login",
+      "description": "Geben Sie Ihre Admin-Anmeldeinformationen ein, um auf das Dashboard zuzugreifen",
+      "placeholder": "Benutzernamen eingeben",
+      "placeholder_password": "Passwort eingeben"
     }
   },
 
@@ -39,7 +47,10 @@
     "about": "Über uns",
     "services": "Dienstleistungen",
     "contact": "Kontakt",
-    "updates": "Aktualisierungen"
+    "updates": "Aktualisierungen",
+    "messages": "Nachrichten",
+    "request": "Anfrage",
+    "dashboard": "Dashboard"
   },
   "admin": {
     "unauthorized_title": "Nicht autorisiert",
@@ -204,5 +215,33 @@
     "contact_us": "Kontaktieren Sie uns unter",
     "or_whatsapp": "oder WhatsApp",
     "package_preview": "Paketvorschau"
+  },
+
+  "customer-support": {
+    "title": "Kundendienstanfragen",
+    "description": "Verwalten und Beantworten von Kundenanfragen und Supportanfragen.",
+    "send_email": "E-Mail senden",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "attachments": "Anhänge",
+    "action": "Aktion",
+    "no_attachments": "Keine Anhänge"
+  },
+
+  "address-change": {
+    "title": "Antrag auf Adressänderung",
+    "description": "Reichen Sie einen Antrag zur Änderung Ihrer Lieferadresse ein.",
+    "current_address": "Aktuelle Adresse",
+    "new_address": "Neue Adresse",
+    "reason": "Grund für die Änderung",
+    "submit": "Antrag einreichen",
+    "no-requests": "Keine Anfragen gefunden.",
+    "actions": "Aktionen",
+    "approve": "Genehmigen",
+    "reject": "Ablehnen",
+    "parcel_id": "Paket-ID",
+    "old_address": "Alter Adresse",
+    "status": "Status"
   }
 }

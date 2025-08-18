@@ -17,6 +17,7 @@
     "ship": "Отправить",
     "locations": "Местоположения",
     "support": "Поддержка",
+    "contact": "Контакт",
     "ok": "ОК"
   },
   "header": {
@@ -24,7 +25,10 @@
     "about": "О нас",
     "services": "Услуги",
     "contact": "Контакты",
-    "updates": "Обновления"
+    "updates": "Обновления",
+    "messages": "Сообщения",
+    "request": "Запрос",
+    "dashboard": "Панель управления"
   },
 
   "login-forms": {
@@ -33,12 +37,19 @@
       "password": "Пароль",
       "login": "Войти",
       "track": "Отследить",
-      "parcel_id": "ID посылки"
+      "parcel_id": "ID посылки",
+      "username": "Имя пользователя"
     },
     "tracking_login": {
       "title": "Отследить вашу посылку",
       "description": "Введите ID вашей посылки, чтобы отследить ее статус",
       "placeholder": "Введите ID посылки"
+    },
+    "admin_login": {
+      "title": "Admin Login",
+      "description": "Введите свои учетные данные администратора для доступа к панели управления",
+      "placeholder": "Введите имя пользователя",
+      "placeholder_password": "Введите пароль"
     }
   },
 
@@ -204,5 +215,33 @@
     "contact_us": "Свяжитесь с нами",
     "or_whatsapp": "или WhatsApp",
     "package_preview": "Превью посылки"
+  },
+
+  "customer-support": {
+    "title": "Запросы в службу поддержки клиентов",
+    "description": "Управляйте и отвечайте на запросы и обращения клиентов.",
+    "send_email": "Отправить электронное письмо",
+    "name": "Имя",
+    "email": "Электронная почта",
+    "message": "Сообщение",
+    "attachments": "Вложения",
+    "action": "Действие",
+    "no_attachments": "Нет вложений"
+  },
+
+  "address-change": {
+    "title": "Запрос на изменение адреса",
+    "description": "Отправьте запрос на изменение адреса доставки.",
+    "current_address": "Текущий адрес",
+    "new_address": "Новый адрес",
+    "reason": "Причина изменения",
+    "submit": "Отправить запрос",
+    "no-requests": "Запросов не найдено.",
+    "actions": "Действия",
+    "approve": "Одобрить",
+    "reject": "Отклонить",
+    "parcel_id": "ID посылки",
+    "old_address": "Старый адрес",
+    "status": "Статус"
   }
 }

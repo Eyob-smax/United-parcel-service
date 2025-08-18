@@ -147,9 +147,10 @@ const CreateShipment: React.FC = () => {
   useEffect(() => {
     if (!authenticated) {
       Swal.fire({
-        title: t("admin.unauthorized_title") || "Unauthorized",
+        title: t("alerts.unauthorized") || "Unauthorized",
         text:
-          t("admin.unauthorized_text") || "Please log in to create a shipment.",
+          t("alerts.authorization_error") ||
+          "Please log in to create a shipment.",
         icon: "warning",
         background: "#232110",
         color: "#bbba9b",
@@ -233,8 +234,10 @@ const CreateShipment: React.FC = () => {
     for (const field of requiredFields) {
       if (!formData[field]) {
         Swal.fire({
-          title: t("admin.validation_error") || "Validation Error",
-          text: `${field} is required`,
+          title: t("alerts.error") || "Validation Error",
+          text:
+            t("alerts.missing_information") ||
+            "Please fill all required fields.",
           icon: "error",
           background: "#232110",
           color: "#bbba9b",
@@ -244,7 +247,6 @@ const CreateShipment: React.FC = () => {
       }
     }
 
-    // Submit via FormData
     const payload = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       payload.append(key, value.toString());
@@ -272,19 +274,19 @@ const CreateShipment: React.FC = () => {
       title: t("admin.parcel_info") || "Parcel Information",
       fields: [
         {
-          label: "Parcel ID",
+          label: t("admin.parcel_id") || "Parcel ID",
           name: "parcelId",
-          placeholder: "Enter Parcel ID",
+          placeholder: t("admin.enter_parcel_id") || "Enter Parcel ID",
         },
         {
-          label: "Package Name",
+          label: t("admin.package_name") || "Package Name",
           name: "package_name",
-          placeholder: "Enter package name",
+          placeholder: t("admin.enter_package_name") || "Enter package name",
         },
         {
-          label: "Quantity",
+          label: t("admin.quantity") || "Quantity",
           name: "quantity",
-          placeholder: "Enter quantity",
+          placeholder: t("admin.enter_quantity") || "Enter quantity",
           type: "number",
         },
       ],
@@ -293,19 +295,21 @@ const CreateShipment: React.FC = () => {
       title: t("admin.sender_details") || "Sender Details",
       fields: [
         {
-          label: "Name",
+          label: t("admin.enter_sender_name") || "Name",
           name: "senderName",
-          placeholder: "Enter sender's name",
+          placeholder: t("admin.enter_sender_name") || "Enter sender's name",
         },
         {
-          label: "Address",
+          label: t("admin.enter_sender_address") || "Address",
           name: "senderAddress",
-          placeholder: "Enter sender's address",
+          placeholder:
+            t("admin.enter_sender_address") || "Enter sender's address",
         },
         {
-          label: "Phone",
+          label: t("admin.enter_sender_phone") || "Phone",
           name: "senderPhone",
-          placeholder: "Enter sender's phone number",
+          placeholder:
+            t("admin.enter_sender_phone") || "Enter sender's phone number",
         },
       ],
     },
@@ -313,30 +317,38 @@ const CreateShipment: React.FC = () => {
       title: t("admin.recipient_details") || "Recipient Details",
       fields: [
         {
-          label: "Name",
+          label: t("admin.enter_recipient_name") || "Name",
           name: "recipientName",
-          placeholder: "Enter recipient's name",
+          placeholder:
+            t("admin.enter_recipient_name") || "Enter recipient's name",
         },
         {
-          label: "Address",
+          label: t("admin.enter_recipient_address") || "Address",
           name: "recipientAddress",
-          placeholder: "Enter recipient's address",
+          placeholder:
+            t("admin.enter_recipient_address") || "Enter recipient's address",
         },
         {
-          label: "Phone",
+          label: t("admin.enter_recipient_phone") || "Phone",
           name: "recipientPhone",
-          placeholder: "Enter recipient's phone number",
+          placeholder:
+            t("admin.enter_recipient_phone") ||
+            "Enter recipient's phone number",
         },
       ],
     },
     {
       title: t("admin.origin_destination") || "Origin & Destination",
       fields: [
-        { label: "Origin", name: "origin", placeholder: "Enter origin" },
         {
-          label: "Destination",
+          label: t("admin.origin") || "Origin",
+          name: "origin",
+          placeholder: "Enter origin",
+        },
+        {
+          label: t("admin.destination") || "Destination",
           name: "destination",
-          placeholder: "Enter destination",
+          placeholder: t("admin.enter_destination") || "Enter destination",
         },
       ],
     },
@@ -344,15 +356,16 @@ const CreateShipment: React.FC = () => {
       title: t("admin.shipping_dates") || "Shipping Dates",
       fields: [
         {
-          label: "Pickup Date",
+          label: t("admin.pickup_date") || "Pickup Date",
           name: "pickupDate",
-          placeholder: "Select pickup date",
+          placeholder: t("admin.select_pickup_date") || "Select pickup date",
           type: "date",
         },
         {
-          label: "Delivery Date",
+          label: t("admin.delivery_date") || "Delivery Date",
           name: "deliveryDate",
-          placeholder: "Select delivery date",
+          placeholder:
+            t("admin.select_delivery_date") || "Select delivery date",
           type: "date",
         },
       ],
@@ -361,14 +374,23 @@ const CreateShipment: React.FC = () => {
       title: t("admin.transport_info") || "Transport Information",
       fields: [
         {
-          label: "Status",
+          label: t("admin.status") || "Status",
           name: "status",
-          placeholder: "",
+          placeholder: t("admin.select_status") || "Select status",
           options: [
-            { value: "pending", label: "Pending" },
-            { value: "shipped off", label: "Shipped off" },
-            { value: "on transit", label: "On transit" },
-            { value: "delivered", label: "Delivered" },
+            { value: "pending", label: t("admin.status_pending") || "Pending" },
+            {
+              value: "shipped off",
+              label: t("admin.status_shipped_off") || "Shipped off",
+            },
+            {
+              value: "on transit",
+              label: t("admin.status_on_transit") || "On transit",
+            },
+            {
+              value: "delivered",
+              label: t("admin.status_delivered") || "Delivered",
+            },
           ],
         },
       ],
@@ -397,7 +419,9 @@ const CreateShipment: React.FC = () => {
                 transition={{ duration: 0.3 }}
               >
                 <FaPlus size={24} />
-                <p className="text-sm font-medium">Create Shipment</p>
+                <p className="text-sm font-medium">
+                  {t("admin.create_shipment") || "Create Shipment"}
+                </p>
               </motion.button>
               <motion.button
                 onClick={() => navigate("/admin-dashboard")}
@@ -406,7 +430,9 @@ const CreateShipment: React.FC = () => {
                 transition={{ duration: 0.3 }}
               >
                 <FaDoorOpen size={24} />
-                <p className="text-sm font-medium">Logout</p>
+                <p className="text-sm font-medium">
+                  {t("admin.logout") || "Logout"}
+                </p>
               </motion.button>
             </div>
           </motion.div>
@@ -420,7 +446,7 @@ const CreateShipment: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              Create Shipment
+              {t("admin.create_shipment") || "Create Shipment"}
             </h2>
           </motion.div>
 
@@ -442,7 +468,7 @@ const CreateShipment: React.FC = () => {
 
               <section className="py-4">
                 <h3 className="text-lg font-bold tracking-tight px-4 pb-2 text-white">
-                  Upload Package Image
+                  {t("admin.upload_image") || "Upload Package Image"}
                 </h3>
                 <div className="flex flex-col p-4">
                   <motion.div
@@ -465,7 +491,7 @@ const CreateShipment: React.FC = () => {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      Upload
+                      {t("admin.upload") || "Upload"}
                     </motion.label>
                     {imagePreview && (
                       <motion.img

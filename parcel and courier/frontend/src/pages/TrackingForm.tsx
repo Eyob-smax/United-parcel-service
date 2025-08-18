@@ -10,6 +10,7 @@ import {
 import type { ITransportHistory } from "@/lib/types";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 interface TrackingFormProps {
   event: ITransportHistory;
@@ -22,6 +23,7 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
   type,
   onClose,
 }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch<TAppDispatch>();
   const { error, loading } = useSelector((state: TRootState) => state.transit);
 
@@ -71,8 +73,8 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
       if (!currentLocation || !currentDate || !currentCountry) {
         showAlert(
           "warning",
-          "Missing Fields",
-          "Please fill in all fields before submitting."
+          t("alerts.error") || "Missing Fields",
+          t("alerts.missing_information")
         );
         return;
       }
@@ -92,7 +94,7 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
       await dispatch(fetchShipments());
       onClose();
     },
-    [dispatch, event.parcel_id, onClose, type, showAlert]
+    [dispatch, event.parcel_id, onClose, type, showAlert, t]
   );
 
   const inputStyles =

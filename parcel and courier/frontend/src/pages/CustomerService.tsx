@@ -7,6 +7,7 @@ import { fetchMessages } from "@/features/customerSupportSlice";
 import type { ICustomerSupport } from "@/lib/types";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2"; // ✅ import Swal
+import { useTranslation } from "react-i18next";
 
 // Utility to open Gmail compose
 function openGmail(email: string) {
@@ -21,7 +22,8 @@ const Attachments: React.FC<{
   attachments?: string;
   onClick: (img: string) => void;
 }> = ({ attachments, onClick }) => {
-  if (!attachments) return <span>No Attachments</span>;
+  const { t } = useTranslation();
+  if (!attachments) return <span>{t("customer-support.no_attachments")}</span>;
   return (
     <div className="flex flex-wrap gap-2">
       <img
@@ -38,92 +40,110 @@ const Attachments: React.FC<{
 const RequestTable: React.FC<{
   requests: ICustomerSupport[];
   onImageClick: (img: string) => void;
-}> = ({ requests, onImageClick }) => (
-  <div className="hidden md:flex overflow-hidden rounded-xl border border-[#6a642f] bg-[#232110]">
-    <table className="w-full">
-      <thead>
-        <tr className="bg-[#353218]">
-          <th className="px-4 py-3 text-left text-white">Name</th>
-          <th className="px-4 py-3 text-left text-white">Email</th>
-          <th className="px-4 py-3 text-left text-white">Message</th>
-          <th className="px-4 py-3 text-left text-white">Attachments</th>
-          <th className="px-4 py-3 text-left text-white">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {requests.map((req) => (
-          <tr key={req.support_id} className="border-t border-t-[#6a642f]">
-            <td className="px-4 py-2 text-[#ccc68e]">{req.name}</td>
-            <td className="px-4 py-2 text-[#ccc68e]">{req.email}</td>
-            <td className="px-4 py-2 text-[#ccc68e]">{req.message}</td>
-            <td className="px-4 py-2 text-[#ccc68e]">
-              <Attachments attachments={req.img_url} onClick={onImageClick} />
-            </td>
-            <td className="px-4 py-2">
-              <Button
-                className="bg-yellow-400 hover:bg-yellow-500 text-black flex items-center gap-2"
-                onClick={() => openGmail(req.email)}
-              >
-                <Mail className="h-4 w-4" /> Send Email
-              </Button>
-            </td>
+}> = ({ requests, onImageClick }) => {
+  const { t } = useTranslation();
+  return (
+    <div className="hidden md:flex overflow-hidden rounded-xl border border-[#6a642f] bg-[#232110]">
+      <table className="w-full">
+        <thead>
+          <tr className="bg-[#353218]">
+            <th className="px-4 py-3 text-left text-white">
+              {t("customer-support.name")}
+            </th>
+            <th className="px-4 py-3 text-left text-white">
+              {t("customer-support.email")}
+            </th>
+            <th className="px-4 py-3 text-left text-white">
+              {t("customer-support.message")}
+            </th>
+            <th className="px-4 py-3 text-left text-white">
+              {t("customer-support.attachments")}
+            </th>
+            <th className="px-4 py-3 text-left text-white">
+              {t("customer-support.action")}
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+        </thead>
+        <tbody>
+          {requests.map((req) => (
+            <tr key={req.support_id} className="border-t border-t-[#6a642f]">
+              <td className="px-4 py-2 text-[#ccc68e]">{req.name}</td>
+              <td className="px-4 py-2 text-[#ccc68e]">{req.email}</td>
+              <td className="px-4 py-2 text-[#ccc68e]">{req.message}</td>
+              <td className="px-4 py-2 text-[#ccc68e]">
+                <Attachments attachments={req.img_url} onClick={onImageClick} />
+              </td>
+              <td className="px-4 py-2">
+                <Button
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black flex items-center gap-2"
+                  onClick={() => openGmail(req.email)}
+                >
+                  <Mail className="h-4 w-4" />{" "}
+                  {t("customer-support.send_email")}
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 // Mobile Card Component
 const RequestCards: React.FC<{
   requests: ICustomerSupport[];
   onImageClick: (img: string) => void;
-}> = ({ requests, onImageClick }) => (
-  <div className="md:hidden flex flex-col gap-4">
-    {requests.map((req) => (
-      <div
-        key={req.support_id}
-        className="flex flex-col rounded-xl border border-[#6a642f] bg-[#232110] p-4"
-      >
-        <p className="text-white font-bold">{req.name}</p>
-        <p className="text-[#ccc68e] text-sm">{req.email}</p>
-        <p className="text-[#ccc68e] mt-2">{req.message}</p>
-
-        <div className="mt-2">
-          <Attachments attachments={req.img_url} onClick={onImageClick} />
-        </div>
-
-        <Button
-          className="mt-3 bg-yellow-400 hover:bg-yellow-500 text-black flex items-center gap-2"
-          onClick={() => openGmail(req.email)}
+}> = ({ requests, onImageClick }) => {
+  const { t } = useTranslation();
+  return (
+    <div className="md:hidden flex flex-col gap-4">
+      {requests.map((req) => (
+        <div
+          key={req.support_id}
+          className="flex flex-col rounded-xl border border-[#6a642f] bg-[#232110] p-4"
         >
-          <Mail className="h-4 w-4" /> Send Email
-        </Button>
-      </div>
-    ))}
-  </div>
-);
+          <p className="text-white font-bold">{req.name}</p>
+          <p className="text-[#ccc68e] text-sm">{req.email}</p>
+          <p className="text-[#ccc68e] mt-2">{req.message}</p>
+
+          <div className="mt-2">
+            <Attachments attachments={req.img_url} onClick={onImageClick} />
+          </div>
+
+          <Button
+            className="mt-3 bg-yellow-400 hover:bg-yellow-500 text-black flex items-center gap-2"
+            onClick={() => openGmail(req.email)}
+          >
+            <Mail className="h-4 w-4" /> {t("customer-support.send_email")}
+          </Button>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const CustomerService: React.FC = () => {
   const dispatch = useDispatch<TAppDispatch>();
+  const { t } = useTranslation();
   const { messages, loading, error } = useSelector(
     (state: TRootState) => state.customerSupport
   );
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Initial fetch
   useEffect(() => {
     dispatch(fetchMessages());
   }, [dispatch]);
 
-  // Error handling with retry
   useEffect(() => {
     if (error) {
       Swal.fire({
         icon: "error",
-        title: "Network Error",
-        text: "Failed to load messages. Please try again.",
+        title: t("alerts.network_error") || "Network Error",
+        text:
+          t("alerts.something_went_wrong") ||
+          "Failed to load messages. Please try again.",
         showCancelButton: true,
         confirmButtonText: "Retry",
       }).then((result) => {
@@ -132,7 +152,7 @@ const CustomerService: React.FC = () => {
         }
       });
     }
-  }, [error, dispatch]);
+  }, [error, dispatch, t]);
 
   return (
     <div
@@ -156,15 +176,21 @@ const CustomerService: React.FC = () => {
               </svg>
             </div>
             <Link to="/home" className="text-white text-lg font-bold">
-              United Parcel Service
+              {t("common.header_title")}
             </Link>
           </div>
           <nav className="flex gap-4 sm:gap-8 mt-3 sm:mt-0">
             {[
-              { label: "Dashboard", to: "/admin-dashboard" },
-              { label: "Requests", to: "/address-change-request" },
-              { label: "About", to: "/about" },
-              { label: "Track", to: "/track-parcel" },
+              { label: t("header.home") || "Home", to: "/home" },
+              {
+                label: t("header.dashboard") || "Dashboard",
+                to: "/admin-dashboard",
+              },
+              {
+                label: t("header.request") || "Request",
+                to: "/address-change-request",
+              },
+              { label: t("header.about") || "About", to: "/about" },
             ].map((link) => (
               <Link
                 key={link.label}
@@ -183,10 +209,11 @@ const CustomerService: React.FC = () => {
             <header className="flex flex-wrap justify-between gap-3 p-4">
               <div className="flex flex-col gap-3">
                 <p className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
-                  Customer Service Requests
+                  {t("customer-support.title") || "Customer Service Requests"}
                 </p>
                 <p className="text-[#ccc68e] text-sm">
-                  Review and respond to customer service inquiries.
+                  {t("customer-support.description") ||
+                    "Manage and respond to customer inquiries and support requests."}
                 </p>
               </div>
             </header>

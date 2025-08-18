@@ -87,28 +87,28 @@ const SolutionsDetail: React.FC = () => {
         subtitleKey: "solutions.domestic.subtitle",
         descriptionKey: "solutions.domestic.description",
         image:
-          "https://images.unsplash.com/photo-1628157588553-90a3c068b7f3?auto=format&fit=crop&w=800&q=80",
+          "https://i.postimg.cc/hvzKx0p0/C30867-FC-EB78-4-BE7-9610-3-FA873-C8-F5-E3.jpg",
       },
       {
         titleKey: "solutions.tracking.title",
         subtitleKey: "solutions.tracking.subtitle",
         descriptionKey: "solutions.tracking.description",
         image:
-          "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+          "https://i.postimg.cc/zXHfRqQ1/872-FFF41-2-C36-4-BB1-B97-F-BBF787447-A9-A.jpg",
       },
       {
         titleKey: "solutions.specialized.title",
         subtitleKey: "solutions.specialized.subtitle",
         descriptionKey: "solutions.specialized.description",
         image:
-          "https://images.unsplash.com/photo-1578898883746-7c3d6f7e3e82?auto=format&fit=crop&w=800&q=80",
+          "https://i.postimg.cc/fbCWhyVY/BBD21-F34-8584-478-F-8-E93-A954-B1-B6-E89-D.jpg",
       },
       {
         titleKey: "solutions.warehousing.title",
         subtitleKey: "solutions.warehousing.subtitle",
         descriptionKey: "solutions.warehousing.description",
         image:
-          "https://images.unsplash.com/photo-1594705628252-9361a77f4b71?auto=format&fit=crop&w=800&q=80",
+          "https://i.postimg.cc/KcHzz1JN/993-A79-D9-48-FE-4-F63-9-A4-A-D00737-E390-E0.jpg",
       },
     ],
     []
@@ -121,18 +121,16 @@ const SolutionsDetail: React.FC = () => {
         <div className="flex items-center gap-4 text-white">
           <FaTruck className="w-5 h-5" />
           <h2 className="text-lg font-bold tracking-[-0.015em]">
-            {t("header.services")}
+            {t("common.header_title") || "United Parcel Service"}
           </h2>
         </div>
         <div className="flex flex-1 flex-col md:flex-row justify-end gap-4 md:gap-8 mt-2 md:mt-0">
           <div className="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-9">
-            <NavLink to="/track-parcel">{t("common.track")}</NavLink>
-            <NavLink to="/create-shipment">{t("common.ship")}</NavLink>
-            <NavLink to="/locations">{t("common.locations")}</NavLink>
-            <NavLink to="/support">{t("common.support")}</NavLink>
+            <NavLink to="/home">{t("header.home")}</NavLink>
+            <NavLink to="/about">{t("header.about")}</NavLink>
           </div>
-          <Button onClick={() => (window.location.href = "/admin-login")}>
-            {t("common.login")}
+          <Button onClick={() => (window.location.href = "/track-parcel")}>
+            {t("common.track")}
           </Button>
         </div>
       </header>
@@ -149,7 +147,7 @@ const SolutionsDetail: React.FC = () => {
           <motion.section
             className="min-h-[300px] bg-cover bg-center flex flex-col justify-end rounded-lg"
             style={{
-              backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 25%), url('https://images.unsplash.com/photo-1556740764-3a5a6344b2f6?auto=format&fit=crop&w=1350&q=80')`,
+              backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 25%), url('https://i.postimg.cc/tRwqbL4v/032-A6682-A47-F-4199-83-C2-345-FCD50-F1-BA.jpg')`,
             }}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

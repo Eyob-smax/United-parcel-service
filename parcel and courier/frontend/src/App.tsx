@@ -84,8 +84,8 @@ const App = () => {
 
     if (createMessage.fulfilled.match(result)) {
       await Swal.fire({
-        title: t("common.success") || "Success!",
-        text: t("contact.message_sent") || "Your message has been sent.",
+        title: t("alerts.success") || "Success!",
+        text: t("alerts.message_sent") || "Your message has been sent.",
         icon: "success",
       });
       setFormData({
@@ -97,11 +97,12 @@ const App = () => {
       setShowCustomerService(false);
     } else {
       await Swal.fire({
-        title: t("common.error") || "Error!",
-        text: t("contact.message_error") || "Error while sending message.",
+        title: t("alerts.something_went_wrong") || "Error!",
+        text:
+          t("alerts.sending_message_error") || "Error while sending message.",
         icon: "error",
         showConfirmButton: true,
-        confirmButtonText: t("common.retry") || "Retry",
+        confirmButtonText: t("alerts.retry") || "Retry",
       }).then(({ isConfirmed }) => {
         if (isConfirmed) {
           dispatch(fetchMessages());
@@ -209,7 +210,7 @@ const App = () => {
               <div
                 className="flex min-h-[300px] sm:min-h-[400px] md:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-lg items-center justify-center p-4 sm:p-6"
                 style={{
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCAGREbVPBzwxKjVNcqZIswbngRUFvJSJ4YWME9ksWRbM2w6VQpoS8Wv0y349TBHBHbeh2ixiNCfgyb9iqKXEvOwT1Iv3e0xXuQKMSZfzR3ikmCOfe5xXkOndDIaUlJs7hYWKSE0DrgqIaBni_3pV1FmA0VLS_ZL2afWqZwzb9IHk5c7au385LUf3i0jUskq2vdiI0Dbj9YoSTz8i9lXOe8DFWAKssvEdfNYilqjW1KZjSWSLrClMIrXPUYCGLYPbaLJQclrpDElA")`,
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://i.postimg.cc/FHQhd3cj/2-C3-DC23-C-1-B8-A-4978-AE57-701466-CAF00-D.jpg")`,
                 }}
               >
                 <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-center">
@@ -279,28 +280,28 @@ const App = () => {
                     desc:
                       t("services.express_desc") ||
                       "Fast and reliable delivery for urgent shipments.",
-                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAPVDhg23R623ksMcUtF6ouzrKlNN7a2zEZ0SfXXfJ-4e057wPOJMyzkcsyXvwX7wYYlYnuIv1-1xk_qgddT8yvO2s4sWqgj3_S4o0vuSuPf2LftGWhCSEp4022EWObaf0ItxG2m0HX7DtgBaDvwJqKwyFBGUjR72WNnSjCWpykO5fX3ue_DCuNK6ps0ONmyW0JuA1aZ7ILWloatz5zPSHp-z9-B4TI9VjcpGbKKyZ361dMaVyZNqXRGLWRYmGFP4Qf4zbRVcKxPRU",
+                    img: "https://i.postimg.cc/tRwqbL4v/032-A6682-A47-F-4199-83-C2-345-FCD50-F1-BA.jpg",
                   },
                   {
                     title: t("services.freight") || "Freight Forwarding",
                     desc:
                       t("services.freight_desc") ||
                       "Efficient and cost-effective solutions for large shipments.",
-                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAh5cBMEevj41qvDe_tCugWC3zNHtPTnCHOxb2LpoPQfvp5N0X_Zi5wg9sY7nF1ffbr9bz9aFxtr6CPFMlgnTUirO-19ZVHhWVAlVVheYotS04RTvqlEwIX2Zxn_Sas3vmXREqDuNozdj2YHGU-w8QKYHWkOCEpNw3SBfVCeugaJYpfs04GLDFej2A_2zs4MrV9k0OSfU1PkdOSga3QdU8F4Vjq5aK41WJ5SIERzqH2EVWD27P3wH6VnnOYp9ojbModw7WL6h-G5A",
+                    img: "https://i.postimg.cc/k5qMZKgn/97-C4245-D-594-C-4569-B95-A-7-F1-EF568-DAED.jpg",
                   },
                   {
                     title: t("services.customs") || "Customs Brokerage",
                     desc:
                       t("services.customs_desc") ||
                       "Expert assistance with customs clearance processes.",
-                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCp4NS5SXrZW7vCV-2jA8GK7G4FRWGzS1vje6mAc-fDLALVzVy2UG9w8oAFgPYevwLpnJ5H_klamhNHlHCmrSMj06FevKuhd9r9VvE8QKoYwbiKdbjEQCWbs14hswKVdMzUgkbbBDlKfd2TggRGGPc-5XVo_06XbM50vxTY_B4eHcAbFrsLnN0DO8KE_RqDfw5SAFTeS4nCbrlJHUsOyih_TCMx1UnxjvEVSX7ZoHYmft21tzFfu3o2mT4pFJgmzgwcDmD_UzeFIw8",
+                    img: "https://i.postimg.cc/fbCWhyVY/BBD21-F34-8584-478-F-8-E93-A954-B1-B6-E89-D.jpg",
                   },
                   {
                     title: t("services.warehousing") || "Warehousing",
                     desc:
                       t("services.warehousing_desc") ||
                       "Secure and flexible storage options for your goods.",
-                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDm9ucDsO7zxPzDgT4STTggSzP-Lyi6MeU2Lm9Y2JJ896KmeVWe--k81XbOQ7wyaun5br0hBxNpoVQ6wThbs80qGByory1AjLKpTe2ao3pCPpJVUjiL9iSdEzH29O0buVVn6yjwxbPqkoKoL-nPhCs4Zh2ZH1YghwaE7P5GEW_VbQv6VobCIEY2kiKL0GiK9aL2SJNwyRslzAYYhxt5xRxQ0mHJtl6SZItloD7Nx-bpl6o8_1a2xCFlf82VyJ-efrqhd3AAhwYVA84",
+                    img: "https://i.postimg.cc/KcHzz1JN/993-A79-D9-48-FE-4-F63-9-A4-A-D00737-E390-E0.jpg",
                   },
                 ].map((service, index) => (
                   <motion.div
@@ -341,14 +342,14 @@ const App = () => {
                     desc:
                       t("updates.new_routes_desc") ||
                       "We've expanded our delivery network to include new routes for faster service.",
-                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBhR5hV__asiUgUfA_QHrbi4FlZ62rJFqY7tDNFHKLQhAKg6cFOnMOmNhWyjg0HnGwkmPCLMFIMh1Y16GXz-v-S9RhKiDgtmuAANrrxuk9VmBTRWqai-wQu1ZrhAsbz6I2r0TBQecQzayygsG8sEFmhNhuBA_nXkoc1g-RtQ-d9V6LkjfopB5PSncvBc5_vGCa_u7YFNSG-6ELg3wSJ67hFuB4CuG0FHiArgjWnTTrNJp9EXlePmS1tiaam89HB8Khu5AU-GBuh_b8",
+                    img: "https://i.postimg.cc/KzsZRWrz/0-D69-E09-D-7-DFE-445-A-B175-797260728126.jpg",
                   },
                   {
                     title: t("updates.holiday") || "Holiday Shipping Deadlines",
                     desc:
                       t("updates.holiday_desc") ||
                       "Plan your holiday shipments ahead with our updated deadlines.",
-                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBaWwLiv1IOKnf9E04incnnJjNrOvrF74Jg_Tso6M5Olwv63-IgHxkQX_pIfDkxNFYN2SDNzVJWiGz9KKAycr2KVOeD8hJiITapRt3ixh1YB7Te718zMsh8rydSoAZspA4lq-Rt8ukcW6pKWKD39_IS-eSoiJz_n-Jmw6EL6xcLKE0DjkMo2IzvQ60MzxNGibMM5lJHSrNaMmUsFVCoiGxADA0gcEOsOIOcfgbbMTw4xDhBgMWv9Q4ZWvru3cVZtfFB8QtYg6MV8ak",
+                    img: "https://i.postimg.cc/wjKjXSKR/0-B9-A4-E56-B1-A1-489-F-B905-846-A4-B6-E4-EE8.jpg",
                   },
                   {
                     title:

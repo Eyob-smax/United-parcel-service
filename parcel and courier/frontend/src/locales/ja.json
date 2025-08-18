@@ -16,6 +16,7 @@
     "back": "戻る",
     "ship": "発送",
     "locations": "場所",
+    "contact": "お問い合わせ",
     "support": "サポート",
     "ok": "OK"
   },
@@ -24,7 +25,10 @@
     "about": "会社概要",
     "services": "サービス",
     "contact": "お問い合わせ",
-    "updates": "更新情報"
+    "updates": "更新情報",
+    "messages": "メッセージ",
+    "request": "リクエスト",
+    "dashboard": "ダッシュボード"
   },
 
   "login-forms": {
@@ -33,12 +37,19 @@
       "password": "パスワード",
       "login": "ログイン",
       "track": "追跡",
-      "parcel_id": "荷物ID"
+      "parcel_id": "荷物ID",
+      "username": "ユーザー名"
     },
     "tracking_login": {
       "title": "荷物を追跡する",
       "description": "荷物IDを入力してそのステータスを追跡します",
       "placeholder": "荷物IDを入力してください"
+    },
+    "admin_login": {
+      "title": "管理者ログイン",
+      "description": "ダッシュボードにアクセスするための管理者資格情報を入力してください",
+      "placeholder": "ユーザー名を入力してください",
+      "placeholder_password": "パスワードを入力してください"
     }
   },
   "admin": {
@@ -203,5 +214,32 @@
     "contact_us": "お問い合わせは",
     "or_whatsapp": "またはWhatsApp",
     "package_preview": "荷物プレビュー"
+  },
+  "customer-support": {
+    "title": "カスタマーサポートリクエスト",
+    "description": "顧客からの問い合わせやサポートリクエストを管理し、対応します。",
+    "send_email": "メールを送信",
+    "name": "名前",
+    "email": "メール",
+    "message": "メッセージ",
+    "attachments": "添付ファイル",
+    "action": "アクション",
+    "no_attachments": "添付ファイルはありません"
+  },
+
+  "address-change": {
+    "title": "住所変更リクエスト",
+    "description": "配送先住所を変更するリクエストを送信します。",
+    "current_address": "現在の住所",
+    "new_address": "新しい住所",
+    "reason": "変更理由",
+    "submit": "リクエストを送信",
+    "no-requests": "リクエストは見つかりませんでした。",
+    "actions": "アクション",
+    "approve": "承認",
+    "reject": "拒否",
+    "parcel_id": "荷物ID",
+    "old_address": "古い住所",
+    "status": "ステータス"
   }
 }

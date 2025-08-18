@@ -39,7 +39,8 @@ const ParcelDetails: React.FC = () => {
   if (!authenticated) {
     Swal.fire({
       title: t("admin.unauthorized_title") || "Unauthorized",
-      text: t("admin.unauthorized_text") || "Please log in to view parcel details.",
+      text:
+        t("admin.unauthorized_text") || "Please log in to view parcel details.",
       icon: "warning",
       background: "#232110",
       color: "#bbba9b",
@@ -78,7 +79,9 @@ const ParcelDetails: React.FC = () => {
     if (shipments.length && !currentShipment) {
       Swal.fire({
         title: t("admin.parcel_not_found") || "Parcel Not Found",
-        text: t("admin.parcel_not_found_text") || "No parcel with the given ID. Please create one!",
+        text:
+          t("admin.parcel_not_found_text") ||
+          "No parcel with the given ID. Please create one!",
         icon: "error",
       }).then(() => navigate("/admin_dashboard", { replace: true }));
     }
@@ -91,7 +94,8 @@ const ParcelDetails: React.FC = () => {
         text: t("admin.cannot_undo") || "This action cannot be undone.",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: t("admin.confirm_delete_button") || "Yes, delete it!",
+        confirmButtonText:
+          t("admin.confirm_delete_button") || "Yes, delete it!",
       });
 
       if (result.isConfirmed) {
@@ -115,7 +119,9 @@ const ParcelDetails: React.FC = () => {
       const result = await Swal.fire({
         icon: "warning",
         title: t("admin.confirm_delete") || "Are you sure?",
-        text: t("admin.delete_tracking_warning") || "You're about to delete tracking details",
+        text:
+          t("admin.delete_tracking_warning") ||
+          "You're about to delete tracking details",
         showCancelButton: true,
         confirmButtonText: t("admin.delete") || "Delete",
       });
@@ -157,15 +163,33 @@ const ParcelDetails: React.FC = () => {
             <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" />
           </svg>
           <h2 className="text-lg font-bold tracking-tight">
-            {t("common.welcome") || "United parcel services"}
+            {t("common.header_title") || "United parcel services"}
           </h2>
         </div>
-        <nav>
+        <nav className="flex items-center gap-x-5">
           <Link
             to="/admin-dashboard"
-            className="text-sm font-medium hover:text-[#ccc68e]"
+            className="hover:underline rounded-md px-4 py-1 bg-[#4a4621] text-sm  font-medium "
           >
             {t("admin.dashboard") || "Dashboard"}
+          </Link>
+          <Link
+            to="/home"
+            className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
+          >
+            {t("header.home") || "Home"}
+          </Link>
+          <Link
+            to="/address-change-request"
+            className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
+          >
+            {t("header.request") || "Requests"}
+          </Link>
+          <Link
+            to="/customer-support"
+            className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
+          >
+            {t("header.messages") || "Messages"}
           </Link>
         </nav>
       </header>
@@ -185,7 +209,8 @@ const ParcelDetails: React.FC = () => {
           {/* Title + Back */}
           <div className="flex flex-wrap items-center justify-between p-4">
             <h1 className="text-3xl font-bold">
-              {t("admin.parcel_details") || "Parcel Details"} / {currentShipment.package_name}
+              {t("admin.parcel_details") || "Parcel Details"} /{" "}
+              {currentShipment.package_name}
             </h1>
             <button
               onClick={() => navigate(-1)}
@@ -206,8 +231,8 @@ const ParcelDetails: React.FC = () => {
                 {t("admin.parcel") || "Parcel"} #{currentShipment.parcel_id}
               </p>
               <p className="text-base text-[#ccc68e]">
-                {t("admin.quantity") || "Quantity"}: {currentShipment.quantity} |{" "}
-                {t("admin.package_name") || "Package Name"}:{" "}
+                {t("admin.quantity") || "Quantity"}: {currentShipment.quantity}{" "}
+                | {t("admin.package_name") || "Package Name"}:{" "}
                 {currentShipment.package_name}
               </p>
             </div>
@@ -219,18 +244,25 @@ const ParcelDetails: React.FC = () => {
           </h2>
           <div className="grid grid-cols-[20%_1fr] gap-x-6 p-4">
             {[
-              { label: t("admin.origin") || "Origin", value: currentShipment.origin },
-              { 
-                label: t("admin.destination") || "Destination", 
-                value: currentShipment.destination 
-              },
-              { label: t("admin.status") || "Status", value: currentShipment.status },
-              { 
-                label: t("admin.pickup_date") || "Pickup date", 
-                value: currentShipment.pickup_date 
+              {
+                label: t("admin.origin") || "Origin",
+                value: currentShipment.origin,
               },
               {
-                label: t("admin.estimated_delivery") || "Estimated delivery date",
+                label: t("admin.destination") || "Destination",
+                value: currentShipment.destination,
+              },
+              {
+                label: t("admin.status") || "Status",
+                value: currentShipment.status,
+              },
+              {
+                label: t("admin.pickup_date") || "Pickup date",
+                value: currentShipment.pickup_date,
+              },
+              {
+                label:
+                  t("admin.estimated_delivery") || "Estimated delivery date",
                 value: currentShipment.delivery_date,
               },
             ].map(({ label, value }) => (
@@ -299,15 +331,21 @@ const ParcelDetails: React.FC = () => {
           {/* Actions */}
           <div className="flex gap-3 px-4 py-3">
             {[
-              t("admin.edit_parcel") || "Edit Parcel", 
-              t("admin.delete_parcel") || "Delete Parcel"
+              {
+                label: t("admin.edit_parcel") || "Edit Parcel",
+                key: "Edit Parcel",
+              },
+              {
+                label: t("admin.delete_parcel") || "Delete Parcel",
+                key: "Delete Parcel",
+              },
             ].map((action) => (
               <Button
-                key={action}
-                onClick={() => handleActionClick(action)}
+                key={action.key}
+                onClick={() => handleActionClick(action.key)}
                 className="h-10 rounded-full bg-[#4a4621] px-4 text-sm font-bold hover:bg-[#5a5531]"
               >
-                {action}
+                {action.label}
               </Button>
             ))}
           </div>
@@ -320,8 +358,8 @@ const ParcelDetails: React.FC = () => {
           <div className="w-[90%] md:w-1/2 h-[90%] bg-[#232110] rounded-lg">
             <header className="flex justify-between items-center border-b border-[#f9e106] py-3 px-4">
               <h2 className="text-lg font-bold">
-                {modelData.type === "Add" 
-                  ? t("admin.add_tracking") || "Add Tracking" 
+                {modelData.type === "Add"
+                  ? t("admin.add_tracking") || "Add Tracking"
                   : t("admin.edit_tracking") || "Edit Tracking"}
               </h2>
               <Button

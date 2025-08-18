@@ -23,9 +23,9 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     if (!authenticated) {
       Swal.fire({
-        title: t("admin.unauthorized_title") || "Unauthorized",
+        title: t("alerts.unauthorized") || "Unauthorized",
         text:
-          t("admin.unauthorized_text") ||
+          t("alerts.authorization_error") ||
           "Please log in to access the dashboard.",
         icon: "warning",
         background: "#232110",
@@ -84,11 +84,23 @@ const AdminDashboard: React.FC = () => {
               {t("common.header_title") || "United Parcel Service"}
             </h2>
           </div>
-          <nav>
-            <Link to="/" className="hover:underline">
-              {t("header.requests") || "Requests"}
+          <nav className="flex items-center gap-x-5">
+            <Link
+              to="/home"
+              className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
+            >
+              {t("header.home") || "Home"}
             </Link>
-            <Link to="/" className="hover:underline">
+            <Link
+              to="/address-change-request"
+              className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
+            >
+              {t("header.request") || "Requests"}
+            </Link>
+            <Link
+              to="/customer-support"
+              className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
+            >
               {t("header.messages") || "Messages"}
             </Link>
           </nav>

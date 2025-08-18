@@ -68,7 +68,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/parcel/:id/edit",
-    element: <EditShipment onLogout={() => {}} />,
+    element: (
+      <EditShipment
+        onLogout={() => {
+          window.location.href = "/admin-dashboard";
+        }}
+      />
+    ),
     action: updateShipment,
   },
   {
