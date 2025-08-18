@@ -22,43 +22,51 @@ const initialState: TInitialState = {
 export const createShipment = createAsyncThunk(
   "shipment/addShipment",
   async (shipmentData: IShipment, { rejectWithValue }) => {
-    console.log("Creating shipment with data:", shipmentData);
-    const { data, error } = await supabase
-      .from("shipment")
-      .insert(shipmentData)
-      .select("*");
+    try {
+      const { data, error } = await supabase
+        .from("shipment")
+        .insert(shipmentData)
+        .select("*");
 
-    if (data && data[0]?.length < 1) {
-      return rejectWithValue("Failed to create shipment");
-    }
+      if (error || !data || data.length < 1) {
+        return rejectWithValue("Failed to create shipment");
+      }
 
-    const { error: statusError } = await supabase
-      .from("transport_history")
-      .insert({
-        parcel_id: data![0].parcel_id,
-        current_location: data![0].origin,
-        current_date: data![0].pickup_date,
-        current_time: formatTimeStampIntoTime(data![0].created_at),
-      });
-    if (statusError || error) {
-      console.error(statusError);
-      return rejectWithValue("Failed to add shipment");
+      const { error: statusError } = await supabase
+        .from("transport_history")
+        .insert({
+          parcel_id: data[0].parcel_id,
+          current_location: data[0].origin,
+          current_date: data[0].pickup_date,
+          current_time: formatTimeStampIntoTime(data[0].created_at),
+        });
+
+      if (statusError) return rejectWithValue("Failed to add shipment");
+
+      return data[0] as IShipment;
+    } catch (err) {
+      return rejectWithValue(
+        (err as { message: string }).message || "Error updating shipment"
+      );
     }
-    return data[0] as IShipment;
   }
 );
 
 export const deleteShipmentById = createAsyncThunk(
   "shipment/deleteShipmentById",
   async (id: string, { rejectWithValue }) => {
-    const { error } = await supabase
-      .from("shipment")
-      .delete()
-      .eq("parcel_id", id);
-    if (error) {
-      return rejectWithValue("Failed to delete shipment");
+    try {
+      const { error } = await supabase
+        .from("shipment")
+        .delete()
+        .eq("parcel_id", id);
+      if (error) return rejectWithValue("Failed to delete shipment");
+      return id;
+    } catch (err) {
+      return rejectWithValue(
+        (err as { message: string }).message || "Error updating shipment"
+      );
     }
-    return id;
   }
 );
 
@@ -71,68 +79,66 @@ export const updateShipmentById = createAsyncThunk(
     }: { parcelId: string; shipmentData: Partial<IShipment> },
     { rejectWithValue }
   ) => {
-    const { data, error } = await supabase
-      .from("shipment")
-      .update(shipmentData)
-      .eq("parcel_id", parcelId)
-      .select("*")
-      .single();
+    try {
+      const { data, error } = await supabase
+        .from("shipment")
+        .update(shipmentData)
+        .eq("parcel_id", parcelId)
+        .select("*")
+        .single();
 
-    if (error) {
-      console.error("Update error:", error.message);
-      return rejectWithValue("Failed to update shipment");
-    }
+      if (error) return rejectWithValue("Failed to update shipment");
+      if (!data) return rejectWithValue("No shipment found");
 
-    if (!data) {
-      return rejectWithValue("No shipment found with the provided ID");
-    }
+      if (
+        shipmentData.status ||
+        shipmentData.origin ||
+        shipmentData.destination
+      ) {
+        const { error: statusError } = await supabase
+          .from("transport_history")
+          .insert({
+            parcel_id: parcelId,
+            current_location: shipmentData.origin || data.origin,
+            current_date: shipmentData.pickup_date || data.pickup_date,
+            current_time: formatTimeStampIntoTime(Date.now()),
+          });
 
-    if (
-      shipmentData.status ||
-      shipmentData.origin ||
-      shipmentData.destination
-    ) {
-      const { error: statusError } = await supabase
-        .from("transport_history")
-        .insert({
-          parcel_id: parcelId,
-          current_location: shipmentData.origin || data.origin,
-          current_date: shipmentData.pickup_date || data.pickup_date,
-          current_time: formatTimeStampIntoTime(Date.now()),
-        });
-
-      if (statusError) {
-        console.error("Transport history update error:", statusError.message);
-        return rejectWithValue("Failed to update transport history");
+        if (statusError)
+          return rejectWithValue("Failed to update transport history");
       }
-    }
 
-    return data as IShipment;
+      return data as IShipment;
+    } catch (err) {
+      return rejectWithValue(
+        (err as { message: string }).message || "Error updating shipment"
+      );
+    }
   }
 );
 
 export const fetchShipments = createAsyncThunk(
   "shipment/fetchShipments",
   async (_, { rejectWithValue }) => {
-    const { data, error } = await supabase.from("shipment").select(`
-      *,
-      transport_history (
-        parcel_id,
-        transport_id,
-        current_location,
-        current_date,
-        current_country,
-        current_time
-      )
-    `);
+    try {
+      const { data, error } = await supabase.from("shipment").select(`
+        *,
+        transport_history (
+          parcel_id,
+          transport_id,
+          current_location,
+          current_date,
+          current_country,
+          current_time
+        )
+      `);
 
-    if (error) {
-      return rejectWithValue(error.message);
-    }
-    let shipments: IShipment[] | null = null;
+      if (error) return rejectWithValue(error.message);
 
-    if (data && data.length > 0) {
-      shipments = await Promise.all(
+      if (!data || data.length === 0) return []; // return empty array instead of null
+
+      // Process transport history asynchronously
+      const shipments: IShipment[] = await Promise.all(
         data.map(async (shipment: IShipment) => {
           const { transport_history, ...rest } = shipment;
 
@@ -145,7 +151,6 @@ export const fetchShipments = createAsyncThunk(
                   )}&country=${encodeURIComponent(history.current_country)}`
                 );
                 const coordinates = await res.json();
-
                 return {
                   ...history,
                   coordinates:
@@ -156,8 +161,7 @@ export const fetchShipments = createAsyncThunk(
                         ] as [number, number])
                       : null,
                 };
-              } catch (err) {
-                console.error(err);
+              } catch {
                 return { ...history, coordinates: null };
               }
             })
@@ -169,17 +173,19 @@ export const fetchShipments = createAsyncThunk(
           };
         })
       );
-    }
 
-    return shipments ? shipments : null;
+      return shipments;
+    } catch (err) {
+      return rejectWithValue(
+        (err as { message: string }).message || "Error updating shipment"
+      );
+    }
   }
 );
 
 export const deleteAll = createAsyncThunk("shipment/deleteAll", async () => {
   const { data, error } = await supabase.from("shipment").delete();
-  if (error) {
-    throw new Error("Failed to delete all shipments");
-  }
+  if (error) throw new Error("Failed to delete all shipments");
   return data;
 });
 
@@ -188,10 +194,10 @@ const shipmentReducer = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(createShipment.pending, (state) => {
-      state.loading = true;
-    });
     builder
+      .addCase(createShipment.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(createShipment.fulfilled, (state, { payload }) => {
         state.shipment.push(payload);
         state.loading = false;
@@ -200,25 +206,25 @@ const shipmentReducer = createSlice({
         state.error = payload as string;
         state.loading = false;
       })
-      .addCase(fetchShipments.fulfilled, (state, { payload }) => {
-        if (!payload) return;
-        state.shipment = payload;
-        state.loading = false;
-      })
       .addCase(fetchShipments.pending, (state) => {
         state.loading = true;
+      })
+      .addCase(fetchShipments.fulfilled, (state, { payload }) => {
+        state.shipment = payload || [];
+        state.loading = false;
       })
       .addCase(fetchShipments.rejected, (state, { payload }) => {
         state.error = payload as string;
         state.loading = false;
       })
+      .addCase(deleteShipmentById.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(deleteShipmentById.fulfilled, (state, { payload }) => {
         state.shipment = state.shipment.filter(
           (item) => item.parcel_id !== payload
         );
-      })
-      .addCase(deleteShipmentById.pending, (state) => {
-        state.loading = true;
+        state.loading = false;
       })
       .addCase(deleteShipmentById.rejected, (state, { payload }) => {
         state.error = payload as string;
