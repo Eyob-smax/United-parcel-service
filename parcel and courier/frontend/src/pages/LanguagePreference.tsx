@@ -14,7 +14,7 @@ export default function LanguagePreference() {
 
     const id = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 2000);
     return () => clearTimeout(id);
   }, []);
 
