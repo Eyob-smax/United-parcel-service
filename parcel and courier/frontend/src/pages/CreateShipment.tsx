@@ -381,11 +381,11 @@ const CreateShipment: React.FC = () => {
             { value: "pending", label: t("admin.status_pending") || "Pending" },
             {
               value: "shipped off",
-              label: t("admin.status_shipped_off") || "Shipped off",
+              label: t("admin.status_shipped") || "Shipped off",
             },
             {
               value: "on transit",
-              label: t("admin.status_on_transit") || "On transit",
+              label: t("admin.status_transit") || "On transit",
             },
             {
               value: "delivered",
