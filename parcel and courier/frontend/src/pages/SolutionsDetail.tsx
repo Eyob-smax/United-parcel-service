@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { FaTruck } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -118,7 +117,12 @@ const SolutionsDetail: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-[#181811] font-['Space_Grotesk','Noto_Sans',sans-serif]">
       <header className="flex flex-col md:flex-row items-center justify-between border-b border-[#3a3927] px-4 md:px-10 py-3">
         <div className="flex items-center gap-4 text-white">
-          <FaTruck className="w-5 h-5" />
+          <div className="w-4 h-4">
+            <img
+              src="https://i.postimg.cc/nLNLjrc5/DADF8527-8603-4857-AAF0-4308-D15-C512-C.jpg"
+              alt="logo"
+            />
+          </div>
           <h2 className="text-lg font-bold tracking-[-0.015em]">
             {t("common.header_title") || "United Parcel Service"}
           </h2>

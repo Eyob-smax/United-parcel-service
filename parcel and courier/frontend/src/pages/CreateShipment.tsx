@@ -190,7 +190,6 @@ const CreateShipment: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Validation
     const requiredFields: (keyof FormData)[] = [
       "parcelId",
       "senderName",
@@ -342,7 +341,6 @@ const CreateShipment: React.FC = () => {
                 />
               ))}
 
-              {/* Image Upload */}
               <section className="py-4">
                 <h3 className="text-lg font-bold tracking-tight px-4 pb-2 text-white">
                   {t("admin.upload_image") || "Upload Package Image"}

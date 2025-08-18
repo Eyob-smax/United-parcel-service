@@ -130,16 +130,10 @@ const App = () => {
         <header className="flex items-center justify-between border-b border-[#3a3927] px-4 py-3 sm:px-6 md:px-10">
           <div className="flex items-center gap-4 text-white">
             <div className="w-4 h-4">
-              <svg
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+              <img
+                src="https://i.postimg.cc/nLNLjrc5/DADF8527-8603-4857-AAF0-4308-D15-C512-C.jpg"
+                alt="logo"
+              />
             </div>
             <h2
               onClick={() => scrollIntoSection("home")}

@@ -178,20 +178,13 @@ const CustomerService: React.FC = () => {
       style={{ fontFamily: '"Space Grotesk", "Noto Sans", sans-serif' }}
     >
       <div className="layout-container flex h-full grow flex-col">
-        {/* Header */}
         <header className="flex flex-col sm:flex-row items-center justify-between border-b border-b-[#4a4621] px-4 sm:px-6 md:px-10 py-3">
           <div className="flex items-center gap-4 text-white">
             <div className="w-4 h-4">
-              <svg
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+              <img
+                src="https://i.postimg.cc/nLNLjrc5/DADF8527-8603-4857-AAF0-4308-D15-C512-C.jpg"
+                alt="logo"
+              />
             </div>
             <Link to="/home" className="text-white text-lg font-bold">
               {t("common.header_title")}
@@ -221,7 +214,6 @@ const CustomerService: React.FC = () => {
           </nav>
         </header>
 
-        {/* Content */}
         <main className="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
           <div className="layout-content-container flex flex-col w-full max-w-5xl py-5">
             <header className="flex flex-wrap justify-between gap-3 p-4">
@@ -236,7 +228,6 @@ const CustomerService: React.FC = () => {
               </div>
             </header>
 
-            {/* Loading Indicator */}
             {loading ? (
               <div className="flex justify-center items-center py-10">
                 <div className="h-10 w-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
@@ -257,7 +248,6 @@ const CustomerService: React.FC = () => {
         </main>
       </div>
 
-      {/* Image Popup Modal */}
       {selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
           <button

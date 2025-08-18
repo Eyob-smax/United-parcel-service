@@ -219,7 +219,12 @@ export default function ShipmentTracker() {
           onClick={() => navigate("/home")}
           className="flex items-center gap-3"
         >
-          <FaTruck size={24} className="text-[#f9e106]" />
+          <div className="w-4 h-4">
+            <img
+              src="https://i.postimg.cc/nLNLjrc5/DADF8527-8603-4857-AAF0-4308-D15-C512-C.jpg"
+              alt="logo"
+            />
+          </div>
           <h1 className="text-lg font-bold">
             {t("common.header_title") || "United Parcel Service"}
           </h1>

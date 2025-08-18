@@ -158,9 +158,12 @@ const ParcelDetails: React.FC = () => {
     <div className="flex min-h-screen flex-col bg-[#232110] font-[Space Grotesk, Noto Sans, sans-serif] text-white">
       <header className="flex items-center justify-between border-b border-[#4a4621] px-10 py-3">
         <div className="flex items-center gap-4">
-          <svg className="h-4 w-4" viewBox="0 0 48 48" fill="currentColor">
-            <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" />
-          </svg>
+          <div className="w-4 h-4">
+            <img
+              src="https://i.postimg.cc/nLNLjrc5/DADF8527-8603-4857-AAF0-4308-D15-C512-C.jpg"
+              alt="logo"
+            />
+          </div>
           <h2 className="text-lg font-bold tracking-tight">
             {t("common.header_title") || "United parcel services"}
           </h2>
