@@ -18,13 +18,9 @@ interface FormData {
   origin: string;
   destination: string;
   packageDescription: string;
-  packageWeight: string;
-  packageDimensions: string;
   pickupDate: string;
   deliveryDate: string;
   status: "pending" | "shipped off" | "on transit" | "delivered";
-  package_name: string;
-  quantity: number;
 }
 
 interface FormField {
@@ -40,29 +36,41 @@ interface FormSectionProps {
   fields: FormField[];
   formData: FormData;
   onInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => void;
 }
 
 const FormInput: React.FC<
   FormField & {
-    value: string | number;
+    value: string;
     onChange: (
-      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      >
     ) => void;
   }
 > = ({ label, name, placeholder, type = "text", value, onChange, options }) => (
-  <div className="flex flex-col w-full sm:w-1/2 lg:w-1/3 px-2 py-3">
-    <label htmlFor={name} className="flex flex-col relative">
+  <div className="flex w-full max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+    <label htmlFor={name} className="flex flex-col min-w-40 flex-1">
       <p className="text-base font-medium pb-2 text-white">{label}</p>
-
-      {options ? (
+      {type === "textarea" ? (
+        <textarea
+          name={name}
+          id={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-32 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
+        />
+      ) : options ? (
         <select
           name={name}
           id={name}
           value={value}
           onChange={onChange}
-          className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-3 text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
+          className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>
@@ -71,21 +79,20 @@ const FormInput: React.FC<
           ))}
         </select>
       ) : (
-        <div className="relative">
+        <div className="flex w-full items-stretch rounded-lg">
           <input
-            id={name}
             name={name}
+            id={name}
             type={type}
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-3 text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
+            className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
           />
           {type === "date" && (
-            <FaCalendarAlt
-              className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-[#bbba9b]"
-              size={20}
-            />
+            <div className="flex items-center justify-center pr-[15px] rounded-r-lg border border-[#55553a] border-l-0 bg-[#27271b]">
+              <FaCalendarAlt className="text-[#bbba9b]" size={24} />
+            </div>
           )}
         </div>
       )}
@@ -100,19 +107,17 @@ const FormSection: React.FC<FormSectionProps> = ({
   onInputChange,
 }) => (
   <section className="py-4">
-    <h3 className="text-lg font-bold tracking-tight px-4 pb-2 text-white">
+    <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 text-white">
       {title}
     </h3>
-    <div className="flex flex-wrap -mx-2">
-      {fields.map((field) => (
-        <FormInput
-          key={field.name}
-          {...field}
-          value={formData[field.name]}
-          onChange={onInputChange}
-        />
-      ))}
-    </div>
+    {fields.map((field) => (
+      <FormInput
+        key={field.name}
+        {...field}
+        value={formData[field.name]}
+        onChange={onInputChange}
+      />
+    ))}
   </section>
 );
 
@@ -133,13 +138,9 @@ const CreateShipment: React.FC = () => {
     origin: "",
     destination: "",
     packageDescription: "",
-    packageWeight: "",
-    packageDimensions: "",
     pickupDate: "",
     deliveryDate: "",
     status: "pending",
-    package_name: "",
-    quantity: 1,
   });
 
   const [image, setImage] = useState<File | null>(null);
@@ -157,8 +158,8 @@ const CreateShipment: React.FC = () => {
         background: "#232110",
         color: "#bbba9b",
         confirmButtonText: t("common.ok") || "OK",
-      }).then(({ isConfirmed }) => {
-        if (isConfirmed) navigate("/");
+      }).then(() => {
+        navigate("/home");
       });
     }
   }, [authenticated, navigate, t]);
@@ -166,12 +167,16 @@ const CreateShipment: React.FC = () => {
   useEffect(() => {
     setIsMounted(true);
     return () => {
-      if (imagePreview) URL.revokeObjectURL(imagePreview);
+      if (imagePreview && imagePreview.startsWith("blob:")) {
+        URL.revokeObjectURL(imagePreview);
+      }
     };
   }, [imagePreview]);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -200,10 +205,10 @@ const CreateShipment: React.FC = () => {
       "recipientPhone",
       "origin",
       "destination",
-      "package_name",
-      "quantity",
+      "packageDescription",
       "pickupDate",
       "deliveryDate",
+      "status",
     ];
     for (const field of requiredFields) {
       if (!formData[field]) {
@@ -225,10 +230,23 @@ const CreateShipment: React.FC = () => {
     Object.entries(formData).forEach(([key, value]) => {
       payload.append(key, value.toString());
     });
-    if (image) payload.append("image", image);
+    if (image) payload.append("imageUrl", image);
 
-    fetcher.submit(payload, { method: "post" });
+    fetcher.submit(payload, { method: "post", encType: "multipart/form-data" });
   };
+
+  if (fetcher.state === "submitting" || fetcher.state === "loading") {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#232110]">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-20 h-20 rounded-full bg-[#f9e106] animate-pulse" />
+          <p className="text-white font-semibold">
+            {t("admin.creating_shipment") || "Creating Shipment..."}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const formSections: { title: string; fields: FormField[] }[] = [
     {
@@ -237,18 +255,80 @@ const CreateShipment: React.FC = () => {
         {
           label: t("admin.parcel_id") || "Parcel ID",
           name: "parcelId",
-          placeholder: t("admin.enter_parcel_id") || "Enter Parcel ID",
+          placeholder: t("admin.enter_parcel_id") || "Enter parcel ID",
+        },
+      ],
+    },
+    {
+      title: t("admin.sender_details") || "Sender Details",
+      fields: [
+        {
+          label: t("login-forms.common.username") || "Name",
+          name: "senderName",
+          placeholder: t("admin.enter_sender_name") || "Enter sender's name",
         },
         {
-          label: t("admin.package_name") || "Package Name",
-          name: "package_name",
-          placeholder: t("admin.enter_package_name") || "Enter package name",
+          label: t("admin.address") || "Address",
+          name: "senderAddress",
+          placeholder:
+            t("admin.enter_sender_address") || "Enter sender's address",
         },
         {
-          label: t("admin.quantity") || "Quantity",
-          name: "quantity",
-          placeholder: t("admin.enter_quantity") || "Enter quantity",
-          type: "number",
+          label: t("admin.phone_number") || "Phone Number",
+          name: "senderPhone",
+          placeholder:
+            t("admin.enter_sender_phone") || "Enter sender's phone number",
+        },
+      ],
+    },
+    {
+      title: t("admin.recipient_details") || "Recipient Details",
+      fields: [
+        {
+          label: t("login-forms.common.username") || "Name",
+          name: "recipientName",
+          placeholder:
+            t("admin.enter_recipient_name") || "Enter recipient's name",
+        },
+        {
+          label: t("admin.address") || "Address",
+          name: "recipientAddress",
+          placeholder:
+            t("admin.enter_recipient_address") || "Enter recipient's address",
+        },
+        {
+          label: t("admin.phone_number") || "Phone Number",
+          name: "recipientPhone",
+          placeholder:
+            t("admin.enter_recipient_phone") ||
+            "Enter recipient's phone number",
+        },
+      ],
+    },
+    {
+      title: t("admin.origin_destination") || "Origin & Destination",
+      fields: [
+        {
+          label: t("admin.origin") || "Origin",
+          name: "origin",
+          placeholder: t("admin.enter_origin") || "Enter origin",
+        },
+        {
+          label: t("admin.destination") || "Destination",
+          name: "destination",
+          placeholder: t("admin.enter_destination") || "Enter destination",
+        },
+      ],
+    },
+    {
+      title: t("admin.package_details") || "Package Details",
+      fields: [
+        {
+          label: t("admin.description") || "Description",
+          name: "packageDescription",
+          placeholder:
+            t("admin.enter_package_desc") || "Enter package description",
+          type: "textarea",
         },
       ],
     },
@@ -270,17 +350,42 @@ const CreateShipment: React.FC = () => {
         },
       ],
     },
+    {
+      title: t("admin.transport_info") || "Transport Information",
+      fields: [
+        {
+          label: t("admin.status") || "Status",
+          name: "status",
+          placeholder: t("admin.select_status") || "Select status",
+          options: [
+            { value: "pending", label: t("admin.status_pending") || "Pending" },
+            {
+              value: "shipped off",
+              label: t("admin.status_shipped") || "Shipped off",
+            },
+            {
+              value: "on transit",
+              label: t("admin.status_transit") || "On transit",
+            },
+            {
+              value: "delivered",
+              label: t("admin.status_delivered") || "Delivered",
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col bg-[#181811] text-white font-['Space_Grotesk','Noto_Sans',sans-serif]"
+      className="min-h-screen flex flex-col bg-[#181811] font-['Space_Grotesk','Noto_Sans',sans-serif] text-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: isMounted ? 1 : 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
     >
-      <div className="flex flex-col lg:flex-row flex-1 max-w-7xl mx-auto py-5 px-4 sm:px-6 gap-4 lg:gap-6">
-        <div className="flex flex-col w-full lg:w-64 xl:w-80">
+      <div className="flex flex-col md:flex-row flex-1 justify-center py-5 px-4 sm:px-6 gap-4 md:gap-6">
+        <div className="flex flex-col w-full md:w-80">
           <motion.div
             className="flex flex-col justify-between bg-[#181811] p-4"
             initial={{ x: -20, opacity: 0 }}
@@ -289,48 +394,50 @@ const CreateShipment: React.FC = () => {
           >
             <div className="flex flex-col gap-4">
               <motion.button
-                className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#3a3927] text-white"
+                className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#3a3927]"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <FaPlus size={24} />
-                <p className="text-sm font-medium">
+                <p className="text-white text-sm font-medium">
                   {t("admin.create_shipment") || "Create Shipment"}
                 </p>
               </motion.button>
               <motion.button
                 onClick={() => navigate("/admin-dashboard")}
-                className="flex items-center gap-3 px-3 py-2 text-white"
+                className="flex items-center gap-3 px-3 py-2"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <FaDoorOpen size={24} />
-                <p className="text-sm font-medium">
-                  {t("admin.logout") || "Logout"}
+                <p className="text-white text-sm font-medium">
+                  {t("common.back") || "Back"}
                 </p>
               </motion.button>
             </div>
           </motion.div>
         </div>
-
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full md:max-w-[960px]">
           <motion.div
-            className="flex justify-between items-center p-4"
+            className="flex flex-wrap justify-between gap-3 p-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            <p className="text-2xl sm:text-[32px] font-bold tracking-tight">
               {t("admin.create_shipment") || "Create Shipment"}
-            </h2>
+            </p>
           </motion.div>
-
           <motion.section
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <fetcher.Form method="post" onSubmit={handleSubmit}>
+            <fetcher.Form
+              method="post"
+              encType="multipart/form-data"
+              onSubmit={handleSubmit}
+            >
               {formSections.map((section, index) => (
                 <FormSection
                   key={index}
@@ -340,59 +447,64 @@ const CreateShipment: React.FC = () => {
                   onInputChange={handleInputChange}
                 />
               ))}
-
-              <section className="py-4">
-                <h3 className="text-lg font-bold tracking-tight px-4 pb-2 text-white">
-                  {t("admin.upload_image") || "Upload Package Image"}
-                </h3>
-                <div className="flex flex-col p-4">
-                  <motion.div
-                    className="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#55553a] px-6 py-14"
-                    initial={{ scale: 0.95, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+              <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
+                {t("admin.upload_image") || "Upload Package Image"}
+              </h3>
+              <div className="flex flex-col p-4">
+                <motion.div
+                  className="flex flex-col items-center gap-6 rounded-lg border-2 border-dashed border-[#55553a] px-6 py-10 sm:py-14"
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <p className="text-lg font-bold tracking-[-0.015em] text-center">
+                    {t("admin.upload_image") || "Upload Image"}
+                  </p>
+                  <p className="text-sm font-normal text-center">
+                    {t("admin.upload_instructions") ||
+                      "Click to upload or drag and drop"}
+                  </p>
+                  <input
+                    type="file"
+                    name="imageUrl"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    className="hidden"
+                    id="image-upload"
+                  />
+                  <motion.label
+                    htmlFor="image-upload"
+                    className="cursor-pointer rounded-lg h-10 px-4 bg-[#3a3927] text-white text-sm font-bold flex items-center justify-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <input
-                      type="file"
-                      name="image"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                      className="hidden"
-                      id="image-upload"
+                    {t("admin.upload") || "Upload"}
+                  </motion.label>
+                  {imagePreview && (
+                    <motion.img
+                      src={imagePreview}
+                      alt="Package Preview"
+                      className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-lg mt-4"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
                     />
-                    <motion.label
-                      htmlFor="image-upload"
-                      className="cursor-pointer rounded-lg h-10 px-4 bg-[#3a3927] text-white text-sm font-bold flex items-center justify-center"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {t("admin.upload") || "Upload"}
-                    </motion.label>
-                    {imagePreview && (
-                      <motion.img
-                        src={imagePreview}
-                        alt="Package Preview"
-                        className="w-32 h-32 object-cover rounded-lg mt-4"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                      />
-                    )}
-                  </motion.div>
-                </div>
-              </section>
-
+                  )}
+                </motion.div>
+              </div>
               <div className="flex px-4 py-3 justify-end">
                 <motion.button
                   type="submit"
-                  className="min-w-[84px] rounded-lg h-10 px-4 bg-[#f9f506] text-[#181811] text-sm font-bold tracking-tight"
+                  className="min-w-[84px] w-full sm:max-w-[480px] rounded-lg h-10 px-4 bg-[#f9f506] text-[#181811] text-sm font-bold tracking-[0.015em]"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                   disabled={fetcher.state !== "idle"}
                 >
-                  {fetcher.state === "idle"
-                    ? t("admin.create_shipment") || "Create Shipment"
-                    : t("admin.creating") || "Creating..."}
+                  <span className="truncate">
+                    {fetcher.state === "idle"
+                      ? t("admin.create_shipment") || "Create Shipment"
+                      : t("admin.creating") || "Creating..."}
+                  </span>
                 </motion.button>
               </div>
             </fetcher.Form>
