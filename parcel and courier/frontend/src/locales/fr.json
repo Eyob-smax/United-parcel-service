@@ -95,7 +95,7 @@
     "package_details": "Détails du colis",
     "description": "Description",
     "enter_package_desc": "Entrez la description du colis",
-     "parcel_details": "Détails du colis",
+    "parcel_details": "Détails du colis",
     "loading_details": "Chargement des détails...",
     "parcel": "Colis",
     "details": "Détails",
@@ -181,13 +181,9 @@
       "subtitle": "Stockage sécurisé et exécution efficace",
       "description": "Gérez votre inventaire et vos expéditions de l'entrepôt à votre porte avec une visibilité complète."
     }
-  }
-<<<<<<< HEAD
-}
-=======
-},
+  },
 
- "tracker": {
+  "tracker": {
     "provide_address": "Fournir une nouvelle adresse",
     "address_placeholder": "ex. Lagos",
     "shipped": "Expédié",
@@ -209,4 +205,3 @@
     "package_preview": "Aperçu du colis"
   }
 }
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

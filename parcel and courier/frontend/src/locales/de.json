@@ -94,11 +94,8 @@
     "updating": "Aktualisierung...",
     "package_details": "Paketdetails",
     "description": "Beschreibung",
-<<<<<<< HEAD
-    "enter_package_desc": "Paketbeschreibung eingeben"
-=======
     "enter_package_desc": "Paketbeschreibung eingeben",
-     "parcel_details": "Paketdetails",
+    "parcel_details": "Paketdetails",
     "loading_details": "Details werden geladen...",
     "parcel": "Paket",
     "details": "Details",
@@ -121,8 +118,6 @@
     "parcel_not_found_text": "Kein Paket mit dieser ID gefunden. Bitte erstellen Sie eines!",
     "network_error": "Netzwerkfehler",
     "estimated_delivery": "Voraussichtliches Lieferdatum"
-  
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   },
 
   "services": {
@@ -187,13 +182,9 @@
       "subtitle": "Sichere Lagerung und effiziente Abwicklung",
       "description": "Verwalten Sie Ihren Bestand und Ihre Sendungen vom Lager bis zur Haustür mit vollständiger Transparenz."
     }
-  }
-<<<<<<< HEAD
-}
-=======
-},
+  },
 
-"tracker": {
+  "tracker": {
     "provide_address": "Neue Adresse angeben",
     "address_placeholder": "z.B. Lagos",
     "shipped": "Versandt",
@@ -215,4 +206,3 @@
     "package_preview": "Paketvorschau"
   }
 }
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

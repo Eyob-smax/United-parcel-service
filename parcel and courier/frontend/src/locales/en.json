@@ -180,10 +180,7 @@
       "subtitle": "Secure storage and efficient fulfillment",
       "description": "Manage your inventory and shipments from warehouse to doorstep with full visibility."
     }
-  }
-<<<<<<< HEAD
-=======
-},
+  },
 
   "tracker": {
     "provide_address": "Provide new Address",
@@ -206,5 +203,4 @@
     "or_whatsapp": "or WhatsApp",
     "package_preview": "Package preview"
   }
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
 }

@@ -93,11 +93,8 @@
     "updating": "جارٍ التحديث...",
     "package_details": "تفاصيل الطرد",
     "description": "الوصف",
-<<<<<<< HEAD
-    "enter_package_desc": "أدخل وصف الطرد"
-=======
     "enter_package_desc": "أدخل وصف الطرد",
-     "parcel_details": "تفاصيل الطرد",
+    "parcel_details": "تفاصيل الطرد",
     "loading_details": "جارٍ تحميل التفاصيل...",
     "parcel": "الطرد",
     "details": "التفاصيل",
@@ -120,8 +117,6 @@
     "parcel_not_found_text": "لا يوجد طرد بالمعرف المحدد. يرجى إنشاء واحد!",
     "network_error": "خطأ في الشبكة",
     "estimated_delivery": "تاريخ التسليم المتوقع"
-  
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   },
   "services": {
     "express_delivery": "توصيل سريع",
@@ -185,13 +180,9 @@
       "subtitle": "تخزين آمن وتنفيذ فعال",
       "description": "إدارة المخزون والشحنات من المستودع إلى الباب مع رؤية كاملة."
     }
-  }
-<<<<<<< HEAD
-}
-=======
-},
+  },
 
-"tracker": {
+  "tracker": {
     "provide_address": "تقديم عنوان جديد",
     "address_placeholder": "مثال: لاغوس",
     "shipped": "تم الشحن",
@@ -213,4 +204,3 @@
     "package_preview": "معاينة الطرد"
   }
 }
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

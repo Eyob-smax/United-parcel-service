@@ -94,12 +94,8 @@
     "updating": "更新中...",
     "package_details": "荷物の詳細",
     "description": "説明",
-<<<<<<< HEAD
-    "enter_package_desc": "荷物の説明を入力してください"
-  },
-=======
     "enter_package_desc": "荷物の説明を入力してください",
-     "parcel_details": "荷物詳細",
+    "parcel_details": "荷物詳細",
     "loading_details": "詳細を読み込み中...",
     "parcel": "荷物",
     "details": "詳細",
@@ -122,9 +118,7 @@
     "parcel_not_found_text": "指定されたIDの荷物はありません。作成してください！",
     "network_error": "ネットワークエラー",
     "estimated_delivery": "予定配達日"
-  }
-,
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
+  },
   "services": {
     "express_delivery": "速達配達",
     "express_desc": "緊急貨物の迅速で信頼性の高い配達",
@@ -187,13 +181,9 @@
       "subtitle": "安全な保管と効率的な履行",
       "description": "倉庫から玄関先まで完全な可視性を持って在庫と配送を管理します。"
     }
-  }
-<<<<<<< HEAD
-}
-=======
-},
+  },
 
-"tracker": {
+  "tracker": {
     "provide_address": "新しい住所を提供",
     "address_placeholder": "例: ラゴス",
     "shipped": "出荷済み",
@@ -215,4 +205,3 @@
     "package_preview": "荷物プレビュー"
   }
 }
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

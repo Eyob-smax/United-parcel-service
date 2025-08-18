@@ -95,7 +95,7 @@
     "package_details": "Detalles del paquete",
     "description": "Descripción",
     "enter_package_desc": "Ingrese descripción del paquete",
-       "parcel_details": "Detalles del paquete",
+    "parcel_details": "Detalles del paquete",
     "loading_details": "Cargando detalles...",
     "parcel": "Paquete",
     "details": "Detalles",
@@ -118,7 +118,6 @@
     "parcel_not_found_text": "No se encontró ningún paquete con el ID proporcionado. ¡Por favor crea uno!",
     "network_error": "Error de red",
     "estimated_delivery": "Fecha estimada de entrega"
-  
   },
   "services": {
     "express_delivery": "Entrega exprés",
@@ -182,13 +181,9 @@
       "subtitle": "Almacenamiento seguro y cumplimiento eficiente",
       "description": "Administre su inventario y envíos desde el almacén hasta la puerta con visibilidad completa."
     }
-  }
-<<<<<<< HEAD
-}
-=======
-},
+  },
 
- "tracker": {
+  "tracker": {
     "provide_address": "Proporcionar nueva dirección",
     "address_placeholder": "ej. Lagos",
     "shipped": "Enviado",
@@ -210,4 +205,3 @@
     "package_preview": "Vista previa del paquete"
   }
 }
->>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
