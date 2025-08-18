@@ -42,6 +42,25 @@ const RequestTable: React.FC<{
   onImageClick: (img: string) => void;
 }> = ({ requests, onImageClick }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch<TAppDispatch>();
+
+  function deleteMessage(id?: string) {
+    if (!id) return;
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, keep it",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // Call your delete API here
+        await dispatch(deleteMessage(id));
+        Swal.fire("Deleted!", "Your message has been deleted.", "success");
+      }
+    });
+  }
   return (
     <div className="hidden md:flex overflow-hidden rounded-xl border border-[#6a642f] bg-[#232110]">
       <table className="w-full">
@@ -80,6 +99,12 @@ const RequestTable: React.FC<{
                 >
                   <Mail className="h-4 w-4" />{" "}
                   {t("customer-support.send_email")}
+                </Button>
+                <Button
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black flex items-center gap-2"
+                  onClick={() => deleteMessage(req?.support_id)}
+                >
+                  <Mail className="h-4 w-4" /> {t("admin.delete")}
                 </Button>
               </td>
             </tr>

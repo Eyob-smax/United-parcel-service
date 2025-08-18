@@ -72,6 +72,20 @@ export const fetchMessages = createAsyncThunk(
   }
 );
 
+export const deleteMessageById = createAsyncThunk(
+  "customerSupport/deleteMessage",
+  async (id: string, { rejectWithValue }) => {
+    const { error } = await supabase
+      .from("customer_support")
+      .delete()
+      .eq("support_id", id);
+    if (error) {
+      return rejectWithValue(error.message);
+    }
+    return id;
+  }
+);
+
 const customerSupportSlice = createSlice({
   name: "customerSupport",
   initialState,
@@ -102,6 +116,18 @@ const customerSupportSlice = createSlice({
       .addCase(createMessage.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
+      })
+      .addCase(deleteMessageById.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteMessageById.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.messages = state.messages.filter(
+          (message) => message.support_id !== payload
+        );
+      })
+      .addCase(deleteMessageById.rejected, (state, { payload }) => {
+        state.error = payload as string;
       });
   },
 });
