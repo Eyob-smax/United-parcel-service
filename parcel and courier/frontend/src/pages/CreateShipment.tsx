@@ -18,9 +18,13 @@ interface FormData {
   origin: string;
   destination: string;
   packageDescription: string;
+  packageWeight: string;
+  packageDimensions: string;
   pickupDate: string;
   deliveryDate: string;
   status: "pending" | "shipped off" | "on transit" | "delivered";
+  package_name: string;
+  quantity: number;
 }
 
 interface FormField {
@@ -44,7 +48,7 @@ interface FormSectionProps {
 
 const FormInput: React.FC<
   FormField & {
-    value: string;
+    value: string | number;
     onChange: (
       e: React.ChangeEvent<
         HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -138,9 +142,13 @@ const CreateShipment: React.FC = () => {
     origin: "",
     destination: "",
     packageDescription: "",
+    packageWeight: "",
+    packageDimensions: "",
     pickupDate: "",
     deliveryDate: "",
     status: "pending",
+    package_name: "",
+    quantity: 1,
   });
 
   const [image, setImage] = useState<File | null>(null);
@@ -206,9 +214,13 @@ const CreateShipment: React.FC = () => {
       "origin",
       "destination",
       "packageDescription",
+      "packageWeight",
+      "packageDimensions",
       "pickupDate",
       "deliveryDate",
       "status",
+      "package_name",
+      "quantity",
     ];
     for (const field of requiredFields) {
       if (!formData[field]) {
@@ -256,6 +268,17 @@ const CreateShipment: React.FC = () => {
           label: t("admin.parcel_id") || "Parcel ID",
           name: "parcelId",
           placeholder: t("admin.enter_parcel_id") || "Enter parcel ID",
+        },
+        {
+          label: t("admin.package_name") || "Package Name",
+          name: "package_name",
+          placeholder: t("admin.enter_package_name") || "Enter package name",
+        },
+        {
+          label: t("admin.quantity") || "Quantity",
+          name: "quantity",
+          placeholder: t("admin.enter_quantity") || "Enter quantity",
+          type: "number",
         },
       ],
     },
@@ -329,6 +352,18 @@ const CreateShipment: React.FC = () => {
           placeholder:
             t("admin.enter_package_desc") || "Enter package description",
           type: "textarea",
+        },
+        {
+          label: t("admin.package_weight") || "Package Weight",
+          name: "packageWeight",
+          placeholder:
+            t("admin.enter_package_weight") || "Enter package weight",
+        },
+        {
+          label: t("admin.package_dimensions") || "Package Dimensions",
+          name: "packageDimensions",
+          placeholder:
+            t("admin.enter_package_dimensions") || "Enter package dimensions",
         },
       ],
     },
