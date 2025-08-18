@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, Package } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import type { IShipment } from "@/lib/types";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,7 +67,7 @@ const AdminDashboard: React.FC = () => {
       <header className="flex items-center justify-between border-b border-[#4a4621] px-4 sm:px-8 lg:px-20 py-3">
         <div
           onClick={() => navigate("/home")}
-          className="flex w-full justify-between items-center gap-6"
+          className="flex w-full justify-between items-center gap-6 cursor-pointer"
         >
           <div className="flex items-center gap-3">
             <svg className="h-5 w-5" viewBox="0 0 48 48" fill="none">
@@ -172,9 +172,20 @@ const AdminDashboard: React.FC = () => {
                 </div>
               ))
             ) : (
-              <p className="text-center text-[#ccc68e]">
-                {t("admin.no_results") || "No results found"}
-              </p>
+              <div className="flex flex-col items-center justify-center mt-20 gap-4">
+                <div className="p-10 bg-[#3a3620] rounded-2xl flex flex-col items-center gap-4">
+                  <Package size={48} className="text-[#f9f506]" />
+                  <p className="text-center text-lg text-[#ccc68e]">
+                    {t("admin.no_shipments") || "No shipments found."}
+                  </p>
+                  <Link
+                    to="/create-shipment"
+                    className="mt-2 rounded-full bg-[#f9f506] px-5 py-2 text-black font-semibold hover:bg-yellow-400 transition"
+                  >
+                    {t("admin.create_shipment") || "Create a Shipment"}
+                  </Link>
+                </div>
+              </div>
             )}
           </div>
         </div>
