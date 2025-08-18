@@ -7,6 +7,7 @@ import type { TAppDispatch, TRootState } from "@/app/store";
 import { fetchShipments } from "@/features/shipmentSlice";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
 
 const AdminDashboard: React.FC = () => {
   const { t } = useTranslation();
@@ -65,10 +66,7 @@ const AdminDashboard: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col bg-[#232110] font-[Space Grotesk, Noto Sans, sans-serif] text-white">
       <header className="flex items-center justify-between border-b border-[#4a4621] px-4 sm:px-8 lg:px-20 py-3">
-        <div
-          onClick={() => navigate("/home")}
-          className="flex w-full justify-between items-center gap-6 cursor-pointer"
-        >
+        <div className="flex w-full justify-between items-center gap-6 cursor-pointer">
           <div className="flex items-center gap-3">
             <div className="w-4 h-4">
               <img
@@ -81,24 +79,24 @@ const AdminDashboard: React.FC = () => {
             </h2>
           </div>
           <nav className="flex items-center gap-x-5">
-            <Link
-              to="/home"
+            <Button
+              onClick={() => navigate("/home")}
               className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
             >
               {t("header.home") || "Home"}
-            </Link>
-            <Link
-              to="/address-change-request"
+            </Button>
+            <Button
+              onClick={() => navigate("/address-change-request")}
               className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
             >
               {t("header.request") || "Requests"}
-            </Link>
-            <Link
-              to="/customer-support"
+            </Button>
+            <Button
+              onClick={() => navigate("/customer-support")}
               className="hover:underline rounded-md px-4 py-1 bg-[#4a4621]"
             >
               {t("header.messages") || "Messages"}
-            </Link>
+            </Button>
           </nav>
         </div>
       </header>

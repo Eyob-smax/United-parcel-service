@@ -132,7 +132,6 @@ const CustomerService: React.FC = () => {
   const navigate = useNavigate();
   const { authenticated } = useSelector((state: TRootState) => state.user);
 
-  /** Unauthorized check */
   useEffect(() => {
     if (!authenticated) {
       Swal.fire({
