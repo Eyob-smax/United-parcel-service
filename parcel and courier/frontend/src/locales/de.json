@@ -94,7 +94,35 @@
     "updating": "Aktualisierung...",
     "package_details": "Paketdetails",
     "description": "Beschreibung",
+<<<<<<< HEAD
     "enter_package_desc": "Paketbeschreibung eingeben"
+=======
+    "enter_package_desc": "Paketbeschreibung eingeben",
+     "parcel_details": "Paketdetails",
+    "loading_details": "Details werden geladen...",
+    "parcel": "Paket",
+    "details": "Details",
+    "tracking_history": "Sendungsverlauf",
+    "edit_parcel": "Paket bearbeiten",
+    "delete_parcel": "Paket löschen",
+    "confirm_delete": "Sind Sie sicher?",
+    "cannot_undo": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "confirm_delete_button": "Ja, löschen!",
+    "deleted": "Gelöscht!",
+    "parcel_deleted": "Paket erfolgreich gelöscht",
+    "delete_tracking_warning": "Sie sind dabei, Tracking-Details zu löschen",
+    "delete": "Löschen",
+    "add": "Hinzufügen",
+    "edit": "Bearbeiten",
+    "add_tracking": "Tracking hinzufügen",
+    "edit_tracking": "Tracking bearbeiten",
+    "dashboard": "Dashboard",
+    "parcel_not_found": "Paket nicht gefunden",
+    "parcel_not_found_text": "Kein Paket mit dieser ID gefunden. Bitte erstellen Sie eines!",
+    "network_error": "Netzwerkfehler",
+    "estimated_delivery": "Voraussichtliches Lieferdatum"
+  
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   },
 
   "services": {
@@ -160,4 +188,31 @@
       "description": "Verwalten Sie Ihren Bestand und Ihre Sendungen vom Lager bis zur Haustür mit vollständiger Transparenz."
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+"tracker": {
+    "provide_address": "Neue Adresse angeben",
+    "address_placeholder": "z.B. Lagos",
+    "shipped": "Versandt",
+    "delivered": "Geliefert",
+    "in_transit": "Unterwegs",
+    "success": "Erfolg!",
+    "address_submitted": "Adressänderung eingereicht.",
+    "loading_info": "Lade Tracking-Informationen...",
+    "tracking_details": "Sendungsverfolgung",
+    "tracking_id": "Sendungsnummer",
+    "package_info": "Paketinformationen",
+    "estimated_delivery": "Voraussichtliche Lieferung",
+    "view_details": "Details anzeigen",
+    "map_route": "Karte & Route",
+    "change_address": "Lieferadresse ändern?",
+    "shipment_progress": "Sendungsstatus",
+    "contact_us": "Kontaktieren Sie uns unter",
+    "or_whatsapp": "oder WhatsApp",
+    "package_preview": "Paketvorschau"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

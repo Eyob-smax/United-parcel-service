@@ -26,6 +26,7 @@
     "contact": "联系",
     "updates": "更新"
   },
+<<<<<<< HEAD
 
   "login-forms": {
     "common": {
@@ -97,6 +98,87 @@
     "description": "描述",
     "enter_package_desc": "输入包裹描述"
   },
+=======
+ "admin": {
+  "unauthorized_title": "未授权",
+  "unauthorized_text": "请登录以访问控制面板。",
+  "loading_shipments": "正在加载货件...",
+  "shipments": "货件",
+  "create_shipment": "创建新货件",
+  "search_placeholder": "按运单号、起点、终点或状态搜索",
+  "parcel_id": "包裹编号",
+  "origin": "起点",
+  "destination": "终点",
+  "status": "状态",
+  "view_details": "查看详情",
+  "creating_shipment": "正在创建货件...",
+  "parcel_info": "包裹信息",
+  "enter_parcel_id": "输入包裹编号",
+  "package_name": "包裹名称",
+  "enter_package_name": "输入包裹名称",
+  "quantity": "数量",
+  "enter_quantity": "输入包裹数量",
+  "sender_details": "寄件人信息",
+  "enter_sender_name": "输入寄件人姓名",
+  "address": "地址",
+  "enter_sender_address": "输入寄件人地址",
+  "phone_number": "电话号码",
+  "enter_sender_phone": "输入寄件人电话号码",
+  "recipient_details": "收件人信息",
+  "enter_recipient_name": "输入收件人姓名",
+  "enter_recipient_address": "输入收件人地址",
+  "enter_recipient_phone": "输入收件人电话号码",
+  "origin_destination": "起点与终点",
+  "enter_origin": "输入起点",
+  "enter_destination": "输入终点",
+  "upload_image": "上传包裹图片",
+  "upload_instructions": "点击上传或拖拽到此处",
+  "upload": "上传",
+  "shipping_dates": "运输日期",
+  "pickup_date": "取件日期",
+  "select_pickup_date": "选择取件日期",
+  "delivery_date": "送达日期",
+  "select_delivery_date": "选择送达日期",
+  "transport_info": "运输信息",
+  "status_pending": "待处理",
+  "status_shipped": "已发货",
+  "status_transit": "运输中",
+  "status_delivered": "已送达",
+  "creating": "正在创建...",
+  "logout": "退出登录",
+  "edit_shipment": "编辑货运",
+  "updating_shipment": "正在更新货运...",
+  "update_shipment": "更新货运",
+  "updating": "正在更新...",
+  "package_details": "包裹详情",
+  "description": "描述",
+  "enter_package_desc": "输入包裹描述",
+  "parcel_details": "包裹详情",
+    "loading_details": "正在加载详情...",
+    "parcel": "包裹",
+    "details": "详情",
+    "tracking_history": "追踪历史",
+    "edit_parcel": "编辑包裹",
+    "delete_parcel": "删除包裹",
+    "confirm_delete": "您确定吗？",
+    "cannot_undo": "此操作无法撤消。",
+    "confirm_delete_button": "是的，删除它！",
+    "deleted": "已删除！",
+    "parcel_deleted": "包裹删除成功",
+    "delete_tracking_warning": "您即将删除追踪详情",
+    "delete": "删除",
+    "add": "添加",
+    "edit": "编辑",
+    "add_tracking": "添加追踪",
+    "edit_tracking": "编辑追踪",
+    "dashboard": "仪表板",
+    "parcel_not_found": "未找到包裹",
+    "parcel_not_found_text": "没有找到指定ID的包裹。请创建一个！",
+    "network_error": "网络错误",
+    "estimated_delivery": "预计送达日期"
+}
+,
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   "services": {
     "express_delivery": "快递服务",
     "express_desc": "快速可靠的紧急货物交付",
@@ -160,4 +242,31 @@
       "description": "从仓库到门阶，全程可视化管理您的库存和运输。"
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+  "tracker": {
+    "provide_address": "提供新地址",
+    "address_placeholder": "例如：拉各斯",
+    "shipped": "已发货",
+    "delivered": "已送达",
+    "in_transit": "运输中",
+    "success": "成功！",
+    "address_submitted": "地址变更已提交。",
+    "loading_info": "正在加载追踪信息...",
+    "tracking_details": "追踪详情",
+    "tracking_id": "追踪ID",
+    "package_info": "包裹信息",
+    "estimated_delivery": "预计送达日期",
+    "view_details": "查看详情",
+    "map_route": "地图和路线",
+    "change_address": "需要更改送货地址？",
+    "shipment_progress": "货运进度",
+    "contact_us": "联系我们",
+    "or_whatsapp": "或WhatsApp",
+    "package_preview": "包裹预览"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

@@ -94,8 +94,37 @@
     "updating": "更新中...",
     "package_details": "荷物の詳細",
     "description": "説明",
+<<<<<<< HEAD
     "enter_package_desc": "荷物の説明を入力してください"
   },
+=======
+    "enter_package_desc": "荷物の説明を入力してください",
+     "parcel_details": "荷物詳細",
+    "loading_details": "詳細を読み込み中...",
+    "parcel": "荷物",
+    "details": "詳細",
+    "tracking_history": "追跡履歴",
+    "edit_parcel": "荷物を編集",
+    "delete_parcel": "荷物を削除",
+    "confirm_delete": "本当によろしいですか？",
+    "cannot_undo": "この操作は元に戻せません。",
+    "confirm_delete_button": "はい、削除します！",
+    "deleted": "削除しました！",
+    "parcel_deleted": "荷物が正常に削除されました",
+    "delete_tracking_warning": "追跡詳細を削除しようとしています",
+    "delete": "削除",
+    "add": "追加",
+    "edit": "編集",
+    "add_tracking": "追跡を追加",
+    "edit_tracking": "追跡を編集",
+    "dashboard": "ダッシュボード",
+    "parcel_not_found": "荷物が見つかりません",
+    "parcel_not_found_text": "指定されたIDの荷物はありません。作成してください！",
+    "network_error": "ネットワークエラー",
+    "estimated_delivery": "予定配達日"
+  }
+,
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   "services": {
     "express_delivery": "速達配達",
     "express_desc": "緊急貨物の迅速で信頼性の高い配達",
@@ -159,4 +188,31 @@
       "description": "倉庫から玄関先まで完全な可視性を持って在庫と配送を管理します。"
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+"tracker": {
+    "provide_address": "新しい住所を提供",
+    "address_placeholder": "例: ラゴス",
+    "shipped": "出荷済み",
+    "delivered": "配達済み",
+    "in_transit": "輸送中",
+    "success": "成功!",
+    "address_submitted": "住所変更が提出されました。",
+    "loading_info": "追跡情報を読み込み中...",
+    "tracking_details": "追跡詳細",
+    "tracking_id": "追跡ID",
+    "package_info": "荷物情報",
+    "estimated_delivery": "予定配達日",
+    "view_details": "詳細を表示",
+    "map_route": "地図とルート",
+    "change_address": "配達先住所を変更しますか？",
+    "shipment_progress": "配送状況",
+    "contact_us": "お問い合わせは",
+    "or_whatsapp": "またはWhatsApp",
+    "package_preview": "荷物プレビュー"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

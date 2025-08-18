@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Button } from "@/components/ui/button";
 import TrackingForm from "./TrackingForm";
+import { useTranslation } from "react-i18next";
 
 import type { TAppDispatch, TRootState } from "@/app/store";
 import { deleteShipmentById, fetchShipments } from "@/features/shipmentSlice";
@@ -17,6 +18,7 @@ type TModelData = {
 };
 
 const ParcelDetails: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch<TAppDispatch>();
   const { id } = useParams<{ id: string }>();
@@ -36,12 +38,12 @@ const ParcelDetails: React.FC = () => {
 
   if (!authenticated) {
     Swal.fire({
-      title: "Unauthorized",
-      text: "Please log in to create a shipment.",
+      title: t("admin.unauthorized_title") || "Unauthorized",
+      text: t("admin.unauthorized_text") || "Please log in to view parcel details.",
       icon: "warning",
       background: "#232110",
       color: "#bbba9b",
-      confirmButtonText: "OK",
+      confirmButtonText: t("common.ok") || "OK",
     }).then(({ isConfirmed }) => {
       if (isConfirmed) {
         navigate("/");
@@ -62,39 +64,43 @@ const ParcelDetails: React.FC = () => {
     if (!error) return;
     Swal.fire({
       icon: "error",
-      title: "Network Error",
+      title: t("admin.network_error") || "Network Error",
       text: error,
-      confirmButtonText: "Retry",
+      confirmButtonText: t("common.retry") || "Retry",
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(fetchShipments());
       }
     });
-  }, [error, dispatch]);
+  }, [error, dispatch, t]);
 
   useEffect(() => {
     if (shipments.length && !currentShipment) {
       Swal.fire({
-        title: "Parcel Not Found",
-        text: "No parcel with the given ID. Please create one!",
+        title: t("admin.parcel_not_found") || "Parcel Not Found",
+        text: t("admin.parcel_not_found_text") || "No parcel with the given ID. Please create one!",
         icon: "error",
       }).then(() => navigate("/admin_dashboard", { replace: true }));
     }
-  }, [shipments, currentShipment, navigate]);
+  }, [shipments, currentShipment, navigate, t]);
 
   async function handleActionClick(action: string) {
     if (action === "Delete Parcel" && id) {
       const result = await Swal.fire({
-        title: "Are you sure?",
-        text: "This action cannot be undone.",
+        title: t("admin.confirm_delete") || "Are you sure?",
+        text: t("admin.cannot_undo") || "This action cannot be undone.",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText: t("admin.confirm_delete_button") || "Yes, delete it!",
       });
 
       if (result.isConfirmed) {
         await dispatch(deleteShipmentById(id));
-        await Swal.fire("Deleted!", "Parcel deleted successfully", "success");
+        await Swal.fire(
+          t("admin.deleted") || "Deleted!",
+          t("admin.parcel_deleted") || "Parcel deleted successfully",
+          "success"
+        );
         navigate("/admin-dashboard", { replace: true });
       }
     }
@@ -108,10 +114,10 @@ const ParcelDetails: React.FC = () => {
     if (action === "DELETE") {
       const result = await Swal.fire({
         icon: "warning",
-        title: "Are you sure?",
-        text: "You're about to delete tracking details",
+        title: t("admin.confirm_delete") || "Are you sure?",
+        text: t("admin.delete_tracking_warning") || "You're about to delete tracking details",
         showCancelButton: true,
-        confirmButtonText: "Delete",
+        confirmButtonText: t("admin.delete") || "Delete",
       });
 
       if (result.isConfirmed) {
@@ -124,7 +130,7 @@ const ParcelDetails: React.FC = () => {
   function openModel(action: "Edit" | "Add", event: ITransportHistory) {
     setIsTrackingEditorOpen(true);
     setModelData({
-      transportData: action === "Add" ? event : null,
+      transportData: action === "Add" ? null : event,
       type: action,
     });
   }
@@ -134,7 +140,9 @@ const ParcelDetails: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-[#232110]">
         <div className="flex flex-col items-center gap-4">
           <div className="w-20 h-20 rounded-full bg-[#f9e106] animate-pulse" />
-          <p className="text-white font-semibold">Loading details...</p>
+          <p className="text-white font-semibold">
+            {t("admin.loading_details") || "Loading details..."}
+          </p>
         </div>
       </div>
     );
@@ -149,7 +157,7 @@ const ParcelDetails: React.FC = () => {
             <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" />
           </svg>
           <h2 className="text-lg font-bold tracking-tight">
-            United parcel services
+            {t("common.welcome") || "United parcel services"}
           </h2>
         </div>
         <nav>
@@ -157,7 +165,7 @@ const ParcelDetails: React.FC = () => {
             to="/admin-dashboard"
             className="text-sm font-medium hover:text-[#ccc68e]"
           >
-            Dashboard
+            {t("admin.dashboard") || "Dashboard"}
           </Link>
         </nav>
       </header>
@@ -167,21 +175,23 @@ const ParcelDetails: React.FC = () => {
         <div className="flex max-w-[960px] flex-1 flex-col">
           {/* Breadcrumb */}
           <div className="flex gap-2 p-4 text-[#ccc68e]">
-            <a href="#">Admin Dashboard</a>
+            <a href="#">{t("admin.dashboard") || "Admin Dashboard"}</a>
             <span>/</span>
-            <span className="text-white">Parcel Details</span>
+            <span className="text-white">
+              {t("admin.parcel_details") || "Parcel Details"}
+            </span>
           </div>
 
           {/* Title + Back */}
           <div className="flex flex-wrap items-center justify-between p-4">
             <h1 className="text-3xl font-bold">
-              Parcel Details / {currentShipment.package_name}
+              {t("admin.parcel_details") || "Parcel Details"} / {currentShipment.package_name}
             </h1>
             <button
               onClick={() => navigate(-1)}
               className="h-8 rounded-full bg-[#4a4621] px-4 text-sm hover:bg-[#5a5531]"
             >
-              Back
+              {t("common.back") || "Back"}
             </button>
           </div>
 
@@ -193,25 +203,34 @@ const ParcelDetails: React.FC = () => {
             />
             <div className="min-w-72 flex flex-col gap-1 py-4 xl:px-4">
               <p className="text-lg font-bold">
-                Parcel #{currentShipment.parcel_id}
+                {t("admin.parcel") || "Parcel"} #{currentShipment.parcel_id}
               </p>
               <p className="text-base text-[#ccc68e]">
-                Quantity: {currentShipment.quantity} | Package Name:{" "}
+                {t("admin.quantity") || "Quantity"}: {currentShipment.quantity} |{" "}
+                {t("admin.package_name") || "Package Name"}:{" "}
                 {currentShipment.package_name}
               </p>
             </div>
           </div>
 
           {/* Details */}
-          <h2 className="px-4 pt-5 pb-3 text-[22px] font-bold">Details</h2>
+          <h2 className="px-4 pt-5 pb-3 text-[22px] font-bold">
+            {t("admin.details") || "Details"}
+          </h2>
           <div className="grid grid-cols-[20%_1fr] gap-x-6 p-4">
             {[
-              { label: "Origin", value: currentShipment.origin },
-              { label: "Destination", value: currentShipment.destination },
-              { label: "Status", value: currentShipment.status },
-              { label: "Pickup date", value: currentShipment.pickup_date },
+              { label: t("admin.origin") || "Origin", value: currentShipment.origin },
+              { 
+                label: t("admin.destination") || "Destination", 
+                value: currentShipment.destination 
+              },
+              { label: t("admin.status") || "Status", value: currentShipment.status },
+              { 
+                label: t("admin.pickup_date") || "Pickup date", 
+                value: currentShipment.pickup_date 
+              },
               {
-                label: "Estimated delivery date",
+                label: t("admin.estimated_delivery") || "Estimated delivery date",
                 value: currentShipment.delivery_date,
               },
             ].map(({ label, value }) => (
@@ -227,7 +246,7 @@ const ParcelDetails: React.FC = () => {
 
           {/* Tracking History */}
           <h2 className="px-4 pt-5 pb-3 text-[22px] font-bold">
-            Tracking History
+            {t("admin.tracking_history") || "Tracking History"}
           </h2>
           <div className="grid grid-cols-[40px_1fr_1fr] gap-x-6 px-4">
             {currentShipment.transport_history?.map((event) => (
@@ -256,13 +275,13 @@ const ParcelDetails: React.FC = () => {
                     onClick={() => openModel("Add", event)}
                     className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
                   >
-                    Add
+                    {t("admin.add") || "Add"}
                   </Button>
                   <Button
                     onClick={() => openModel("Edit", event)}
                     className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
                   >
-                    Edit
+                    {t("admin.edit") || "Edit"}
                   </Button>
                   <Button
                     onClick={() =>
@@ -270,7 +289,7 @@ const ParcelDetails: React.FC = () => {
                     }
                     className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
                   >
-                    Delete
+                    {t("admin.delete") || "Delete"}
                   </Button>
                 </div>
               </React.Fragment>
@@ -279,7 +298,10 @@ const ParcelDetails: React.FC = () => {
 
           {/* Actions */}
           <div className="flex gap-3 px-4 py-3">
-            {["Edit Parcel", "Delete Parcel"].map((action) => (
+            {[
+              t("admin.edit_parcel") || "Edit Parcel", 
+              t("admin.delete_parcel") || "Delete Parcel"
+            ].map((action) => (
               <Button
                 key={action}
                 onClick={() => handleActionClick(action)}
@@ -297,12 +319,16 @@ const ParcelDetails: React.FC = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-stone-700 bg-opacity-50 z-50">
           <div className="w-[90%] md:w-1/2 h-[90%] bg-[#232110] rounded-lg">
             <header className="flex justify-between items-center border-b border-[#f9e106] py-3 px-4">
-              <h2 className="text-lg font-bold">{modelData.type} Tracking</h2>
+              <h2 className="text-lg font-bold">
+                {modelData.type === "Add" 
+                  ? t("admin.add_tracking") || "Add Tracking" 
+                  : t("admin.edit_tracking") || "Edit Tracking"}
+              </h2>
               <Button
                 onClick={() => setIsTrackingEditorOpen(false)}
                 className="bg-[#f9e106] text-black"
               >
-                Close
+                {t("common.close") || "Close"}
               </Button>
             </header>
             <TrackingForm

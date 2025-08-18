@@ -26,6 +26,7 @@
     "contact": "संपर्क करें",
     "updates": "अपडेट्स"
   },
+<<<<<<< HEAD
 
   "login-forms": {
     "common": {
@@ -96,6 +97,87 @@
     "description": "विवरण",
     "enter_package_desc": "पैकेज विवरण दर्ज करें"
   },
+=======
+ "admin": {
+  "unauthorized_title": "अनधिकृत",
+  "unauthorized_text": "डैशबोर्ड तक पहुँचने के लिए कृपया लॉगिन करें।",
+  "loading_shipments": "शिपमेंट लोड हो रहे हैं...",
+  "shipments": "शिपमेंट",
+  "create_shipment": "नया शिपमेंट बनाएं",
+  "search_placeholder": "ट्रैकिंग नंबर, मूल, गंतव्य या स्थिति से खोजें",
+  "parcel_id": "पार्सल आईडी",
+  "origin": "मूल",
+  "destination": "गंतव्य",
+  "status": "स्थिति",
+  "view_details": "विवरण देखें",
+  "creating_shipment": "शिपमेंट बनाया जा रहा है...",
+  "parcel_info": "पार्सल जानकारी",
+  "enter_parcel_id": "पार्सल आईडी दर्ज करें",
+  "package_name": "पैकेज का नाम",
+  "enter_package_name": "पैकेज का नाम दर्ज करें",
+  "quantity": "मात्रा",
+  "enter_quantity": "पार्सल की मात्रा दर्ज करें",
+  "sender_details": "प्रेषक विवरण",
+  "enter_sender_name": "प्रेषक का नाम दर्ज करें",
+  "address": "पता",
+  "enter_sender_address": "प्रेषक का पता दर्ज करें",
+  "phone_number": "फ़ोन नंबर",
+  "enter_sender_phone": "प्रेषक का फ़ोन नंबर दर्ज करें",
+  "recipient_details": "प्राप्तकर्ता विवरण",
+  "enter_recipient_name": "प्राप्तकर्ता का नाम दर्ज करें",
+  "enter_recipient_address": "प्राप्तकर्ता का पता दर्ज करें",
+  "enter_recipient_phone": "प्राप्तकर्ता का फ़ोन नंबर दर्ज करें",
+  "origin_destination": "मूल और गंतव्य",
+  "enter_origin": "मूल दर्ज करें",
+  "enter_destination": "गंतव्य दर्ज करें",
+  "upload_image": "पैकेज की छवि अपलोड करें",
+  "upload_instructions": "अपलोड करने के लिए क्लिक करें या ड्रैग और ड्रॉप करें",
+  "upload": "अपलोड करें",
+  "shipping_dates": "शिपिंग तिथियाँ",
+  "pickup_date": "पिकअप तिथि",
+  "select_pickup_date": "पिकअप तिथि चुनें",
+  "delivery_date": "डिलीवरी तिथि",
+  "select_delivery_date": "डिलीवरी तिथि चुनें",
+  "transport_info": "परिवहन जानकारी",
+  "status_pending": "लंबित",
+  "status_shipped": "भेजा गया",
+  "status_transit": "प्रवासन में",
+  "status_delivered": "वितरित",
+  "creating": "बनाया जा रहा है...",
+  "logout": "लॉग आउट",
+  "edit_shipment": "शिपमेंट संपादित करें",
+  "updating_shipment": "शिपमेंट अपडेट किया जा रहा है...",
+  "update_shipment": "शिपमेंट अपडेट करें",
+  "updating": "अपडेट हो रहा है...",
+  "package_details": "पैकेज विवरण",
+  "description": "विवरण",
+  "enter_package_desc": "पैकेज विवरण दर्ज करें",
+  "parcel_details": "पार्सल विवरण",
+    "loading_details": "विवरण लोड हो रहे हैं...",
+    "parcel": "पार्सल",
+    "details": "विवरण",
+    "tracking_history": "ट्रैकिंग इतिहास",
+    "edit_parcel": "पार्सल संपादित करें",
+    "delete_parcel": "पार्सल हटाएं",
+    "confirm_delete": "क्या आप सुनिश्चित हैं?",
+    "cannot_undo": "इस क्रिया को पूर्ववत नहीं किया जा सकता।",
+    "confirm_delete_button": "हाँ, हटा दो!",
+    "deleted": "हटाया गया!",
+    "parcel_deleted": "पार्सल सफलतापूर्वक हटाया गया",
+    "delete_tracking_warning": "आप ट्रैकिंग विवरण हटाने वाले हैं",
+    "delete": "हटाएं",
+    "add": "जोड़ें",
+    "edit": "संपादित करें",
+    "add_tracking": "ट्रैकिंग जोड़ें",
+    "edit_tracking": "ट्रैकिंग संपादित करें",
+    "dashboard": "डैशबोर्ड",
+    "parcel_not_found": "पार्सल नहीं मिला",
+    "parcel_not_found_text": "दिए गए आईडी के साथ कोई पार्सल नहीं मिला। कृपया एक बनाएं!",
+    "network_error": "नेटवर्क त्रुटि",
+    "estimated_delivery": "अनुमानित वितरण तिथि"
+}
+,
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   "services": {
     "express_delivery": "एक्सप्रेस डिलीवरी",
     "express_desc": "जरूरी शिपमेंट के लिए तेज और विश्वसनीय डिलीवरी",
@@ -159,4 +241,31 @@
       "description": "पूर्ण दृश्यता के साथ वेयरहाउस से दरवाजे तक अपनी इन्वेंट्री और शिपमेंट प्रबंधित करें।"
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+"tracker": {
+    "provide_address": "नया पता प्रदान करें",
+    "address_placeholder": "जैसे: लागोस",
+    "shipped": "भेज दिया गया",
+    "delivered": "वितरित",
+    "in_transit": "ट्रांजिट में",
+    "success": "सफलता!",
+    "address_submitted": "पता परिवर्तन सबमिट किया गया।",
+    "loading_info": "ट्रैकिंग जानकारी लोड हो रही है...",
+    "tracking_details": "ट्रैकिंग विवरण",
+    "tracking_id": "ट्रैकिंग आईडी",
+    "package_info": "पैकेज जानकारी",
+    "estimated_delivery": "अनुमानित वितरण तिथि",
+    "view_details": "विवरण देखें",
+    "map_route": "मानचित्र और मार्ग",
+    "change_address": "डिलीवरी पते में बदलाव की आवश्यकता है?",
+    "shipment_progress": "शिपमेंट प्रगति",
+    "contact_us": "हमसे संपर्क करें",
+    "or_whatsapp": "या व्हाट्सएप",
+    "package_preview": "पैकेज पूर्वावलोकन"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

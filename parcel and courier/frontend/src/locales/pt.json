@@ -26,6 +26,7 @@
     "contact": "Contato",
     "updates": "Atualizações"
   },
+<<<<<<< HEAD
   "login-forms": {
     "common": {
       "email": "Email",
@@ -95,6 +96,87 @@
     "description": "Descrição",
     "enter_package_desc": "Insira a descrição do pacote"
   },
+=======
+ "admin": {
+  "unauthorized_title": "Não autorizado",
+  "unauthorized_text": "Por favor, faça login para acessar o painel.",
+  "loading_shipments": "Carregando remessas...",
+  "shipments": "Remessas",
+  "create_shipment": "Criar nova remessa",
+  "search_placeholder": "Pesquisar por número de rastreamento, origem, destino ou status",
+  "parcel_id": "ID do pacote",
+  "origin": "Origem",
+  "destination": "Destino",
+  "status": "Status",
+  "view_details": "Ver detalhes",
+  "creating_shipment": "Criando remessa...",
+  "parcel_info": "Informações do pacote",
+  "enter_parcel_id": "Digite o ID do pacote",
+  "package_name": "Nome do pacote",
+  "enter_package_name": "Digite o nome do pacote",
+  "quantity": "Quantidade",
+  "enter_quantity": "Digite a quantidade do pacote",
+  "sender_details": "Detalhes do remetente",
+  "enter_sender_name": "Digite o nome do remetente",
+  "address": "Endereço",
+  "enter_sender_address": "Digite o endereço do remetente",
+  "phone_number": "Número de telefone",
+  "enter_sender_phone": "Digite o número de telefone do remetente",
+  "recipient_details": "Detalhes do destinatário",
+  "enter_recipient_name": "Digite o nome do destinatário",
+  "enter_recipient_address": "Digite o endereço do destinatário",
+  "enter_recipient_phone": "Digite o número de telefone do destinatário",
+  "origin_destination": "Origem e destino",
+  "enter_origin": "Digite a origem",
+  "enter_destination": "Digite o destino",
+  "upload_image": "Carregar imagem do pacote",
+  "upload_instructions": "Clique para carregar ou arraste e solte",
+  "upload": "Carregar",
+  "shipping_dates": "Datas de envio",
+  "pickup_date": "Data de coleta",
+  "select_pickup_date": "Selecione a data de coleta",
+  "delivery_date": "Data de entrega",
+  "select_delivery_date": "Selecione a data de entrega",
+  "transport_info": "Informações de transporte",
+  "status_pending": "Pendente",
+  "status_shipped": "Enviado",
+  "status_transit": "Em trânsito",
+  "status_delivered": "Entregue",
+  "creating": "Criando...",
+  "logout": "Sair",
+  "edit_shipment": "Editar remessa",
+  "updating_shipment": "Atualizando remessa...",
+  "update_shipment": "Atualizar remessa",
+  "updating": "Atualizando...",
+  "package_details": "Detalhes do pacote",
+  "description": "Descrição",
+  "enter_package_desc": "Insira a descrição do pacote",
+   "parcel_details": "Detalhes da encomenda",
+    "loading_details": "Carregando detalhes...",
+    "parcel": "Encomenda",
+    "details": "Detalhes",
+    "tracking_history": "Histórico de rastreamento",
+    "edit_parcel": "Editar encomenda",
+    "delete_parcel": "Excluir encomenda",
+    "confirm_delete": "Tem certeza?",
+    "cannot_undo": "Esta ação não pode ser desfeita.",
+    "confirm_delete_button": "Sim, exclua!",
+    "deleted": "Excluído!",
+    "parcel_deleted": "Encomenda excluída com sucesso",
+    "delete_tracking_warning": "Você está prestes a excluir detalhes de rastreamento",
+    "delete": "Excluir",
+    "add": "Adicionar",
+    "edit": "Editar",
+    "add_tracking": "Adicionar rastreamento",
+    "edit_tracking": "Editar rastreamento",
+    "dashboard": "Painel",
+    "parcel_not_found": "Encomenda não encontrada",
+    "parcel_not_found_text": "Nenhuma encomenda com o ID fornecido. Por favor, crie uma!",
+    "network_error": "Erro de rede",
+    "estimated_delivery": "Data estimada de entrega"
+}
+,
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   "services": {
     "express_delivery": "Entrega expressa",
     "express_desc": "Entrega rápida e confiável para remessas urgentes",
@@ -158,4 +240,31 @@
       "description": "Gerencie seu inventário e envios do armazém até a porta com visibilidade completa."
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+ "tracker": {
+    "provide_address": "Fornecer novo endereço",
+    "address_placeholder": "ex. Lagos",
+    "shipped": "Enviado",
+    "delivered": "Entregue",
+    "in_transit": "Em trânsito",
+    "success": "Sucesso!",
+    "address_submitted": "Alteração de endereço submetida.",
+    "loading_info": "Carregando informações de rastreamento...",
+    "tracking_details": "Detalhes de rastreamento",
+    "tracking_id": "ID de rastreamento",
+    "package_info": "Informações da encomenda",
+    "estimated_delivery": "Data estimada de entrega",
+    "view_details": "Ver detalhes",
+    "map_route": "Mapa e rota",
+    "change_address": "Precisa alterar o endereço de entrega?",
+    "shipment_progress": "Progresso do envio",
+    "contact_us": "Contate-nos em",
+    "or_whatsapp": "ou WhatsApp",
+    "package_preview": "Pré-visualização da encomenda"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

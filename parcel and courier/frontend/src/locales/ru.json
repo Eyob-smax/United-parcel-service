@@ -26,6 +26,7 @@
     "contact": "Контакты",
     "updates": "Обновления"
   },
+<<<<<<< HEAD
 
   "login-forms": {
     "common": {
@@ -97,6 +98,87 @@
     "description": "Описание",
     "enter_package_desc": "Введите описание посылки"
   },
+=======
+ "admin": {
+  "unauthorized_title": "Не авторизован",
+  "unauthorized_text": "Пожалуйста, войдите, чтобы получить доступ к панели управления.",
+  "loading_shipments": "Загрузка отправлений...",
+  "shipments": "Отправления",
+  "create_shipment": "Создать новое отправление",
+  "search_placeholder": "Поиск по номеру отслеживания, месту отправления, месту назначения или статусу",
+  "parcel_id": "ID посылки",
+  "origin": "Отправление",
+  "destination": "Назначение",
+  "status": "Статус",
+  "view_details": "Посмотреть детали",
+  "creating_shipment": "Создание отправления...",
+  "parcel_info": "Информация о посылке",
+  "enter_parcel_id": "Введите ID посылки",
+  "package_name": "Название посылки",
+  "enter_package_name": "Введите название посылки",
+  "quantity": "Количество",
+  "enter_quantity": "Введите количество посылок",
+  "sender_details": "Данные отправителя",
+  "enter_sender_name": "Введите имя отправителя",
+  "address": "Адрес",
+  "enter_sender_address": "Введите адрес отправителя",
+  "phone_number": "Номер телефона",
+  "enter_sender_phone": "Введите телефон отправителя",
+  "recipient_details": "Данные получателя",
+  "enter_recipient_name": "Введите имя получателя",
+  "enter_recipient_address": "Введите адрес получателя",
+  "enter_recipient_phone": "Введите телефон получателя",
+  "origin_destination": "Отправление и назначение",
+  "enter_origin": "Введите место отправления",
+  "enter_destination": "Введите место назначения",
+  "upload_image": "Загрузить изображение посылки",
+  "upload_instructions": "Нажмите для загрузки или перетащите файл",
+  "upload": "Загрузить",
+  "shipping_dates": "Даты отправки",
+  "pickup_date": "Дата забора",
+  "select_pickup_date": "Выберите дату забора",
+  "delivery_date": "Дата доставки",
+  "select_delivery_date": "Выберите дату доставки",
+  "transport_info": "Информация о перевозке",
+  "status_pending": "В ожидании",
+  "status_shipped": "Отправлено",
+  "status_transit": "В пути",
+  "status_delivered": "Доставлено",
+  "creating": "Создание...",
+  "logout": "Выйти",
+  "edit_shipment": "Редактировать отправление",
+  "updating_shipment": "Обновление отправления...",
+  "update_shipment": "Обновить отправление",
+  "updating": "Обновление...",
+  "package_details": "Детали посылки",
+  "description": "Описание",
+  "enter_package_desc": "Введите описание посылки",
+  "parcel_details": "Детали посылки",
+    "loading_details": "Загрузка деталей...",
+    "parcel": "Посылка",
+    "details": "Детали",
+    "tracking_history": "История отслеживания",
+    "edit_parcel": "Редактировать посылку",
+    "delete_parcel": "Удалить посылку",
+    "confirm_delete": "Вы уверены?",
+    "cannot_undo": "Это действие нельзя отменить.",
+    "confirm_delete_button": "Да, удалить!",
+    "deleted": "Удалено!",
+    "parcel_deleted": "Посылка успешно удалена",
+    "delete_tracking_warning": "Вы собираетесь удалить данные отслеживания",
+    "delete": "Удалить",
+    "add": "Добавить",
+    "edit": "Редактировать",
+    "add_tracking": "Добавить отслеживание",
+    "edit_tracking": "Редактировать отслеживание",
+    "dashboard": "Панель управления",
+    "parcel_not_found": "Посылка не найдена",
+    "parcel_not_found_text": "Посылка с указанным ID не найдена. Пожалуйста, создайте её!",
+    "network_error": "Ошибка сети",
+    "estimated_delivery": "Предполагаемая дата доставки"
+}
+,
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   "services": {
     "express_delivery": "Экспресс-доставка",
     "express_desc": "Быстрая и надежная доставка срочных грузов",
@@ -160,4 +242,31 @@
       "description": "Управляйте вашими запасами и отправлениями от склада до двери с полной видимостью."
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+ "tracker": {
+    "provide_address": "Укажите новый адрес",
+    "address_placeholder": "напр. Лагос",
+    "shipped": "Отправлено",
+    "delivered": "Доставлено",
+    "in_transit": "В пути",
+    "success": "Успех!",
+    "address_submitted": "Изменение адреса отправлено.",
+    "loading_info": "Загрузка информации об отслеживании...",
+    "tracking_details": "Детали отслеживания",
+    "tracking_id": "ID отслеживания",
+    "package_info": "Информация о посылке",
+    "estimated_delivery": "Примерная дата доставки",
+    "view_details": "Просмотреть детали",
+    "map_route": "Карта и маршрут",
+    "change_address": "Нужно изменить адрес доставки?",
+    "shipment_progress": "Статус доставки",
+    "contact_us": "Свяжитесь с нами",
+    "or_whatsapp": "или WhatsApp",
+    "package_preview": "Превью посылки"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

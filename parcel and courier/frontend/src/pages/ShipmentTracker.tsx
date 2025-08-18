@@ -20,6 +20,7 @@ import { initRealtime, sendRealtimeEvent } from "@/supabase/supabaseRealTime";
 import { supabase } from "@/supabase/supabase";
 import Swal from "sweetalert2";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
@@ -57,6 +58,7 @@ function AddressForm({
   onSubmit: (value: string) => void;
   onCancel: () => void;
 }) {
+  const { t } = useTranslation();
   const [value, setValue] = useState("");
   return (
     <form
@@ -67,9 +69,9 @@ function AddressForm({
       className="mt-3 space-y-2"
     >
       <label className="block text-sm text-[#ccc68e]">
-        Provide new Address
+        {t("tracker.provide_address") || "Provide new Address"}
         <input
-          placeholder="e.g. Lagos"
+          placeholder={t("tracker.address_placeholder") || "e.g. Lagos"}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           className="mt-1 w-full rounded-md bg-[#232110] border border-[#3b3b2a] px-3 py-2 text-white text-sm"
@@ -77,14 +79,14 @@ function AddressForm({
       </label>
       <div className="flex gap-2 justify-end">
         <Button variant="secondary" onClick={onCancel}>
-          Cancel
+          {t("common.cancel") || "Cancel"}
         </Button>
         <Button
           type="submit"
           variant="secondary"
           className="bg-[#f9e106]  text-[#232110]"
         >
-          Submit
+          {t("common.submit") || "Submit"}
         </Button>
       </div>
     </form>
@@ -99,6 +101,8 @@ function ShipmentProgress({
   transportHistory: IShipment["transport_history"];
   onMarkerClick: (coord: LatLngTuple) => void;
 }) {
+  const { t } = useTranslation();
+  
   return (
     <div className="space-y-4 max-h-full overflow-y-scroll">
       {transportHistory?.map((ev, index) => {
@@ -111,10 +115,10 @@ function ShipmentProgress({
           : FaTruck;
         const color = isFirst ? "#f9e106" : isLast ? "green" : "#f9e106";
         const status = isFirst
-          ? "Shipped"
+          ? t("tracker.shipped") || "Shipped"
           : isLast
-          ? "Delivered"
-          : "In Transit";
+          ? t("tracker.delivered") || "Delivered"
+          : t("tracker.in_transit") || "In Transit";
         return (
           <div
             key={ev.transport_id}
@@ -138,6 +142,7 @@ function ShipmentProgress({
 
 // -------------------- Main Component --------------------
 export default function ShipmentTracker() {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch<TAppDispatch>();
@@ -186,8 +191,8 @@ export default function ShipmentTracker() {
       old_address: shipment.destination!,
     });
     await Swal.fire({
-      title: "Success!",
-      text: "Address change submitted.",
+      title: t("tracker.success") || "Success!",
+      text: t("tracker.address_submitted") || "Address change submitted.",
       icon: "success",
     });
     setShowAddressForm(false);
@@ -203,7 +208,9 @@ export default function ShipmentTracker() {
       <div className="min-h-screen flex items-center justify-center bg-[#232110]">
         <div className="flex flex-col items-center gap-4">
           <div className="w-20 h-20 rounded-full bg-[#f9e106] animate-pulse" />
-          <p className="text-white font-semibold">Loading Tracking Info...</p>
+          <p className="text-white font-semibold">
+            {t("tracker.loading_info") || "Loading Tracking Info..."}
+          </p>
         </div>
       </div>
     );
@@ -215,7 +222,9 @@ export default function ShipmentTracker() {
       <header className="flex flex-wrap items-center justify-between border-b border-[#4a4621] px-4 py-4 sm:px-6">
         <div className="flex items-center gap-3">
           <FaTruck size={24} className="text-[#f9e106]" />
-          <h1 className="text-lg font-bold">United Parcel Service</h1>
+          <h1 className="text-lg font-bold">
+            {t("common.welcome") || "United Parcel Service"}
+          </h1>
         </div>
         <nav className="flex flex-wrap items-center gap-3 mt-2 sm:mt-0 sm:gap-5">
           <Button
@@ -225,10 +234,10 @@ export default function ShipmentTracker() {
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Contact
+            {t("common.contact") || "Contact"}
           </Button>
           <Button className="rounded-full bg-[#4a4621] px-4 py-2 text-sm">
-            Login
+            {t("common.login") || "Login"}
           </Button>
         </nav>
       </header>
@@ -237,18 +246,24 @@ export default function ShipmentTracker() {
         {/* Tracking & Image */}
         <section className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
-            <h2 className="text-xl sm:text-2xl font-bold">Tracking Details</h2>
-            <p className="text-[#ccc68e]">Tracking ID: {shipment?.parcel_id}</p>
+            <h2 className="text-xl sm:text-2xl font-bold">
+              {t("tracker.tracking_details") || "Tracking Details"}
+            </h2>
+            <p className="text-[#ccc68e]">
+              {t("tracker.tracking_id") || "Tracking ID"}: {shipment?.parcel_id}
+            </p>
             <div className="mt-4 bg-[#181811] p-4 rounded-xl">
-              <p className="font-semibold">Package Information</p>
+              <p className="font-semibold">
+                {t("tracker.package_info") || "Package Information"}
+              </p>
               <p className="text-[#ccc68e]">
-                Estimated Delivery: {shipment?.delivery_date}
+                {t("tracker.estimated_delivery") || "Estimated Delivery"}: {shipment?.delivery_date}
               </p>
               <div className="mt-3">
                 <Button
                   onClick={() => navigate(`/parcel/${shipment?.parcel_id}`)}
                 >
-                  View Details
+                  {t("tracker.view_details") || "View Details"}
                 </Button>
               </div>
             </div>
@@ -256,7 +271,7 @@ export default function ShipmentTracker() {
           <div className="w-full md:w-96 mt-2 md:mt-0">
             <img
               src={shipment?.img_url}
-              alt="Package preview"
+              alt={t("tracker.package_preview") || "Package preview"}
               className="w-full h-48 sm:h-56 object-cover rounded-xl shadow-md"
             />
           </div>
@@ -265,7 +280,9 @@ export default function ShipmentTracker() {
         {/* Map & Progress */}
         <section className="mt-6 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-6">
           <div className="bg-[#181811] p-4 rounded-xl">
-            <h3 className="font-semibold mb-3">Map & Route</h3>
+            <h3 className="font-semibold mb-3">
+              {t("tracker.map_route") || "Map & Route"}
+            </h3>
             <MapContainer
               ref={mapRef}
               className="h-64 sm:h-96 w-full rounded-md"
@@ -312,7 +329,7 @@ export default function ShipmentTracker() {
                 className="bg-[#f9e106] text-[#232110]"
                 onClick={() => setShowAddressForm((s) => !s)}
               >
-                Need a change of delivery address?
+                {t("tracker.change_address") || "Need a change of delivery address?"}
               </Button>
             </div>
 
@@ -325,7 +342,9 @@ export default function ShipmentTracker() {
           </div>
 
           <aside className="bg-[#181811] p-4 rounded-xl">
-            <h4 className="font-semibold mb-3">Shipment Progress</h4>
+            <h4 className="font-semibold mb-3">
+              {t("tracker.shipment_progress") || "Shipment Progress"}
+            </h4>
             <ShipmentProgress
               transportHistory={shipment?.transport_history}
               onMarkerClick={setCenter}
@@ -337,14 +356,14 @@ export default function ShipmentTracker() {
           id="contact"
           className="mt-8 text-center text-[#ccc68e] text-sm"
         >
-          Contact us at{" "}
+          {t("tracker.contact_us") || "Contact us at"}{" "}
           <a
             className="text-[#f9e106]"
             href="mailto:unitedparcels880@gmail.com"
           >
             unitedparcels880@gmail.com
           </a>{" "}
-          or WhatsApp{" "}
+          {t("tracker.or_whatsapp") || "or WhatsApp"}{" "}
           <a className="text-[#f9e106]" href="https://wa.me/31610928914">
             +31610928914
           </a>

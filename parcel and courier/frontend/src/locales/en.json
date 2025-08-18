@@ -92,7 +92,30 @@
     "updating": "Updating...",
     "package_details": "Package Details",
     "description": "Description",
-    "enter_package_desc": "Enter package description"
+    "enter_package_desc": "Enter package description",
+    "parcel_details": "Parcel Details",
+    "loading_details": "Loading details...",
+    "parcel": "Parcel",
+    "details": "Details",
+    "tracking_history": "Tracking History",
+    "edit_parcel": "Edit Parcel",
+    "delete_parcel": "Delete Parcel",
+    "confirm_delete": "Are you sure?",
+    "cannot_undo": "This action cannot be undone.",
+    "confirm_delete_button": "Yes, delete it!",
+    "deleted": "Deleted!",
+    "parcel_deleted": "Parcel deleted successfully",
+    "delete_tracking_warning": "You're about to delete tracking details",
+    "delete": "Delete",
+    "add": "Add",
+    "edit": "Edit",
+    "add_tracking": "Add Tracking",
+    "edit_tracking": "Edit Tracking",
+    "dashboard": "Dashboard",
+    "parcel_not_found": "Parcel Not Found",
+    "parcel_not_found_text": "No parcel with the given ID. Please create one!",
+    "network_error": "Network Error",
+    "estimated_delivery": "Estimated delivery date"
   },
   "services": {
     "express_delivery": "Express Delivery",
@@ -158,4 +181,30 @@
       "description": "Manage your inventory and shipments from warehouse to doorstep with full visibility."
     }
   }
+<<<<<<< HEAD
+=======
+},
+
+  "tracker": {
+    "provide_address": "Provide new Address",
+    "address_placeholder": "e.g. Lagos",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "in_transit": "In Transit",
+    "success": "Success!",
+    "address_submitted": "Address change submitted.",
+    "loading_info": "Loading Tracking Info...",
+    "tracking_details": "Tracking Details",
+    "tracking_id": "Tracking ID",
+    "package_info": "Package Information",
+    "estimated_delivery": "Estimated Delivery",
+    "view_details": "View Details",
+    "map_route": "Map & Route",
+    "change_address": "Need a change of delivery address?",
+    "shipment_progress": "Shipment Progress",
+    "contact_us": "Contact us at",
+    "or_whatsapp": "or WhatsApp",
+    "package_preview": "Package preview"
+  }
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
 }

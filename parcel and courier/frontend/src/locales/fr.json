@@ -94,7 +94,30 @@
     "updating": "Mise à jour...",
     "package_details": "Détails du colis",
     "description": "Description",
-    "enter_package_desc": "Entrez la description du colis"
+    "enter_package_desc": "Entrez la description du colis",
+     "parcel_details": "Détails du colis",
+    "loading_details": "Chargement des détails...",
+    "parcel": "Colis",
+    "details": "Détails",
+    "tracking_history": "Historique de suivi",
+    "edit_parcel": "Modifier le colis",
+    "delete_parcel": "Supprimer le colis",
+    "confirm_delete": "Êtes-vous sûr?",
+    "cannot_undo": "Cette action ne peut pas être annulée.",
+    "confirm_delete_button": "Oui, supprimez-le!",
+    "deleted": "Supprimé!",
+    "parcel_deleted": "Colis supprimé avec succès",
+    "delete_tracking_warning": "Vous êtes sur le point de supprimer les détails de suivi",
+    "delete": "Supprimer",
+    "add": "Ajouter",
+    "edit": "Modifier",
+    "add_tracking": "Ajouter un suivi",
+    "edit_tracking": "Modifier le suivi",
+    "dashboard": "Tableau de bord",
+    "parcel_not_found": "Colis non trouvé",
+    "parcel_not_found_text": "Aucun colis avec l'ID donné. Veuillez en créer un!",
+    "network_error": "Erreur réseau",
+    "estimated_delivery": "Date de livraison estimée"
   },
   "services": {
     "express_delivery": "Livraison express",
@@ -159,4 +182,31 @@
       "description": "Gérez votre inventaire et vos expéditions de l'entrepôt à votre porte avec une visibilité complète."
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+ "tracker": {
+    "provide_address": "Fournir une nouvelle adresse",
+    "address_placeholder": "ex. Lagos",
+    "shipped": "Expédié",
+    "delivered": "Livré",
+    "in_transit": "En transit",
+    "success": "Succès!",
+    "address_submitted": "Changement d'adresse soumis.",
+    "loading_info": "Chargement des informations de suivi...",
+    "tracking_details": "Détails de suivi",
+    "tracking_id": "ID de suivi",
+    "package_info": "Informations sur le colis",
+    "estimated_delivery": "Date de livraison estimée",
+    "view_details": "Voir les détails",
+    "map_route": "Carte et itinéraire",
+    "change_address": "Besoin de changer l'adresse de livraison?",
+    "shipment_progress": "Progression de l'expédition",
+    "contact_us": "Contactez-nous à",
+    "or_whatsapp": "ou WhatsApp",
+    "package_preview": "Aperçu du colis"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885

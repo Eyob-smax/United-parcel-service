@@ -93,7 +93,35 @@
     "updating": "جارٍ التحديث...",
     "package_details": "تفاصيل الطرد",
     "description": "الوصف",
+<<<<<<< HEAD
     "enter_package_desc": "أدخل وصف الطرد"
+=======
+    "enter_package_desc": "أدخل وصف الطرد",
+     "parcel_details": "تفاصيل الطرد",
+    "loading_details": "جارٍ تحميل التفاصيل...",
+    "parcel": "الطرد",
+    "details": "التفاصيل",
+    "tracking_history": "سجل التتبع",
+    "edit_parcel": "تعديل الطرد",
+    "delete_parcel": "حذف الطرد",
+    "confirm_delete": "هل أنت متأكد؟",
+    "cannot_undo": "لا يمكن التراجع عن هذا الإجراء.",
+    "confirm_delete_button": "نعم، احذفه!",
+    "deleted": "تم الحذف!",
+    "parcel_deleted": "تم حذف الطرد بنجاح",
+    "delete_tracking_warning": "أنت على وشك حذف تفاصيل التتبع",
+    "delete": "حذف",
+    "add": "إضافة",
+    "edit": "تعديل",
+    "add_tracking": "إضافة تتبع",
+    "edit_tracking": "تعديل التتبع",
+    "dashboard": "لوحة التحكم",
+    "parcel_not_found": "الطرد غير موجود",
+    "parcel_not_found_text": "لا يوجد طرد بالمعرف المحدد. يرجى إنشاء واحد!",
+    "network_error": "خطأ في الشبكة",
+    "estimated_delivery": "تاريخ التسليم المتوقع"
+  
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
   },
   "services": {
     "express_delivery": "توصيل سريع",
@@ -158,4 +186,31 @@
       "description": "إدارة المخزون والشحنات من المستودع إلى الباب مع رؤية كاملة."
     }
   }
+<<<<<<< HEAD
 }
+=======
+},
+
+"tracker": {
+    "provide_address": "تقديم عنوان جديد",
+    "address_placeholder": "مثال: لاغوس",
+    "shipped": "تم الشحن",
+    "delivered": "تم التسليم",
+    "in_transit": "قيد النقل",
+    "success": "نجاح!",
+    "address_submitted": "تم تقديم تغيير العنوان.",
+    "loading_info": "جارٍ تحميل معلومات التتبع...",
+    "tracking_details": "تفاصيل التتبع",
+    "tracking_id": "معرف التتبع",
+    "package_info": "معلومات الطرد",
+    "estimated_delivery": "موعد التسليم المتوقع",
+    "view_details": "عرض التفاصيل",
+    "map_route": "الخريطة والمسار",
+    "change_address": "هل تحتاج إلى تغيير عنوان التسليم؟",
+    "shipment_progress": "تقدم الشحنة",
+    "contact_us": "اتصل بنا على",
+    "or_whatsapp": "أو واتساب",
+    "package_preview": "معاينة الطرد"
+  }
+}
+>>>>>>> 39e8c17b866060213ab18ae9e06fc9dd79066885
