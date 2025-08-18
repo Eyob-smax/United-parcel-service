@@ -392,7 +392,9 @@ const CreateShipment: React.FC = () => {
                   transition={{ duration: 0.3 }}
                   disabled={fetcher.state !== "idle"}
                 >
-                  {fetcher.state === "idle" ? "Create Shipment" : "Creating..."}
+                  {fetcher.state === "idle"
+                    ? t("admin.create_shipment") || "Create Shipment"
+                    : t("admin.creating") || "Creating..."}
                 </motion.button>
               </div>
             </fetcher.Form>
