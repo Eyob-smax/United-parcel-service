@@ -91,7 +91,7 @@ const RequestTable: React.FC<{
               <td className="px-4 py-2 text-[#ccc68e]">
                 <Attachments attachments={req.img_url} onClick={onImageClick} />
               </td>
-              <td className="px-4 py-2">
+              <td className="px-4 py-2 flex items-center justify-between gap-x-4">
                 <Button
                   className="bg-yellow-400 hover:bg-yellow-500 text-black flex items-center gap-2"
                   onClick={() => openGmail(req.email)}
