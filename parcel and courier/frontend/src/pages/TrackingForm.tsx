@@ -18,6 +18,14 @@ interface TrackingFormProps {
   onClose: () => void;
 }
 
+interface FormField {
+  id: string;
+  label: string;
+  placeholder?: string;
+  defaultValue?: string;
+  type: string;
+}
+
 const TrackingForm: React.FC<TrackingFormProps> = ({
   event,
   type,
@@ -27,6 +35,7 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
   const dispatch = useDispatch<TAppDispatch>();
   const { error, loading } = useSelector((state: TRootState) => state.transit);
 
+  /** SweetAlert wrapper */
   const showAlert = useCallback(
     (
       icon: "error" | "warning" | "info" | "success",
@@ -53,24 +62,31 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
     []
   );
 
-  // Show error alert only when error changes
+  /** Show error when state.error changes */
   useEffect(() => {
     if (error) showAlert("error", "Oops...", error, "Retry");
   }, [error, showAlert]);
 
+  /** Form submit */
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget);
 
-      const currentLocation = (
-        formData.get("currentLocation") as string
-      )?.trim();
-      const currentDate = formData.get("currentDate") as string;
-      const currentCountry = (formData.get("currentCountry") as string)?.trim();
-      const transportId = formData.get("transport_id") as string;
+      const payload = {
+        transport_id: formData.get("transport_id") as string,
+        current_location: (formData.get("currentLocation") as string)?.trim(),
+        current_date: formData.get("currentDate") as string,
+        current_time: new Date().toLocaleTimeString(),
+        parcel_id: event.parcel_id,
+        current_country: (formData.get("currentCountry") as string)?.trim(),
+      };
 
-      if (!currentLocation || !currentDate || !currentCountry) {
+      if (
+        !payload.current_location ||
+        !payload.current_date ||
+        !payload.current_country
+      ) {
         showAlert(
           "warning",
           t("alerts.error") || "Missing Fields",
@@ -79,17 +95,11 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
         return;
       }
 
-      const payload = {
-        transport_id: transportId,
-        current_location: currentLocation,
-        current_date: currentDate,
-        current_time: new Date().toLocaleTimeString(),
-        parcel_id: event.parcel_id,
-        current_country: currentCountry,
-      };
-
-      if (type === "Edit") await dispatch(updateTransitHistory(payload));
-      else await dispatch(addTransitHistory(payload));
+      if (type === "Edit") {
+        await dispatch(updateTransitHistory(payload));
+      } else {
+        await dispatch(addTransitHistory(payload));
+      }
 
       await dispatch(fetchShipments());
       onClose();
@@ -97,54 +107,62 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
     [dispatch, event.parcel_id, onClose, type, showAlert, t]
   );
 
-  const inputStyles =
-    "w-full rounded-lg p-4 text-sm font-normal focus:outline-none border border-[#f9e106] placeholder:text-[#bbba9b]";
-
-  const formFields = [
+  /** Abstracted form fields */
+  const formFields: FormField[] = [
     {
       id: "currentLocation",
-      label: "Current Location",
+      label: t("tracking.current_location") || "Current Location",
       placeholder: "e.g Addis Ababa",
       defaultValue: type === "Edit" ? event.current_location : "",
       type: "text",
     },
     {
       id: "currentCountry",
-      label: "Current Country",
+      label: t("tracking.current_country") || "Current Country",
       placeholder: "e.g Ethiopia",
       defaultValue: type === "Edit" ? event.current_country : "",
       type: "text",
     },
     {
       id: "currentDate",
-      label: "Current Date",
-      placeholder: "",
+      label: t("tracking.current_date") || "Current Date",
       defaultValue: type === "Edit" ? event.current_date : "",
       type: "date",
     },
   ];
+
+  /** Small reusable component */
+  const FormFieldInput: React.FC<FormField> = ({
+    id,
+    label,
+    placeholder,
+    defaultValue,
+    type,
+  }) => (
+    <div className="flex flex-col gap-2">
+      <label
+        htmlFor={id}
+        className="text-sm font-medium text-gray-700 dark:text-gray-300"
+      >
+        {label}
+      </label>
+      <Input
+        id={id}
+        name={id}
+        type={type}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+        className="w-full rounded-lg p-4 text-sm font-normal focus:outline-none border border-[#f9e106] placeholder:text-[#bbba9b]"
+      />
+    </div>
+  );
 
   return (
     <div className="w-full px-4 sm:px-6 md:px-10">
       <form onSubmit={handleSubmit} className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {formFields.map((field) => (
-            <div key={field.id} className="flex flex-col gap-2">
-              <label
-                htmlFor={field.id}
-                className="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                {field.label}
-              </label>
-              <Input
-                id={field.id}
-                name={field.id}
-                type={field.type}
-                placeholder={field.placeholder}
-                defaultValue={field.defaultValue}
-                className={inputStyles}
-              />
-            </div>
+            <FormFieldInput key={field.id} {...field} />
           ))}
         </div>
 
