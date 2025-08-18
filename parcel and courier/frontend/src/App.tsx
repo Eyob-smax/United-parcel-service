@@ -449,15 +449,24 @@ const App = () => {
                     onChange={handleInputChange}
                     className="border border-gray-300 p-2 rounded-md"
                   />
-                  <Button
-                    type="submit"
-                    className="bg-[#f9f506] hover:text-white hover:border-[#f9f506] hover:border-1 text-[#181811] p-2 rounded-md font-bold"
-                    disabled={messageLoading}
-                  >
-                    {messageLoading
-                      ? t("common.loading") || "Sending..."
-                      : t("contact.send") || "Send"}
-                  </Button>
+                  <div className="flex items-center justify-between">
+                    <Button
+                      type="submit"
+                      className="bg-[#f9f506] hover:text-white hover:border-[#f9f506] hover:border-1 text-[#181811] p-2 rounded-md font-bold"
+                      disabled={messageLoading}
+                    >
+                      {messageLoading
+                        ? t("common.loading") || "Sending..."
+                        : t("contact.send") || "Send"}
+                    </Button>
+                    <Button
+                      type="submit"
+                      className="bg-[#black] hover:text-white border-[#f9f506] hover:border-1 text-[#181811] p-2 rounded-md font-bold"
+                      disabled={messageLoading}
+                    >
+                      {t("common.back") || "Send"}
+                    </Button>
+                  </div>
                 </form>
               </motion.div>
             )}
