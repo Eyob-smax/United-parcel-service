@@ -110,8 +110,6 @@ const App = () => {
     }
   };
 
-  // Removed redundant isMounted state/effect as opacity can be handled directly in motion
-
   if (initialLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#232110]">
@@ -146,7 +144,7 @@ const App = () => {
               onClick={() => scrollIntoSection("home")}
               className="text-lg font-bold tracking-tight cursor-pointer sm:text-xl"
             >
-              {t("common.welcome") || "United Parcel Services"}
+              {t("common.header_title") || "United Parcel Services"}
             </h2>
           </div>
           <div className="flex items-center gap-4">
@@ -458,7 +456,7 @@ const App = () => {
                   />
                   <Button
                     type="submit"
-                    className="bg-[#f9f506] text-[#181811] p-2 rounded-md font-bold"
+                    className="bg-[#f9f506] hover:text-white hover:border-[#f9f506] hover:border-1 text-[#181811] p-2 rounded-md font-bold"
                     disabled={messageLoading}
                   >
                     {messageLoading

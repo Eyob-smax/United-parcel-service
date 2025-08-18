@@ -70,9 +70,10 @@ export default function Form({
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {forWhich === "admin_login" && t('admin_login.title')}
-            {forWhich === "parcel_tracking" && t('tracking.title')}
-            {forWhich === "language" && t('language.select_language')}
+            {forWhich === "admin_login" && t("admin_login.title")}
+            {forWhich === "parcel_tracking" &&
+              t("login-forms.tracking_login.title")}
+            {forWhich === "language" && t("language.select_language")}
           </motion.h2>
           <motion.div
             className="flex flex-col gap-4 px-4 py-3"
@@ -141,7 +142,9 @@ export default function Form({
                 <div className="flex flex-col gap-2 px-4 py-3 items-start">
                   <label className="flex gap-x-3 min-w-40 flex-1 relative">
                     <FaUser />
-                    <span className="text-sm font-medium">{t('admin_login.username')}</span>
+                    <span className="text-sm font-medium">
+                      {t("admin_login.username")}
+                    </span>
                   </label>
                   <Input
                     value={username}
@@ -149,13 +152,15 @@ export default function Form({
                       setUsername ? setUsername(e.target.value) : null
                     }
                     className="w-full rounded-sm bg-[#353218] border border-[#6a642f] text-white p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#6a642f]"
-                    placeholder={t('admin_login.username_placeholder')}
+                    placeholder={t("admin_login.username_placeholder")}
                   />
                 </div>
                 <div className="flex flex-col gap-2 px-4 py-3 items-start">
                   <label className="flex gap-x-3 min-w-40 flex-1 relative">
                     <FaLock />
-                    <span className="text-sm font-medium">{t('admin_login.password')}</span>
+                    <span className="text-sm font-medium">
+                      {t("admin_login.password")}
+                    </span>
                   </label>
                   <Input
                     value={password}
@@ -164,7 +169,7 @@ export default function Form({
                       setPassword ? setPassword(e.target.value) : null
                     }
                     className="w-full rounded-sm bg-[#353218] border border-[#6a642f] text-white p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#6a642f]"
-                    placeholder={t('admin_login.password_placeholder')}
+                    placeholder={t("admin_login.password_placeholder")}
                   />
                 </div>
               </>
@@ -174,7 +179,9 @@ export default function Form({
               <div className="flex flex-col gap-2 px-4 py-3 items-start">
                 <label className="flex gap-x-3 min-w-40 flex-1 relative">
                   <FaBox />
-                  <span className="text-sm font-medium">{t('tracking.parcel_id')}</span>
+                  <span className="text-sm font-medium">
+                    {t("login-forms.tracking_login.title")}
+                  </span>
                 </label>
                 <Input
                   value={parcelID}
@@ -182,7 +189,7 @@ export default function Form({
                     setParcelID ? setParcelID(e.target.value) : null
                   }
                   className="w-full rounded-xl bg-[#353218] border border-[#6a642f] text-white h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#6a642f]"
-                  placeholder={t('tracking.parcel_id_placeholder')}
+                  placeholder={t("login-forms.tracking_login.placeholder")}
                 />
               </div>
             )}
@@ -199,9 +206,10 @@ export default function Form({
               className="w-[calc(100%-40px)] rounded-md h-10 px-4 bg-[#f9e106] text-[#232110] text-sm font-bold tracking-[0.015em] cursor-pointer"
             >
               <span className="truncate">
-                {forWhich === "parcel_tracking" && t('tracking.track_button')}
-                {forWhich === "admin_login" && t('admin_login.login_button')}
-                {forWhich === "language" && t('common.continue')}
+                {forWhich === "parcel_tracking" &&
+                  t("login-forms.common.track")}
+                {forWhich === "admin_login" && t("admin_login.login_button")}
+                {forWhich === "language" && t("common.continue")}
               </span>
             </motion.button>
           </motion.div>

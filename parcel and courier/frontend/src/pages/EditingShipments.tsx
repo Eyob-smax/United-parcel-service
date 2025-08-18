@@ -57,7 +57,7 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState<boolean>(false);
-
+  console.log(image);
   function onBack() {
     navigate("/admin-dashboard");
   }
@@ -232,7 +232,9 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                       id="parcelId"
                       defaultValue={formData.parcelId}
                       onChange={handleInputChange}
-                      placeholder={t("admin.enter_parcel_id") || "Enter parcel ID"}
+                      placeholder={
+                        t("admin.enter_parcel_id") || "Enter parcel ID"
+                      }
                       readOnly
                       className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
                     />
@@ -245,17 +247,22 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                   {
                     label: t("common.name") || "Name",
                     name: "senderName",
-                    placeholder: t("admin.enter_sender_name") || "Enter sender's name",
+                    placeholder:
+                      t("admin.enter_sender_name") || "Enter sender's name",
                   },
                   {
                     label: t("admin.address") || "Address",
                     name: "senderAddress",
-                    placeholder: t("admin.enter_sender_address") || "Enter sender's address",
+                    placeholder:
+                      t("admin.enter_sender_address") ||
+                      "Enter sender's address",
                   },
                   {
                     label: t("admin.phone_number") || "Phone Number",
                     name: "senderPhone",
-                    placeholder: t("admin.enter_sender_phone") || "Enter sender's phone number",
+                    placeholder:
+                      t("admin.enter_sender_phone") ||
+                      "Enter sender's phone number",
                   },
                 ].map((field) => (
                   <div
@@ -287,17 +294,23 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                   {
                     label: t("common.name") || "Name",
                     name: "recipientName",
-                    placeholder: t("admin.enter_recipient_name") || "Enter recipient's name",
+                    placeholder:
+                      t("admin.enter_recipient_name") ||
+                      "Enter recipient's name",
                   },
                   {
                     label: t("admin.address") || "Address",
                     name: "recipientAddress",
-                    placeholder: t("admin.enter_recipient_address") || "Enter recipient's address",
+                    placeholder:
+                      t("admin.enter_recipient_address") ||
+                      "Enter recipient's address",
                   },
                   {
                     label: t("admin.phone_number") || "Phone Number",
                     name: "recipientPhone",
-                    placeholder: t("admin.enter_recipient_phone") || "Enter recipient's phone number",
+                    placeholder:
+                      t("admin.enter_recipient_phone") ||
+                      "Enter recipient's phone number",
                   },
                 ].map((field) => (
                   <div
@@ -334,7 +347,8 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                   {
                     label: t("admin.destination") || "Destination",
                     name: "destination",
-                    placeholder: t("admin.enter_destination") || "Enter destination",
+                    placeholder:
+                      t("admin.enter_destination") || "Enter destination",
                   },
                 ].map((field) => (
                   <div
@@ -372,7 +386,10 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                       id="packageDescription"
                       defaultValue={formData.packageDescription}
                       onChange={handleInputChange}
-                      placeholder={t("admin.enter_package_desc") || "Enter package description"}
+                      placeholder={
+                        t("admin.enter_package_desc") ||
+                        "Enter package description"
+                      }
                       className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-32 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
                     />
                   </label>
@@ -392,7 +409,8 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                       {t("admin.upload_image") || "Upload Image"}
                     </p>
                     <p className="text-sm font-normal text-center">
-                      {t("admin.upload_instructions") || "Click to upload or drag and drop"}
+                      {t("admin.upload_instructions") ||
+                        "Click to upload or drag and drop"}
                     </p>
                     <input
                       type="file"
@@ -430,12 +448,14 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                   {
                     label: t("admin.pickup_date") || "Pickup Date",
                     name: "pickupDate",
-                    placeholder: t("admin.select_pickup_date") || "Select pickup date",
+                    placeholder:
+                      t("admin.select_pickup_date") || "Select pickup date",
                   },
                   {
                     label: t("admin.delivery_date") || "Delivery Date",
                     name: "deliveryDate",
-                    placeholder: t("admin.select_delivery_date") || "Select delivery date",
+                    placeholder:
+                      t("admin.select_delivery_date") || "Select delivery date",
                   },
                 ].map((field) => (
                   <div

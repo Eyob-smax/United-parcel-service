@@ -47,7 +47,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/create-shipment",
-    element: <CreateShipment onLogout={() => {}} />,
+    element: <CreateShipment />,
     action: shipment,
   },
   {

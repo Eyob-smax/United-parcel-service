@@ -1,5 +1,6 @@
 {
   "common": {
+    "header_title": "United Parcel Services",
     "welcome": "Willkommen bei United Parcel Services",
     "track": "Verfolgen",
     "track_parcel": "Ihr Paket verfolgen",
@@ -17,6 +18,22 @@
     "support": "Support",
     "ok": "OK"
   },
+
+  "login-forms": {
+    "common": {
+      "email": "E-Mail",
+      "password": "Passwort",
+      "login": "Anmelden",
+      "track": "Verfolgen",
+      "parcel_id": "Paket-ID"
+    },
+    "tracking_login": {
+      "title": "Verfolgen Sie Ihr Paket",
+      "description": "Geben Sie Ihre Paket-ID ein, um den Status zu verfolgen",
+      "placeholder": "Paket-ID eingeben"
+    }
+  },
+
   "header": {
     "home": "Startseite",
     "about": "Über uns",
@@ -78,9 +95,8 @@
     "package_details": "Paketdetails",
     "description": "Beschreibung",
     "enter_package_desc": "Paketbeschreibung eingeben"
-  
   },
-  
+
   "services": {
     "express_delivery": "Expresslieferung",
     "express_desc": "Schnelle und zuverlässige Lieferung für dringende Sendungen",
@@ -101,6 +117,7 @@
   },
   "contact": {
     "customer_service": "Kundendienst",
+    "message_sent": "Ihre Nachricht wurde erfolgreich gesendet.",
     "name": "Name",
     "email": "E-Mail",
     "message": "Nachricht",
@@ -116,33 +133,31 @@
     "select_country": "Wählen Sie Ihr Land"
   },
   "about": {
-  "title": "Über SwiftShip",
-  "description": "SwiftShip ist ein weltweit führender Logistikdienstleister mit umfassenden Lösungen für Unternehmen und Privatpersonen. Mit über 100 Jahren Geschichte haben wir uns einen Ruf für Zuverlässigkeit, Innovation und Kundenzufriedenheit erarbeitet. Unsere Dienstleistungen umfassen Paketzustellung, Frachttransport, Lieferkettenmanagement und branchenspezifische Lösungen. Unser modernes Trackingsystem bietet Echtzeit-Überwachung Ihrer Sendungen. Wir verpflichten uns zu Nachhaltigkeit und ethischen Praktiken, minimieren unsere Umweltauswirkungen und leisten positive Beiträge für die Gemeinschaften, denen wir dienen."
-},
-
-
-
-"solutions": {
-  "title": "Versandlösungen",
-  "domestic": {
-    "title": "Inlandsversand",
-    "subtitle": "Schnelle und zuverlässige Lieferung innerhalb des Landes",
-    "description": "SwiftTrack bietet nahtlose Inlandverfolgung mit Echtzeit-Updates und Benachrichtigungen."
+    "title": "Über SwiftShip",
+    "description": "SwiftShip ist ein weltweit führender Logistikdienstleister mit umfassenden Lösungen für Unternehmen und Privatpersonen. Mit über 100 Jahren Geschichte haben wir uns einen Ruf für Zuverlässigkeit, Innovation und Kundenzufriedenheit erarbeitet. Unsere Dienstleistungen umfassen Paketzustellung, Frachttransport, Lieferkettenmanagement und branchenspezifische Lösungen. Unser modernes Trackingsystem bietet Echtzeit-Überwachung Ihrer Sendungen. Wir verpflichten uns zu Nachhaltigkeit und ethischen Praktiken, minimieren unsere Umweltauswirkungen und leisten positive Beiträge für die Gemeinschaften, denen wir dienen."
   },
-  "tracking": {
-    "title": "Echtzeit-Sendungsverfolgung",
-    "subtitle": "Überwachen Sie Ihre Sendungen präzise",
-    "description": "Unsere Plattform bietet minutengenaue Updates zu Ihren Sendungen, sodass Sie in jedem Schritt informiert bleiben."
-  },
-  "specialized": {
-    "title": "Speziallogistik",
-    "subtitle": "Maßgeschneiderte Lösungen für besondere Anforderungen",
-    "description": "Überwachen Sie sensible oder überdimensionale Güter mit spezialisierten Sensoren und Echtzeitberichten."
-  },
-  "warehousing": {
-    "title": "Lagerung und Distribution",
-    "subtitle": "Sichere Lagerung und effiziente Abwicklung",
-    "description": "Verwalten Sie Ihren Bestand und Ihre Sendungen vom Lager bis zur Haustür mit vollständiger Transparenz."
+
+  "solutions": {
+    "title": "Versandlösungen",
+    "domestic": {
+      "title": "Inlandsversand",
+      "subtitle": "Schnelle und zuverlässige Lieferung innerhalb des Landes",
+      "description": "SwiftTrack bietet nahtlose Inlandverfolgung mit Echtzeit-Updates und Benachrichtigungen."
+    },
+    "tracking": {
+      "title": "Echtzeit-Sendungsverfolgung",
+      "subtitle": "Überwachen Sie Ihre Sendungen präzise",
+      "description": "Unsere Plattform bietet minutengenaue Updates zu Ihren Sendungen, sodass Sie in jedem Schritt informiert bleiben."
+    },
+    "specialized": {
+      "title": "Speziallogistik",
+      "subtitle": "Maßgeschneiderte Lösungen für besondere Anforderungen",
+      "description": "Überwachen Sie sensible oder überdimensionale Güter mit spezialisierten Sensoren und Echtzeitberichten."
+    },
+    "warehousing": {
+      "title": "Lagerung und Distribution",
+      "subtitle": "Sichere Lagerung und effiziente Abwicklung",
+      "description": "Verwalten Sie Ihren Bestand und Ihre Sendungen vom Lager bis zur Haustür mit vollständiger Transparenz."
+    }
   }
-}
 }

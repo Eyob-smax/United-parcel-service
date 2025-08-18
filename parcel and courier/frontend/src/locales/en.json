@@ -1,5 +1,6 @@
 {
   "common": {
+    "header_title": "United Parcel Services",
     "welcome": "Welcome to United Parcel Services",
     "track": "Track",
     "track_parcel": "Track Your Parcel",
@@ -17,6 +18,20 @@
     "support": "Support",
     "ok": "OK"
   },
+  "login-forms": {
+    "common": {
+      "email": "Email",
+      "password": "Password",
+      "login": "Login",
+      "track": "Track",
+      "parcel_id": "Parcel ID"
+    },
+    "tracking_login": {
+      "title": "Track Your Parcel",
+      "description": "Enter your parcel ID to track its status",
+      "placeholder": "Enter Parcel ID"
+    }
+  },
   "header": {
     "home": "Home",
     "about": "About",
@@ -24,7 +39,7 @@
     "contact": "Contact",
     "updates": "Updates"
   },
-     "admin": {
+  "admin": {
     "unauthorized_title": "Unauthorized",
     "unauthorized_text": "Please log in to access the dashboard.",
     "loading_shipments": "Loading Shipments...",
@@ -99,11 +114,12 @@
   },
   "contact": {
     "customer_service": "Customer Service",
+    "message_sent": "Your message has been sent successfully.",
     "name": "Name",
     "email": "Email",
     "message": "Message",
     "send": "Send",
-    "contact_info": "Contact us at <1>{{email}}</1> or WhatsApp <2>{{phone}}</2>. Follow us on social media."  
+    "contact_info": "Contact us at <1>{{email}}</1> or WhatsApp <2>{{phone}}</2>. Follow us on social media."
   },
   "tariff": {
     "title": "Navigating Latest Tariff Development",
@@ -115,32 +131,31 @@
   },
 
   "about": {
-  "title": "About SwiftShip",
-  "description": "SwiftShip is a global leader in logistics, offering a wide range of solutions for businesses and individuals. With a history spanning over a century, we've built a reputation for reliability, innovation, and customer satisfaction. Our services include package delivery, freight forwarding, supply chain management, and specialized solutions for various industries. Our advanced tracking system provides real-time visibility of your shipments, ensuring transparency and peace of mind. We're committed to sustainability and ethical practices, striving to minimize our environmental impact and contribute positively to the communities we serve."
-},
+    "title": "About SwiftShip",
+    "description": "SwiftShip is a global leader in logistics, offering a wide range of solutions for businesses and individuals. With a history spanning over a century, we've built a reputation for reliability, innovation, and customer satisfaction. Our services include package delivery, freight forwarding, supply chain management, and specialized solutions for various industries. Our advanced tracking system provides real-time visibility of your shipments, ensuring transparency and peace of mind. We're committed to sustainability and ethical practices, striving to minimize our environmental impact and contribute positively to the communities we serve."
+  },
 
-"solutions": {
-  "title": "Shipping Solutions",
-  "domestic": {
-    "title": "Domestic Shipping",
-    "subtitle": "Fast and reliable delivery within the country",
-    "description": "SwiftTrack offers seamless domestic tracking with real-time updates and notifications."
-  },
-  "tracking": {
-    "title": "Real-Time Shipment Tracking",
-    "subtitle": "Monitor your deliveries with precision",
-    "description": "Our platform provides up-to-the-minute updates on your shipments, ensuring you stay informed every step of the way."
-  },
-  "specialized": {
-    "title": "Specialized Logistics",
-    "subtitle": "Customized solutions for unique needs",
-    "description": "Monitor sensitive or oversized goods with specialized sensors and real-time reporting."
-  },
-  "warehousing": {
-    "title": "Warehousing & Distribution",
-    "subtitle": "Secure storage and efficient fulfillment",
-    "description": "Manage your inventory and shipments from warehouse to doorstep with full visibility."
+  "solutions": {
+    "title": "Shipping Solutions",
+    "domestic": {
+      "title": "Domestic Shipping",
+      "subtitle": "Fast and reliable delivery within the country",
+      "description": "SwiftTrack offers seamless domestic tracking with real-time updates and notifications."
+    },
+    "tracking": {
+      "title": "Real-Time Shipment Tracking",
+      "subtitle": "Monitor your deliveries with precision",
+      "description": "Our platform provides up-to-the-minute updates on your shipments, ensuring you stay informed every step of the way."
+    },
+    "specialized": {
+      "title": "Specialized Logistics",
+      "subtitle": "Customized solutions for unique needs",
+      "description": "Monitor sensitive or oversized goods with specialized sensors and real-time reporting."
+    },
+    "warehousing": {
+      "title": "Warehousing & Distribution",
+      "subtitle": "Secure storage and efficient fulfillment",
+      "description": "Manage your inventory and shipments from warehouse to doorstep with full visibility."
+    }
   }
-}   
 }
-

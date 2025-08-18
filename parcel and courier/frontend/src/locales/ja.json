@@ -1,5 +1,7 @@
 {
   "common": {
+    "header_title": "United Parcel Services",
+
     "welcome": "ユナイテッド・パーセル・サービスへようこそ",
     "track": "追跡",
     "track_parcel": "荷物を追跡する",
@@ -24,7 +26,22 @@
     "contact": "お問い合わせ",
     "updates": "更新情報"
   },
-   "admin": {
+
+  "login-forms": {
+    "common": {
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "login": "ログイン",
+      "track": "追跡",
+      "parcel_id": "荷物ID"
+    },
+    "tracking_login": {
+      "title": "荷物を追跡する",
+      "description": "荷物IDを入力してそのステータスを追跡します",
+      "placeholder": "荷物IDを入力してください"
+    }
+  },
+  "admin": {
     "unauthorized_title": "未承認",
     "unauthorized_text": "ダッシュボードにアクセスするにはログインしてください。",
     "loading_shipments": "配送を読み込み中...",
@@ -78,8 +95,7 @@
     "package_details": "荷物の詳細",
     "description": "説明",
     "enter_package_desc": "荷物の説明を入力してください"
-  }
-,
+  },
   "services": {
     "express_delivery": "速達配達",
     "express_desc": "緊急貨物の迅速で信頼性の高い配達",
@@ -100,6 +116,7 @@
   },
   "contact": {
     "customer_service": "カスタマーサービス",
+    "message_sent": "メッセージが正常に送信されました。",
     "name": "名前",
     "email": "メールアドレス",
     "message": "メッセージ",
@@ -115,33 +132,31 @@
     "select_country": "国を選択"
   },
   "about": {
-  "title": "SwiftShipについて",
-  "description": "SwiftShipは物流分野のグローバルリーダーとして、企業や個人向けに多様なソリューションを提供しています。100年以上の歴史を持ち、信頼性、革新性、顧客満足度で高い評価を得ています。サービスには小包配送、海上輸送、サプライチェーン管理、業界特化型ソリューションが含まれます。先進的な追跡システムで貨物のリアルタイム可視化を実現。持続可能性と倫理的慣行にコミットし、環境への影響を最小限に抑えつつ、地域社会へ積極的に貢献しています。"
-},
-
-
-
-"solutions": {
-  "title": "配送ソリューション",
-  "domestic": {
-    "title": "国内配送",
-    "subtitle": "国内の迅速で信頼性の高い配送",
-    "description": "SwiftTrackはリアルタイムの更新と通知によるシームレスな国内追跡を提供します。"
+    "title": "SwiftShipについて",
+    "description": "SwiftShipは物流分野のグローバルリーダーとして、企業や個人向けに多様なソリューションを提供しています。100年以上の歴史を持ち、信頼性、革新性、顧客満足度で高い評価を得ています。サービスには小包配送、海上輸送、サプライチェーン管理、業界特化型ソリューションが含まれます。先進的な追跡システムで貨物のリアルタイム可視化を実現。持続可能性と倫理的慣行にコミットし、環境への影響を最小限に抑えつつ、地域社会へ積極的に貢献しています。"
   },
-  "tracking": {
-    "title": "リアルタイム貨物追跡",
-    "subtitle": "配送物を精密に監視",
-    "description": "当社のプラットフォームは配送物の分単位の更新を提供し、すべての段階で情報を確実にお届けします。"
-  },
-  "specialized": {
-    "title": "専門物流",
-    "subtitle": "特殊なニーズに対応したカスタムソリューション",
-    "description": "特殊センサーとリアルタイムレポートで敏感または大型貨物を監視します。"
-  },
-  "warehousing": {
-    "title": "倉庫保管と配送",
-    "subtitle": "安全な保管と効率的な履行",
-    "description": "倉庫から玄関先まで完全な可視性を持って在庫と配送を管理します。"
+
+  "solutions": {
+    "title": "配送ソリューション",
+    "domestic": {
+      "title": "国内配送",
+      "subtitle": "国内の迅速で信頼性の高い配送",
+      "description": "SwiftTrackはリアルタイムの更新と通知によるシームレスな国内追跡を提供します。"
+    },
+    "tracking": {
+      "title": "リアルタイム貨物追跡",
+      "subtitle": "配送物を精密に監視",
+      "description": "当社のプラットフォームは配送物の分単位の更新を提供し、すべての段階で情報を確実にお届けします。"
+    },
+    "specialized": {
+      "title": "専門物流",
+      "subtitle": "特殊なニーズに対応したカスタムソリューション",
+      "description": "特殊センサーとリアルタイムレポートで敏感または大型貨物を監視します。"
+    },
+    "warehousing": {
+      "title": "倉庫保管と配送",
+      "subtitle": "安全な保管と効率的な履行",
+      "description": "倉庫から玄関先まで完全な可視性を持って在庫と配送を管理します。"
+    }
   }
-}
 }

@@ -27,29 +27,98 @@ interface FormData {
   quantity: number;
 }
 
-interface CreateShipmentProps {
-  onLogout: () => void;
+interface FormField {
+  label: string;
+  name: keyof FormData; // Must match FormData keys
+  placeholder: string;
+  type?: string;
+  options?: { value: string; label: string }[];
 }
 
-const CreateShipment: React.FC<CreateShipmentProps> = () => {
+interface FormSectionProps {
+  title: string;
+  fields: FormField[];
+  formData: FormData;
+  onInputChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
+}
+
+const FormInput: React.FC<
+  FormField & {
+    value: string | number;
+    onChange: (
+      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => void;
+  }
+> = ({ label, name, placeholder, type = "text", value, onChange, options }) => (
+  <div className="flex flex-col w-full sm:w-1/2 lg:w-1/3 px-2 py-3">
+    <label htmlFor={name} className="flex flex-col">
+      <p className="text-base font-medium pb-2 text-white">{label}</p>
+      {options ? (
+        <select
+          name={name}
+          id={name}
+          value={value}
+          onChange={onChange}
+          className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-3 text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <div className="relative">
+          <input
+            name={name}
+            id={name}
+            type={type}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-3 text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] text-white placeholder:text-[#bbba9b]"
+          />
+          {type === "date" && (
+            <div className="absolute right-3 top-1/2 -translate-y-1/2">
+              <FaCalendarAlt className="text-[#bbba9b]" size={24} />
+            </div>
+          )}
+        </div>
+      )}
+    </label>
+  </div>
+);
+
+const FormSection: React.FC<FormSectionProps> = ({
+  title,
+  fields,
+  formData,
+  onInputChange,
+}) => (
+  <section className="py-4">
+    <h3 className="text-lg font-bold tracking-tight px-4 pb-2 text-white">
+      {title}
+    </h3>
+    <div className="flex flex-wrap -mx-2">
+      {fields.map((field) => (
+        <FormInput
+          key={field.name}
+          {...field}
+          value={formData[field.name]}
+          onChange={onInputChange}
+        />
+      ))}
+    </div>
+  </section>
+);
+
+const CreateShipment: React.FC = () => {
   const { t } = useTranslation();
   const { authenticated } = useSelector((state: TRootState) => state.user);
   const navigate = useNavigate();
-
-  if (!authenticated) {
-    Swal.fire({
-      title: t("admin.unauthorized_title") || "Unauthorized",
-      text: t("admin.unauthorized_text") || "Please log in to create a shipment.",
-      icon: "warning",
-      background: "#232110",
-      color: "#bbba9b",
-      confirmButtonText: t("common.ok") || "OK",
-    }).then(({ isConfirmed }) => {
-      if (isConfirmed) {
-        navigate("/");
-      }
-    });
-  }
+  const fetcher = useFetcher();
 
   const [formData, setFormData] = useState<FormData>({
     parcelId: "",
@@ -70,17 +139,29 @@ const CreateShipment: React.FC<CreateShipmentProps> = () => {
     package_name: "",
     quantity: 1,
   });
-  const fetcher = useFetcher();
+
   const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  function onLogout() {
-    navigate("/admin-dashboard");
-  }
+  useEffect(() => {
+    if (!authenticated) {
+      Swal.fire({
+        title: t("admin.unauthorized_title") || "Unauthorized",
+        text:
+          t("admin.unauthorized_text") || "Please log in to create a shipment.",
+        icon: "warning",
+        background: "#232110",
+        color: "#bbba9b",
+        confirmButtonText: t("common.ok") || "OK",
+      }).then(({ isConfirmed }) => {
+        if (isConfirmed) navigate("/");
+      });
+    }
+  }, [authenticated, navigate, t]);
 
   useEffect(() => {
-    if (fetcher.data && fetcher.data.success) {
+    if (fetcher.data?.success) {
       setFormData({
         parcelId: "",
         senderName: "",
@@ -114,9 +195,7 @@ const CreateShipment: React.FC<CreateShipmentProps> = () => {
   }, [imagePreview]);
 
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -133,6 +212,48 @@ const CreateShipment: React.FC<CreateShipmentProps> = () => {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Validate required fields (simplified)
+    const requiredFields: (keyof FormData)[] = [
+      "parcelId",
+      "senderName",
+      "senderAddress",
+      "senderPhone",
+      "recipientName",
+      "recipientAddress",
+      "recipientPhone",
+      "origin",
+      "destination",
+      "package_name",
+      "quantity",
+      "pickupDate",
+      "deliveryDate",
+    ];
+    for (const field of requiredFields) {
+      if (!formData[field]) {
+        Swal.fire({
+          title: t("admin.validation_error") || "Validation Error",
+          text: `${field} is required`,
+          icon: "error",
+          background: "#232110",
+          color: "#bbba9b",
+          confirmButtonText: t("common.ok") || "OK",
+        });
+        return;
+      }
+    }
+
+    // Submit via FormData
+    const payload = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      payload.append(key, value.toString());
+    });
+    if (image) payload.append("image", image);
+
+    fetcher.submit(payload, { method: "post" });
+  };
+
   if (fetcher.state === "submitting" || fetcher.state === "loading") {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#232110]">
@@ -146,240 +267,182 @@ const CreateShipment: React.FC<CreateShipmentProps> = () => {
     );
   }
 
+  const formSections: { title: string; fields: FormField[] }[] = [
+    {
+      title: t("admin.parcel_info") || "Parcel Information",
+      fields: [
+        {
+          label: "Parcel ID",
+          name: "parcelId",
+          placeholder: "Enter Parcel ID",
+        },
+        {
+          label: "Package Name",
+          name: "package_name",
+          placeholder: "Enter package name",
+        },
+        {
+          label: "Quantity",
+          name: "quantity",
+          placeholder: "Enter quantity",
+          type: "number",
+        },
+      ],
+    },
+    {
+      title: t("admin.sender_details") || "Sender Details",
+      fields: [
+        {
+          label: "Name",
+          name: "senderName",
+          placeholder: "Enter sender's name",
+        },
+        {
+          label: "Address",
+          name: "senderAddress",
+          placeholder: "Enter sender's address",
+        },
+        {
+          label: "Phone",
+          name: "senderPhone",
+          placeholder: "Enter sender's phone number",
+        },
+      ],
+    },
+    {
+      title: t("admin.recipient_details") || "Recipient Details",
+      fields: [
+        {
+          label: "Name",
+          name: "recipientName",
+          placeholder: "Enter recipient's name",
+        },
+        {
+          label: "Address",
+          name: "recipientAddress",
+          placeholder: "Enter recipient's address",
+        },
+        {
+          label: "Phone",
+          name: "recipientPhone",
+          placeholder: "Enter recipient's phone number",
+        },
+      ],
+    },
+    {
+      title: t("admin.origin_destination") || "Origin & Destination",
+      fields: [
+        { label: "Origin", name: "origin", placeholder: "Enter origin" },
+        {
+          label: "Destination",
+          name: "destination",
+          placeholder: "Enter destination",
+        },
+      ],
+    },
+    {
+      title: t("admin.shipping_dates") || "Shipping Dates",
+      fields: [
+        {
+          label: "Pickup Date",
+          name: "pickupDate",
+          placeholder: "Select pickup date",
+          type: "date",
+        },
+        {
+          label: "Delivery Date",
+          name: "deliveryDate",
+          placeholder: "Select delivery date",
+          type: "date",
+        },
+      ],
+    },
+    {
+      title: t("admin.transport_info") || "Transport Information",
+      fields: [
+        {
+          label: "Status",
+          name: "status",
+          placeholder: "",
+          options: [
+            { value: "pending", label: "Pending" },
+            { value: "shipped off", label: "Shipped off" },
+            { value: "on transit", label: "On transit" },
+            { value: "delivered", label: "Delivered" },
+          ],
+        },
+      ],
+    },
+  ];
+
   return (
-    <>
-      <motion.div
-        className="min-h-screen flex flex-col bg-[#181811] font-['Space_Grotesk','Noto_Sans',sans-serif] text-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isMounted ? 1 : 0 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="flex flex-col md:flex-row flex-1 justify-center py-5 px-4 sm:px-6 gap-4 md:gap-6">
-          <div className="flex flex-col w-full md:w-80">
-            <motion.div
-              className="flex flex-col justify-between bg-[#181811] p-4"
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <motion.button
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#3a3927]"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <i className="text-white">
-                      <FaPlus size={24} />
-                    </i>
-                    <p className="text-white text-sm font-medium">
-                      {t("admin.create_shipment") || "Create Shipment"}
-                    </p>
-                  </motion.button>
+    <motion.div
+      className="min-h-screen flex flex-col bg-[#181811] font-['Space_Grotesk','Noto_Sans',sans-serif] text-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isMounted ? 1 : 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex flex-col lg:flex-row flex-1 max-w-7xl mx-auto py-5 px-4 sm:px-6 gap-4 lg:gap-6">
+        <div className="flex flex-col w-full lg:w-64 xl:w-80">
+          <motion.div
+            className="flex flex-col justify-between bg-[#181811] p-4"
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex flex-col gap-4">
+              <motion.button
+                className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#3a3927] text-white"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FaPlus size={24} />
+                <p className="text-sm font-medium">Create Shipment</p>
+              </motion.button>
+              <motion.button
+                onClick={() => navigate("/admin-dashboard")}
+                className="flex items-center gap-3 px-3 py-2 text-white"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FaDoorOpen size={24} />
+                <p className="text-sm font-medium">Logout</p>
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
 
-                  <motion.button
-                    onClick={onLogout}
-                    className="flex items-center gap-3 px-3 py-2"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <i className="text-white">
-                      <FaDoorOpen size={24} />
-                    </i>
-                    <p className="text-white text-sm font-medium">
-                      {t("common.logout") || "Logout"}
-                    </p>
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          <div className="flex flex-col w-full md:max-w-[960px]">
-            <motion.div
-              className="flex flex-wrap justify-between gap-3 p-4"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <p className="text-2xl sm:text-[32px] font-bold tracking-tight">
-                {t("admin.create_shipment") || "Create Shipment"}
-              </p>
-            </motion.div>
-            <motion.section
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <fetcher.Form method="post" encType="multipart/form-data">
-                <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
-                  {t("admin.parcel_info") || "Parcel Information"}
-                </h3>
-                {[
-                  {
-                    label: t("admin.parcel_id") || "Parcel ID",
-                    name: "parcelId",
-                    placeholder: t("admin.enter_parcel_id") || "Enter parcel id",
-                    type: "text",
-                  },
-                  {
-                    label: t("admin.package_name") || "Package Name",
-                    name: "package_name",
-                    placeholder: t("admin.enter_package_name") || "Enter package name",
-                    type: "text",
-                  },
-                  {
-                    label: t("admin.quantity") || "Quantity",
-                    name: "quantity",
-                    placeholder: t("admin.enter_quantity") || "Enter quantity of the parcel",
-                    type: "number",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
-                  >
-                    <label
-                      htmlFor={item.name}
-                      className="flex flex-col min-w-40 flex-1"
-                    >
-                      <p className="text-base font-medium pb-2">{item.label}</p>
-                      <input
-                        name={item.name}
-                        id={item.name}
-                        type={item.type}
-                        value={formData[item.name as keyof FormData]}
-                        onChange={handleInputChange}
-                        placeholder={item.placeholder}
-                        className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
-                      />
-                    </label>
-                  </div>
-                ))}
+        <div className="flex flex-col w-full">
+          <motion.div
+            className="flex justify-between items-center p-4"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+              Create Shipment
+            </h2>
+          </motion.div>
 
-                <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
-                  {t("admin.sender_details") || "Sender Details"}
-                </h3>
-                {[
-                  {
-                    label: t("common.name") || "Name",
-                    name: "senderName",
-                    placeholder: t("admin.enter_sender_name") || "Enter sender's name",
-                  },
-                  {
-                    label: t("admin.address") || "Address",
-                    name: "senderAddress",
-                    placeholder: t("admin.enter_sender_address") || "Enter sender's address",
-                  },
-                  {
-                    label: t("admin.phone_number") || "Phone Number",
-                    name: "senderPhone",
-                    placeholder: t("admin.enter_sender_phone") || "Enter sender's phone number",
-                  },
-                ].map((field) => (
-                  <div
-                    key={field.name}
-                    className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
-                  >
-                    <label
-                      htmlFor={field.name}
-                      className="flex flex-col min-w-40 flex-1"
-                    >
-                      <p className="text-base font-medium pb-2">
-                        {field.label}
-                      </p>
-                      <input
-                        name={field.name}
-                        id={field.name}
-                        value={formData[field.name as keyof FormData]}
-                        onChange={handleInputChange}
-                        placeholder={field.placeholder}
-                        className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
-                      />
-                    </label>
-                  </div>
-                ))}
-                <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
-                  {t("admin.recipient_details") || "Recipient Details"}
-                </h3>
-                {[
-                  {
-                    label: t("common.name") || "Name",
-                    name: "recipientName",
-                    placeholder: t("admin.enter_recipient_name") || "Enter recipient's name",
-                  },
-                  {
-                    label: t("admin.address") || "Address",
-                    name: "recipientAddress",
-                    placeholder: t("admin.enter_recipient_address") || "Enter recipient's address",
-                  },
-                  {
-                    label: t("admin.phone_number") || "Phone Number",
-                    name: "recipientPhone",
-                    placeholder: t("admin.enter_recipient_phone") || "Enter recipient's phone number",
-                  },
-                ].map((field) => (
-                  <div
-                    key={field.name}
-                    className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
-                  >
-                    <label
-                      htmlFor={field.name}
-                      className="flex flex-col min-w-40 flex-1"
-                    >
-                      <p className="text-base font-medium pb-2">
-                        {field.label}
-                      </p>
-                      <input
-                        name={field.name}
-                        id={field.name}
-                        value={formData[field.name as keyof FormData]}
-                        onChange={handleInputChange}
-                        placeholder={field.placeholder}
-                        className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
-                      />
-                    </label>
-                  </div>
-                ))}
-                <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
-                  {t("admin.origin_destination") || "Origin & Destination"}
-                </h3>
-                {[
-                  {
-                    label: t("admin.origin") || "Origin",
-                    name: "origin",
-                    placeholder: t("admin.enter_origin") || "Enter origin",
-                  },
-                  {
-                    label: t("admin.destination") || "Destination",
-                    name: "destination",
-                    placeholder: t("admin.enter_destination") || "Enter destination",
-                  },
-                ].map((field) => (
-                  <div
-                    key={field.name}
-                    className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
-                  >
-                    <label
-                      htmlFor={field.name}
-                      className="flex flex-col min-w-40 flex-1"
-                    >
-                      <p className="text-base font-medium pb-2">
-                        {field.label}
-                      </p>
-                      <input
-                        name={field.name}
-                        id={field.name}
-                        value={formData[field.name as keyof FormData]}
-                        onChange={handleInputChange}
-                        placeholder={field.placeholder}
-                        className="w-full rounded-lg bg-[#27271b] border border-[#55553a] h-14 p-[15px] text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
-                      />
-                    </label>
-                  </div>
-                ))}
+          <motion.section
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <fetcher.Form method="post" onSubmit={handleSubmit}>
+              {formSections.map((section, index) => (
+                <FormSection
+                  key={index}
+                  title={section.title}
+                  fields={section.fields}
+                  formData={formData}
+                  onInputChange={handleInputChange}
+                />
+              ))}
 
-                <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
-                  {t("admin.upload_image") || "Upload Package Image"}
+              <section className="py-4">
+                <h3 className="text-lg font-bold tracking-tight px-4 pb-2 text-white">
+                  Upload Package Image
                 </h3>
                 <div className="flex flex-col p-4">
                   <motion.div
@@ -388,28 +451,21 @@ const CreateShipment: React.FC<CreateShipmentProps> = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <p className="text-lg font-bold tracking-[-0.015em] text-center">
-                      {t("admin.upload_image") || "Upload Image"}
-                    </p>
-                    <p className="text-sm font-normal text-center">
-                      {t("admin.upload_instructions") || "Click to upload or drag and drop"}
-                    </p>
                     <input
                       type="file"
-                      name="imageUrl"
+                      name="image"
                       accept="image/*"
                       onChange={handleImageChange}
                       className="hidden"
                       id="image-upload"
                     />
-
                     <motion.label
                       htmlFor="image-upload"
                       className="cursor-pointer rounded-lg h-10 px-4 bg-[#3a3927] text-white text-sm font-bold flex items-center justify-center"
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      {t("admin.upload") || "Upload"}
+                      Upload
                     </motion.label>
                     {imagePreview && (
                       <motion.img
@@ -423,110 +479,24 @@ const CreateShipment: React.FC<CreateShipmentProps> = () => {
                     )}
                   </motion.div>
                 </div>
-                <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
-                  {t("admin.shipping_dates") || "Shipping Dates"}
-                </h3>
-                {[
-                  {
-                    label: t("admin.pickup_date") || "Pickup Date",
-                    name: "pickupDate",
-                    placeholder: t("admin.select_pickup_date") || "Select pickup date",
-                  },
-                  {
-                    label: t("admin.delivery_date") || "Delivery Date",
-                    name: "deliveryDate",
-                    placeholder: t("admin.select_delivery_date") || "Select delivery date",
-                  },
-                ].map((field) => (
-                  <div
-                    key={field.name}
-                    className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
-                  >
-                    <label
-                      htmlFor={field.name}
-                      className="flex flex-col min-w-40 flex-1"
-                    >
-                      <p className="text-base font-medium pb-2">
-                        {field.label}
-                      </p>
-                      <div className="flex w-full items-stretch rounded-lg">
-                        <input
-                          name={field.name}
-                          id={field.name}
-                          value={formData[field.name as keyof FormData]}
-                          onChange={handleInputChange}
-                          placeholder={field.placeholder}
-                          type="date"
-                          className="w-full rounded-lg rounded-r-none bg-[#27271b] border border-[#55553a] border-r-0 h-14 p-[15px] pr-2 text-base font-normal focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
-                        />
-                        <div className="flex items-center justify-center pr-[15px] rounded-r-lg border border-[#55553a] border-l-0 bg-[#27271b]">
-                          <i className="text-[#bbba9b]">
-                            <FaCalendarAlt size={24} />
-                          </i>
-                        </div>
-                      </div>
-                    </label>
-                  </div>
-                ))}
+              </section>
 
-                <h3 className="text-lg font-bold tracking-[-0.015em] px-4 pb-2 pt-4">
-                  {t("admin.transport_info") || "Transport Information"}
-                </h3>
-                <div
-                  key="status"
-                  className="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3"
+              <div className="flex px-4 py-3 justify-end">
+                <motion.button
+                  type="submit"
+                  className="min-w-[84px] rounded-lg h-10 px-4 bg-[#f9f506] text-[#181811] text-sm font-bold tracking-tight"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                  disabled={fetcher.state !== "idle"}
                 >
-                  <label
-                    htmlFor="status"
-                    className="flex flex-col min-w-40 flex-1"
-                  >
-                    <p className="text-base font-medium pb-2">
-                      {t("admin.status") || "Status"}
-                    </p>
-                    <div className="flex w-full items-stretch rounded-lg">
-                      <select
-                        name="status"
-                        id="status"
-                        value={formData.status}
-                        onChange={handleInputChange}
-                        className="w-full rounded-lg rounded-r-none bg-[#27271b] border border-[#55553a] border-r-0 h-14 p-[15px] pr-2 text-base font-normal  focus:outline-none focus:ring-0 focus:border-[#55553a] placeholder:text-[#bbba9b]"
-                      >
-                        <option value="pending">
-                          {t("admin.status_pending") || "Pending"}
-                        </option>
-                        <option value="shipped off">
-                          {t("admin.status_shipped") || "Shipped off"}
-                        </option>
-                        <option value="on transit">
-                          {t("admin.status_transit") || "On transit"}
-                        </option>
-                        <option value="delivered">
-                          {t("admin.status_delivered") || "Delivered"}
-                        </option>
-                      </select>
-                    </div>
-                  </label>
-                </div>
-                <div className="flex px-4 py-3 justify-end">
-                  <motion.button
-                    type="submit"
-                    className="min-w-[84px] max-w-[480px] rounded-lg h-10 px-4 bg-[#f9f506] text-[#181811] text-sm font-bold tracking-[0.015em]"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <span className="truncate">
-                      {fetcher.state === "idle"
-                        ? t("admin.create_shipment") || "Create Shipment"
-                        : t("admin.creating") || "Creating..."}
-                    </span>
-                  </motion.button>
-                </div>
-              </fetcher.Form>
-            </motion.section>
-          </div>
+                  {fetcher.state === "idle" ? "Create Shipment" : "Creating..."}
+                </motion.button>
+              </div>
+            </fetcher.Form>
+          </motion.section>
         </div>
-      </motion.div>
-    </>
+      </div>
+    </motion.div>
   );
 };
 

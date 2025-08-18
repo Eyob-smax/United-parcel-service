@@ -1,5 +1,6 @@
 {
   "common": {
+    "header_title": "United Parcel Services",
     "welcome": "Bienvenue chez United Parcel Services",
     "track": "Suivre",
     "track_parcel": "Suivre votre colis",
@@ -15,7 +16,7 @@
     "ship": "Expédier",
     "locations": "Emplacements",
     "support": "Support",
-     "ok": "OK"
+    "ok": "OK"
   },
   "header": {
     "home": "Accueil",
@@ -24,6 +25,22 @@
     "contact": "Contact",
     "updates": "Mises à jour"
   },
+
+  "login-forms": {
+    "common": {
+      "email": "Email",
+      "password": "Mot de passe",
+      "login": "Connexion",
+      "track": "Suivre",
+      "parcel_id": "ID du colis"
+    },
+    "tracking_login": {
+      "title": "Suivre votre colis",
+      "description": "Entrez votre ID de colis pour suivre son statut",
+      "placeholder": "Entrez l'ID de colis"
+    }
+  },
+
   "admin": {
     "unauthorized_title": "Non autorisé",
     "unauthorized_text": "Veuillez vous connecter pour accéder au tableau de bord.",
@@ -99,6 +116,7 @@
   },
   "contact": {
     "customer_service": "Service client",
+    "message_sent": "Votre message a été envoyé avec succès.",
     "name": "Nom",
     "email": "Email",
     "message": "Message",
@@ -114,32 +132,31 @@
     "select_country": "Sélectionnez votre pays"
   },
   "about": {
-  "title": "À propos de SwiftShip",
-  "description": "SwiftShip est un leader mondial de la logistique, offrant des solutions complètes pour les entreprises et les particuliers. Avec plus d'un siècle d'histoire, nous avons bâti une réputation de fiabilité, d'innovation et de satisfaction client. Nos services incluent la livraison de colis, le fret maritime, la gestion de la chaîne d'approvisionnement et des solutions spécialisées pour divers secteurs. Notre système de suivi avancé offre une visibilité en temps réel de vos expéditions. Nous nous engageons en faveur du développement durable et des pratiques éthiques, en minimisant notre impact environnemental et en contribuant positivement aux communautés que nous servons."
-},
+    "title": "À propos de SwiftShip",
+    "description": "SwiftShip est un leader mondial de la logistique, offrant des solutions complètes pour les entreprises et les particuliers. Avec plus d'un siècle d'histoire, nous avons bâti une réputation de fiabilité, d'innovation et de satisfaction client. Nos services incluent la livraison de colis, le fret maritime, la gestion de la chaîne d'approvisionnement et des solutions spécialisées pour divers secteurs. Notre système de suivi avancé offre une visibilité en temps réel de vos expéditions. Nous nous engageons en faveur du développement durable et des pratiques éthiques, en minimisant notre impact environnemental et en contribuant positivement aux communautés que nous servons."
+  },
 
-
-"solutions": {
-  "title": "Solutions d'Expédition",
-  "domestic": {
-    "title": "Expédition Nationale",
-    "subtitle": "Livraison rapide et fiable dans le pays",
-    "description": "SwiftTrack offre un suivi national transparent avec des mises à jour et des notifications en temps réel."
-  },
-  "tracking": {
-    "title": "Suivi en Temps Réel",
-    "subtitle": "Surveillez vos livraisons avec précision",
-    "description": "Notre plateforme fournit des mises à jour minute par minute sur vos expéditions, vous garantissant d'être informé à chaque étape."
-  },
-  "specialized": {
-    "title": "Logistique Spécialisée",
-    "subtitle": "Solutions sur mesure pour des besoins uniques",
-    "description": "Surveillez les marchandises sensibles ou surdimensionnées avec des capteurs spécialisés et des rapports en temps réel."
-  },
-  "warehousing": {
-    "title": "Entreposage et Distribution",
-    "subtitle": "Stockage sécurisé et exécution efficace",
-    "description": "Gérez votre inventaire et vos expéditions de l'entrepôt à votre porte avec une visibilité complète."
+  "solutions": {
+    "title": "Solutions d'Expédition",
+    "domestic": {
+      "title": "Expédition Nationale",
+      "subtitle": "Livraison rapide et fiable dans le pays",
+      "description": "SwiftTrack offre un suivi national transparent avec des mises à jour et des notifications en temps réel."
+    },
+    "tracking": {
+      "title": "Suivi en Temps Réel",
+      "subtitle": "Surveillez vos livraisons avec précision",
+      "description": "Notre plateforme fournit des mises à jour minute par minute sur vos expéditions, vous garantissant d'être informé à chaque étape."
+    },
+    "specialized": {
+      "title": "Logistique Spécialisée",
+      "subtitle": "Solutions sur mesure pour des besoins uniques",
+      "description": "Surveillez les marchandises sensibles ou surdimensionnées avec des capteurs spécialisés et des rapports en temps réel."
+    },
+    "warehousing": {
+      "title": "Entreposage et Distribution",
+      "subtitle": "Stockage sécurisé et exécution efficace",
+      "description": "Gérez votre inventaire et vos expéditions de l'entrepôt à votre porte avec une visibilité complète."
+    }
   }
-}
 }

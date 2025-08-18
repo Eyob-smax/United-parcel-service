@@ -1,5 +1,7 @@
 {
   "common": {
+    "header_title": "United Parcel Services",
+
     "welcome": "Bienvenido a United Parcel Services",
     "track": "Rastrear",
     "track_parcel": "Rastrear su paquete",
@@ -23,6 +25,21 @@
     "services": "Servicios",
     "contact": "Contacto",
     "updates": "Actualizaciones"
+  },
+
+  "login-forms": {
+    "common": {
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "login": "Iniciar sesión",
+      "track": "Rastrear",
+      "parcel_id": "ID del paquete"
+    },
+    "tracking_login": {
+      "title": "Rastrear su paquete",
+      "description": "Ingrese su ID de paquete para rastrear su estado",
+      "placeholder": "Ingrese ID de paquete"
+    }
   },
   "admin": {
     "unauthorized_title": "No autorizado",
@@ -99,6 +116,7 @@
   },
   "contact": {
     "customer_service": "Servicio al cliente",
+    "message_sent": "Su mensaje ha sido enviado con éxito.",
     "name": "Nombre",
     "email": "Correo electrónico",
     "message": "Mensaje",
@@ -112,35 +130,33 @@
   "language": {
     "select_language": "Seleccione su idioma",
     "select_country": "Seleccione su país"
-  }
-  ,
+  },
   "about": {
-  "title": "Acerca de SwiftShip",
-  "description": "SwiftShip es líder global en logística, ofreciendo soluciones integrales para empresas e individuos. Con más de un siglo de historia, hemos construido una reputación de confiabilidad, innovación y satisfacción al cliente. Nuestros servicios incluyen entrega de paquetes, transporte de carga, gestión de cadena de suministro y soluciones especializadas para diversas industrias. Nuestro sistema de seguimiento avanzado ofrece visibilidad en tiempo real de sus envíos, garantizando transparencia y tranquilidad. Estamos comprometidos con la sostenibilidad y prácticas éticas, minimizando nuestro impacto ambiental y contribuyendo positivamente a las comunidades que servimos."
-},
+    "title": "Acerca de SwiftShip",
+    "description": "SwiftShip es líder global en logística, ofreciendo soluciones integrales para empresas e individuos. Con más de un siglo de historia, hemos construido una reputación de confiabilidad, innovación y satisfacción al cliente. Nuestros servicios incluyen entrega de paquetes, transporte de carga, gestión de cadena de suministro y soluciones especializadas para diversas industrias. Nuestro sistema de seguimiento avanzado ofrece visibilidad en tiempo real de sus envíos, garantizando transparencia y tranquilidad. Estamos comprometidos con la sostenibilidad y prácticas éticas, minimizando nuestro impacto ambiental y contribuyendo positivamente a las comunidades que servimos."
+  },
 
-
-"solutions": {
-  "title": "Soluciones de Envío",
-  "domestic": {
-    "title": "Envíos Nacionales",
-    "subtitle": "Entrega rápida y confiable dentro del país",
-    "description": "SwiftTrack ofrece seguimiento nacional perfecto con actualizaciones y notificaciones en tiempo real."
-  },
-  "tracking": {
-    "title": "Seguimiento en Tiempo Real",
-    "subtitle": "Monitoree sus entregas con precisión",
-    "description": "Nuestra plataforma proporciona actualizaciones al minuto de sus envíos, asegurando que esté informado en cada paso."
-  },
-  "specialized": {
-    "title": "Logística Especializada",
-    "subtitle": "Soluciones personalizadas para necesidades únicas",
-    "description": "Monitoree bienes sensibles o de gran tamaño con sensores especializados e informes en tiempo real."
-  },
-  "warehousing": {
-    "title": "Almacenamiento y Distribución",
-    "subtitle": "Almacenamiento seguro y cumplimiento eficiente",
-    "description": "Administre su inventario y envíos desde el almacén hasta la puerta con visibilidad completa."
+  "solutions": {
+    "title": "Soluciones de Envío",
+    "domestic": {
+      "title": "Envíos Nacionales",
+      "subtitle": "Entrega rápida y confiable dentro del país",
+      "description": "SwiftTrack ofrece seguimiento nacional perfecto con actualizaciones y notificaciones en tiempo real."
+    },
+    "tracking": {
+      "title": "Seguimiento en Tiempo Real",
+      "subtitle": "Monitoree sus entregas con precisión",
+      "description": "Nuestra plataforma proporciona actualizaciones al minuto de sus envíos, asegurando que esté informado en cada paso."
+    },
+    "specialized": {
+      "title": "Logística Especializada",
+      "subtitle": "Soluciones personalizadas para necesidades únicas",
+      "description": "Monitoree bienes sensibles o de gran tamaño con sensores especializados e informes en tiempo real."
+    },
+    "warehousing": {
+      "title": "Almacenamiento y Distribución",
+      "subtitle": "Almacenamiento seguro y cumplimiento eficiente",
+      "description": "Administre su inventario y envíos desde el almacén hasta la puerta con visibilidad completa."
+    }
   }
-}
 }

@@ -1,5 +1,7 @@
 {
   "common": {
+    "header_title": "United Parcel Services",
+
     "welcome": "欢迎来到联合包裹服务",
     "track": "追踪",
     "track_parcel": "追踪您的包裹",
@@ -15,7 +17,7 @@
     "ship": "发货",
     "locations": "地点",
     "support": "支持",
-     "ok": "确定"
+    "ok": "确定"
   },
   "header": {
     "home": "首页",
@@ -24,62 +26,77 @@
     "contact": "联系",
     "updates": "更新"
   },
- "admin": {
-  "unauthorized_title": "未授权",
-  "unauthorized_text": "请登录以访问控制面板。",
-  "loading_shipments": "正在加载货件...",
-  "shipments": "货件",
-  "create_shipment": "创建新货件",
-  "search_placeholder": "按运单号、起点、终点或状态搜索",
-  "parcel_id": "包裹编号",
-  "origin": "起点",
-  "destination": "终点",
-  "status": "状态",
-  "view_details": "查看详情",
-  "creating_shipment": "正在创建货件...",
-  "parcel_info": "包裹信息",
-  "enter_parcel_id": "输入包裹编号",
-  "package_name": "包裹名称",
-  "enter_package_name": "输入包裹名称",
-  "quantity": "数量",
-  "enter_quantity": "输入包裹数量",
-  "sender_details": "寄件人信息",
-  "enter_sender_name": "输入寄件人姓名",
-  "address": "地址",
-  "enter_sender_address": "输入寄件人地址",
-  "phone_number": "电话号码",
-  "enter_sender_phone": "输入寄件人电话号码",
-  "recipient_details": "收件人信息",
-  "enter_recipient_name": "输入收件人姓名",
-  "enter_recipient_address": "输入收件人地址",
-  "enter_recipient_phone": "输入收件人电话号码",
-  "origin_destination": "起点与终点",
-  "enter_origin": "输入起点",
-  "enter_destination": "输入终点",
-  "upload_image": "上传包裹图片",
-  "upload_instructions": "点击上传或拖拽到此处",
-  "upload": "上传",
-  "shipping_dates": "运输日期",
-  "pickup_date": "取件日期",
-  "select_pickup_date": "选择取件日期",
-  "delivery_date": "送达日期",
-  "select_delivery_date": "选择送达日期",
-  "transport_info": "运输信息",
-  "status_pending": "待处理",
-  "status_shipped": "已发货",
-  "status_transit": "运输中",
-  "status_delivered": "已送达",
-  "creating": "正在创建...",
-  "logout": "退出登录",
-  "edit_shipment": "编辑货运",
-  "updating_shipment": "正在更新货运...",
-  "update_shipment": "更新货运",
-  "updating": "正在更新...",
-  "package_details": "包裹详情",
-  "description": "描述",
-  "enter_package_desc": "输入包裹描述"
-}
-,
+
+  "login-forms": {
+    "common": {
+      "email": "电子邮件",
+      "password": "密码",
+      "login": "登录",
+      "track": "追踪",
+      "parcel_id": "包裹ID"
+    },
+    "tracking_login": {
+      "title": "追踪您的包裹",
+      "description": "输入您的包裹ID以追踪其状态",
+      "placeholder": "输入包裹ID"
+    }
+  },
+
+  "admin": {
+    "unauthorized_title": "未授权",
+    "unauthorized_text": "请登录以访问控制面板。",
+    "loading_shipments": "正在加载货件...",
+    "shipments": "货件",
+    "create_shipment": "创建新货件",
+    "search_placeholder": "按运单号、起点、终点或状态搜索",
+    "parcel_id": "包裹编号",
+    "origin": "起点",
+    "destination": "终点",
+    "status": "状态",
+    "view_details": "查看详情",
+    "creating_shipment": "正在创建货件...",
+    "parcel_info": "包裹信息",
+    "enter_parcel_id": "输入包裹编号",
+    "package_name": "包裹名称",
+    "enter_package_name": "输入包裹名称",
+    "quantity": "数量",
+    "enter_quantity": "输入包裹数量",
+    "sender_details": "寄件人信息",
+    "enter_sender_name": "输入寄件人姓名",
+    "address": "地址",
+    "enter_sender_address": "输入寄件人地址",
+    "phone_number": "电话号码",
+    "enter_sender_phone": "输入寄件人电话号码",
+    "recipient_details": "收件人信息",
+    "enter_recipient_name": "输入收件人姓名",
+    "enter_recipient_address": "输入收件人地址",
+    "enter_recipient_phone": "输入收件人电话号码",
+    "origin_destination": "起点与终点",
+    "enter_origin": "输入起点",
+    "enter_destination": "输入终点",
+    "upload_image": "上传包裹图片",
+    "upload_instructions": "点击上传或拖拽到此处",
+    "upload": "上传",
+    "shipping_dates": "运输日期",
+    "pickup_date": "取件日期",
+    "select_pickup_date": "选择取件日期",
+    "delivery_date": "送达日期",
+    "select_delivery_date": "选择送达日期",
+    "transport_info": "运输信息",
+    "status_pending": "待处理",
+    "status_shipped": "已发货",
+    "status_transit": "运输中",
+    "status_delivered": "已送达",
+    "creating": "正在创建...",
+    "logout": "退出登录",
+    "edit_shipment": "编辑货运",
+    "updating_shipment": "正在更新货运...",
+    "update_shipment": "更新货运",
+    "updating": "正在更新...",
+    "package_details": "包裹详情",
+    "description": "描述",
+    "enter_package_desc": "输入包裹描述"
+  },
   "services": {
     "express_delivery": "快递服务",
     "express_desc": "快速可靠的紧急货物交付",
@@ -99,6 +116,7 @@
     "warehouse_desc": "我们的新仓库设施现已开放，提供更多存储容量"
   },
   "contact": {
+    "message_sent": "您的消息已成功发送。",
     "customer_service": "客户服务",
     "name": "姓名",
     "email": "电子邮件",
@@ -115,32 +133,31 @@
     "select_country": "选择您的国家"
   },
   "about": {
-  "title": "关于SwiftShip",
-  "description": "SwiftShip是全球物流领导者，为企业和个人提供全方位解决方案。拥有百年历史，我们以可靠、创新和客户满意著称。我们的服务包括包裹递送、货运代理、供应链管理和行业专项解决方案。先进的追踪系统提供货物实时可视性，确保透明与安心。我们致力于可持续发展和道德实践，努力减少环境影响并积极回馈服务社区。"
-},
+    "title": "关于SwiftShip",
+    "description": "SwiftShip是全球物流领导者，为企业和个人提供全方位解决方案。拥有百年历史，我们以可靠、创新和客户满意著称。我们的服务包括包裹递送、货运代理、供应链管理和行业专项解决方案。先进的追踪系统提供货物实时可视性，确保透明与安心。我们致力于可持续发展和道德实践，努力减少环境影响并积极回馈服务社区。"
+  },
 
-
-"solutions": {
-  "title": "运输解决方案",
-  "domestic": {
-    "title": "国内运输",
-    "subtitle": "快速可靠的国内递送服务",
-    "description": "SwiftTrack提供无缝国内追踪，实时更新和通知。"
-  },
-  "tracking": {
-    "title": "实时货物追踪",
-    "subtitle": "精准监控您的货件",
-    "description": "我们的平台提供货件的实时更新，确保您随时掌握最新动态。"
-  },
-  "specialized": {
-    "title": "专业物流",
-    "subtitle": "满足独特需求的定制方案",
-    "description": "通过专业传感器和实时报告监控敏感或超大货物。"
-  },
-  "warehousing": {
-    "title": "仓储与配送",
-    "subtitle": "安全存储与高效履约",
-    "description": "从仓库到门阶，全程可视化管理您的库存和运输。"
+  "solutions": {
+    "title": "运输解决方案",
+    "domestic": {
+      "title": "国内运输",
+      "subtitle": "快速可靠的国内递送服务",
+      "description": "SwiftTrack提供无缝国内追踪，实时更新和通知。"
+    },
+    "tracking": {
+      "title": "实时货物追踪",
+      "subtitle": "精准监控您的货件",
+      "description": "我们的平台提供货件的实时更新，确保您随时掌握最新动态。"
+    },
+    "specialized": {
+      "title": "专业物流",
+      "subtitle": "满足独特需求的定制方案",
+      "description": "通过专业传感器和实时报告监控敏感或超大货物。"
+    },
+    "warehousing": {
+      "title": "仓储与配送",
+      "subtitle": "安全存储与高效履约",
+      "description": "从仓库到门阶，全程可视化管理您的库存和运输。"
+    }
   }
-}
 }

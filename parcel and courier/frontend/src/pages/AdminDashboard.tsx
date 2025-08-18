@@ -69,7 +69,10 @@ const AdminDashboard: React.FC = () => {
     <div className="flex min-h-screen flex-col bg-[#232110] font-[Space Grotesk, Noto Sans, sans-serif] text-white">
       {/* Header */}
       <header className="flex items-center justify-between border-b border-[#4a4621] px-4 sm:px-8 lg:px-20 py-3">
-        <div className="flex w-full justify-between items-center gap-6">
+        <div
+          onClick={() => navigate("/home")}
+          className="flex w-full justify-between items-center gap-6"
+        >
           <div className="flex items-center gap-3">
             <svg className="h-5 w-5" viewBox="0 0 48 48" fill="none">
               <path
@@ -78,12 +81,15 @@ const AdminDashboard: React.FC = () => {
               />
             </svg>
             <h2 className="text-lg font-bold tracking-tight">
-              {t("common.welcome") || "United Parcel Service"}
+              {t("common.header_title") || "United Parcel Service"}
             </h2>
           </div>
           <nav>
             <Link to="/" className="hover:underline">
-              {t("header.home") || "Home"}
+              {t("header.requests") || "Requests"}
+            </Link>
+            <Link to="/" className="hover:underline">
+              {t("header.messages") || "Messages"}
             </Link>
           </nav>
         </div>
