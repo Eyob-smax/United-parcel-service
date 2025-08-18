@@ -77,7 +77,31 @@
     "updating": "Actualizando...",
     "package_details": "Detalles del paquete",
     "description": "Descripción",
-    "enter_package_desc": "Ingrese descripción del paquete"
+    "enter_package_desc": "Ingrese descripción del paquete",
+       "parcel_details": "Detalles del paquete",
+    "loading_details": "Cargando detalles...",
+    "parcel": "Paquete",
+    "details": "Detalles",
+    "tracking_history": "Historial de seguimiento",
+    "edit_parcel": "Editar paquete",
+    "delete_parcel": "Eliminar paquete",
+    "confirm_delete": "¿Estás seguro?",
+    "cannot_undo": "Esta acción no se puede deshacer.",
+    "confirm_delete_button": "¡Sí, elimínalo!",
+    "deleted": "¡Eliminado!",
+    "parcel_deleted": "Paquete eliminado con éxito",
+    "delete_tracking_warning": "Estás a punto de eliminar detalles de seguimiento",
+    "delete": "Eliminar",
+    "add": "Agregar",
+    "edit": "Editar",
+    "add_tracking": "Agregar seguimiento",
+    "edit_tracking": "Editar seguimiento",
+    "dashboard": "Panel",
+    "parcel_not_found": "Paquete no encontrado",
+    "parcel_not_found_text": "No se encontró ningún paquete con el ID proporcionado. ¡Por favor crea uno!",
+    "network_error": "Error de red",
+    "estimated_delivery": "Fecha estimada de entrega"
+  
   },
   "services": {
     "express_delivery": "Entrega exprés",
@@ -142,5 +166,27 @@
     "subtitle": "Almacenamiento seguro y cumplimiento eficiente",
     "description": "Administre su inventario y envíos desde el almacén hasta la puerta con visibilidad completa."
   }
-}
+},
+
+ "tracker": {
+    "provide_address": "Proporcionar nueva dirección",
+    "address_placeholder": "ej. Lagos",
+    "shipped": "Enviado",
+    "delivered": "Entregado",
+    "in_transit": "En tránsito",
+    "success": "¡Éxito!",
+    "address_submitted": "Cambio de dirección enviado.",
+    "loading_info": "Cargando información de seguimiento...",
+    "tracking_details": "Detalles de seguimiento",
+    "tracking_id": "ID de seguimiento",
+    "package_info": "Información del paquete",
+    "estimated_delivery": "Fecha estimada de entrega",
+    "view_details": "Ver detalles",
+    "map_route": "Mapa y ruta",
+    "change_address": "¿Necesita cambiar la dirección de entrega?",
+    "shipment_progress": "Progreso del envío",
+    "contact_us": "Contáctenos en",
+    "or_whatsapp": "o WhatsApp",
+    "package_preview": "Vista previa del paquete"
+  }
 }

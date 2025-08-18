@@ -77,7 +77,30 @@
   "updating": "Обновление...",
   "package_details": "Детали посылки",
   "description": "Описание",
-  "enter_package_desc": "Введите описание посылки"
+  "enter_package_desc": "Введите описание посылки",
+  "parcel_details": "Детали посылки",
+    "loading_details": "Загрузка деталей...",
+    "parcel": "Посылка",
+    "details": "Детали",
+    "tracking_history": "История отслеживания",
+    "edit_parcel": "Редактировать посылку",
+    "delete_parcel": "Удалить посылку",
+    "confirm_delete": "Вы уверены?",
+    "cannot_undo": "Это действие нельзя отменить.",
+    "confirm_delete_button": "Да, удалить!",
+    "deleted": "Удалено!",
+    "parcel_deleted": "Посылка успешно удалена",
+    "delete_tracking_warning": "Вы собираетесь удалить данные отслеживания",
+    "delete": "Удалить",
+    "add": "Добавить",
+    "edit": "Редактировать",
+    "add_tracking": "Добавить отслеживание",
+    "edit_tracking": "Редактировать отслеживание",
+    "dashboard": "Панель управления",
+    "parcel_not_found": "Посылка не найдена",
+    "parcel_not_found_text": "Посылка с указанным ID не найдена. Пожалуйста, создайте её!",
+    "network_error": "Ошибка сети",
+    "estimated_delivery": "Предполагаемая дата доставки"
 }
 ,
   "services": {
@@ -142,5 +165,27 @@
     "subtitle": "Безопасное хранение и эффективное выполнение",
     "description": "Управляйте вашими запасами и отправлениями от склада до двери с полной видимостью."
   }
-}
+},
+
+ "tracker": {
+    "provide_address": "Укажите новый адрес",
+    "address_placeholder": "напр. Лагос",
+    "shipped": "Отправлено",
+    "delivered": "Доставлено",
+    "in_transit": "В пути",
+    "success": "Успех!",
+    "address_submitted": "Изменение адреса отправлено.",
+    "loading_info": "Загрузка информации об отслеживании...",
+    "tracking_details": "Детали отслеживания",
+    "tracking_id": "ID отслеживания",
+    "package_info": "Информация о посылке",
+    "estimated_delivery": "Примерная дата доставки",
+    "view_details": "Просмотреть детали",
+    "map_route": "Карта и маршрут",
+    "change_address": "Нужно изменить адрес доставки?",
+    "shipment_progress": "Статус доставки",
+    "contact_us": "Свяжитесь с нами",
+    "or_whatsapp": "или WhatsApp",
+    "package_preview": "Превью посылки"
+  }
 }

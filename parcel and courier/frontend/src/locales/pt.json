@@ -77,7 +77,30 @@
   "updating": "Atualizando...",
   "package_details": "Detalhes do pacote",
   "description": "Descrição",
-  "enter_package_desc": "Insira a descrição do pacote"
+  "enter_package_desc": "Insira a descrição do pacote",
+   "parcel_details": "Detalhes da encomenda",
+    "loading_details": "Carregando detalhes...",
+    "parcel": "Encomenda",
+    "details": "Detalhes",
+    "tracking_history": "Histórico de rastreamento",
+    "edit_parcel": "Editar encomenda",
+    "delete_parcel": "Excluir encomenda",
+    "confirm_delete": "Tem certeza?",
+    "cannot_undo": "Esta ação não pode ser desfeita.",
+    "confirm_delete_button": "Sim, exclua!",
+    "deleted": "Excluído!",
+    "parcel_deleted": "Encomenda excluída com sucesso",
+    "delete_tracking_warning": "Você está prestes a excluir detalhes de rastreamento",
+    "delete": "Excluir",
+    "add": "Adicionar",
+    "edit": "Editar",
+    "add_tracking": "Adicionar rastreamento",
+    "edit_tracking": "Editar rastreamento",
+    "dashboard": "Painel",
+    "parcel_not_found": "Encomenda não encontrada",
+    "parcel_not_found_text": "Nenhuma encomenda com o ID fornecido. Por favor, crie uma!",
+    "network_error": "Erro de rede",
+    "estimated_delivery": "Data estimada de entrega"
 }
 ,
   "services": {
@@ -142,5 +165,27 @@
     "subtitle": "Armazenamento seguro e execução eficiente",
     "description": "Gerencie seu inventário e envios do armazém até a porta com visibilidade completa."
   }
-}
+},
+
+ "tracker": {
+    "provide_address": "Fornecer novo endereço",
+    "address_placeholder": "ex. Lagos",
+    "shipped": "Enviado",
+    "delivered": "Entregue",
+    "in_transit": "Em trânsito",
+    "success": "Sucesso!",
+    "address_submitted": "Alteração de endereço submetida.",
+    "loading_info": "Carregando informações de rastreamento...",
+    "tracking_details": "Detalhes de rastreamento",
+    "tracking_id": "ID de rastreamento",
+    "package_info": "Informações da encomenda",
+    "estimated_delivery": "Data estimada de entrega",
+    "view_details": "Ver detalhes",
+    "map_route": "Mapa e rota",
+    "change_address": "Precisa alterar o endereço de entrega?",
+    "shipment_progress": "Progresso do envio",
+    "contact_us": "Contate-nos em",
+    "or_whatsapp": "ou WhatsApp",
+    "package_preview": "Pré-visualização da encomenda"
+  }
 }

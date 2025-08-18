@@ -77,7 +77,30 @@
   "updating": "正在更新...",
   "package_details": "包裹详情",
   "description": "描述",
-  "enter_package_desc": "输入包裹描述"
+  "enter_package_desc": "输入包裹描述",
+  "parcel_details": "包裹详情",
+    "loading_details": "正在加载详情...",
+    "parcel": "包裹",
+    "details": "详情",
+    "tracking_history": "追踪历史",
+    "edit_parcel": "编辑包裹",
+    "delete_parcel": "删除包裹",
+    "confirm_delete": "您确定吗？",
+    "cannot_undo": "此操作无法撤消。",
+    "confirm_delete_button": "是的，删除它！",
+    "deleted": "已删除！",
+    "parcel_deleted": "包裹删除成功",
+    "delete_tracking_warning": "您即将删除追踪详情",
+    "delete": "删除",
+    "add": "添加",
+    "edit": "编辑",
+    "add_tracking": "添加追踪",
+    "edit_tracking": "编辑追踪",
+    "dashboard": "仪表板",
+    "parcel_not_found": "未找到包裹",
+    "parcel_not_found_text": "没有找到指定ID的包裹。请创建一个！",
+    "network_error": "网络错误",
+    "estimated_delivery": "预计送达日期"
 }
 ,
   "services": {
@@ -142,5 +165,27 @@
     "subtitle": "安全存储与高效履约",
     "description": "从仓库到门阶，全程可视化管理您的库存和运输。"
   }
-}
+},
+
+  "tracker": {
+    "provide_address": "提供新地址",
+    "address_placeholder": "例如：拉各斯",
+    "shipped": "已发货",
+    "delivered": "已送达",
+    "in_transit": "运输中",
+    "success": "成功！",
+    "address_submitted": "地址变更已提交。",
+    "loading_info": "正在加载追踪信息...",
+    "tracking_details": "追踪详情",
+    "tracking_id": "追踪ID",
+    "package_info": "包裹信息",
+    "estimated_delivery": "预计送达日期",
+    "view_details": "查看详情",
+    "map_route": "地图和路线",
+    "change_address": "需要更改送货地址？",
+    "shipment_progress": "货运进度",
+    "contact_us": "联系我们",
+    "or_whatsapp": "或WhatsApp",
+    "package_preview": "包裹预览"
+  }
 }

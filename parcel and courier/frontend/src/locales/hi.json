@@ -77,7 +77,30 @@
   "updating": "अपडेट हो रहा है...",
   "package_details": "पैकेज विवरण",
   "description": "विवरण",
-  "enter_package_desc": "पैकेज विवरण दर्ज करें"
+  "enter_package_desc": "पैकेज विवरण दर्ज करें",
+  "parcel_details": "पार्सल विवरण",
+    "loading_details": "विवरण लोड हो रहे हैं...",
+    "parcel": "पार्सल",
+    "details": "विवरण",
+    "tracking_history": "ट्रैकिंग इतिहास",
+    "edit_parcel": "पार्सल संपादित करें",
+    "delete_parcel": "पार्सल हटाएं",
+    "confirm_delete": "क्या आप सुनिश्चित हैं?",
+    "cannot_undo": "इस क्रिया को पूर्ववत नहीं किया जा सकता।",
+    "confirm_delete_button": "हाँ, हटा दो!",
+    "deleted": "हटाया गया!",
+    "parcel_deleted": "पार्सल सफलतापूर्वक हटाया गया",
+    "delete_tracking_warning": "आप ट्रैकिंग विवरण हटाने वाले हैं",
+    "delete": "हटाएं",
+    "add": "जोड़ें",
+    "edit": "संपादित करें",
+    "add_tracking": "ट्रैकिंग जोड़ें",
+    "edit_tracking": "ट्रैकिंग संपादित करें",
+    "dashboard": "डैशबोर्ड",
+    "parcel_not_found": "पार्सल नहीं मिला",
+    "parcel_not_found_text": "दिए गए आईडी के साथ कोई पार्सल नहीं मिला। कृपया एक बनाएं!",
+    "network_error": "नेटवर्क त्रुटि",
+    "estimated_delivery": "अनुमानित वितरण तिथि"
 }
 ,
   "services": {
@@ -142,5 +165,27 @@
     "subtitle": "सुरक्षित भंडारण और कुशल पूर्ति",
     "description": "पूर्ण दृश्यता के साथ वेयरहाउस से दरवाजे तक अपनी इन्वेंट्री और शिपमेंट प्रबंधित करें।"
   }
-}
+},
+
+"tracker": {
+    "provide_address": "नया पता प्रदान करें",
+    "address_placeholder": "जैसे: लागोस",
+    "shipped": "भेज दिया गया",
+    "delivered": "वितरित",
+    "in_transit": "ट्रांजिट में",
+    "success": "सफलता!",
+    "address_submitted": "पता परिवर्तन सबमिट किया गया।",
+    "loading_info": "ट्रैकिंग जानकारी लोड हो रही है...",
+    "tracking_details": "ट्रैकिंग विवरण",
+    "tracking_id": "ट्रैकिंग आईडी",
+    "package_info": "पैकेज जानकारी",
+    "estimated_delivery": "अनुमानित वितरण तिथि",
+    "view_details": "विवरण देखें",
+    "map_route": "मानचित्र और मार्ग",
+    "change_address": "डिलीवरी पते में बदलाव की आवश्यकता है?",
+    "shipment_progress": "शिपमेंट प्रगति",
+    "contact_us": "हमसे संपर्क करें",
+    "or_whatsapp": "या व्हाट्सएप",
+    "package_preview": "पैकेज पूर्वावलोकन"
+  }
 }
