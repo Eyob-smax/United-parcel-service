@@ -171,7 +171,7 @@ export const fetchShipments = createAsyncThunk(
       );
     }
 
-    return shipments && shipments;
+    return shipments ? shipments : null;
   }
 );
 
