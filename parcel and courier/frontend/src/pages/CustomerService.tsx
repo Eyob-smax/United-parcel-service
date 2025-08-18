@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Mail, X } from "lucide-react";
-import { fetchMessages } from "@/features/customerSupportSlice";
+import {
+  deleteMessageById,
+  fetchMessages,
+} from "@/features/customerSupportSlice";
 import type { ICustomerSupport } from "@/lib/types";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2"; // ✅ import Swal
+import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 
-// Utility to open Gmail compose
 function openGmail(email: string) {
   const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
     email
@@ -17,7 +19,6 @@ function openGmail(email: string) {
   window.open(gmailUrl, "_blank");
 }
 
-// Reusable component for attachments
 const Attachments: React.FC<{
   attachments?: string;
   onClick: (img: string) => void;
@@ -36,7 +37,6 @@ const Attachments: React.FC<{
   );
 };
 
-// Desktop Table Component
 const RequestTable: React.FC<{
   requests: ICustomerSupport[];
   onImageClick: (img: string) => void;
@@ -55,8 +55,7 @@ const RequestTable: React.FC<{
       cancelButtonText: "No, keep it",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        // Call your delete API here
-        await dispatch(deleteMessage(id));
+        await dispatch(deleteMessageById(id));
         Swal.fire("Deleted!", "Your message has been deleted.", "success");
       }
     });
@@ -115,7 +114,6 @@ const RequestTable: React.FC<{
   );
 };
 
-// Mobile Card Component
 const RequestCards: React.FC<{
   requests: ICustomerSupport[];
   onImageClick: (img: string) => void;

@@ -460,7 +460,8 @@ const App = () => {
                         : t("contact.send") || "Send"}
                     </Button>
                     <Button
-                      type="submit"
+                      onClick={() => setShowCustomerService(false)}
+                      type="button"
                       className="bg-[#black] hover:text-white border-[#f9f506] hover:border-1 text-[#181811] p-2 rounded-md font-bold"
                       disabled={messageLoading}
                     >
