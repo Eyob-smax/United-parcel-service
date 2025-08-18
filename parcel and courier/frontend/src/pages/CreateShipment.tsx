@@ -353,18 +353,6 @@ const CreateShipment: React.FC = () => {
             t("admin.enter_package_desc") || "Enter package description",
           type: "textarea",
         },
-        {
-          label: t("admin.package_weight") || "Package Weight",
-          name: "packageWeight",
-          placeholder:
-            t("admin.enter_package_weight") || "Enter package weight",
-        },
-        {
-          label: t("admin.package_dimensions") || "Package Dimensions",
-          name: "packageDimensions",
-          placeholder:
-            t("admin.enter_package_dimensions") || "Enter package dimensions",
-        },
       ],
     },
     {
