@@ -6,12 +6,12 @@ import { useTranslation } from "react-i18next";
 
 export default function LanguagePreference() {
   const navigate = useNavigate();
-  const selectedLanguage = localStorage.getItem("i18nextLng");
+  const storedLanguage = localStorage.getItem("i18nextLng");
   const [loading, setLoading] = useState<boolean>(false);
   const { t } = useTranslation();
+
   useEffect(() => {
     setLoading(true);
-
     const id = setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -83,15 +83,15 @@ export default function LanguagePreference() {
     { value: "ja", label: "Japanese", flag: "🇯🇵" },
   ];
 
-  const [currentCountry, setCurrentCountry] = useState<string>(
-    selectedLanguage || languages[0].value
-  );
   const [currentLanguage, setCurrentLanguage] = useState<string>(
-    languages[0].value
+    storedLanguage || languages[0].value
   );
+  const [currentCountry, setCurrentCountry] = useState<string>("us");
+
   const handleLanguageChange = (lang: string) => {
     setCurrentLanguage(lang);
     i18n.changeLanguage(lang);
+    localStorage.setItem("i18nextLng", lang);
   };
 
   if (loading) {
