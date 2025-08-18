@@ -122,7 +122,7 @@ export default function LanguagePreference() {
       currentCountry={currentCountry}
       setCountry={setCurrentCountry}
       languages={languages}
-      setLanguage={handleLanguageChange} // 👈 use our custom handler
+      setLanguage={handleLanguageChange}
       currentLanguage={currentLanguage}
     />
   );

@@ -49,7 +49,10 @@
     "shipment_not_found": "لم يتم العثور على الشحنة",
     "shipment_not_found_detail": "الشحنة التي تحاول تعديلها غير موجودة.",
     "request_approved": "تمت الموافقة على الطلب.",
-    "request_rejected": "تم رفض الطلب."
+    "request_rejected": "تم رفض الطلب.",
+    "redirecting": "جارٍ التحويل...",
+    "admin_redirect": "جارٍ تحويلك إلى صفحة تسجيل دخول المسؤول.",
+    "parcel_found": "تم العثور على الشحنة برقم التعقب {{id}}."
   },
 
   "login-forms": {

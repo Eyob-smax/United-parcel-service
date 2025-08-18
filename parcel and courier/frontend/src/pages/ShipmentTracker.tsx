@@ -32,7 +32,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-// -------------------- Map Helpers --------------------
 function FitBounds({ points }: { points: LatLngTuple[] }) {
   const map = useMap();
   useEffect(() => {
@@ -50,7 +49,6 @@ function ChangeCenter({ center }: { center?: LatLngTuple }) {
   return null;
 }
 
-// -------------------- Address Form --------------------
 function AddressForm({
   onSubmit,
   onCancel,
@@ -93,7 +91,6 @@ function AddressForm({
   );
 }
 
-// -------------------- Shipment Progress --------------------
 function ShipmentProgress({
   transportHistory,
   onMarkerClick,
@@ -140,7 +137,6 @@ function ShipmentProgress({
   );
 }
 
-// -------------------- Main Component --------------------
 export default function ShipmentTracker() {
   const { t } = useTranslation();
   const { id } = useParams();
@@ -218,7 +214,6 @@ export default function ShipmentTracker() {
 
   return (
     <div className="min-h-screen bg-[#232110] text-white font-sans">
-      {/* Header */}
       <header className="flex flex-wrap items-center justify-between border-b border-[#4a4621] px-4 py-4 sm:px-6">
         <div
           onClick={() => navigate("/home")}
@@ -256,7 +251,6 @@ export default function ShipmentTracker() {
       </header>
 
       <main className="max-w-6xl mx-auto p-4 sm:p-6">
-        {/* Tracking & Image */}
         <section className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
             <h2 className="text-xl sm:text-2xl font-bold">
@@ -292,7 +286,6 @@ export default function ShipmentTracker() {
           </div>
         </section>
 
-        {/* Map & Progress */}
         <section className="mt-6 grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-6">
           <div className="bg-[#181811] p-4 rounded-xl">
             <h3 className="font-semibold mb-3">

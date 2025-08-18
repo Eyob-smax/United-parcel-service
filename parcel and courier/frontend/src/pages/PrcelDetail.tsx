@@ -156,7 +156,6 @@ const ParcelDetails: React.FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-[#232110] font-[Space Grotesk, Noto Sans, sans-serif] text-white">
-      {/* Header */}
       <header className="flex items-center justify-between border-b border-[#4a4621] px-10 py-3">
         <div className="flex items-center gap-4">
           <svg className="h-4 w-4" viewBox="0 0 48 48" fill="currentColor">
@@ -194,10 +193,8 @@ const ParcelDetails: React.FC = () => {
         </nav>
       </header>
 
-      {/* Content */}
       <main className="flex flex-1 justify-center px-40 py-5">
         <div className="flex max-w-[960px] flex-1 flex-col">
-          {/* Breadcrumb */}
           <div className="flex gap-2 p-4 text-[#ccc68e]">
             <a href="#">{t("admin.dashboard") || "Admin Dashboard"}</a>
             <span>/</span>
@@ -206,7 +203,6 @@ const ParcelDetails: React.FC = () => {
             </span>
           </div>
 
-          {/* Title + Back */}
           <div className="flex flex-wrap items-center justify-between p-4">
             <h1 className="text-3xl font-bold">
               {t("admin.parcel_details") || "Parcel Details"} /{" "}
@@ -220,7 +216,6 @@ const ParcelDetails: React.FC = () => {
             </button>
           </div>
 
-          {/* Image + Info */}
           <div className="p-4 flex flex-col xl:flex-row gap-4">
             <div
               className="w-full rounded-xl bg-cover bg-center aspect-video"
@@ -238,7 +233,6 @@ const ParcelDetails: React.FC = () => {
             </div>
           </div>
 
-          {/* Details */}
           <h2 className="px-4 pt-5 pb-3 text-[22px] font-bold">
             {t("admin.details") || "Details"}
           </h2>
@@ -276,7 +270,6 @@ const ParcelDetails: React.FC = () => {
             ))}
           </div>
 
-          {/* Tracking History */}
           <h2 className="px-4 pt-5 pb-3 text-[22px] font-bold">
             {t("admin.tracking_history") || "Tracking History"}
           </h2>
@@ -328,7 +321,6 @@ const ParcelDetails: React.FC = () => {
             ))}
           </div>
 
-          {/* Actions */}
           <div className="flex gap-3 px-4 py-3">
             {[
               {
@@ -352,7 +344,6 @@ const ParcelDetails: React.FC = () => {
         </div>
       </main>
 
-      {/* Modal */}
       {isTrackingEditorOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-stone-700 bg-opacity-50 z-50">
           <div className="w-[90%] md:w-1/2 h-[90%] bg-[#232110] rounded-lg">

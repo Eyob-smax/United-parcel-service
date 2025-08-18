@@ -35,12 +35,10 @@ const AdminDashboard: React.FC = () => {
     }
   }, [authenticated, navigate, t]);
 
-  /** Fetch shipments on mount */
   useEffect(() => {
     dispatch(fetchShipments());
   }, [dispatch]);
 
-  /** Filter shipments */
   const filteredShipment = useMemo(() => {
     if (!searchQuery.trim()) return shipment;
     const query = searchQuery.toLowerCase();
@@ -51,7 +49,6 @@ const AdminDashboard: React.FC = () => {
     );
   }, [searchQuery, shipment]);
 
-  /** Loading state */
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#232110]">
@@ -67,7 +64,6 @@ const AdminDashboard: React.FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-[#232110] font-[Space Grotesk, Noto Sans, sans-serif] text-white">
-      {/* Header */}
       <header className="flex items-center justify-between border-b border-[#4a4621] px-4 sm:px-8 lg:px-20 py-3">
         <div
           onClick={() => navigate("/home")}
@@ -107,10 +103,8 @@ const AdminDashboard: React.FC = () => {
         </div>
       </header>
 
-      {/* Main */}
       <main className="flex flex-1 justify-center px-4 sm:px-8 lg:px-20 py-6">
         <div className="flex w-full max-w-5xl flex-col">
-          {/* Top Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 p-4">
             <h1 className="min-w-full sm:min-w-[18rem] text-2xl sm:text-3xl font-bold tracking-tight">
               {t("admin.shipments") || "Shipments"}
@@ -123,7 +117,6 @@ const AdminDashboard: React.FC = () => {
             </Link>
           </div>
 
-          {/* Search */}
           <div className="px-4 py-3">
             <div className="relative flex h-12 w-full">
               <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#ccc68e]" />
@@ -141,7 +134,6 @@ const AdminDashboard: React.FC = () => {
             </div>
           </div>
 
-          {/* Shipment List */}
           <div className="space-y-4 p-4">
             {filteredShipment?.length > 0 ? (
               filteredShipment.map((s) => (
@@ -149,7 +141,6 @@ const AdminDashboard: React.FC = () => {
                   key={s.parcel_id}
                   className="flex flex-col sm:flex-row gap-4 rounded-xl bg-[#3a3620] p-4"
                 >
-                  {/* Info */}
                   <div className="flex flex-col gap-3 flex-1">
                     <p className="text-base font-bold">
                       {t("admin.parcel_id") || "Parcel ID"}: {s.parcel_id}
@@ -167,7 +158,6 @@ const AdminDashboard: React.FC = () => {
                     </button>
                   </div>
 
-                  {/* Image */}
                   {s.img_url && (
                     <div className="flex-1">
                       <img

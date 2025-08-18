@@ -1,4 +1,3 @@
-// supabaseRealtime.ts
 import {
   insertSyncRequest,
   removeSyncRequest,

@@ -35,7 +35,6 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
   const dispatch = useDispatch<TAppDispatch>();
   const { error, loading } = useSelector((state: TRootState) => state.transit);
 
-  /** SweetAlert wrapper */
   const showAlert = useCallback(
     (
       icon: "error" | "warning" | "info" | "success",
@@ -62,12 +61,10 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
     []
   );
 
-  /** Show error when state.error changes */
   useEffect(() => {
     if (error) showAlert("error", "Oops...", error, "Retry");
   }, [error, showAlert]);
 
-  /** Form submit */
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -107,7 +104,6 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
     [dispatch, event.parcel_id, onClose, type, showAlert, t]
   );
 
-  /** Abstracted form fields */
   const formFields: FormField[] = [
     {
       id: "currentLocation",
@@ -131,7 +127,6 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
     },
   ];
 
-  /** Small reusable component */
   const FormFieldInput: React.FC<FormField> = ({
     id,
     label,
@@ -166,10 +161,8 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
           ))}
         </div>
 
-        {/* Hidden transport ID */}
         <Input type="hidden" value={event.transport_id} name="transport_id" />
 
-        {/* Submit Button */}
         <div className="w-full mt-6 flex justify-center">
           <Button
             type="submit"

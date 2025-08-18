@@ -50,7 +50,10 @@
     "shipment_not_found": "Expédition non trouvée",
     "shipment_not_found_detail": "L'expédition que vous essayez d'éditer n'existe pas.",
     "request_approved": "La demande a été approuvée.",
-    "request_rejected": "La demande a été rejetée."
+    "request_rejected": "La demande a été rejetée.",
+    "redirecting": "Redirection...",
+    "admin_redirect": "Vous êtes en cours de redirection vers la page de connexion administrateur.",
+    "parcel_found": "Colis avec ID {{id}} trouvé."
   },
 
   "login-forms": {

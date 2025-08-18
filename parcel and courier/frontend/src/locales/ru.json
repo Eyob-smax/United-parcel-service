@@ -51,7 +51,10 @@
     "shipment_not_found": "Отправление не найдено",
     "shipment_not_found_detail": "Отправление, которое вы пытаетесь отредактировать, не существует.",
     "request_approved": "Запрос одобрен.",
-    "request_rejected": "Запрос отклонен."
+    "request_rejected": "Запрос отклонен.",
+    "redirecting": "Перенаправление...",
+    "admin_redirect": "Вы будете перенаправлены на страницу входа администратора.",
+    "parcel_found": "Посылка с ID {{id}} найдена."
   },
 
   "login-forms": {

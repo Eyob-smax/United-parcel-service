@@ -2,6 +2,7 @@ import type { TAppDispatch, TRootState } from "@/app/store";
 import Form from "@/components/Form";
 import { fetchShipments } from "@/features/shipmentSlice";
 import { useEffect, useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -9,20 +10,21 @@ import Swal from "sweetalert2";
 export default function TrackIDInput() {
   const [parcelID, setParcelID] = useState<string>("");
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const dispatch = useDispatch<TAppDispatch>();
   const { shipment } = useSelector((state: TRootState) => state.shipment);
 
-  // Fetch shipments if not already loaded
   useEffect(() => {
     if (!shipment?.length) dispatch(fetchShipments());
   }, [dispatch, shipment]);
 
-  // Handle admin redirect
   useEffect(() => {
     if (parcelID.toLowerCase() === "admin") {
       Swal.fire({
-        title: "Redirecting...",
-        text: "You are being redirected to the admin login page.",
+        title: t("alerts.redirecting") || "Redirecting...",
+        text:
+          t("alerts.admin_redirect") ||
+          "You are being redirected to the admin login page.",
         icon: "info",
         timer: 1000,
         background: "#232110",
@@ -30,9 +32,8 @@ export default function TrackIDInput() {
         showConfirmButton: false,
       }).then(() => navigate("/admin-login"));
     }
-  }, [parcelID, navigate]);
+  }, [parcelID, navigate, t]);
 
-  // Track shipment
   const track = useCallback(
     async (id: string) => {
       if (!id) return;
@@ -52,13 +53,14 @@ export default function TrackIDInput() {
 
       await Swal.fire({
         icon: "success",
-        title: "Found",
-        text: `Shipment found: ${found.parcel_id}`,
+        title: t("alerts.success") || "Shipment Found",
+        text:
+          t("alerts.parcel_found", { id }) || `Shipment with ID ${id} found.`,
       });
 
       navigate(`/shipment-tracking/${id}`);
     },
-    [shipment, navigate]
+    [shipment, navigate, t]
   );
 
   return (

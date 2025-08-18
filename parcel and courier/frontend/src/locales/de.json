@@ -62,7 +62,10 @@
     "shipment_not_found": "Sendung nicht gefunden",
     "shipment_not_found_detail": "Die Sendung, die Sie bearbeiten möchten, existiert nicht.",
     "request_approved": "Die Anfrage wurde genehmigt.",
-    "request_rejected": "Die Anfrage wurde abgelehnt."
+    "request_rejected": "Die Anfrage wurde abgelehnt.",
+    "redirecting": "Wird umgeleitet...",
+    "admin_redirect": "Sie werden zur Admin-Anmeldeseite umgeleitet.",
+    "parcel_found": "Paket mit ID {{id}} gefunden."
   },
 
   "header": {

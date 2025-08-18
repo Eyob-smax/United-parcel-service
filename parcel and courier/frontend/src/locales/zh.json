@@ -50,7 +50,10 @@
     "shipment_not_found": "未找到货件",
     "shipment_not_found_detail": "您尝试编辑的货件不存在。",
     "request_approved": "请求已批准。",
-    "request_rejected": "请求已拒绝。"
+    "request_rejected": "请求已拒绝。",
+    "redirecting": "正在重定向...",
+    "admin_redirect": "您将被重定向到管理员登录页面。",
+    "parcel_found": "包裹ID {{id}} 找到。"
   },
 
   "login-forms": {

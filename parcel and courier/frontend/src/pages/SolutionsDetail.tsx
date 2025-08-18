@@ -116,7 +116,6 @@ const SolutionsDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#181811] font-['Space_Grotesk','Noto_Sans',sans-serif]">
-      {/* Header */}
       <header className="flex flex-col md:flex-row items-center justify-between border-b border-[#3a3927] px-4 md:px-10 py-3">
         <div className="flex items-center gap-4 text-white">
           <FaTruck className="w-5 h-5" />
@@ -135,7 +134,6 @@ const SolutionsDetail: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content */}
       <motion.main
         className="flex flex-1 justify-center py-5 px-4 sm:px-8 lg:px-16 xl:px-40"
         initial={{ opacity: 0 }}
@@ -143,7 +141,6 @@ const SolutionsDetail: React.FC = () => {
         transition={{ duration: 1 }}
       >
         <div className="flex flex-col w-full max-w-[960px] space-y-6">
-          {/* Hero Section */}
           <motion.section
             className="min-h-[300px] bg-cover bg-center flex flex-col justify-end rounded-lg"
             style={{
@@ -158,7 +155,6 @@ const SolutionsDetail: React.FC = () => {
             </p>
           </motion.section>
 
-          {/* Services Section */}
           <section className="flex flex-col gap-4">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />

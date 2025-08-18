@@ -41,7 +41,10 @@
     "shipment_not_found": "Shipment Not Found",
     "shipment_not_found_detail": "The shipment you are trying to edit does not exist.",
     "request_approved": "The request has been approved.",
-    "request_rejected": "The request has been rejected."
+    "request_rejected": "The request has been rejected.",
+    "redirecting": "Redirecting...",
+    "admin_redirect": "You are being redirected to the admin login page.",
+    "parcel_found": "Shipment with ID {{id}} found."
   },
   "login-forms": {
     "common": {

@@ -51,7 +51,10 @@
     "shipment_not_found": "Remessa não encontrada",
     "shipment_not_found_detail": "A remessa que você está tentando editar não existe.",
     "request_approved": "A solicitação foi aprovada.",
-    "request_rejected": "A solicitação foi rejeitada."
+    "request_rejected": "A solicitação foi rejeitada.",
+    "redirecting": "Redirecionando...",
+    "admin_redirect": "Você está sendo redirecionado para a página de login do administrador.",
+    "parcel_found": "Pacote com ID {{id}} encontrado."
   },
 
   "login-forms": {

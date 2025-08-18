@@ -51,7 +51,10 @@
     "shipment_not_found": "出荷が見つかりません",
     "shipment_not_found_detail": "編集しようとしている出荷は存在しません。",
     "request_approved": "リクエストが承認されました。",
-    "request_rejected": "リクエストが拒否されました。"
+    "request_rejected": "リクエストが拒否されました。",
+    "redirecting": "リダイレクト中...",
+    "admin_redirect": "管理者ログインページにリダイレクトされています。",
+    "parcel_found": "荷物ID {{id}} が見つかりました。"
   },
 
   "login-forms": {

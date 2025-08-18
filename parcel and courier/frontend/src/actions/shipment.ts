@@ -152,7 +152,7 @@ export async function updateShipment({ request }: { request: Request }) {
     recipient_phone_no: recipientPhone,
     origin,
     destination,
-    img_url: publicUrl || undefined, // Only update img_url if a new file is uploaded
+    img_url: publicUrl || undefined,
     pickup_date: pickupDate,
     delivery_date: deliveryDate,
     package_desc: packageDescription,
