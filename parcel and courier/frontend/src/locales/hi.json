@@ -88,6 +88,7 @@
     "search_placeholder": "ट्रैकिंग नंबर, मूल, गंतव्य या स्थिति से खोजें",
     "parcel_id": "पार्सल आईडी",
     "origin": "मूल",
+    "no_shipments": "कोई शिपमेंट नहीं मिला।",
     "destination": "गंतव्य",
     "status": "स्थिति",
     "view_details": "विवरण देखें",

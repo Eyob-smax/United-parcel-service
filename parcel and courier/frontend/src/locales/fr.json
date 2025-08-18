@@ -87,6 +87,7 @@
     "search_placeholder": "Rechercher par numéro de suivi, origine, destination ou statut",
     "parcel_id": "ID du colis",
     "origin": "Origine",
+    "no_shipments": "Aucune expédition trouvée.",
     "destination": "Destination",
     "status": "Statut",
     "view_details": "Voir les détails",

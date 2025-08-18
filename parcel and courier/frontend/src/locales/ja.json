@@ -86,6 +86,7 @@
     "create_shipment": "新しい配送を作成",
     "search_placeholder": "追跡番号、出発地、目的地、またはステータスで検索",
     "parcel_id": "荷物ID",
+    "no_shipments": "配送が見つかりませんでした。",
     "origin": "出発地",
     "destination": "目的地",
     "status": "ステータス",

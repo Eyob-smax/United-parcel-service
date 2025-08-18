@@ -102,6 +102,7 @@
     "address": "地址",
     "enter_sender_address": "输入寄件人地址",
     "phone_number": "电话号码",
+    "no_shipments": "未找到任何货件。",
     "enter_sender_phone": "输入寄件人电话号码",
     "recipient_details": "收件人信息",
     "enter_recipient_name": "输入收件人姓名",

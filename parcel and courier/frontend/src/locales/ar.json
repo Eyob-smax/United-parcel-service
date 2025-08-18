@@ -88,6 +88,7 @@
     "origin": "المنشأ",
     "destination": "الوجهة",
     "status": "الحالة",
+    "no_shipments": "لم يتم العثور على شحنات.",
     "view_details": "عرض التفاصيل",
     "creating_shipment": "جارٍ إنشاء الشحنة...",
     "parcel_info": "معلومات الطرد",

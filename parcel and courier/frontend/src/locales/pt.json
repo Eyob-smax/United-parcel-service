@@ -107,6 +107,7 @@
     "enter_recipient_name": "Digite o nome do destinatário",
     "enter_recipient_address": "Digite o endereço do destinatário",
     "enter_recipient_phone": "Digite o número de telefone do destinatário",
+    "no_shipments": "Nenhuma remessa encontrada.",
     "origin_destination": "Origem e destino",
     "enter_origin": "Digite a origem",
     "enter_destination": "Digite o destino",

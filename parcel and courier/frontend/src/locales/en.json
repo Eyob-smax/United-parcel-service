@@ -82,6 +82,7 @@
     "unauthorized_text": "Please log in to access the dashboard.",
     "loading_shipments": "Loading Shipments...",
     "shipments": "Shipments",
+    "no_shipments": "No shipments found.",
     "create_shipment": "Create New Shipment",
     "search_placeholder": "Search by tracking number, origin, destination, or status",
     "parcel_id": "Parcel ID",

@@ -52,6 +52,7 @@
     "sending_message_error": "Fehler beim Senden der Nachricht.",
     "retry": "Erneut versuchen",
     "success": "Erfolg!",
+
     "message_sent": "Ihre Nachricht wurde gesendet.",
     "parcel_not_found": "Paket nicht gefunden",
     "missing_information": "Bitte geben Sie alle erforderlichen Informationen an.",
@@ -88,6 +89,7 @@
     "parcel_id": "Paket-ID",
     "origin": "Herkunft",
     "destination": "Ziel",
+    "no_shipments": "Keine Sendungen gefunden.",
     "status": "Status",
     "view_details": "Details anzeigen",
     "creating_shipment": "Sendung wird erstellt...",

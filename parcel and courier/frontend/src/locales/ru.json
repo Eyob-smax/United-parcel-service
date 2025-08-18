@@ -97,6 +97,7 @@
     "package_name": "Название посылки",
     "enter_package_name": "Введите название посылки",
     "quantity": "Количество",
+    "no_shipments": "Нет отправлений",
     "enter_quantity": "Введите количество посылок",
     "sender_details": "Данные отправителя",
     "enter_sender_name": "Введите имя отправителя",

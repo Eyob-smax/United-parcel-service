@@ -119,6 +119,7 @@
     "deleted": "¡Eliminado!",
     "parcel_deleted": "Paquete eliminado con éxito",
     "delete_tracking_warning": "Estás a punto de eliminar detalles de seguimiento",
+    "no_shipments": "No se encontraron envíos.",
     "delete": "Eliminar",
     "add": "Agregar",
     "edit": "Editar",
