@@ -191,12 +191,10 @@
     "select_language": "Select your Language",
     "select_country": "Select your Country"
   },
-
   "about": {
     "title": "About SwiftShip",
     "description": "SwiftShip is a global leader in logistics, offering a wide range of solutions for businesses and individuals. With a history spanning over a century, we've built a reputation for reliability, innovation, and customer satisfaction. Our services include package delivery, freight forwarding, supply chain management, and specialized solutions for various industries. Our advanced tracking system provides real-time visibility of your shipments, ensuring transparency and peace of mind. We're committed to sustainability and ethical practices, striving to minimize our environmental impact and contribute positively to the communities we serve."
   },
-
   "solutions": {
     "title": "Shipping Solutions",
     "domestic": {
@@ -220,7 +218,6 @@
       "description": "Manage your inventory and shipments from warehouse to doorstep with full visibility."
     }
   },
-
   "tracker": {
     "provide_address": "Provide new Address",
     "address_placeholder": "e.g. Lagos",
@@ -253,7 +250,6 @@
     "action": "Action",
     "no_attachments": "No Attachments"
   },
-
   "address-change": {
     "title": "Address Change Request",
     "description": "Submit a request to change your delivery address.",

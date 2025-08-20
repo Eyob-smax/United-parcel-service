@@ -62,7 +62,7 @@ export async function shipment({ request }: { request: Request }) {
     .from("united-parcel-service")
     .getPublicUrl(storageData.path);
 
-  const shipmentData = {
+  const shipmentData: IShipment = {
     parcel_id: parcelId,
     sender_name: senderName,
     sender_address: senderAddress,
@@ -78,6 +78,7 @@ export async function shipment({ request }: { request: Request }) {
     quantity: Number(quantity),
     package_name: packageName,
     status,
+    destination_country: formData.get("destinationCountry") as string,
   };
   try {
     await store.dispatch(createShipment(shipmentData)).unwrap();
@@ -108,6 +109,9 @@ export async function updateShipment({ request }: { request: Request }) {
   const pickupDate = formData.get("pickupDate") as string;
   const deliveryDate = formData.get("deliveryDate") as string;
   const packageDescription = formData.get("packageDescription") as string;
+  const packageName = formData.get("packageName") as string;
+  const quantity = formData.get("quantity") as string;
+  const destinationCountry = formData.get("destinationCountry") as string;
 
   if (
     !parcelId ||
@@ -116,7 +120,8 @@ export async function updateShipment({ request }: { request: Request }) {
     !origin ||
     !recipientName ||
     !pickupDate ||
-    !deliveryDate
+    !deliveryDate ||
+    !packageName
   ) {
     return { success: false, error: "Missing required fields" };
   }
@@ -157,6 +162,9 @@ export async function updateShipment({ request }: { request: Request }) {
     delivery_date: deliveryDate,
     package_desc: packageDescription,
     status,
+    package_name: packageName,
+    quantity: Number(quantity),
+    destination_country: destinationCountry,
   };
 
   try {

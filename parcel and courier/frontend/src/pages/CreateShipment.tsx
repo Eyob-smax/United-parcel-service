@@ -21,7 +21,7 @@ interface FormData {
   pickupDate: string;
   deliveryDate: string;
   status: "pending" | "shipped off" | "on transit" | "delivered";
-  package_name: string;
+  packageName: string;
   quantity: number;
   destinationCountry: string;
 }
@@ -144,7 +144,7 @@ const CreateShipment: React.FC = () => {
     pickupDate: "",
     deliveryDate: "",
     status: "pending",
-    package_name: "",
+    packageName: "",
     quantity: 1,
     destinationCountry: "",
   });
@@ -215,7 +215,7 @@ const CreateShipment: React.FC = () => {
       "pickupDate",
       "deliveryDate",
       "status",
-      "package_name",
+      "packageName",
       "quantity",
       "destinationCountry",
     ];
@@ -268,7 +268,7 @@ const CreateShipment: React.FC = () => {
         },
         {
           label: t("admin.package_name") || "Package Name",
-          name: "package_name",
+          name: "packageName",
           placeholder: t("admin.enter_package_name") || "Enter package name",
         },
         {
