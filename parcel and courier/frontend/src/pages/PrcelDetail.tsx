@@ -129,6 +129,7 @@ const ParcelDetails: React.FC = () => {
       if (result.isConfirmed) {
         await dispatch(deleteTransistById(transportId));
         await dispatch(fetchShipments());
+        navigate("/admin-dashboard");
       }
     }
   }
