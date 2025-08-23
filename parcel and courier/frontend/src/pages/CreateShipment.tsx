@@ -154,6 +154,20 @@ const CreateShipment: React.FC = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
+    if (fetcher.data && fetcher.data.success) {
+      Swal.fire({
+        icon: "success",
+        title: t("alerts.success") || "Success",
+        text:
+          t("alerts.shipment_created") ||
+          "Your shipment has been created successfully",
+      }).then(() => {
+        navigate("/admin-dashboard");
+      });
+    }
+  }, [fetcher.data, t, navigate]);
+
+  useEffect(() => {
     if (!authenticated) {
       Swal.fire({
         title: t("alerts.unauthorized") || "Unauthorized",
