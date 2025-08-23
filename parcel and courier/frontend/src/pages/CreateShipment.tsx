@@ -165,7 +165,7 @@ const CreateShipment: React.FC = () => {
         navigate("/admin-dashboard");
       });
     }
-  }, [fetcher.data, t, navigate]);
+  }, [fetcher.data, t, navigate, fetcher.state]);
 
   useEffect(() => {
     if (!authenticated) {
