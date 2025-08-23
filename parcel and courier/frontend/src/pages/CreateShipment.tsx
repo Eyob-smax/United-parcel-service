@@ -154,7 +154,7 @@ const CreateShipment: React.FC = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    if (fetcher.data && fetcher.data.success) {
+    if ((fetcher.data && fetcher.data.success) || fetcher.state === "idle") {
       Swal.fire({
         icon: "success",
         title: t("alerts.success") || "Success",
