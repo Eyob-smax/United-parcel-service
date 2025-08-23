@@ -83,34 +83,46 @@ const ParcelDetails: React.FC = () => {
           t("admin.parcel_not_found_text") ||
           "No parcel with the given ID. Please create one!",
         icon: "error",
-      }).then(() => navigate("/admin_dashboard", { replace: true }));
+      }).then(() => navigate("/admin-dashboard", { replace: true }));
     }
   }, [shipments, currentShipment, navigate, t]);
 
   async function handleActionClick(action: string) {
-    if (action === "Delete Parcel" && id) {
-      const result = await Swal.fire({
-        title: t("admin.confirm_delete") || "Are you sure?",
-        text: t("admin.cannot_undo") || "This action cannot be undone.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText:
-          t("admin.confirm_delete_button") || "Yes, delete it!",
-      });
+    if (!id) return;
 
-      if (result.isConfirmed) {
-        await dispatch(deleteShipmentById(id));
-        await Swal.fire(
-          t("admin.deleted") || "Deleted!",
-          t("admin.parcel_deleted") || "Parcel deleted successfully",
-          "success"
-        );
-        navigate("/admin-dashboard", { replace: true });
-      }
+    switch (action) {
+      case "Delete Parcel":
+        await handleDelete();
+        break;
+
+      case "Edit Parcel":
+        navigate(`/parcel/${id}/edit`);
+        break;
+
+      default:
+        console.warn(`Unknown action: ${action}`);
     }
+  }
 
-    if (action === "Edit Parcel" && id) {
-      navigate(`/parcel/${id}/edit`);
+  async function handleDelete() {
+    const result = await Swal.fire({
+      title: t("admin.confirm_delete"),
+      text: t("admin.cannot_undo"),
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: t("admin.confirm_delete_button"),
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+      if (!id) return;
+      await dispatch(deleteShipmentById(id)).unwrap?.();
+      await Swal.fire(t("admin.deleted"), t("admin.parcel_deleted"), "success");
+      navigate("/admin-dashboard", { replace: true });
+    } catch (err) {
+      console.error("Delete failed:", err);
+      await Swal.fire(t("admin.error"), t("admin.delete_failed"), "error");
     }
   }
 
@@ -129,7 +141,6 @@ const ParcelDetails: React.FC = () => {
       if (result.isConfirmed) {
         await dispatch(deleteTransistById(transportId));
         await dispatch(fetchShipments());
-        navigate("/admin-dashboard");
       }
     }
   }
