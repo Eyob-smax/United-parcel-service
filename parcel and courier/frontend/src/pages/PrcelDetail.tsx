@@ -148,7 +148,7 @@ const ParcelDetails: React.FC = () => {
   function openModel(action: "Edit" | "Add", event: ITransportHistory) {
     setIsTrackingEditorOpen(true);
     setModelData({
-      transportData: action === "Add" ? null : event,
+      transportData: event,
       type: action,
     });
   }

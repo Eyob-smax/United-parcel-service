@@ -71,7 +71,6 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
       const formData = new FormData(e.currentTarget);
 
       const payload = {
-        transport_id: formData.get("transport_id") as string,
         current_location: (formData.get("currentLocation") as string)?.trim(),
         current_date: formData.get("currentDate") as string,
         current_time: new Date().toLocaleTimeString(),
