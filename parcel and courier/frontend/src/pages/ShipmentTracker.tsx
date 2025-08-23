@@ -269,8 +269,16 @@ export default function ShipmentTracker() {
                 {t("tracker.package_info") || "Package Information"}
               </p>
               <p className="text-[#ccc68e]">
-                {t("tracker.estimated_delivery") || "Estimated Delivery"}:{" "}
-                {shipment?.delivery_date}
+                {t("tracker.recipient_name") || "Recipient Name"}:{" "}
+                {shipment?.recipient_name}
+              </p>
+              <p className="text-[#ccc68e]">
+                {t("address-change.status") || "Estimated Delivery"}:{" "}
+                {shipment?.status}
+              </p>
+              <p className="text-[#ccc68e]">
+                {t("tracker.sender_name") || "Sender Name"}:{" "}
+                {shipment?.sender_name}
               </p>
               <div className="mt-3">
                 <Button

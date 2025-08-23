@@ -237,7 +237,9 @@
     "shipment_progress": "Shipment Progress",
     "contact_us": "Contact us at",
     "or_whatsapp": "or WhatsApp",
-    "package_preview": "Package preview"
+    "package_preview": "Package preview",
+    "recipient_name": "Recipient name",
+    "sender_name": "Sender name"
   },
   "customer-support": {
     "title": "Customer Service Requests",
