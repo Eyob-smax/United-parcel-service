@@ -309,7 +309,7 @@ export default function ShipmentTracker() {
                 pathOptions={{ color: "#1be73d", weight: 4 }}
               />
               <ChangeCenter center={center} />
-              {shipment?.transport_history?.map((ev) => (
+              {shipment?.transport_history?.map((ev, index) => (
                 <Marker
                   key={ev.transport_id}
                   position={ev.coordinates || [51.505, -0.09]}
@@ -326,11 +326,18 @@ export default function ShipmentTracker() {
                 >
                   <Popup>
                     <div className="max-w-xs">
-                      <p className="font-semibold">{ev.current_location}</p>
-                      <p className="text-sm text-[#ccc68e]">
-                        {ev.current_country}
+                      <p className="font-semibold my-0">
+                        {ev.current_location} | {ev.current_country}
                       </p>
-                      <p className="mt-2 text-sm">{ev.current_time}</p>
+
+                      <p className=" text-sm my-0">{ev.current_time}</p>
+                      <p>
+                        {index === 0
+                          ? "Shipped Off"
+                          : index > 0 && index < length - 1
+                          ? "On Transit"
+                          : "Delivered"}
+                      </p>
                     </div>
                   </Popup>
                 </Marker>
