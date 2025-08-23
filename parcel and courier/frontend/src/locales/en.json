@@ -264,5 +264,15 @@
     "parcel_id": "Parcel ID",
     "old_address": "Old Address",
     "status": "Status"
+  },
+
+  "tracking-form": {
+    "current_location": "Current Location",
+    "current_country": "Current Country",
+    "current_date": "Current Date",
+    "add": "add",
+    "adding": "adding",
+    "edit": "edit",
+    "editing": "editing"
   }
 }

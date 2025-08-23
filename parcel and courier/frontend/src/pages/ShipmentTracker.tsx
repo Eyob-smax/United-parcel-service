@@ -334,7 +334,9 @@ export default function ShipmentTracker() {
                       <p>
                         {index === 0
                           ? "Shipped Off"
-                          : index > 0 && index < length - 1
+                          : index > 0 &&
+                            shipment.transport_history &&
+                            index < shipment.transport_history.length - 1
                           ? "On Transit"
                           : "Delivered"}
                       </p>

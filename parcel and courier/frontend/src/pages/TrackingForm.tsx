@@ -168,7 +168,14 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
             className="px-6 py-2 rounded-md text-sm font-bold tracking-tight border border-[#f9e106] hover:bg-yellow-400"
             disabled={loading}
           >
-            {loading ? `${type}ing...` : type}
+            {loading &&
+              (type === "Add"
+                ? t("tracking-form.adding")
+                : t("tracking-form.editing"))}
+            {!loading &&
+              (type === "Add"
+                ? t("tracking-form.add")
+                : t("tracking-form.edit"))}
           </Button>
         </div>
       </form>
