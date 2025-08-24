@@ -356,7 +356,8 @@ export default function ShipmentTracker() {
 
             <div className="mt-3 flex justify-end">
               <Button
-                className="bg-[#f9e106] text-[#232110]"
+                className="bg-[#f9e106] text-[#232110] hover:bg-[#ccc68e] hover:text-[#181811]"
+                variant={"secondary"}
                 onClick={() => setShowAddressForm((s) => !s)}
               >
                 {t("tracker.change_address") ||
