@@ -155,7 +155,9 @@
     "parcel_not_found": "پارسل ونه موندل شو",
     "parcel_not_found_text": "د دې شمیرې سره هیڅ پارسل نشته. مهرباني وکړئ یو جوړ کړئ!",
     "network_error": "د شبکې تېروتنه",
-    "estimated_delivery": "د سپارلو اټکل شوی نیټه"
+    "estimated_delivery": "د سپارلو اټکل شوی نیټه",
+    "enter_destination_country": "گنتبے ملک ٹائپ کریں",
+    "destination_country": "گنتبے ملک"
   },
   "services": {
     "express_delivery": "چټکه سپارنه",

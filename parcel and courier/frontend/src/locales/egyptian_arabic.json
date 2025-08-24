@@ -155,7 +155,9 @@
     "parcel_not_found": "الشحنة غير موجودة",
     "parcel_not_found_text": "لا توجد شحنة بهذا الرقم. يرجى إنشاء واحدة!",
     "network_error": "خطأ في الشبكة",
-    "estimated_delivery": "تاريخ التسليم المتوقع"
+    "estimated_delivery": "تاريخ التسليم المتوقع",
+    "enter_destination_country": "أدخل بلد الوجهة",
+    "destination_country": "بلد الوجهة"
   },
   "services": {
     "express_delivery": "التوصيل السريع",

@@ -155,7 +155,9 @@
     "parcel_not_found": "بسته پیدا نشد",
     "parcel_not_found_text": "هیچ بسته‌ای با شناسه داده شده وجود ندارد. لطفاً یکی ایجاد کنید!",
     "network_error": "خطای شبکه",
-    "estimated_delivery": "تاریخ تحویل تخمینی"
+    "estimated_delivery": "تاریخ تحویل تخمینی",
+    "enter_destination_country": "کشور مقصد را وارد کنید",
+    "destination_country": "کشور مقصد"
   },
   "services": {
     "express_delivery": "تحویل اکسپرس",

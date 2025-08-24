@@ -155,7 +155,9 @@
     "parcel_not_found": "पार्सल ना मिलल",
     "parcel_not_found_text": "दिहल गइल ID के साथ कोई पार्सल नइखे। कृपया एगो बनाईं!",
     "network_error": "नेटवर्क में खराबी",
-    "estimated_delivery": "अनुमानित डिलीवरी तारीख"
+    "estimated_delivery": "अनुमानित डिलीवरी तारीख",
+    "enter_destination_country": "गंतव्य देश दर्ज करें",
+    "destination_country": "गंतव्य देश"
   },
   "services": {
     "express_delivery": "एक्सप्रेस डिलीवरी",

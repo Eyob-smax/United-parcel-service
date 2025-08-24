@@ -155,7 +155,9 @@
     "parcel_not_found": "பார்சல் காணப்படவில்லை",
     "parcel_not_found_text": "கொடுக்கப்பட்ட ஐடி உடைய பார்சல் இல்லை. ஒன்றை உருவாக்கவும்!",
     "network_error": "நெட்வொர்க் பிழை",
-    "estimated_delivery": "மதிப்பிடப்பட்ட விநியோக தேதி"
+    "estimated_delivery": "மதிப்பிடப்பட்ட விநியோக தேதி",
+    "enter_destination_country": "இலக்கை நாட்டை உள்ளிடவும்",
+    "destination_country": "இலக்கை நாடு"
   },
   "service": {
     "express_delivery": "எக்ஸ்பிரஸ் விநியோகம்",

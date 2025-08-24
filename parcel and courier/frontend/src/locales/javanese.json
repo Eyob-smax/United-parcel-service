@@ -155,7 +155,9 @@
     "parcel_not_found": "Paket Ora Ditemokake",
     "parcel_not_found_text": "Ora ana paket kanthi ID sing diwenehi. Mangga gawe siji!",
     "network_error": "Jaringan Error",
-    "estimated_delivery": "Perkiraan tanggal pangiriman"
+    "estimated_delivery": "Perkiraan tanggal pangiriman",
+    "enter_destination_country": "Masukkan negara tujuan",
+    "destination_country": "Negara tujuan"
   },
   "services": {
     "express_delivery": "Pangiriman Ekspres",

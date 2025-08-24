@@ -155,7 +155,9 @@
     "parcel_not_found": "Paarselii hin argamne",
     "parcel_not_found_text": "ID kenname waliin paarselii hin jiru. Maaloo haaraa uumi!",
     "network_error": "Dogoggora Neetwoorkii",
-    "estimated_delivery": "Guyyaa Geessuu Yaadame"
+    "estimated_delivery": "Guyyaa Geessuu Yaadame",
+    "enter_destination_country": "Gantavya desh galchaa",
+    "destination_country": "Gantavya desh"
   },
   "services": {
     "express_delivery": "Geessuu Daddarbaa",

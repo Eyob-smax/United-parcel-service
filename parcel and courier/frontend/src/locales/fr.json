@@ -155,7 +155,9 @@
     "parcel_not_found": "Colis introuvable",
     "parcel_not_found_text": "Aucun colis avec l’ID donné. Veuillez en créer un !",
     "network_error": "Erreur réseau",
-    "estimated_delivery": "Date de livraison estimée"
+    "estimated_delivery": "Date de livraison estimée",
+    "enter_destination_country": "Entrez le pays de destination",
+    "destination_country": "Pays de destination"
   },
   "services": {
     "express_delivery": "Livraison express",

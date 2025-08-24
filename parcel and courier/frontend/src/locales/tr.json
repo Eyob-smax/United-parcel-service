@@ -155,7 +155,9 @@
     "parcel_not_found": "Paket Bulunamadı",
     "parcel_not_found_text": "Verilen ID ile paket bulunamadı. Lütfen yeni bir tane oluşturun!",
     "network_error": "Ağ Hatası",
-    "estimated_delivery": "Tahmini Teslimat Tarihi"
+    "estimated_delivery": "Tahmini Teslimat Tarihi",
+    "enter_destination_country": "Varış ülkesini girin",
+    "destination_country": "Varış ülkesi"
   },
   "services": {
     "express_delivery": "Ekspres Teslimat",

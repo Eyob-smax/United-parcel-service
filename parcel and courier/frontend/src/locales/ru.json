@@ -155,7 +155,9 @@
     "parcel_not_found": "Посылка не найдена",
     "parcel_not_found_text": "Посылка с указанным ID отсутствует. Пожалуйста, создайте новую!",
     "network_error": "Ошибка сети",
-    "estimated_delivery": "Ожидаемая дата доставки"
+    "estimated_delivery": "Ожидаемая дата доставки",
+    "enter_destination_country": "Введите страну назначения",
+    "destination_country": "Страна назначения"
   },
   "services": {
     "express_delivery": "Экспресс-доставка",

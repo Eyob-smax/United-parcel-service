@@ -155,7 +155,9 @@
     "parcel_not_found": "Coletul nu a fost găsit",
     "parcel_not_found_text": "Nu există niciun colet cu ID-ul dat. Vă rugăm să creați unul!",
     "network_error": "Eroare de rețea",
-    "estimated_delivery": "Data estimată a livrării"
+    "estimated_delivery": "Data estimată a livrării",
+    "enter_destination_country": "Introdu țara de destinație",
+    "destination_country": "Țara de destinație"
   },
   "services": {
     "express_delivery": "Livrare rapidă",

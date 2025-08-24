@@ -155,7 +155,9 @@
     "parcel_not_found": "ಪಾರ್ಸೆಲ್ ಕಂಡುಬಂದಿಲ್ಲ",
     "parcel_not_found_text": "ನೀಡಿದ ಐಡಿ ಇರುವ ಯಾವುದೇ ಪಾರ್ಸೆಲ್ ಇಲ್ಲ. ದಯವಿಟ್ಟು ಒಂದು ರಚಿಸಿ!",
     "network_error": "ನೆಟ್‌ವರ್ಕ್ ದೋಷ",
-    "estimated_delivery": "ಅಂದಾಜು ವಿತರಣಾ ದಿನಾಂಕ"
+    "estimated_delivery": "ಅಂದಾಜು ವಿತರಣಾ ದಿನಾಂಕ",
+    "enter_destination_country": "ಗಮ್ಯಸ್ಥಾನ ದೇಶವನ್ನು ನಮೂದಿಸಿ",
+    "destination_country": "ಗಮ್ಯಸ್ಥಾನ ದೇಶ"
   },
   "services": {
     "express_delivery": "ಎಕ್ಸ್‌ಪ್ರೆಸ್ ವಿತರಣೆ",

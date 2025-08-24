@@ -155,7 +155,9 @@
     "parcel_not_found": "ପାର୍ସଲ ମିଳିଲା ନାହିଁ",
     "parcel_not_found_text": "ଦିଆଯାଇଥିବା ID ସହିତ କୌଣସି ପାର୍ସଲ ନାହିଁ। ଦୟାକରି ଗୋଟିଏ ସୃଷ୍ଟି କରନ୍ତୁ!",
     "network_error": "ନେଟୱାର୍କ ତ୍ରୁଟି",
-    "estimated_delivery": "ଅନୁମାନିତ ଡେଲିଭରୀ ତାରିଖ"
+    "estimated_delivery": "ଅନୁମାନିତ ଡେଲିଭରୀ ତାରିଖ",
+    "enter_destination_country": "ଗନ୍ତବ୍ୟ ଦେଶ ପ୍ରବେଶ କରନ୍ତୁ",
+    "destination_country": "ଗନ୍ତବ୍ୟ ଦେଶ"
   },
   "services": {
     "express_delivery": "ଏକ୍ସପ୍ରେସ ଡେଲିଭରୀ",

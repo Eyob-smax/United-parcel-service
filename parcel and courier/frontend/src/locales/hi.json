@@ -155,7 +155,9 @@
     "parcel_not_found": "पार्सल नहीं मिला",
     "parcel_not_found_text": "दिए गए आईडी के साथ कोई पार्सल नहीं मिला। कृपया एक नया बनाएं!",
     "network_error": "नेटवर्क त्रुटि",
-    "estimated_delivery": "अनुमानित डिलीवरी तिथि"
+    "estimated_delivery": "अनुमानित डिलीवरी तिथि",
+    "enter_destination_country": "गंतव्य देश दर्ज करें",
+    "destination_country": "गंतव्य देश"
   },
   "services": {
     "title": "हमारी सेवाएँ",

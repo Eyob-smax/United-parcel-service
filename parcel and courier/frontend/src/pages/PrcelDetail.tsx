@@ -289,7 +289,7 @@ const ParcelDetails: React.FC = () => {
             {t("admin.tracking_history") || "Tracking History"}
           </h2>
           <div className="grid grid-cols-[40px_1fr_1fr] gap-x-6 px-4">
-            {currentShipment.transport_history?.map((event) => (
+            {currentShipment.transport_history?.map((event, index) => (
               <React.Fragment key={event.transport_id}>
                 <div className="flex flex-col items-center gap-1 pt-3">
                   {currentShipment.transport_history &&
@@ -302,7 +302,10 @@ const ParcelDetails: React.FC = () => {
                   ) : (
                     <Truck />
                   )}
-                  <div className="w-[1.5px] grow bg-[#6a642f]" />
+                  {currentShipment.transport_history &&
+                    index !== currentShipment.transport_history?.length - 1 && (
+                      <div className="w-[1.5px] grow bg-[#6a642f]" />
+                    )}
                 </div>
                 <div className="flex flex-1 flex-col py-3">
                   <p className="text-sm font-medium">
@@ -310,28 +313,37 @@ const ParcelDetails: React.FC = () => {
                   </p>
                   <p className="text-sm text-[#ccc68e]">{event.current_date}</p>
                 </div>
-                <div className="flex gap-2">
-                  <Button
-                    onClick={() => openModel("Add", event)}
-                    className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
+                {
+                  <div
+                    className={`flex  gap-2 ${
+                      currentShipment.transport_history &&
+                      index === currentShipment.transport_history?.length - 1
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
+                    }`}
                   >
-                    {t("admin.add") || "Add"}
-                  </Button>
-                  <Button
-                    onClick={() => openModel("Edit", event)}
-                    className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
-                  >
-                    {t("admin.edit") || "Edit"}
-                  </Button>
-                  <Button
-                    onClick={() =>
-                      handleActionForTracking("DELETE", event.transport_id!)
-                    }
-                    className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
-                  >
-                    {t("admin.delete") || "Delete"}
-                  </Button>
-                </div>
+                    <Button
+                      onClick={() => openModel("Add", event)}
+                      className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
+                    >
+                      {t("admin.add") || "Add"}
+                    </Button>
+                    <Button
+                      onClick={() => openModel("Edit", event)}
+                      className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
+                    >
+                      {t("admin.edit") || "Edit"}
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        handleActionForTracking("DELETE", event.transport_id!)
+                      }
+                      className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
+                    >
+                      {t("admin.delete") || "Delete"}
+                    </Button>
+                  </div>
+                }
               </React.Fragment>
             ))}
           </div>

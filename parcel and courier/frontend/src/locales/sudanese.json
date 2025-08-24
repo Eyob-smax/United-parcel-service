@@ -155,7 +155,9 @@
     "parcel_not_found": "لم يتم العثور على الطرد",
     "parcel_not_found_text": "لا يوجد طرد بالمعرف المعطى. أنشئ واحدًا جديدًا!",
     "network_error": "خطأ في الشبكة",
-    "estimated_delivery": "تاريخ التسليم المقدر"
+    "estimated_delivery": "تاريخ التسليم المقدر",
+    "enter_destination_country": "أدخل بلد الوجهة",
+    "destination_country": "بلد الوجهة"
   },
   "services": {
     "express_delivery": "التسليم السريع",

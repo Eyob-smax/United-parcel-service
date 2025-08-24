@@ -155,7 +155,9 @@
     "parcel_not_found": "Pakket niet gevonden",
     "parcel_not_found_text": "Er is geen pakket met de opgegeven ID. Maak er alstublieft een aan!",
     "network_error": "Netwerkfout",
-    "estimated_delivery": "Geschatte leveringsdatum"
+    "estimated_delivery": "Geschatte leveringsdatum",
+    "enter_destination_country": "Voer het land van bestemming in",
+    "destination_country": "Land van bestemming"
   },
   "services": {
     "express_delivery": "Expreslevering",

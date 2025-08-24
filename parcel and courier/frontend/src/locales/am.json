@@ -125,6 +125,8 @@
     "status_transit": "በጉዞ ላይ",
     "status_delivered": "ደረሰ",
     "creating": "በመፍጠር ላይ...",
+    "enter_destination_country": "የመድረሻ ሀገር ያስገቡ",
+    "destination_country": "የመድረሻ ሀገር",
     "logout": "ውጣ",
     "edit_shipment": "መላኪያ አስተካክል",
     "updating_shipment": "መላኪያ በማዘመን ላይ...",

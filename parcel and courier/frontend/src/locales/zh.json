@@ -156,7 +156,9 @@
     "parcel_not_found": "未找到包裹",
     "parcel_not_found_text": "没有找到指定ID的包裹。请创建一个！",
     "network_error": "网络错误",
-    "estimated_delivery": "预计送达日期"
+    "estimated_delivery": "预计送达日期",
+    "enter_destination_country": "输入目的地国家",
+    "destination_country": "目的地国家"
   },
   "services": {
     "express_delivery": "快递服务",

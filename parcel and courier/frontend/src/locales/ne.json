@@ -155,7 +155,9 @@
     "parcel_not_found": "पार्सल फेला परेन",
     "parcel_not_found_text": "दिइएको आईडी भएको कुनै पार्सल छैन। कृपया एउटा सिर्जना गर्नुहोस्!",
     "network_error": "नेटवर्क त्रुटि",
-    "estimated_delivery": "अनुमानित डेलिभरी मिति"
+    "estimated_delivery": "अनुमानित डेलिभरी मिति",
+    "enter_destination_country": "गन्तव्य देश टाका",
+    "destination_country": "गन्तव्य देश"
   },
   "services": {
     "express_delivery": "एक्सप्रेस डेलिभरी",

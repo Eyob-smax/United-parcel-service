@@ -155,7 +155,9 @@
     "parcel_not_found": "پارسل نہیں ملا",
     "parcel_not_found_text": "دئی گئی ID نال کوئی پارسل نہیں۔ مہربانی کر کے اک بناؤ!",
     "network_error": "نیٹ ورک خرابی",
-    "estimated_delivery": "تخمینی ڈلیوری تاریخ"
+    "estimated_delivery": "تخمینی ڈلیوری تاریخ",
+    "enter_destination_country": "منزل ملک داخل کرو",
+    "destination_country": "منزل ملک"
   },
   "services": {
     "express_delivery": "ایکسپریس ڈلیوری",

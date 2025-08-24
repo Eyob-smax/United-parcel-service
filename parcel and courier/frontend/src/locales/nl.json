@@ -155,7 +155,9 @@
     "parcel_not_found": "Parcel Not Found",
     "parcel_not_found_text": "No parcel with the given ID. Please create one!",
     "network_error": "Network Error",
-    "estimated_delivery": "Estimated delivery date"
+    "estimated_delivery": "Estimated delivery date",
+    "enter_destination_country": "Enter destination country",
+    "destination_country": "Destination country"
   },
   "services": {
     "express_delivery": "Express Delivery",

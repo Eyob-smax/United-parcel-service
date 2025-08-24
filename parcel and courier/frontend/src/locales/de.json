@@ -155,7 +155,9 @@
     "parcel_not_found": "Paket nicht gefunden",
     "parcel_not_found_text": "Kein Paket mit der angegebenen ID. Bitte erstellen Sie eines!",
     "network_error": "Netzwerkfehler",
-    "estimated_delivery": "Voraussichtliches Lieferdatum"
+    "estimated_delivery": "Voraussichtliches Lieferdatum",
+    "enter_destination_country": "Zielland eingeben",
+    "destination_country": "Zielland"
   },
   "services": {
     "express_delivery": "Expresslieferung",

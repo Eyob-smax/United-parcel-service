@@ -155,7 +155,9 @@
     "parcel_not_found": "Paczka nie znaleziona",
     "parcel_not_found_text": "Brak paczki o podanym ID. Utwórz nową!",
     "network_error": "Błąd sieci",
-    "estimated_delivery": "Szacowana data dostawy"
+    "estimated_delivery": "Szacowana data dostawy",
+    "enter_destination_country": "Wprowadź kraj docelowy",
+    "destination_country": "Kraj docelowy"
   },
   "services": {
     "express_delivery": "Dostawa ekspresowa",

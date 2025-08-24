@@ -155,7 +155,9 @@
     "parcel_not_found": "પાર્સલ મળ્યું નથી",
     "parcel_not_found_text": "આપેલ આઈડી સાથે કોઈ પાર્સલ નથી. કૃપા કરીને એક બનાવો!",
     "network_error": "નેટવર્ક એરર",
-    "estimated_delivery": "અંદાજિત ડિલિવરી તારીખ"
+    "estimated_delivery": "અંદાજિત ડિલિવરી તારીખ",
+    "enter_destination_country": "ગંતવ્ય દેશ દાખલ કરો",
+    "destination_country": "ગંતવ્ય દેશ"
   },
   "services": {
     "express_delivery": "એક્સપ્રેસ ડિલિવરી",

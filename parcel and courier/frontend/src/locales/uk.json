@@ -155,7 +155,9 @@
     "parcel_not_found": "Посилку не знайдено",
     "parcel_not_found_text": "Посилки з таким ID не існує. Будь ласка, створіть її!",
     "network_error": "Помилка мережі",
-    "estimated_delivery": "Орієнтовна дата доставки"
+    "estimated_delivery": "Орієнтовна дата доставки",
+    "enter_destination_country": "Введіть країну призначення",
+    "destination_country": "Країна призначення"
   },
   "services": {
     "express_delivery": "Експрес-доставка",

@@ -130,6 +130,8 @@
     "updating_shipment": "Updating Shipment...",
     "update_shipment": "Update Shipment",
     "updating": "Updating...",
+    "enter_destination_country": "Enter destination country",
+    "destination_country": "Destination country",
     "package_details": "Package Details",
     "description": "Description",
     "enter_package_desc": "Enter package description",

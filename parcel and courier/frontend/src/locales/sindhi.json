@@ -155,7 +155,9 @@
     "parcel_not_found": "پارسل نه مليو",
     "parcel_not_found_text": "ڏنل ID سان ڪو پارسل ناھي۔ مهرباني ڪري هڪ ٺاھيو!",
     "network_error": "نيٽورڪ ۾ خرابي",
-    "estimated_delivery": "اندازي مطابق پهچائڻ جي تاريخ"
+    "estimated_delivery": "اندازي مطابق پهچائڻ جي تاريخ",
+    "enter_destination_country": "منزل ملڪ داخل ڪريو",
+    "destination_country": "منزل ملڪ"
   },
   "services": {
     "express_delivery": "ايڪسپريس پهچائڻ",

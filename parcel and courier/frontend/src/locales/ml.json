@@ -155,7 +155,9 @@
     "parcel_not_found": "പാഴ്സൽ കണ്ടെത്തിയില്ല",
     "parcel_not_found_text": "നൽകിയിട്ടുള്ള ഐഡിയിൽ പാഴ്സലുകളൊന്നും ഇല്ല. ദയവായി ഒന്ന് സൃഷ്ടിക്കുക!",
     "network_error": "നെറ്റ്‌വർക്ക് പിഴവ്",
-    "estimated_delivery": "പ്രതീക്ഷിക്കുന്ന ഡെലിവറി തീയതി"
+    "estimated_delivery": "പ്രതീക്ഷിക്കുന്ന ഡെലിവറി തീയതി",
+    "enter_destination_country": "ഗമ്യസ്ഥാനത്തിന്റെ രാജ്യത്തെ നൽകുക",
+    "destination_country": "ഗമ്യസ്ഥാനത്തിന്റെ രാജ്യം"
   },
   "services": {
     "express_delivery": "എക്സ്പ്രസ് ഡെലിവറി",

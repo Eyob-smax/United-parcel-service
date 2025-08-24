@@ -155,7 +155,9 @@
     "parcel_not_found": "පාර්සලය සොයාගත නොහැකි විය",
     "parcel_not_found_text": "ලබා දී ඇති ID සහිත පාර්සලයක් නොමැත. කරුණාකර එකක් සාදන්න!",
     "network_error": "ජාල දෝෂය",
-    "estimated_delivery": "ඇස්තමේන්තුගත බෙදාහැරීමේ දිනය"
+    "estimated_delivery": "ඇස්තමේන්තුගත බෙදාහැරීමේ දිනය",
+    "enter_destination_country": "ගමනාන්තය ඇතුලත් කරන්න",
+    "destination_country": "ගමනාන්තය"
   },
   "services": {
     "express_delivery": "ප්‍රකාශන බෙදාහැරීම",

@@ -155,7 +155,9 @@
     "parcel_not_found": "Kifurushi hakijapatikana",
     "parcel_not_found_text": "Hakuna kifurushi chenye ID iliyotolewa. Tafadhali unda kimoja!",
     "network_error": "Hitilafu ya Mtandao",
-    "estimated_delivery": "Tarehe ya makisio ya kuwasilisha"
+    "estimated_delivery": "Tarehe ya makisio ya kuwasilisha",
+    "enter_destination_country": "Ingiza nchi ya kupeleka",
+    "destination_country": "Nchi ya kupeleka"
   },
   "services": {
     "express_delivery": "Usafirishaji wa Haraka",

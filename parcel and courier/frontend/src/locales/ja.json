@@ -155,7 +155,9 @@
     "parcel_not_found": "荷物が見つかりません",
     "parcel_not_found_text": "指定されたIDの荷物は存在しません。作成してください！",
     "network_error": "ネットワークエラー",
-    "estimated_delivery": "配達予定日"
+    "estimated_delivery": "配達予定日",
+    "enter_destination_country": "宛先国を入力",
+    "destination_country": "宛先国"
   },
   "services": {
     "express_delivery": "エクスプレス配送",

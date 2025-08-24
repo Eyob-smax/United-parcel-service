@@ -155,7 +155,9 @@
     "parcel_not_found": "소포를 찾을 수 없습니다",
     "parcel_not_found_text": "주어진 ID의 소포가 없습니다. 생성해 주세요!",
     "network_error": "네트워크 오류",
-    "estimated_delivery": "예상 배송일"
+    "estimated_delivery": "예상 배송일",
+    "enter_destination_country": "목적지 국가 입력",
+    "destination_country": "목적지 국가"
   },
   "services": {
     "express_delivery": "익스프레스 배송",

@@ -155,7 +155,9 @@
     "parcel_not_found": "Hindi natagpuan ang parcel",
     "parcel_not_found_text": "Walang parcel na may ibinigay na ID. Pakiusap, gumawa ng isa!",
     "network_error": "Error sa network",
-    "estimated_delivery": "Tinatayang petsa ng paghahatid"
+    "estimated_delivery": "Tinatayang petsa ng paghahatid",
+    "enter_destination_country": "Ipasok ang bansa ng patutunguhan",
+    "destination_country": "Bansa ng patutunguhan"
   },
   "services": {
     "express_delivery": "Express Delivery",

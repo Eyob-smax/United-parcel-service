@@ -155,7 +155,9 @@
     "parcel_not_found": "పార్సెల్ కనుగొనబడలేదు",
     "parcel_not_found_text": "ఇచ్చిన IDతో ఏ పార్సెల్ లేదు. దయచేసి ఒకటి సృష్టించండి!",
     "network_error": "నెట్‌వర్క్ లోపం",
-    "estimated_delivery": "అంచనా డెలివరీ తేదీ"
+    "estimated_delivery": "అంచనా డెలివరీ తేదీ",
+    "enter_destination_country": "గమ్యం దేశాన్ని నమోదు చేయండి",
+    "destination_country": "గమ్యం దేశం"
   },
   "services": {
     "express_delivery": "ఎక్స్‌ప్రెస్ డెలివరీ",

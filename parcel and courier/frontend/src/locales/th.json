@@ -155,7 +155,9 @@
     "parcel_not_found": "ไม่พบพัสดุ",
     "parcel_not_found_text": "ไม่มีพัสดุที่มีรหัสที่ให้มา กรุณาสร้างใหม่!",
     "network_error": "ข้อผิดพลาดของเครือข่าย",
-    "estimated_delivery": "วันที่จัดส่งโดยประมาณ"
+    "estimated_delivery": "วันที่จัดส่งโดยประมาณ",
+    "enter_destination_country": "ป้อนประเทศปลายทาง",
+    "destination_country": "ประเทศปลายทาง"
   },
   "services": {
     "express_delivery": "จัดส่งด่วน",

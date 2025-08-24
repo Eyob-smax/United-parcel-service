@@ -155,7 +155,9 @@
     "parcel_not_found": "Pacco non trovato",
     "parcel_not_found_text": "Nessun pacco con l'ID fornito. Creane uno!",
     "network_error": "Errore di rete",
-    "estimated_delivery": "Data di consegna stimata"
+    "estimated_delivery": "Data di consegna stimata",
+    "enter_destination_country": "Inserisci il paese di destinazione",
+    "destination_country": "Paese di destinazione"
   },
   "services": {
     "express_delivery": "Consegna espressa",

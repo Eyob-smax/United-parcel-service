@@ -155,7 +155,9 @@
     "parcel_not_found": "Paket nije pronađen",
     "parcel_not_found_text": "Nema paketa sa datim ID-om. Kreirajte novi!",
     "network_error": "Greška na mreži",
-    "estimated_delivery": "Procenjeni datum isporuke"
+    "estimated_delivery": "Procenjeni datum isporuke",
+    "enter_destination_country": "Unesite zemlju odredišta",
+    "destination_country": "Zemlja odredišta"
   },
   "services": {
     "express_delivery": "Ekspresna dostava",

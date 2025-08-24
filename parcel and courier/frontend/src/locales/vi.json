@@ -155,7 +155,9 @@
     "parcel_not_found": "Không tìm thấy kiện hàng",
     "parcel_not_found_text": "Không có kiện hàng với ID đã cho. Vui lòng tạo một kiện hàng!",
     "network_error": "Lỗi mạng",
-    "estimated_delivery": "Ngày giao hàng dự kiến"
+    "estimated_delivery": "Ngày giao hàng dự kiến",
+    "enter_destination_country": "Nhập quốc gia đích",
+    "destination_country": "Quốc gia đích"
   },
   "services": {
     "express_delivery": "Giao hàng nhanh",
