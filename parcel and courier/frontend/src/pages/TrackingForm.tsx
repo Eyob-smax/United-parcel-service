@@ -139,7 +139,6 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
         className="text-sm font-medium text-gray-700 dark:text-gray-300"
       >
         {label}
-        {console.log(defaultValue)}
       </label>
       <Input
         id={id}
@@ -147,7 +146,7 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
         type={type}
         placeholder={placeholder}
         defaultValue={defaultValue}
-        className="w-full rounded-lg p-4 text-sm font-normal focus:outline-none border border-[#f9e106] placeholder:text-[#bbba9b]"
+        className="w-full rounded-lg p-4 text-sm font-normal focus:outline-none text-black border border-[#f9e106] placeholder:text-[#bbba9b]"
       />
     </div>
   );
