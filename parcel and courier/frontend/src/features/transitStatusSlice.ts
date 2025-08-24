@@ -88,7 +88,7 @@ export const updateTransitHistory = createAsyncThunk(
     if (error) {
       return rejectWithValue(error.message);
     }
-    return data;
+    return data![0] as ITransportHistory;
   }
 );
 
@@ -145,6 +145,22 @@ const changeCurrentStatusSlice = createSlice({
         state.transitHistory.push(payload);
       })
       .addCase(addTransitHistory.rejected, (state, { payload }) => {
+        state.error = payload as string;
+        state.loading = false;
+      })
+      .addCase(updateTransitHistory.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateTransitHistory.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        const index = state.transitHistory.findIndex(
+          (item) => item.transport_id === payload?.transport_id
+        );
+        if (index !== -1) {
+          state.transitHistory[index] = payload;
+        }
+      })
+      .addCase(updateTransitHistory.rejected, (state, { payload }) => {
         state.error = payload as string;
         state.loading = false;
       });

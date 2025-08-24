@@ -361,7 +361,7 @@ const ParcelDetails: React.FC = () => {
 
       {isTrackingEditorOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-stone-700 bg-opacity-50 z-50">
-          <div className="w-[90%] md:w-1/2  bg-white rounded-lg">
+          <div className="w-[90%] md:w-1/2  bg-white pb-5 rounded-lg">
             <header className="flex justify-between items-center border-b border-[#f9e106] py-3 px-4">
               <h2 className="text-lg text-black font-bold">
                 {modelData.type === "Add"
