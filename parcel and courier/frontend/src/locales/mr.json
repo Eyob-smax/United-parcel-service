@@ -44,7 +44,8 @@
     "request_rejected": "विनंती नाकारली आहे.",
     "redirecting": "रीडायरेक्ट करत आहे...",
     "admin_redirect": "तुम्हाला ॲडमिन लॉगिन पृष्ठावर वळवले जात आहे.",
-    "parcel_found": "ID {{id}} असलेले शिपमेंट सापडले."
+    "parcel_found": "ID {{id}} असलेले शिपमेंट सापडले.",
+    "shipment_created": "शिपमेंट यशस्वीपणे तयार केले गेले."
   },
   "login-forms": {
     "common": {

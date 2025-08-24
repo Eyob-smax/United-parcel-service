@@ -44,7 +44,8 @@
     "request_rejected": "The request has been rejected.",
     "redirecting": "Redirecting...",
     "admin_redirect": "You are being redirected to the admin login page.",
-    "parcel_found": "Shipment with ID {{id}} found."
+    "parcel_found": "Shipment with ID {{id}} found.",
+    "shipment_created": "Your shipment has been created successfully"
   },
   "login-forms": {
     "common": {

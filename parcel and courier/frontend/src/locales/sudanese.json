@@ -44,7 +44,8 @@
     "request_rejected": "تم رفض الطلب.",
     "redirecting": "جاري إعادة التوجيه...",
     "admin_redirect": "يتم إعادة توجيهك إلى صفحة تسجيل الدخول الإدارية.",
-    "parcel_found": "تم العثور على شحنة بمعرف {{id}}."
+    "parcel_found": "تم العثور على شحنة بمعرف {{id}}.",
+    "shipment_created": "تم إنشاء الشحنة بنجاح."
   },
   "login-forms": {
     "common": {

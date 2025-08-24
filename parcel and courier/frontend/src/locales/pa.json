@@ -44,7 +44,8 @@
     "request_rejected": "غوښتنه رد شوه.",
     "redirecting": "په بدلېدو کې...",
     "admin_redirect": "تاسو د مدیر ننوتنې پاڼې ته بدلېږئ.",
-    "parcel_found": "لېږل د {{id}} شمیرې سره وموندل شو."
+    "parcel_found": "لېږل د {{id}} شمیرې سره وموندل شو.",
+    "shipment_created": "لېږل په بریالیتوب سره جوړ شو."
   },
   "login-forms": {
     "common": {

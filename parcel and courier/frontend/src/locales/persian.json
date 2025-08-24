@@ -44,7 +44,8 @@
     "request_rejected": "درخواست رد شد.",
     "redirecting": "در حال انتقال...",
     "admin_redirect": "شما به صفحه ورود مدیر منتقل می‌شوید.",
-    "parcel_found": "حمل و نقل با شناسه {{id}} یافت شد."
+    "parcel_found": "حمل و نقل با شناسه {{id}} یافت شد.",
+    "shipment_created": "حمل و نقل با موفقیت ایجاد شد."
   },
   "login-forms": {
     "common": {

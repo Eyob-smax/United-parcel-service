@@ -44,7 +44,8 @@
     "request_rejected": "Cererea a fost respinsă.",
     "redirecting": "Se redirecționează...",
     "admin_redirect": "Veți fi redirecționat către pagina de autentificare a administratorului.",
-    "parcel_found": "Expedierea cu ID-ul {{id}} a fost găsită."
+    "parcel_found": "Expedierea cu ID-ul {{id}} a fost găsită.",
+    "shipment_created": "Expedierea a fost creată cu succes."
   },
   "login-forms": {
     "common": {

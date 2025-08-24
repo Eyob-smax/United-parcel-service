@@ -44,7 +44,8 @@
     "request_rejected": "درخواست مسترد کیتی گئی اے۔",
     "redirecting": "ری ڈائریکٹنگ...",
     "admin_redirect": "تسیں ایڈمن لاگ ان پیج تے ری ڈائریکٹ کیتے جا رہے او۔",
-    "parcel_found": "ID {{id}} نال شپمنٹ ملی۔"
+    "parcel_found": "ID {{id}} نال شپمنٹ ملی۔",
+    "shipment_created": "شپمنٹ کامیابی نال بنائی گئی اے۔"
   },
   "login-forms": {
     "common": {

@@ -44,7 +44,8 @@
     "request_rejected": "درخواست رد ٿي وئي آھي。",
     "redirecting": "ري ڊائريڪٽنگ...",
     "admin_redirect": "توھان کي ايڊمن لاگ ان صفحي تي ري ڊائريڪٽ ڪيو ويو آھي。",
-    "parcel_found": "ID {{id}} سان شپمنٽ مليو."
+    "parcel_found": "ID {{id}} سان شپمنٽ مليو.",
+    "shipment_created": "شپمنٽ ڪاميابي سان ٺاهي وئي."
   },
   "login-forms": {
     "common": {

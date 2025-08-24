@@ -44,7 +44,8 @@
     "request_rejected": "Yêu cầu đã bị từ chối.",
     "redirecting": "Đang chuyển hướng...",
     "admin_redirect": "Bạn đang được chuyển hướng đến trang đăng nhập quản trị viên.",
-    "parcel_found": "Đã tìm thấy lô hàng với ID {{id}}."
+    "parcel_found": "Đã tìm thấy lô hàng với ID {{id}}.",
+    "shipment_created": "Lô hàng đã được tạo thành công."
   },
   "login-forms": {
     "common": {

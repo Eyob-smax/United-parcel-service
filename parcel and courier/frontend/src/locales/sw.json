@@ -44,7 +44,8 @@
     "request_rejected": "Ombi limekataliwa.",
     "redirecting": "Inapeleka...",
     "admin_redirect": "Unaelekezwa kwenye ukurasa wa kuingia wa admin.",
-    "parcel_found": "Usafirishaji wenye ID {{id}} umepatikana."
+    "parcel_found": "Usafirishaji wenye ID {{id}} umepatikana.",
+    "shipment_created": "Usafirishaji umeundwa kwa mafanikio."
   },
   "login-forms": {
     "common": {

@@ -44,7 +44,8 @@
     "request_rejected": "İstek reddedildi.",
     "redirecting": "Yönlendiriliyor...",
     "admin_redirect": "Yönetici giriş sayfasına yönlendiriliyorsunuz.",
-    "parcel_found": "{{id}} kimlik numaralı gönderi bulundu."
+    "parcel_found": "{{id}} kimlik numaralı gönderi bulundu.",
+    "shipment_created": "Gönderi başarıyla oluşturuldu."
   },
   "login-forms": {
     "common": {

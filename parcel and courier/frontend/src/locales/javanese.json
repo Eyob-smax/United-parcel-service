@@ -44,7 +44,8 @@
     "request_rejected": "Panyuwunan wis ditolak.",
     "redirecting": "Ngarahake...",
     "admin_redirect": "Panjenengan dialihake menyang kaca mlebu admin.",
-    "parcel_found": "Pengiriman kanthi ID {{id}} ditemokake."
+    "parcel_found": "Pengiriman kanthi ID {{id}} ditemokake.",
+    "shipment_created": "Pengiriman wis sukses digawe."
   },
   "login-forms": {
     "common": {

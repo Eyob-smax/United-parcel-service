@@ -44,7 +44,8 @@
     "request_rejected": "La demande a été rejetée.",
     "redirecting": "Redirection...",
     "admin_redirect": "Vous êtes redirigé vers la page de connexion administrateur.",
-    "parcel_found": "Expédition avec ID {{id}} trouvée."
+    "parcel_found": "Expédition avec ID {{id}} trouvée.",
+    "shipment_created": "Expédition créée avec succès."
   },
   "login-forms": {
     "common": {

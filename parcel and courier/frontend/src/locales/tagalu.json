@@ -44,7 +44,8 @@
     "request_rejected": "Ang kahilingan ay tinanggihan.",
     "redirecting": "Nagre-redirect...",
     "admin_redirect": "Ire-redirect ka sa pahina ng pag-log in ng admin.",
-    "parcel_found": "Natagpuan ang kargamento na may ID na {{id}}."
+    "parcel_found": "Natagpuan ang kargamento na may ID na {{id}}.",
+    "shipment_created": "Ang kargamento ay matagumpay na nalikha."
   },
   "login-forms": {
     "common": {

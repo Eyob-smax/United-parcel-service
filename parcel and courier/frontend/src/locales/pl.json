@@ -44,7 +44,8 @@
     "request_rejected": "Wniosek został odrzucony.",
     "redirecting": "Przekierowywanie...",
     "admin_redirect": "Zostajesz przekierowany na stronę logowania administratora.",
-    "parcel_found": "Znaleziono przesyłkę z ID {{id}}."
+    "parcel_found": "Znaleziono przesyłkę z ID {{id}}.",
+    "shipment_created": "Przesyłka została pomyślnie utworzona."
   },
   "login-forms": {
     "common": {

@@ -44,7 +44,8 @@
     "request_rejected": "అభ్యర్థన తిరస్కరించబడింది.",
     "redirecting": "మళ్లించబడుతోంది...",
     "admin_redirect": "మీరు అడ్మిన్ లాగిన్ పేజీకి మళ్లించబడుతున్నారు.",
-    "parcel_found": "{{id}} IDతో రవాణా కనుగొనబడింది."
+    "parcel_found": "{{id}} IDతో రవాణా కనుగొనబడింది.",
+    "shipment_created": "రవాణా విజయవంతంగా సృష్టించబడింది."
   },
   "login-forms": {
     "common": {

@@ -44,7 +44,8 @@
     "request_rejected": "Gaaffiin diigame.",
     "redirecting": "Irra deebisaa jira...",
     "admin_redirect": "Fuula seenaa bulchaa irratti irra deebifamaa jirta.",
-    "parcel_found": "Ergamni ID {{id}} waliin argame."
+    "parcel_found": "Ergamni ID {{id}} waliin argame.",
+    "shipment_created": "Ergamni haaraa uume."
   },
   "login-forms": {
     "common": {

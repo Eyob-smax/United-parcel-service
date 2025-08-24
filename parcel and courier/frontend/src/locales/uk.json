@@ -44,7 +44,8 @@
     "request_rejected": "Запит відхилено.",
     "redirecting": "Переадресація...",
     "admin_redirect": "Ви будете переадресовані на сторінку входу адміністратора.",
-    "parcel_found": "Відправлення з ID {{id}} знайдено."
+    "parcel_found": "Відправлення з ID {{id}} знайдено.",
+    "shipment_created": "Відправлення успішно створено."
   },
   "login-forms": {
     "common": {

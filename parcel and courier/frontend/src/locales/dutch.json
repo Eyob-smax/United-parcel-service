@@ -44,7 +44,8 @@
     "request_rejected": "Verzoek afgewezen.",
     "redirecting": "Doorverwijzen...",
     "admin_redirect": "U wordt doorgestuurd naar de beheerdersinlogpagina.",
-    "parcel_found": "Zending met ID {{id}} is gevonden."
+    "parcel_found": "Zending met ID {{id}} is gevonden.",
+    "shipment_created": "Uw zending is succesvol aangemaakt."
   },
   "login-forms": {
     "common": {

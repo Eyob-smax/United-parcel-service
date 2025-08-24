@@ -44,7 +44,8 @@
     "request_rejected": "Die Anfrage wurde abgelehnt.",
     "redirecting": "Weiterleitung...",
     "admin_redirect": "Sie werden zur Admin-Anmeldeseite weitergeleitet.",
-    "parcel_found": "Sendung mit ID {{id}} gefunden."
+    "parcel_found": "Sendung mit ID {{id}} gefunden.",
+    "shipment_created": "Ihre Sendung wurde erfolgreich erstellt."
   },
   "login-forms": {
     "common": {

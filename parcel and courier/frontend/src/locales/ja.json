@@ -44,7 +44,8 @@
     "request_rejected": "リクエストが拒否されました。",
     "redirecting": "リダイレクト中...",
     "admin_redirect": "管理者ログインページにリダイレクトされています。",
-    "parcel_found": "ID {{id}} の荷物が見つかりました。"
+    "parcel_found": "ID {{id}} の荷物が見つかりました。",
+    "shipment_created": "配送が正常に作成されました。"
   },
   "login-forms": {
     "common": {

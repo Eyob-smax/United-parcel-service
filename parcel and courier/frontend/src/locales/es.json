@@ -44,7 +44,8 @@
     "request_rejected": "La solicitud ha sido rechazada.",
     "redirecting": "Redirigiendo...",
     "admin_redirect": "Está siendo redirigido a la página de inicio de sesión de administrador.",
-    "parcel_found": "Envío con ID {{id}} encontrado."
+    "parcel_found": "Envío con ID {{id}} encontrado.",
+    "shipment_created": "Envío creado con éxito."
   },
   "login-forms": {
     "common": {

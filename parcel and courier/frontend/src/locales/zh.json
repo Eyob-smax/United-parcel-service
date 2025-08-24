@@ -53,7 +53,8 @@
     "request_rejected": "请求已拒绝。",
     "redirecting": "正在重定向...",
     "admin_redirect": "您将被重定向到管理员登录页面。",
-    "parcel_found": "包裹ID {{id}} 找到。"
+    "parcel_found": "包裹ID {{id}} 找到。",
+    "shipment_created": "货件已成功创建。"
   },
 
   "login-forms": {

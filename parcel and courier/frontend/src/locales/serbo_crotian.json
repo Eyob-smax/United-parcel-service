@@ -44,7 +44,8 @@
     "request_rejected": "Zahtev je odbijen.",
     "redirecting": "Preusmeravanje...",
     "admin_redirect": "Bivate preusmereni na stranicu za prijavljivanje administratora.",
-    "parcel_found": "Pronađena pošiljka sa ID {{id}}."
+    "parcel_found": "Pronađena pošiljka sa ID {{id}}.",
+    "shipment_created": "Pošiljka uspešno kreirana."
   },
   "login-forms": {
     "common": {

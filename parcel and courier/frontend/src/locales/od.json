@@ -44,7 +44,8 @@
     "request_rejected": "ଅନୁରୋଧ ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଯାଇଛି।",
     "redirecting": "ପୁନଃନିର୍ଦେଶନ...",
     "admin_redirect": "ଆପଣଙ୍କୁ ଆଡମିନ ଲଗଇନ ପୃଷ୍ଠାକୁ ପୁନଃନିର୍ଦେଶିତ କରାଯାଉଛି।",
-    "parcel_found": "ID {{id}} ସହିତ ଶିପମେଣ୍ଟ ମିଳିଛି।"
+    "parcel_found": "ID {{id}} ସହିତ ଶିପମେଣ୍ଟ ମିଳିଛି।",
+    "shipment_created": "ଶିପମେଣ୍ଟ ସଫଳତାରେ ସୃଷ୍ଟି କରାଯାଇଛି।"
   },
   "login-forms": {
     "common": {

@@ -44,7 +44,8 @@
     "request_rejected": "ጥያቄው ውድቅ ተደርጓል።",
     "redirecting": "በማዞር ላይ...",
     "admin_redirect": "ወደ አስተዳዳሪ መግቢያ ገጽ እየተዛወሩ ነው።",
-    "parcel_found": "{{id}} መለያ ያለው መላኪያ ተገኝቷል።"
+    "parcel_found": "{{id}} መለያ ያለው መላኪያ ተገኝቷል።",
+    "shipment_created": "የእርስዎ መላኪያ በተሳካ ሁኔታ ተፈጥሯል።"
   },
   "login-forms": {
     "common": {

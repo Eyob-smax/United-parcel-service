@@ -44,7 +44,8 @@
     "request_rejected": "Запрос отклонён.",
     "redirecting": "Перенаправление...",
     "admin_redirect": "Вы перенаправляетесь на страницу входа администратора.",
-    "parcel_found": "Отправление с ID {{id}} найдено."
+    "parcel_found": "Отправление с ID {{id}} найдено.",
+    "shipment_created": "Отправление успешно создано."
   },
   "login-forms": {
     "common": {

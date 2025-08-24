@@ -44,7 +44,8 @@
     "request_rejected": "요청이 거부되었습니다.",
     "redirecting": "리디렉션 중...",
     "admin_redirect": "관리자 로그인 페이지로 리디렉션됩니다.",
-    "parcel_found": "ID {{id}}를 가진 배송을 찾았습니다."
+    "parcel_found": "ID {{id}}를 가진 배송을 찾았습니다.",
+    "shipment_created": "배송이 성공적으로 생성되었습니다."
   },
   "login-forms": {
     "common": {

@@ -44,7 +44,8 @@
     "request_rejected": "अनुरोध अस्वीकृत हो गइल बा।",
     "redirecting": "पुनर्निर्देशन हो रहल बा...",
     "admin_redirect": "रउआ के एडमिन लॉगिन पेज पर पुनर्निर्देशित कइल जा रहल बा।",
-    "parcel_found": "ID {{id}} के साथ शिपमेंट मिलल।"
+    "parcel_found": "ID {{id}} के साथ शिपमेंट मिलल।",
+    "shipment_created": "आपन शिपमेंट सफलतापूर्वक बनावल गइल बा।"
   },
   "login-forms": {
     "common": {

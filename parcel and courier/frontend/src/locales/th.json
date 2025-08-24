@@ -44,7 +44,8 @@
     "request_rejected": "คำขอถูกปฏิเสธ",
     "redirecting": "กำลังเปลี่ยนเส้นทาง...",
     "admin_redirect": "คุณกำลังถูกเปลี่ยนเส้นทางไปยังหน้าล็อกอินผู้ดูแลระบบ",
-    "parcel_found": "พบการจัดส่งที่มี ID {{id}}"
+    "parcel_found": "พบการจัดส่งที่มี ID {{id}}",
+    "shipment_created": "การจัดส่งถูกสร้างขึ้นเรียบร้อยแล้ว"
   },
   "login-forms": {
     "common": {
