@@ -363,15 +363,14 @@ export default function ShipmentTracker() {
                           </p>
                           <p className=" text-sm my-0">{ev.current_time}</p>
                           <p>
-                            {index === 0 && (
+                            {shipment.transport_history &&
+                            index === shipment.transport_history.length - 1 &&
+                            shipment.delivery_date <= ev.current_date ? (
+                              <span className=" text-green-400">Delivered</span>
+                            ) : index === 0 ? (
                               <span className="text-[#f9e106]">
                                 Shipped off
                               </span>
-                            )}
-                            {shipment.transport_history &&
-                            index === shipment.transport_history.length - 1 &&
-                            shipment.delivery_date >= ev.current_date ? (
-                              <span className=" text-green-400">Delivered</span>
                             ) : (
                               <span className="text-[#f9e106]">In Transit</span>
                             )}
