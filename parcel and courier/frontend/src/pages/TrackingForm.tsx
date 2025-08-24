@@ -139,6 +139,7 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
         className="text-sm font-medium text-gray-700 dark:text-gray-300"
       >
         {label}
+        {console.log(defaultValue)}
       </label>
       <Input
         id={id}
@@ -156,7 +157,14 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
       <form onSubmit={handleSubmit} className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {formFields.map((field) => (
-            <FormFieldInput key={field.id} {...field} />
+            <FormFieldInput
+              defaultValue={field.defaultValue}
+              placeholder={field.placeholder}
+              key={field.id}
+              type={field.type}
+              label={field.label}
+              id={field.id}
+            />
           ))}
         </div>
 
