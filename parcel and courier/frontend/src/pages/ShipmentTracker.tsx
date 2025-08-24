@@ -167,7 +167,6 @@ export default function ShipmentTracker() {
       const found = shipments.find((s) => s.parcel_id === id);
       if (found) {
         setShipment(found);
-        // Set initial map center to the first valid coordinate
         const firstValidCoord = found.transport_history?.find(
           (h) => h.coordinates
         )?.coordinates;
@@ -175,7 +174,6 @@ export default function ShipmentTracker() {
           setCenter(firstValidCoord as LatLngTuple);
         }
       } else {
-        // Handle case where shipment is not found
         setShipment(null);
       }
     }
@@ -184,7 +182,6 @@ export default function ShipmentTracker() {
   const routes: LatLngTuple[] = useMemo(
     () =>
       shipment?.transport_history
-        // ✅ FIX: Filter out items without coordinates before mapping
         ?.filter((h) => h.coordinates && h.coordinates.length === 2)
         .map((h) => h.coordinates as LatLngTuple) || [],
     [shipment]
@@ -230,7 +227,6 @@ export default function ShipmentTracker() {
     );
   }
 
-  // ✨ IMPROVEMENT: Handle case where shipment is not found
   if (!shipment) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#232110] text-white">
@@ -373,12 +369,12 @@ export default function ShipmentTracker() {
                               </span>
                             )}
                             {shipment.transport_history &&
-                              index ===
-                                shipment.transport_history.length - 1 && (
-                                <span className="text-[#f9e106]">
-                                  Delivered
-                                </span>
-                              )}
+                            index === shipment.transport_history.length - 1 &&
+                            shipment.delivery_date >= ev.current_date ? (
+                              <span className=" text-green-400">Delivered</span>
+                            ) : (
+                              <span className="text-[#f9e106]">In Transit</span>
+                            )}
                             {shipment.transport_history &&
                               0 < index &&
                               index < shipment.transport_history.length - 1 && (
