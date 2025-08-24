@@ -135,6 +135,9 @@ i18n
       "serbo_crotian",
       "sudanese",
       "persian",
+      "nl",
+      "uk",
+      "od",
     ],
     interpolation: {
       escapeValue: false,
