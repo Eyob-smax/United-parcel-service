@@ -19,7 +19,7 @@ export default function TrackIDInput() {
   }, [dispatch, shipment]);
 
   useEffect(() => {
-    if (parcelID.toLowerCase() === "admin") {
+    if (parcelID.trim().toLowerCase() === "admin") {
       Swal.fire({
         title: t("alerts.redirecting") || "Redirecting...",
         text:
@@ -39,7 +39,8 @@ export default function TrackIDInput() {
       if (!id) return;
 
       const found = shipment?.find(
-        (s) => s.parcel_id.toLowerCase().trim() === id.toLowerCase().trim()
+        (s) =>
+          s.parcel_id.trim().toLocaleLowerCase() === id.trim().toLowerCase()
       );
 
       if (!found) {
@@ -58,7 +59,7 @@ export default function TrackIDInput() {
           t("alerts.parcel_found", { id }) || `Shipment with ID ${id} found.`,
       });
 
-      navigate(`/shipment-tracking/${id}`);
+      navigate(`/shipment-tracking/${id.trim()}`);
     },
     [shipment, navigate, t]
   );
@@ -67,7 +68,7 @@ export default function TrackIDInput() {
     <Form
       key={"parcel_tracking"}
       forWhich="parcel_tracking"
-      onContinue={() => track(parcelID)}
+      onContinue={() => track(parcelID.trim().toLowerCase())}
       setParcelID={setParcelID}
       parcelID={parcelID}
     />
