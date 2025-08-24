@@ -90,6 +90,7 @@ export async function shipment({ request }: { request: Request }) {
 }
 
 export async function updateShipment({ request }: { request: Request }) {
+  console.log("jkashdflkasjhdflkajshdkl");
   const formData = await request.formData();
   const parcelId = formData.get("parcelId") as string;
   const imageUrl = formData.get("imageUrl") as File | null;
@@ -112,7 +113,6 @@ export async function updateShipment({ request }: { request: Request }) {
   const packageName = formData.get("packageName") as string;
   const quantity = formData.get("quantity") as string;
   const destinationCountry = formData.get("destinationCountry") as string;
-
   if (
     !parcelId ||
     !senderName ||
@@ -120,7 +120,6 @@ export async function updateShipment({ request }: { request: Request }) {
     !origin ||
     !recipientName ||
     !pickupDate ||
-    !deliveryDate ||
     !packageName
   ) {
     return { success: false, error: "Missing required fields" };

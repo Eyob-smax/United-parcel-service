@@ -314,17 +314,15 @@ const ParcelDetails: React.FC = () => {
                   <p className="text-sm text-[#ccc68e]">{event.current_date}</p>
                 </div>
                 {
-                  <div
-                    className={`flex  gap-2 ${
-                      currentShipment.transport_history &&
-                      index === currentShipment.transport_history?.length - 1
-                        ? "opacity-100 pointer-events-auto"
-                        : "opacity-0 pointer-events-none"
-                    }`}
-                  >
+                  <div className={`flex  gap-2 `}>
                     <Button
                       onClick={() => openModel("Add", event)}
-                      className="bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm"
+                      className={`bg-[#4a4621] hover:bg-[#5a5531] text-xs md:text-sm ${
+                        currentShipment.transport_history &&
+                        index === currentShipment.transport_history?.length - 1
+                          ? "opacity-100 pointer-events-auto"
+                          : "opacity-0 pointer-events-none"
+                      }`}
                     >
                       {t("admin.add") || "Add"}
                     </Button>

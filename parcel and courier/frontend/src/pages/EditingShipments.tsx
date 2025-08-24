@@ -42,9 +42,11 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  const { shipment: shipments } = useSelector(
-    (state: TRootState) => state.shipment
-  );
+  const {
+    shipment: shipments,
+    loading,
+    error: shipmentError,
+  } = useSelector((state: TRootState) => state.shipment);
 
   const { authenticated } = useSelector((state: TRootState) => state.user);
 
@@ -86,12 +88,16 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
   });
 
   useEffect(() => {
+    dispatch(fetchShipments());
+  }, [dispatch]);
+
+  useEffect(() => {
     (async () => {
       const found = await Promise.resolve(
         shipments.find((s: IShipment) => s.parcel_id === id)
       );
       setCurrentShipment(found);
-
+      console.log(shipments, id);
       if (found) {
         setFormData({
           parcelId: found.parcel_id || "",
@@ -114,30 +120,40 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
         setImagePreview(found.img_url || null);
       }
     })();
-  }, [shipments, id]);
+  }, [shipments, id, dispatch]);
 
-  if (fetcher.data && fetcher.data.success) {
-    setFormData({
-      parcelId: "",
-      senderName: "",
-      senderAddress: "",
-      senderPhone: "",
-      recipientName: "",
-      recipientAddress: "",
-      recipientPhone: "",
-      origin: "",
-      destination: "",
-      packageDescription: "",
-      pickupDate: "",
-      deliveryDate: "",
-      status: "pending",
-      package_name: "",
-      quantity: 1,
-      destinationCountry: "",
+  useEffect(() => {
+    if (fetcher.data && fetcher.data.success) {
+      // setFormData({
+      //   parcelId: "",
+      //   senderName: "",
+      //   senderAddress: "",
+      //   senderPhone: "",
+      //   recipientName: "",
+      //   recipientAddress: "",
+      //   recipientPhone: "",
+      //   origin: "",
+      //   destination: "",
+      //   packageDescription: "",
+      //   pickupDate: "",
+      //   deliveryDate: "",
+      //   status: "pending",
+      //   package_name: "",
+      //   quantity: 1,
+      //   destinationCountry: "",
+      // });
+      // setImage(null);
+      // setImagePreview(null);
+      navigate("/admin-dashboard");
+    }
+  }, [fetcher.data, navigate]);
+
+  if (shipmentError) {
+    Swal.fire({
+      icon: "error",
+      title: t("alerts.network_error"),
+      text: t("alerts.something_went_wrong") + shipmentError,
     });
-    setImage(null);
-    setImagePreview(null);
-    navigate("/admin-dashboard");
   }
 
   useEffect(() => {
@@ -173,6 +189,24 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
     dispatch(fetchShipments());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (fetcher.data && !fetcher.data.success) {
+      if (fetcher.data.error === "Missing required fields") {
+        Swal.fire({
+          icon: "error",
+          title: t("alerts.error"),
+          text: t("alerts.missing_information") + fetcher.data.error,
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: t("alerts.error"),
+          text: t("alerts.something_went_wrong") + fetcher.data.error,
+        });
+      }
+    }
+  }, [fetcher.data, t]);
+
   if (fetcher.state === "submitting" || fetcher.state === "loading") {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#232110]">
@@ -180,6 +214,19 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
           <div className="w-20 h-20 rounded-full bg-[#f9e106] animate-pulse" />
           <p className="text-white font-semibold">
             {t("admin.updating_shipment") || "Updating Shipment..."}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#232110]">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-20 h-20 rounded-full bg-[#f9e106] animate-pulse" />
+          <p className="text-white font-semibold">
+            {t("admin.loading_details") || "loading Shipment..."}
           </p>
         </div>
       </div>
@@ -255,7 +302,7 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                 },
                 {
                   label: t("admin.package_name") || "Package Name",
-                  name: "package_name",
+                  name: "packageName",
                   placeholder:
                     t("admin.enter_package_name") || "Enter package name",
                 },
