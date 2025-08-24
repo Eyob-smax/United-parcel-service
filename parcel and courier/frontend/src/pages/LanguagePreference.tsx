@@ -103,7 +103,7 @@ export default function LanguagePreference() {
     { value: "sw", label: "Swahili", flag: "🇰🇪" },
     { value: "sindhi", label: "Sindhi", flag: "🇵🇰" },
     { value: "om", label: "Oromifa", flag: "🇪🇹" },
-    { value: "egyptian_Arabic", label: "Egyptian Arabic", flag: "🇪🇬" },
+    { value: "egyptian_arabic", label: "Egyptian Arabic", flag: "🇪🇬" },
     { value: "persian", label: "Persian", flag: "🇮🇷" },
     { value: "mr", label: "Marathi", flag: "🇮🇳" },
     { value: "nl", label: "Dutch", flag: "🇳🇱" },

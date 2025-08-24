@@ -14,7 +14,7 @@ import de from "../locales/de.json";
 import ja from "../locales/ja.json";
 import am from "../locales/am.json";
 import dutch from "../locales/dutch.json";
-import egyptian_Arabic from "../locales/egyptian_Arabic.json";
+import egyptian_arabic from "../locales/egyptian_Arabic.json";
 import bhojpuri from "../locales/bhojpuri.json";
 import gu from "../locales/gu.json";
 import id from "../locales/id.json";
@@ -58,7 +58,7 @@ const resources: Record<string, { translation: Record<string, unknown> }> = {
   ja: { translation: ja },
   am: { translation: am },
   dutch: { translation: dutch },
-  egyptian_Arabic: { translation: egyptian_Arabic },
+  egyptian_arabic: { translation: egyptian_arabic },
   om: { translation: om },
   te: { translation: te },
   vi: { translation: vi },
