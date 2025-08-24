@@ -90,7 +90,7 @@ export default function LanguagePreference() {
     { value: "ml", label: "Malayalam", flag: "🇮🇳" },
     { value: "it", label: "Italian", flag: "🇮🇹" },
     { value: "ne", label: "Nepali", flag: "🇳🇵" },
-    { value: "pa", label: "Punjabi", flag: "🇮🇳" },
+    { value: "pa", label: "Pashto", flag: "🇵🇰" },
     { value: "ro", label: "Romanian", flag: "🇷🇴" },
     { value: "te", label: "Telugu", flag: "🇮🇳" },
     { value: "vi", label: "Vietnamese", flag: "🇻🇳" },
@@ -102,9 +102,15 @@ export default function LanguagePreference() {
     { value: "ta", label: "Tamil", flag: "🇮🇳" },
     { value: "sw", label: "Swahili", flag: "🇰🇪" },
     { value: "sindhi", label: "Sindhi", flag: "🇵🇰" },
-    { value: "om", label: "Oromo", flag: "🇪🇹" },
-    { value: "dutch", label: "Dutch", flag: "🇳🇱" },
+    { value: "om", label: "Oromifa", flag: "🇪🇹" },
     { value: "egyptian_Arabic", label: "Egyptian Arabic", flag: "🇪🇬" },
+    { value: "persian", label: "Persian", flag: "🇮🇷" },
+    { value: "mr", label: "Marathi", flag: "🇮🇳" },
+    { value: "nl", label: "Dutch", flag: "🇳🇱" },
+    { value: "uk", label: "Ukrainian", flag: "🇺🇦" },
+    { value: "od", label: "Odia", flag: "🇮🇳" },
+    { value: "serbo_crotian", label: "Serbo-Croatian", flag: "🇷🇸" },
+    { value: "sudanese", label: "Sudanese", flag: "🇸🇩" },
   ];
 
   const [currentLanguage, setCurrentLanguage] = useState<string>(

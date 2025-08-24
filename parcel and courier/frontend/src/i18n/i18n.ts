@@ -37,6 +37,13 @@ import wuc from "../locales/wuc.json";
 import vi from "../locales/vi.json";
 import te from "../locales/te.json";
 import om from "../locales/om.json";
+import mr from "../locales/mr.json";
+import nl from "../locales/nl.json";
+import uk from "../locales/uk.json";
+import od from "../locales/od.json";
+import persian from "../locales/persian.json";
+import serbo_crotian from "../locales/serbo_crotian.json";
+import sudanese from "../locales/sudanese.json";
 
 const resources: Record<string, { translation: Record<string, unknown> }> = {
   en: { translation: en },
@@ -74,6 +81,13 @@ const resources: Record<string, { translation: Record<string, unknown> }> = {
   ro: { translation: ro },
   id: { translation: id },
   bhojpuri: { translation: bhojpuri },
+  mr: { translation: mr },
+  uk: { translation: uk },
+  nl: { translation: nl },
+  od: { translation: od },
+  persian: { translation: persian },
+  serbo_crotian: { translation: serbo_crotian },
+  sudanese: { translation: sudanese },
 };
 
 i18n
@@ -117,6 +131,10 @@ i18n
       "sw",
       "sindhi",
       "om",
+      "mr",
+      "serbo_crotian",
+      "sudanese",
+      "persian",
     ],
     interpolation: {
       escapeValue: false,
