@@ -375,13 +375,6 @@ export default function ShipmentTracker() {
                             ) : (
                               <span className="text-[#f9e106]">In Transit</span>
                             )}
-                            {shipment.transport_history &&
-                              0 < index &&
-                              index < shipment.transport_history.length - 1 && (
-                                <span className="text-[#f9e106]">
-                                  In Transit
-                                </span>
-                              )}
                           </p>
                         </div>
                       </Popup>
