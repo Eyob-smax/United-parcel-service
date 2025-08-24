@@ -38,10 +38,7 @@ export default function TrackIDInput() {
     async (id: string) => {
       if (!id) return;
 
-      const found = shipment?.find(
-        (s) =>
-          s.parcel_id.trim().toLocaleLowerCase() === id.trim().toLowerCase()
-      );
+      const found = shipment?.find((s) => s.parcel_id === id);
 
       if (!found) {
         await Swal.fire({
@@ -59,7 +56,7 @@ export default function TrackIDInput() {
           t("alerts.parcel_found", { id }) || `Shipment with ID ${id} found.`,
       });
 
-      navigate(`/shipment-tracking/${id.trim()}`);
+      navigate(`/shipment-tracking/${id}`);
     },
     [shipment, navigate, t]
   );
@@ -68,7 +65,7 @@ export default function TrackIDInput() {
     <Form
       key={"parcel_tracking"}
       forWhich="parcel_tracking"
-      onContinue={() => track(parcelID.trim().toLowerCase())}
+      onContinue={() => track(parcelID)}
       setParcelID={setParcelID}
       parcelID={parcelID}
     />
