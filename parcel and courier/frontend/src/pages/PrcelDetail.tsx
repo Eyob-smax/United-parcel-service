@@ -361,18 +361,19 @@ const ParcelDetails: React.FC = () => {
 
       {isTrackingEditorOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-stone-700 bg-opacity-50 z-50">
-          <div className="w-[90%] md:w-1/2 h-[90%] bg-[#232110] rounded-lg">
+          <div className="w-[90%] md:w-1/2  bg-white rounded-lg">
             <header className="flex justify-between items-center border-b border-[#f9e106] py-3 px-4">
-              <h2 className="text-lg font-bold">
+              <h2 className="text-lg text-black font-bold">
                 {modelData.type === "Add"
                   ? t("admin.add_tracking") || "Add Tracking"
                   : t("admin.edit_tracking") || "Edit Tracking"}
               </h2>
               <Button
                 onClick={() => setIsTrackingEditorOpen(false)}
-                className="bg-[#f9e106] text-black"
+                className="bg-[#f9e106] text-black hover:bg-amber-300"
+                variant={"secondary"}
               >
-                {t("common.close") || "Close"}
+                {t("common.back") || "Close"}
               </Button>
             </header>
             <TrackingForm
