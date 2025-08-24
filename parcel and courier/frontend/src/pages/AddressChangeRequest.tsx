@@ -169,7 +169,6 @@ const AddressChangeRequest: React.FC = () => {
         </nav>
       </header>
 
-      {/* Content */}
       <main className="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
         <div className="w-full max-w-5xl flex flex-col gap-6">
           <header>
@@ -182,7 +181,6 @@ const AddressChangeRequest: React.FC = () => {
             </p>
           </header>
 
-          {/* Loading */}
           {loading ? (
             <div className="flex justify-center items-center py-10">
               <div className="h-10 w-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
@@ -192,7 +190,6 @@ const AddressChangeRequest: React.FC = () => {
               {t("address-change.no-requests") || "No requests found."}
             </p>
           ) : !isMobile ? (
-            // Desktop table
             <div className="overflow-hidden rounded-xl border border-[#6a642f]">
               <table className="w-full">
                 <thead className="bg-[#353218]">
@@ -228,32 +225,35 @@ const AddressChangeRequest: React.FC = () => {
                             : request[col.key as keyof IAddressChangeRequest]}
                         </td>
                       ))}
-                      <td className="flex gap-2 px-4 py-2">
-                        <Button
-                          className="bg-green-500 hover:bg-green-600 text-white"
-                          onClick={() =>
-                            handleRequestAction(
-                              "Approve",
-                              request.parcel_id,
-                              request.new_address
-                            )
-                          }
-                        >
-                          {t("address-change.approve") || "Approve"}
-                        </Button>
-                        <Button
-                          className="bg-red-500 hover:bg-red-600 text-white"
-                          onClick={() =>
-                            handleRequestAction(
-                              "Reject",
-                              request.parcel_id,
-                              request.new_address
-                            )
-                          }
-                        >
-                          {t("address-change.reject") || "Reject"}
-                        </Button>
-                      </td>
+                      {request.status === "Pending" && (
+                        <td className="flex gap-2 px-4 py-2">
+                          <Button
+                            className="bg-green-500 hover:bg-green-600 text-white"
+                            onClick={() =>
+                              handleRequestAction(
+                                "Approve",
+                                request.parcel_id,
+                                request.new_address
+                              )
+                            }
+                          >
+                            {t("address-change.approve") || "Approve"}
+                          </Button>
+
+                          <Button
+                            className="bg-red-500 hover:bg-red-600 text-white"
+                            onClick={() =>
+                              handleRequestAction(
+                                "Reject",
+                                request.parcel_id,
+                                request.new_address
+                              )
+                            }
+                          >
+                            {t("address-change.reject") || "Reject"}
+                          </Button>
+                        </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>
