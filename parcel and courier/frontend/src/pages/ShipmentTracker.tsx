@@ -7,7 +7,7 @@ import {
   Polyline,
   useMap,
 } from "react-leaflet";
-import L, { type LatLngTuple } from "leaflet";
+import { type LatLngTuple } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { FaTruck, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
@@ -22,8 +22,9 @@ import Swal from "sweetalert2";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import L from "leaflet";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 L.Icon.Default.mergeOptions({
@@ -35,8 +36,9 @@ L.Icon.Default.mergeOptions({
 function FitBounds({ points }: { points: LatLngTuple[] }) {
   const map = useMap();
   useEffect(() => {
-    if (points.length)
+    if (points && points.length > 0) {
       map.fitBounds(L.latLngBounds(points), { padding: [40, 40], maxZoom: 12 });
+    }
   }, [map, points]);
   return null;
 }
@@ -82,7 +84,7 @@ function AddressForm({
         <Button
           type="submit"
           variant="secondary"
-          className="bg-[#f9e106]  text-[#232110]"
+          className="bg-[#f9e106] text-[#232110]"
         >
           {t("common.submit") || "Submit"}
         </Button>
@@ -116,6 +118,10 @@ function ShipmentProgress({
           : isLast
           ? t("tracker.delivered") || "Delivered"
           : t("tracker.in_transit") || "In Transit";
+
+        // Ensure coordinates exist before rendering the item
+        if (!ev.coordinates) return null;
+
         return (
           <div
             key={ev.transport_id}
@@ -154,21 +160,33 @@ export default function ShipmentTracker() {
 
   useEffect(() => {
     if (!shipments.length) dispatch(fetchShipments());
-  }, [dispatch, shipments]);
+  }, [dispatch, shipments.length]);
 
   useEffect(() => {
-    const found = shipments.find((s) => s.parcel_id === id);
-    if (found) {
-      setShipment(found);
-      const coords = found.transport_history?.[0]?.coordinates;
-      if (coords?.length === 2) setCenter(coords as LatLngTuple);
+    if (shipments.length > 0) {
+      const found = shipments.find((s) => s.parcel_id === id);
+      if (found) {
+        setShipment(found);
+        // Set initial map center to the first valid coordinate
+        const firstValidCoord = found.transport_history?.find(
+          (h) => h.coordinates
+        )?.coordinates;
+        if (firstValidCoord) {
+          setCenter(firstValidCoord as LatLngTuple);
+        }
+      } else {
+        // Handle case where shipment is not found
+        setShipment(null);
+      }
     }
   }, [id, shipments]);
 
   const routes: LatLngTuple[] = useMemo(
     () =>
-      shipment?.transport_history?.map((h) => h.coordinates as LatLngTuple) ||
-      [],
+      shipment?.transport_history
+        // ✅ FIX: Filter out items without coordinates before mapping
+        ?.filter((h) => h.coordinates && h.coordinates.length === 2)
+        .map((h) => h.coordinates as LatLngTuple) || [],
     [shipment]
   );
 
@@ -212,12 +230,30 @@ export default function ShipmentTracker() {
     );
   }
 
+  // ✨ IMPROVEMENT: Handle case where shipment is not found
+  if (!shipment) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#232110] text-white">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold mb-4">Shipment Not Found</h2>
+          <p>The tracking ID "{id}" does not match any of our records.</p>
+          <Button
+            onClick={() => navigate("/track-parcel")}
+            className="mt-6 bg-[#f9e106] hover:bg-[#ccc68e] text-[#232110]"
+          >
+            Track Another Parcel
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#232110] text-white font-sans">
       <header className="flex flex-wrap items-center justify-between border-b border-[#4a4621] px-4 py-4 sm:px-6">
         <div
           onClick={() => navigate("/home")}
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 cursor-pointer"
         >
           <div className="w-4 h-4">
             <img
@@ -262,7 +298,7 @@ export default function ShipmentTracker() {
               {t("tracker.tracking_details") || "Tracking Details"}
             </h2>
             <p className="text-[#ccc68e]">
-              {t("tracker.tracking_id") || "Tracking ID"}: {shipment?.parcel_id}
+              {t("tracker.tracking_id") || "Tracking ID"}: {shipment.parcel_id}
             </p>
             <div className="mt-4 bg-[#181811] p-4 rounded-xl">
               <p className="font-semibold">
@@ -270,15 +306,15 @@ export default function ShipmentTracker() {
               </p>
               <p className="text-[#ccc68e]">
                 {t("tracker.recipient_name") || "Recipient Name"}:{" "}
-                {shipment?.recipient_name}
+                {shipment.recipient_name}
               </p>
               <p className="text-[#ccc68e]">
                 {t("address-change.status") || "Estimated Delivery"}:{" "}
-                {shipment?.status}
+                {shipment.status}
               </p>
               <p className="text-[#ccc68e]">
                 {t("tracker.sender_name") || "Sender Name"}:{" "}
-                {shipment?.sender_name}
+                {shipment.sender_name}
               </p>
               <div className="mt-3">
                 <Button
@@ -292,7 +328,7 @@ export default function ShipmentTracker() {
           </div>
           <div className="w-full md:w-96 mt-2 md:mt-0">
             <img
-              src={shipment?.img_url}
+              src={shipment.img_url}
               alt={t("tracker.package_preview") || "Package preview"}
               className="w-full h-48 sm:h-56 object-cover rounded-xl shadow-md"
             />
@@ -311,47 +347,51 @@ export default function ShipmentTracker() {
               zoom={6}
             >
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-              <FitBounds points={routes.length ? routes : [[51.505, -0.09]]} />
+              <FitBounds points={routes} />
               <Polyline
                 positions={routes}
                 pathOptions={{ color: "#1be73d", weight: 4 }}
               />
               <ChangeCenter center={center} />
-              {shipment?.transport_history?.map((ev, index) => (
-                <Marker
-                  key={ev.transport_id}
-                  position={ev.coordinates || [51.505, -0.09]}
-                  icon={
-                    new L.Icon({
-                      iconUrl: markerIcon,
-                      iconRetinaUrl: markerIcon2x,
-                      shadowUrl: markerShadow,
-                      iconSize: [25, 41],
-                      iconAnchor: [12, 41],
-                      popupAnchor: [0, -41],
-                    })
-                  }
-                >
-                  <Popup>
-                    <div className="max-w-xs">
-                      <p className="font-semibold my-0">
-                        {ev.current_location} | {ev.current_country}
-                      </p>
-
-                      <p className=" text-sm my-0">{ev.current_time}</p>
-                      <p>
-                        {index === 0
-                          ? "Shipped Off"
-                          : index > 0 &&
-                            shipment.transport_history &&
-                            index < shipment.transport_history.length - 1
-                          ? "On Transit"
-                          : "Delivered"}
-                      </p>
-                    </div>
-                  </Popup>
-                </Marker>
-              ))}
+              {shipment.transport_history?.map(
+                (ev, index) =>
+                  ev.coordinates && (
+                    <Marker
+                      key={ev.transport_id}
+                      position={ev.coordinates as LatLngTuple}
+                    >
+                      <Popup>
+                        <div className="max-w-xs">
+                          <p className="font-semibold my-0">
+                            {ev.current_location} | {ev.current_country}
+                          </p>
+                          <p className=" text-sm my-0">{ev.current_time}</p>
+                          <p>
+                            {index === 0 && (
+                              <span className="text-[#f9e106]">
+                                Shipped off
+                              </span>
+                            )}
+                            {shipment.transport_history &&
+                              index ===
+                                shipment.transport_history.length - 1 && (
+                                <span className="text-[#f9e106]">
+                                  Delivered
+                                </span>
+                              )}
+                            {shipment.transport_history &&
+                              0 < index &&
+                              index < shipment.transport_history.length - 1 && (
+                                <span className="text-[#f9e106]">
+                                  In Transit
+                                </span>
+                              )}
+                          </p>
+                        </div>
+                      </Popup>
+                    </Marker>
+                  )
+              )}
             </MapContainer>
 
             <div className="mt-3 flex justify-end">
@@ -378,7 +418,7 @@ export default function ShipmentTracker() {
               {t("tracker.shipment_progress") || "Shipment Progress"}
             </h4>
             <ShipmentProgress
-              transportHistory={shipment?.transport_history}
+              transportHistory={shipment.transport_history}
               onMarkerClick={setCenter}
             />
           </aside>
