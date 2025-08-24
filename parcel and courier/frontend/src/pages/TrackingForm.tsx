@@ -69,7 +69,6 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const formData = new FormData(e.currentTarget);
-
       const payload = {
         current_location: (formData.get("currentLocation") as string)?.trim(),
         current_date: formData.get("currentDate") as string,
@@ -77,7 +76,6 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
         parcel_id: event.parcel_id,
         current_country: (formData.get("currentCountry") as string)?.trim(),
       };
-
       if (
         !payload.current_location ||
         !payload.current_date ||
@@ -92,7 +90,9 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
       }
 
       if (type === "Edit") {
-        await dispatch(updateTransitHistory(payload));
+        await dispatch(
+          updateTransitHistory({ transport_id: event.transport_id, ...payload })
+        );
       } else {
         await dispatch(addTransitHistory(payload));
       }
@@ -100,7 +100,7 @@ const TrackingForm: React.FC<TrackingFormProps> = ({
       await dispatch(fetchShipments());
       onClose();
     },
-    [dispatch, event.parcel_id, onClose, type, showAlert, t]
+    [dispatch, onClose, type, showAlert, t, event]
   );
 
   const formFields: FormField[] = [
