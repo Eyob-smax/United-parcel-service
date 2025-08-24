@@ -96,9 +96,11 @@ function AddressForm({
 function ShipmentProgress({
   transportHistory,
   onMarkerClick,
+  shipment,
 }: {
   transportHistory: IShipment["transport_history"];
   onMarkerClick: (coord: LatLngTuple) => void;
+  shipment: IShipment;
 }) {
   const { t } = useTranslation();
 
@@ -115,7 +117,7 @@ function ShipmentProgress({
         const color = isFirst ? "#f9e106" : isLast ? "green" : "#f9e106";
         const status = isFirst
           ? t("tracker.shipped") || "Shipped"
-          : isLast
+          : isLast && shipment.delivery_date <= ev.current_date
           ? t("tracker.delivered") || "Delivered"
           : t("tracker.in_transit") || "In Transit";
 
@@ -408,6 +410,7 @@ export default function ShipmentTracker() {
             <ShipmentProgress
               transportHistory={shipment.transport_history}
               onMarkerClick={setCenter}
+              shipment={shipment}
             />
           </aside>
         </section>
