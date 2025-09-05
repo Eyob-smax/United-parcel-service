@@ -85,30 +85,34 @@ export const updateShipmentById = createAsyncThunk(
         .from("shipment")
         .update(shipmentData)
         .eq("parcel_id", parcelId)
-        .select("*")
-        .single();
+        .select(
+          `
+        *,
+        transport_history (
+          parcel_id,
+          transport_id,
+          current_location,
+          current_date,
+          current_country,
+          current_time
+        )
+      `
+        )
+        .maybeSingle();
 
       if (error) return rejectWithValue("Failed to update shipment");
       if (!data) return rejectWithValue("No shipment found");
 
-      if (
-        shipmentData.status ||
-        shipmentData.origin ||
-        shipmentData.destination
-      ) {
-        const { error: statusError } = await supabase
+      if (data.parcel_id !== parcelId) {
+        const { error: thError } = await supabase
           .from("transport_history")
-          .insert({
-            parcel_id: parcelId,
-            current_location: shipmentData.origin || data.origin,
-            current_date: shipmentData.pickup_date || data.pickup_date,
-            current_time: formatTimeStampIntoTime(Date.now()),
-          });
+          .update({ parcel_id: data.parcel_id })
+          .eq("parcel_id", parcelId);
 
-        if (statusError)
-          return rejectWithValue("Failed to update transport history");
+        if (thError)
+          return rejectWithValue("Failed to update transport_history");
       }
-
+      console.log(data, shipmentData);
       return data as IShipment;
     } catch (err) {
       return rejectWithValue(
