@@ -88,16 +88,11 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
   });
 
   useEffect(() => {
-    dispatch(fetchShipments());
-  }, [dispatch]);
-
-  useEffect(() => {
     (async () => {
       const found = await Promise.resolve(
         shipments.find((s: IShipment) => s.parcel_id === id)
       );
       setCurrentShipment(found);
-      console.log(shipments, id);
       if (found) {
         setFormData({
           parcelId: found.parcel_id || "",

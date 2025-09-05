@@ -136,9 +136,8 @@ export const fetchShipments = createAsyncThunk(
 
       if (error) return rejectWithValue(error.message);
 
-      if (!data || data.length === 0) return []; // return empty array instead of null
+      if (!data || data.length === 0) return [];
 
-      // Process transport history asynchronously
       const shipments: IShipment[] = await Promise.all(
         data.map(async (shipment: IShipment) => {
           const { transport_history, ...rest } = shipment;

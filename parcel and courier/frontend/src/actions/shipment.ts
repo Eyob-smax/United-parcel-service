@@ -166,8 +166,6 @@ export async function updateShipment({ request }: { request: Request }) {
     destination_country: destinationCountry,
   };
 
-  console.log(shipmentData);
-
   try {
     const updatedShipment = await store
       .dispatch(updateShipmentById({ parcelId, shipmentData }))
