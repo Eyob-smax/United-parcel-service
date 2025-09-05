@@ -97,7 +97,7 @@ const customerSupportSlice = createSlice({
     });
     builder.addCase(fetchMessages.fulfilled, (state, action) => {
       state.loading = false;
-      state.messages = action.payload;
+      state.messages = action.payload.reverse();
     });
     builder
       .addCase(fetchMessages.rejected, (state, action) => {
@@ -112,6 +112,7 @@ const customerSupportSlice = createSlice({
         if (!payload) return;
         state.loading = false;
         state.messages.push(payload);
+        state.messages = state.messages.reverse();
       })
       .addCase(createMessage.rejected, (state, action) => {
         state.loading = false;
@@ -125,6 +126,7 @@ const customerSupportSlice = createSlice({
         state.messages = state.messages.filter(
           (message) => message.support_id !== payload
         );
+        state.messages = state.messages.reverse();
       })
       .addCase(deleteMessageById.rejected, (state, { payload }) => {
         state.error = payload as string;

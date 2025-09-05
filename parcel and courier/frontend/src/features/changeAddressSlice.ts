@@ -122,13 +122,14 @@ const changeAddressSlice = createSlice({
       .addCase(createRequest.pending, (state) => {
         state.error = null;
         state.loading = true;
+        state.requests = state.requests.reverse();
       })
       .addCase(createRequest.rejected, (state, { payload }) => {
         state.error = payload as string;
         state.loading = false;
       })
       .addCase(fetchRequests.fulfilled, (state, { payload }) => {
-        state.requests = payload;
+        state.requests = payload.reverse();
         state.loading = false;
       })
       .addCase(fetchRequests.pending, (state) => {

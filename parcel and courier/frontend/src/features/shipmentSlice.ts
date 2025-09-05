@@ -202,6 +202,7 @@ const shipmentReducer = createSlice({
       .addCase(createShipment.fulfilled, (state, { payload }) => {
         state.shipment.push(payload);
         state.loading = false;
+        state.shipment = state.shipment.reverse();
       })
       .addCase(createShipment.rejected, (state, { payload }) => {
         state.error = payload as string;
@@ -211,7 +212,7 @@ const shipmentReducer = createSlice({
         state.loading = true;
       })
       .addCase(fetchShipments.fulfilled, (state, { payload }) => {
-        state.shipment = payload || [];
+        state.shipment = payload.reverse() || [];
         state.loading = false;
       })
       .addCase(fetchShipments.rejected, (state, { payload }) => {
@@ -238,6 +239,7 @@ const shipmentReducer = createSlice({
         state.shipment = state.shipment.map((item) =>
           item.parcel_id === payload.parcel_id ? payload : item
         );
+        state.shipment = state.shipment.reverse();
         state.loading = false;
       })
       .addCase(updateShipmentById.rejected, (state, { payload }) => {

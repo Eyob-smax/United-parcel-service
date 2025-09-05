@@ -325,7 +325,11 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
                     <input
                       name={field.name}
                       id={field.name}
-                      defaultValue={formData[field.name as keyof FormData]}
+                      defaultValue={
+                        field.name === "packageName"
+                          ? formData["package_name"]
+                          : formData[field.name as keyof FormData]
+                      }
                       onChange={handleInputChange}
                       placeholder={field.placeholder}
                       type={field.type || "text"}
