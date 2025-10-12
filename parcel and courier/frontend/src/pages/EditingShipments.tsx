@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { IShipment } from "@/lib/types";
 import type { TAppDispatch, TRootState } from "@/app/store";
 import { useTranslation } from "react-i18next";
-import { fetchShipments } from "@/features/shipmentSlice";
+import { clearShipmentError, fetchShipments } from "@/features/shipmentSlice";
 import Swal from "sweetalert2";
 
 interface FormData {
@@ -153,6 +153,7 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
           (t("alerts.something_went_wrong") || "Something went wrong: ") +
           shipmentError,
       });
+      dispatch(clearShipmentError());
       setHasShownShipmentError(true);
     }
   }, [shipmentError, hasShownShipmentError, t]);

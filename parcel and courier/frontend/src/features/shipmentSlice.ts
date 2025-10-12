@@ -80,7 +80,6 @@ export const updateShipmentById = createAsyncThunk(
     }: { parcelId: string; shipmentData: Partial<IShipment> },
     { rejectWithValue }
   ) => {
-    console.log(shipmentData);
     try {
       const { data, error } = await supabase
         .from("shipment")
@@ -113,7 +112,6 @@ export const updateShipmentById = createAsyncThunk(
         if (thError)
           return rejectWithValue("Failed to update transport_history");
       }
-      console.log(data, shipmentData);
       return data as IShipment;
     } catch (err) {
       return rejectWithValue(
@@ -197,7 +195,11 @@ export const deleteAll = createAsyncThunk("shipment/deleteAll", async () => {
 const shipmentReducer = createSlice({
   name: "shipment",
   initialState,
-  reducers: {},
+  reducers: {
+    clearShipmentError(state) {
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createShipment.pending, (state) => {
@@ -254,3 +256,4 @@ const shipmentReducer = createSlice({
 });
 
 export default shipmentReducer.reducer;
+export const { clearShipmentError } = shipmentReducer.actions;
