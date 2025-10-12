@@ -19,6 +19,9 @@ import type { TAppDispatch, TRootState } from "./app/store";
 import { createMessage, fetchMessages } from "./features/customerSupportSlice";
 import Swal from "sweetalert2";
 
+console.log(import.meta.env.VITE_SUPABASE_URL);
+console.log(import.meta.env.VITE_SUPABASE_KEY);
+
 const App = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<TAppDispatch>();
