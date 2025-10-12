@@ -80,6 +80,7 @@ export const updateShipmentById = createAsyncThunk(
     }: { parcelId: string; shipmentData: Partial<IShipment> },
     { rejectWithValue }
   ) => {
+    console.log(shipmentData);
     try {
       const { data, error } = await supabase
         .from("shipment")

@@ -4,4 +4,4 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export const supabase = createClient(supabaseUrl!, supabaseKey!);

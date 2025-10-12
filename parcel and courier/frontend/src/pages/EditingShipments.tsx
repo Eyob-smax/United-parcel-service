@@ -41,6 +41,7 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
   console.log(image);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [hasShownShipmentError, setHasShownShipmentError] = useState(false);
 
   const {
     shipment: shipments,
@@ -143,13 +144,24 @@ const EditShipment: React.FC<EditShipmentProps> = () => {
     }
   }, [fetcher.data, navigate]);
 
-  if (shipmentError) {
-    Swal.fire({
-      icon: "error",
-      title: t("alerts.network_error"),
-      text: t("alerts.something_went_wrong") + shipmentError,
-    });
-  }
+  useEffect(() => {
+    if (shipmentError && !hasShownShipmentError) {
+      Swal.fire({
+        icon: "error",
+        title: t("alerts.network_error"),
+        text:
+          (t("alerts.something_went_wrong") || "Something went wrong: ") +
+          shipmentError,
+      });
+      setHasShownShipmentError(true);
+    }
+  }, [shipmentError, hasShownShipmentError, t]);
+
+  useEffect(() => {
+    if (!shipmentError) {
+      setHasShownShipmentError(false);
+    }
+  }, [shipmentError]);
 
   useEffect(() => {
     setIsMounted(true);
